@@ -27,25 +27,12 @@ namespace BridgeIface
             errorMessage.Text = "";
             lastStringEntered.Text = sentence;
             string[] data = sentence.Split(',','*');
+
             switch (data[0])
             {
+                case "$GCTRC":          //This one isn't real, just an example. We should get rid of it soon.
                 case "$--TRC":
-                    if (data.Length < 10)
-                    {
-                        errorMessage.Text = "NMEA Sentence not long enough";
-                        break;
-                    }
-                    sentenceTypeDisplay.Text = "Thruster Control Data";
-                    thrusterNum = data[1];
-                    rpmDemand = data[2];
-                    rpmMode = data[3];
-                    pitchDemand = data[4];
-                    pitchMode = data[5];
-                    azimuthDemand = data[6];
-                    operatorLocation = data[7];
-                    sentenceStatus = data[8];
-                    checkSum = data[9];
-                    updateDisplay(data[1]);
+                    parseTRC(data);
                     break;
                 case "$--ETL":
                     break;
@@ -53,6 +40,26 @@ namespace BridgeIface
                     errorMessage.Text = "Unrecognized NMEA_String String";
                     break;
             }
+        }
+
+        private void parseTRC(string[] data)
+        {
+            if (data.Length < 10)
+            {
+                errorMessage.Text = "NMEA Sentence not long enough";
+                return;
+            }
+            sentenceTypeDisplay.Text = "Thruster Control Data";
+            thrusterNum = data[1];
+            rpmDemand = data[2];
+            rpmMode = data[3];
+            pitchDemand = data[4];
+            pitchMode = data[5];
+            azimuthDemand = data[6];
+            operatorLocation = data[7];
+            sentenceStatus = data[8];
+            checkSum = data[9];
+            updateDisplay(data[1]);
         }
 
         private void updateDisplay(String s)
