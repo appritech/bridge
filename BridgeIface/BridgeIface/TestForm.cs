@@ -16,5 +16,23 @@ namespace BridgeIface
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void parse_button_Click(object sender, EventArgs e)
+        {
+            if (NMEA_String.Text.Length == 0)
+                NMEA_String.Text = "insert string here";
+            else;//run the parsing algorithm
+            ;
+        }
     }
 }
