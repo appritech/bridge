@@ -15,6 +15,14 @@ namespace BridgeIface
         public TestForm()
         {
             InitializeComponent();
+
+            m_inputControls.Add(new DHControl("Bow Thruster RPM Demand", FloatIntBoolNone.Float, rpmDemandDisplay1, false));
+            m_inputControls.Add(new DHControl("Stern Thruster RPM Demand", FloatIntBoolNone.Float, rpmDemandDisplay2, false));
+
+            //Add similar m_inputControls.Add statements here for all the text boxes you want to display
+
+
+            timer1.Enabled = true;
         }
         
         private void parse_button_Click(object sender, EventArgs e)
@@ -50,35 +58,81 @@ namespace BridgeIface
                 return;
             }
             sentenceTypeDisplay.Text = "Thruster Control Data";
-            thrusterNum = data[1];
-            rpmDemand = data[2];
-            rpmMode = data[3];
-            pitchDemand = data[4];
-            pitchMode = data[5];
-            azimuthDemand = data[6];
-            operatorLocation = data[7];
-            sentenceStatus = data[8];
-            checkSum = data[9];
-            updateDisplay(data[1]);
+
+            string thrusterNum = data[1];
+            string rpmDemand = data[2];
+            string rpmMode = data[3];
+            string pitchDemand = data[4];
+            string pitchMode = data[5];
+            string azimuthDemand = data[6];
+            string operatorLocation = data[7];
+            string sentenceStatus = data[8];
+            string checkSum = data[9];
+
+            string thrusterName = "";
+
+            switch(data[1])
+            {
+                case "1":
+                    thrusterName = "Bow";
+                    
+                    break;
+                case "2":
+                    thrusterName = "Stern";
+                    break;
+                default:
+                    errorMessage.Text = "Unsupported Thruster";
+                    return;
+            }
+
+            DataHolderIface.SetFloatVal(thrusterName + " Thruster RPM Demand", calcPercentDemand(rpmDemand, rpmMode));          //Always write to dataholder the percent
+
+           //thrusterNum = data[1];
+            //rpmDemand = data[2];
+            //rpmMode = data[3];
+            //pitchDemand = data[4];
+            //pitchMode = data[5];
+            //azimuthDemand = data[6];
+            //operatorLocation = data[7];
+            //sentenceStatus = data[8];
+            //checkSum = data[9];
+            //updateDisplay(data[1]);
+        }
+
+        private const float MAX_DEGREES = 12.3f;
+        private float calcPercentDemand(string rpmDemand, string rpmMode)
+        {
+            float value = float.Parse(rpmDemand);
+            switch (rpmMode)
+            {
+                case "P":
+                    return value;       //It is already a percent
+                case "D":
+                    return value * 100 / MAX_DEGREES;           //Turn into a percent
+                case "V":
+                    return 0.0f;        //???
+                default:
+                    return 0.0f;        //???
+            }
         }
 
         private void updateDisplay(String s)
         {
             if (s == "1")
             {
-                rpmDemandDisplay1.Text = rpmDemand + convMode(rpmMode);
-                pitchDemandDisplay1.Text = pitchDemand + convMode(pitchMode);
-                azimuthDemandDisplay1.Text = azimuthDemand + "°";
-                locationDisplay1.Text = convLocation(operatorLocation);
-                sentenceStatusDisplay1.Text = convStatus(sentenceStatus);
+                //rpmDemandDisplay1.Text = rpmDemand + convMode(rpmMode);
+                //pitchDemandDisplay1.Text = pitchDemand + convMode(pitchMode);
+                //azimuthDemandDisplay1.Text = azimuthDemand + "°";
+                //locationDisplay1.Text = convLocation(operatorLocation);
+                //sentenceStatusDisplay1.Text = convStatus(sentenceStatus);
             }
             else if (s == "2")
             {
-                rpmDemandDisplay2.Text = rpmDemand + convMode(rpmMode);
-                pitchDemandDisplay2.Text = pitchDemand + convMode(pitchMode);
-                azimuthDemandDisplay2.Text = azimuthDemand + "°";
-                locationDisplay2.Text = convLocation(operatorLocation);
-                sentenceStatusDisplay2.Text = convStatus(sentenceStatus);
+                //rpmDemandDisplay2.Text = rpmDemand + convMode(rpmMode);
+                //pitchDemandDisplay2.Text = pitchDemand + convMode(pitchMode);
+                //azimuthDemandDisplay2.Text = azimuthDemand + "°";
+                //locationDisplay2.Text = convLocation(operatorLocation);
+                //sentenceStatusDisplay2.Text = convStatus(sentenceStatus);
             }
             else errorMessage.Text = "Unsupported Thruster";
         }
@@ -144,15 +198,26 @@ namespace BridgeIface
             }
         }
 
-        string thrusterNum = null;
-        string rpmDemand = null;
-        string rpmMode = null;
-        string pitchDemand = null;
-        string pitchMode = null;
-        string azimuthDemand = null;
-        string operatorLocation = null;
-        string sentenceStatus = null;
-        string checkSum = null;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            foreach (DHControl dh in m_inputControls)
+            {
+                dh.readFromDataHolder();
+            }
+        }
+
+        //string thrusterNum = null;
+        //string rpmDemand = null;
+        //string rpmMode = null;
+        //string pitchDemand = null;
+        //string pitchMode = null;
+        //string azimuthDemand = null;
+        //string operatorLocation = null;
+        //string sentenceStatus = null;
+        //string checkSum = null;
+
+        List<DHControl> m_outputControls = new List<DHControl>();           //This is for later, when trying to stimulate our output to VStep
+        List<DHControl> m_inputControls = new List<DHControl>();            //This is for taking DataHolder values (written to by parsing NMEA), and displaying them on the screen
 
     }
 }

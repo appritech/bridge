@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.NMEA_String = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.sentenceTypeLabel = new System.Windows.Forms.Label();
@@ -58,6 +59,7 @@
             this.rpmDemandDisplay2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // NMEA_String
@@ -342,6 +344,10 @@
             this.label8.TabIndex = 22;
             this.label8.Text = "Stern Thruster";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // TestForm
             // 
             this.AcceptButton = this.parse_button;
@@ -417,6 +423,7 @@
         private System.Windows.Forms.TextBox rpmDemandDisplay2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
