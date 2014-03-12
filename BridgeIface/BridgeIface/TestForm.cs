@@ -18,6 +18,8 @@ namespace BridgeIface
 
             m_inputControls.Add(new DHControl("Bow Thruster RPM Demand", FloatIntBoolNone.Float, rpmDemandDisplay1, false));
             m_inputControls.Add(new DHControl("Stern Thruster RPM Demand", FloatIntBoolNone.Float, rpmDemandDisplay2, false));
+            m_inputControls.Add(new DHControl("Bow Thruster Pitch Demand", FloatIntBoolNone.Float, pitchDemandDisplay1, false));
+            m_inputControls.Add(new DHControl("Stern Thruster Pitch Demand", FloatIntBoolNone.Float, pitchDemandDisplay2, false));
 
             //Add similar m_inputControls.Add statements here for all the text boxes you want to display
 
@@ -86,6 +88,7 @@ namespace BridgeIface
             }
 
             DataHolderIface.SetFloatVal(thrusterName + " Thruster RPM Demand", calcPercentDemand(rpmDemand, rpmMode));          //Always write to dataholder the percent
+            DataHolderIface.SetFloatVal(thrusterName + " Thruster Pitch Demand", calcPercentDemand(pitchDemand, pitchMode));          //Always write to dataholder the percent
 
            //thrusterNum = data[1];
             //rpmDemand = data[2];
