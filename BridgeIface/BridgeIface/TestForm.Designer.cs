@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.NMEA_String = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.sentenceTypeLabel = new System.Windows.Forms.Label();
             this.sentenceTypeDisplay = new System.Windows.Forms.TextBox();
@@ -60,15 +59,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.NMEA_String_Box = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // NMEA_String
-            // 
-            this.NMEA_String.Location = new System.Drawing.Point(12, 28);
-            this.NMEA_String.Name = "NMEA_String";
-            this.NMEA_String.Size = new System.Drawing.Size(360, 20);
-            this.NMEA_String.TabIndex = 0;
-            this.NMEA_String.Text = "$--TRC,1,9.9,P,5.0,D,0.0,C,R*hh<CR><LF>";
             // 
             // label1
             // 
@@ -95,7 +87,7 @@
             this.sentenceTypeDisplay.Location = new System.Drawing.Point(118, 79);
             this.sentenceTypeDisplay.Name = "sentenceTypeDisplay";
             this.sentenceTypeDisplay.ReadOnly = true;
-            this.sentenceTypeDisplay.Size = new System.Drawing.Size(134, 20);
+            this.sentenceTypeDisplay.Size = new System.Drawing.Size(254, 20);
             this.sentenceTypeDisplay.TabIndex = 5;
             // 
             // parse_button
@@ -141,15 +133,15 @@
             this.rpmDemandLabel.AutoSize = true;
             this.rpmDemandLabel.Location = new System.Drawing.Point(12, 315);
             this.rpmDemandLabel.Name = "rpmDemandLabel";
-            this.rpmDemandLabel.Size = new System.Drawing.Size(77, 13);
+            this.rpmDemandLabel.Size = new System.Drawing.Size(91, 13);
             this.rpmDemandLabel.TabIndex = 11;
-            this.rpmDemandLabel.Text = "RMP Demand:";
+            this.rpmDemandLabel.Text = "RMP Demand(%):";
             // 
             // rpmDemandDisplay1
             // 
             this.rpmDemandDisplay1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.rpmDemandDisplay1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rpmDemandDisplay1.Location = new System.Drawing.Point(105, 308);
+            this.rpmDemandDisplay1.Location = new System.Drawing.Point(118, 308);
             this.rpmDemandDisplay1.Name = "rpmDemandDisplay1";
             this.rpmDemandDisplay1.ReadOnly = true;
             this.rpmDemandDisplay1.Size = new System.Drawing.Size(147, 20);
@@ -159,7 +151,7 @@
             // 
             this.pitchDemandDisplay1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.pitchDemandDisplay1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pitchDemandDisplay1.Location = new System.Drawing.Point(105, 334);
+            this.pitchDemandDisplay1.Location = new System.Drawing.Point(118, 334);
             this.pitchDemandDisplay1.Name = "pitchDemandDisplay1";
             this.pitchDemandDisplay1.ReadOnly = true;
             this.pitchDemandDisplay1.Size = new System.Drawing.Size(147, 20);
@@ -170,15 +162,15 @@
             this.pitchDemandLabel.AutoSize = true;
             this.pitchDemandLabel.Location = new System.Drawing.Point(12, 341);
             this.pitchDemandLabel.Name = "pitchDemandLabel";
-            this.pitchDemandLabel.Size = new System.Drawing.Size(77, 13);
+            this.pitchDemandLabel.Size = new System.Drawing.Size(91, 13);
             this.pitchDemandLabel.TabIndex = 13;
-            this.pitchDemandLabel.Text = "Pitch Demand:";
+            this.pitchDemandLabel.Text = "Pitch Demand(%):";
             // 
             // azimuthDemandDisplay1
             // 
             this.azimuthDemandDisplay1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.azimuthDemandDisplay1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.azimuthDemandDisplay1.Location = new System.Drawing.Point(105, 360);
+            this.azimuthDemandDisplay1.Location = new System.Drawing.Point(118, 360);
             this.azimuthDemandDisplay1.Name = "azimuthDemandDisplay1";
             this.azimuthDemandDisplay1.ReadOnly = true;
             this.azimuthDemandDisplay1.Size = new System.Drawing.Size(147, 20);
@@ -189,15 +181,15 @@
             this.azimuthDemandLabel.AutoSize = true;
             this.azimuthDemandLabel.Location = new System.Drawing.Point(12, 367);
             this.azimuthDemandLabel.Name = "azimuthDemandLabel";
-            this.azimuthDemandLabel.Size = new System.Drawing.Size(90, 13);
+            this.azimuthDemandLabel.Size = new System.Drawing.Size(104, 13);
             this.azimuthDemandLabel.TabIndex = 15;
-            this.azimuthDemandLabel.Text = "Azimuth Demand:";
+            this.azimuthDemandLabel.Text = "Azimuth Demand(%):";
             // 
             // locationDisplay1
             // 
             this.locationDisplay1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.locationDisplay1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.locationDisplay1.Location = new System.Drawing.Point(105, 386);
+            this.locationDisplay1.Location = new System.Drawing.Point(118, 386);
             this.locationDisplay1.Name = "locationDisplay1";
             this.locationDisplay1.ReadOnly = true;
             this.locationDisplay1.Size = new System.Drawing.Size(147, 20);
@@ -216,7 +208,7 @@
             // 
             this.sentenceStatusDisplay1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.sentenceStatusDisplay1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sentenceStatusDisplay1.Location = new System.Drawing.Point(105, 412);
+            this.sentenceStatusDisplay1.Location = new System.Drawing.Point(118, 412);
             this.sentenceStatusDisplay1.Name = "sentenceStatusDisplay1";
             this.sentenceStatusDisplay1.ReadOnly = true;
             this.sentenceStatusDisplay1.Size = new System.Drawing.Size(147, 20);
@@ -244,7 +236,7 @@
             // 
             this.sentenceStatusDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.sentenceStatusDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sentenceStatusDisplay2.Location = new System.Drawing.Point(382, 412);
+            this.sentenceStatusDisplay2.Location = new System.Drawing.Point(399, 412);
             this.sentenceStatusDisplay2.Name = "sentenceStatusDisplay2";
             this.sentenceStatusDisplay2.ReadOnly = true;
             this.sentenceStatusDisplay2.Size = new System.Drawing.Size(147, 20);
@@ -263,7 +255,7 @@
             // 
             this.locationDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.locationDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.locationDisplay2.Location = new System.Drawing.Point(382, 386);
+            this.locationDisplay2.Location = new System.Drawing.Point(399, 386);
             this.locationDisplay2.Name = "locationDisplay2";
             this.locationDisplay2.ReadOnly = true;
             this.locationDisplay2.Size = new System.Drawing.Size(147, 20);
@@ -282,7 +274,7 @@
             // 
             this.azimuthDemandDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.azimuthDemandDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.azimuthDemandDisplay2.Location = new System.Drawing.Point(382, 360);
+            this.azimuthDemandDisplay2.Location = new System.Drawing.Point(399, 360);
             this.azimuthDemandDisplay2.Name = "azimuthDemandDisplay2";
             this.azimuthDemandDisplay2.ReadOnly = true;
             this.azimuthDemandDisplay2.Size = new System.Drawing.Size(147, 20);
@@ -293,15 +285,15 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(289, 367);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 13);
+            this.label5.Size = new System.Drawing.Size(104, 13);
             this.label5.TabIndex = 27;
-            this.label5.Text = "Azimuth Demand:";
+            this.label5.Text = "Azimuth Demand(%):";
             // 
             // pitchDemandDisplay2
             // 
             this.pitchDemandDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.pitchDemandDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pitchDemandDisplay2.Location = new System.Drawing.Point(382, 334);
+            this.pitchDemandDisplay2.Location = new System.Drawing.Point(399, 334);
             this.pitchDemandDisplay2.Name = "pitchDemandDisplay2";
             this.pitchDemandDisplay2.ReadOnly = true;
             this.pitchDemandDisplay2.Size = new System.Drawing.Size(147, 20);
@@ -312,15 +304,15 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(289, 341);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 13);
+            this.label6.Size = new System.Drawing.Size(91, 13);
             this.label6.TabIndex = 25;
-            this.label6.Text = "Pitch Demand:";
+            this.label6.Text = "Pitch Demand(%):";
             // 
             // rpmDemandDisplay2
             // 
             this.rpmDemandDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.rpmDemandDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rpmDemandDisplay2.Location = new System.Drawing.Point(382, 308);
+            this.rpmDemandDisplay2.Location = new System.Drawing.Point(399, 308);
             this.rpmDemandDisplay2.Name = "rpmDemandDisplay2";
             this.rpmDemandDisplay2.ReadOnly = true;
             this.rpmDemandDisplay2.Size = new System.Drawing.Size(147, 20);
@@ -331,9 +323,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(289, 315);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 13);
+            this.label7.Size = new System.Drawing.Size(91, 13);
             this.label7.TabIndex = 23;
-            this.label7.Text = "RMP Demand:";
+            this.label7.Text = "RMP Demand(%):";
             // 
             // label8
             // 
@@ -348,12 +340,37 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // NMEA_String_Box
+            // 
+            this.NMEA_String_Box.AllowDrop = true;
+            this.NMEA_String_Box.Cursor = System.Windows.Forms.Cursors.Default;
+            this.NMEA_String_Box.FormattingEnabled = true;
+            this.NMEA_String_Box.Items.AddRange(new object[] {
+            "$--TRC,1,9.9,P,5.0,D,0.0,C,R*hh<CR><LF>",
+            "$--TRC,2,99,P,15,P,0.0,C,R*hh<CR><LF>",
+            "$--TRC,2,55,P,75,P,25,B,C*hh<CR><LF>",
+            "$--ETL,123456.78,O,04,30,B,1*hh<CR><LF>",
+            "$--PRC,1.2,R,3.4,P,5.6,D,B,1*hh<CR><LF>",
+            "$--RPM,1,1,25,40,A*hh<CR><LF>",
+            "$--TRD,1,50,R,25,P,3000*hh<CR><LF>",
+            "$DPBOW,45,80,10",
+            "$PBBTR,1.2,A,3.4,A",
+            "$NTEOM,0,123465.78",
+            "$DPMPS,45,80,10",
+            "$DPMSB,45,80,10",
+            "$DPSTN,45,80,10"});
+            this.NMEA_String_Box.Location = new System.Drawing.Point(15, 26);
+            this.NMEA_String_Box.Name = "NMEA_String_Box";
+            this.NMEA_String_Box.Size = new System.Drawing.Size(357, 21);
+            this.NMEA_String_Box.TabIndex = 33;
+            // 
             // TestForm
             // 
             this.AcceptButton = this.parse_button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
+            this.Controls.Add(this.NMEA_String_Box);
             this.Controls.Add(this.sentenceStatusDisplay2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.locationDisplay2);
@@ -383,7 +400,6 @@
             this.Controls.Add(this.sentenceTypeDisplay);
             this.Controls.Add(this.sentenceTypeLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.NMEA_String);
             this.Name = "TestForm";
             this.Text = "Bridge Interface Test";
             this.ResumeLayout(false);
@@ -393,7 +409,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox NMEA_String;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label sentenceTypeLabel;
         private System.Windows.Forms.TextBox sentenceTypeDisplay;
@@ -424,6 +439,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ComboBox NMEA_String_Box;
     }
 }
 
