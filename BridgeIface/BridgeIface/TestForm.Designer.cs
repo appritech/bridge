@@ -37,29 +37,101 @@
             this.lastStringEntered = new System.Windows.Forms.TextBox();
             this.label_bowThruster = new System.Windows.Forms.Label();
             this.rpmDemandLabel = new System.Windows.Forms.Label();
-            this.rpmDemandDisplay1 = new System.Windows.Forms.TextBox();
-            this.pitchDemandDisplay1 = new System.Windows.Forms.TextBox();
+            this.trcRpmDemandDisplay1 = new System.Windows.Forms.TextBox();
+            this.trcPitchDemandDisplay1 = new System.Windows.Forms.TextBox();
             this.pitchDemandLabel = new System.Windows.Forms.Label();
-            this.azimuthDemandDisplay1 = new System.Windows.Forms.TextBox();
+            this.trcAzimuthDemandDisplay1 = new System.Windows.Forms.TextBox();
             this.azimuthDemandLabel = new System.Windows.Forms.Label();
-            this.locationDisplay1 = new System.Windows.Forms.TextBox();
-            this.locationLabel = new System.Windows.Forms.Label();
-            this.sentenceStatusDisplay1 = new System.Windows.Forms.TextBox();
-            this.sentenceStatusLabel = new System.Windows.Forms.Label();
             this.errorMessage = new System.Windows.Forms.Label();
-            this.sentenceStatusDisplay2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.locationDisplay2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.azimuthDemandDisplay2 = new System.Windows.Forms.TextBox();
+            this.trcAzimuthDemandDisplay2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.pitchDemandDisplay2 = new System.Windows.Forms.TextBox();
+            this.trcPitchDemandDisplay2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.rpmDemandDisplay2 = new System.Windows.Forms.TextBox();
+            this.trcRpmDemandDisplay2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.NMEA_String_Box = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.etlEventTime1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.etlTelegraphPos1 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.etlSubTelPos1 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.etlEventTime2 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.etlTelegraphPos2 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.etlSubTelPos2 = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.prcLeverPos2 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.prcRpmDemand2 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.prcPitchDemand2 = new System.Windows.Forms.TextBox();
+            this.prcLeverPos1 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.prcRpmDemand1 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.prcPitchDemand1 = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.rpmShaftSpeed1 = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.rpmEngSpeed1 = new System.Windows.Forms.TextBox();
+            this.rpmShaftSpeed2 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.rpmEngSpeed2 = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.trdRpmDemand1 = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.trdPitchDemand1 = new System.Windows.Forms.TextBox();
+            this.trdAzimuthDemand2 = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.trdAzimuthDemand1 = new System.Windows.Forms.TextBox();
+            this.trdPitchDemand2 = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.trdRpmDemand2 = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.rpmPropPitch2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.rpmPropPitch1 = new System.Windows.Forms.TextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btrSetValue = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.btrRealValue = new System.Windows.Forms.TextBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.eomMissionStatus = new System.Windows.Forms.TextBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.eomElapsedTime = new System.Windows.Forms.TextBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -122,106 +194,68 @@
             // label_bowThruster
             // 
             this.label_bowThruster.AutoSize = true;
-            this.label_bowThruster.Location = new System.Drawing.Point(12, 288);
+            this.label_bowThruster.Location = new System.Drawing.Point(10, 22);
             this.label_bowThruster.Name = "label_bowThruster";
-            this.label_bowThruster.Size = new System.Drawing.Size(70, 13);
+            this.label_bowThruster.Size = new System.Drawing.Size(79, 13);
             this.label_bowThruster.TabIndex = 9;
-            this.label_bowThruster.Text = "Bow Thruster";
+            this.label_bowThruster.Text = "Bow Thruster 1";
             // 
             // rpmDemandLabel
             // 
             this.rpmDemandLabel.AutoSize = true;
-            this.rpmDemandLabel.Location = new System.Drawing.Point(12, 315);
+            this.rpmDemandLabel.Location = new System.Drawing.Point(10, 49);
             this.rpmDemandLabel.Name = "rpmDemandLabel";
             this.rpmDemandLabel.Size = new System.Drawing.Size(91, 13);
             this.rpmDemandLabel.TabIndex = 11;
             this.rpmDemandLabel.Text = "RMP Demand(%):";
             // 
-            // rpmDemandDisplay1
+            // trcRpmDemandDisplay1
             // 
-            this.rpmDemandDisplay1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.rpmDemandDisplay1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rpmDemandDisplay1.Location = new System.Drawing.Point(118, 308);
-            this.rpmDemandDisplay1.Name = "rpmDemandDisplay1";
-            this.rpmDemandDisplay1.ReadOnly = true;
-            this.rpmDemandDisplay1.Size = new System.Drawing.Size(147, 20);
-            this.rpmDemandDisplay1.TabIndex = 12;
+            this.trcRpmDemandDisplay1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trcRpmDemandDisplay1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trcRpmDemandDisplay1.Location = new System.Drawing.Point(116, 42);
+            this.trcRpmDemandDisplay1.Name = "trcRpmDemandDisplay1";
+            this.trcRpmDemandDisplay1.ReadOnly = true;
+            this.trcRpmDemandDisplay1.Size = new System.Drawing.Size(147, 20);
+            this.trcRpmDemandDisplay1.TabIndex = 12;
             // 
-            // pitchDemandDisplay1
+            // trcPitchDemandDisplay1
             // 
-            this.pitchDemandDisplay1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.pitchDemandDisplay1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pitchDemandDisplay1.Location = new System.Drawing.Point(118, 334);
-            this.pitchDemandDisplay1.Name = "pitchDemandDisplay1";
-            this.pitchDemandDisplay1.ReadOnly = true;
-            this.pitchDemandDisplay1.Size = new System.Drawing.Size(147, 20);
-            this.pitchDemandDisplay1.TabIndex = 14;
+            this.trcPitchDemandDisplay1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trcPitchDemandDisplay1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trcPitchDemandDisplay1.Location = new System.Drawing.Point(116, 68);
+            this.trcPitchDemandDisplay1.Name = "trcPitchDemandDisplay1";
+            this.trcPitchDemandDisplay1.ReadOnly = true;
+            this.trcPitchDemandDisplay1.Size = new System.Drawing.Size(147, 20);
+            this.trcPitchDemandDisplay1.TabIndex = 14;
             // 
             // pitchDemandLabel
             // 
             this.pitchDemandLabel.AutoSize = true;
-            this.pitchDemandLabel.Location = new System.Drawing.Point(12, 341);
+            this.pitchDemandLabel.Location = new System.Drawing.Point(10, 75);
             this.pitchDemandLabel.Name = "pitchDemandLabel";
             this.pitchDemandLabel.Size = new System.Drawing.Size(91, 13);
             this.pitchDemandLabel.TabIndex = 13;
             this.pitchDemandLabel.Text = "Pitch Demand(%):";
             // 
-            // azimuthDemandDisplay1
+            // trcAzimuthDemandDisplay1
             // 
-            this.azimuthDemandDisplay1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.azimuthDemandDisplay1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.azimuthDemandDisplay1.Location = new System.Drawing.Point(118, 360);
-            this.azimuthDemandDisplay1.Name = "azimuthDemandDisplay1";
-            this.azimuthDemandDisplay1.ReadOnly = true;
-            this.azimuthDemandDisplay1.Size = new System.Drawing.Size(147, 20);
-            this.azimuthDemandDisplay1.TabIndex = 16;
+            this.trcAzimuthDemandDisplay1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trcAzimuthDemandDisplay1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trcAzimuthDemandDisplay1.Location = new System.Drawing.Point(116, 94);
+            this.trcAzimuthDemandDisplay1.Name = "trcAzimuthDemandDisplay1";
+            this.trcAzimuthDemandDisplay1.ReadOnly = true;
+            this.trcAzimuthDemandDisplay1.Size = new System.Drawing.Size(147, 20);
+            this.trcAzimuthDemandDisplay1.TabIndex = 16;
             // 
             // azimuthDemandLabel
             // 
             this.azimuthDemandLabel.AutoSize = true;
-            this.azimuthDemandLabel.Location = new System.Drawing.Point(12, 367);
+            this.azimuthDemandLabel.Location = new System.Drawing.Point(10, 101);
             this.azimuthDemandLabel.Name = "azimuthDemandLabel";
             this.azimuthDemandLabel.Size = new System.Drawing.Size(104, 13);
             this.azimuthDemandLabel.TabIndex = 15;
             this.azimuthDemandLabel.Text = "Azimuth Demand(%):";
-            // 
-            // locationDisplay1
-            // 
-            this.locationDisplay1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.locationDisplay1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.locationDisplay1.Location = new System.Drawing.Point(118, 386);
-            this.locationDisplay1.Name = "locationDisplay1";
-            this.locationDisplay1.ReadOnly = true;
-            this.locationDisplay1.Size = new System.Drawing.Size(147, 20);
-            this.locationDisplay1.TabIndex = 18;
-            // 
-            // locationLabel
-            // 
-            this.locationLabel.AutoSize = true;
-            this.locationLabel.Location = new System.Drawing.Point(12, 393);
-            this.locationLabel.Name = "locationLabel";
-            this.locationLabel.Size = new System.Drawing.Size(48, 13);
-            this.locationLabel.TabIndex = 17;
-            this.locationLabel.Text = "Location";
-            // 
-            // sentenceStatusDisplay1
-            // 
-            this.sentenceStatusDisplay1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.sentenceStatusDisplay1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sentenceStatusDisplay1.Location = new System.Drawing.Point(118, 412);
-            this.sentenceStatusDisplay1.Name = "sentenceStatusDisplay1";
-            this.sentenceStatusDisplay1.ReadOnly = true;
-            this.sentenceStatusDisplay1.Size = new System.Drawing.Size(147, 20);
-            this.sentenceStatusDisplay1.TabIndex = 20;
-            // 
-            // sentenceStatusLabel
-            // 
-            this.sentenceStatusLabel.AutoSize = true;
-            this.sentenceStatusLabel.Location = new System.Drawing.Point(12, 419);
-            this.sentenceStatusLabel.Name = "sentenceStatusLabel";
-            this.sentenceStatusLabel.Size = new System.Drawing.Size(37, 13);
-            this.sentenceStatusLabel.TabIndex = 19;
-            this.sentenceStatusLabel.Text = "Status";
             // 
             // errorMessage
             // 
@@ -232,96 +266,58 @@
             this.errorMessage.Size = new System.Drawing.Size(0, 13);
             this.errorMessage.TabIndex = 21;
             // 
-            // sentenceStatusDisplay2
+            // trcAzimuthDemandDisplay2
             // 
-            this.sentenceStatusDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.sentenceStatusDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sentenceStatusDisplay2.Location = new System.Drawing.Point(399, 412);
-            this.sentenceStatusDisplay2.Name = "sentenceStatusDisplay2";
-            this.sentenceStatusDisplay2.ReadOnly = true;
-            this.sentenceStatusDisplay2.Size = new System.Drawing.Size(147, 20);
-            this.sentenceStatusDisplay2.TabIndex = 32;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(289, 419);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "Status";
-            // 
-            // locationDisplay2
-            // 
-            this.locationDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.locationDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.locationDisplay2.Location = new System.Drawing.Point(399, 386);
-            this.locationDisplay2.Name = "locationDisplay2";
-            this.locationDisplay2.ReadOnly = true;
-            this.locationDisplay2.Size = new System.Drawing.Size(147, 20);
-            this.locationDisplay2.TabIndex = 30;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(289, 393);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "Location";
-            // 
-            // azimuthDemandDisplay2
-            // 
-            this.azimuthDemandDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.azimuthDemandDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.azimuthDemandDisplay2.Location = new System.Drawing.Point(399, 360);
-            this.azimuthDemandDisplay2.Name = "azimuthDemandDisplay2";
-            this.azimuthDemandDisplay2.ReadOnly = true;
-            this.azimuthDemandDisplay2.Size = new System.Drawing.Size(147, 20);
-            this.azimuthDemandDisplay2.TabIndex = 28;
+            this.trcAzimuthDemandDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trcAzimuthDemandDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trcAzimuthDemandDisplay2.Location = new System.Drawing.Point(397, 94);
+            this.trcAzimuthDemandDisplay2.Name = "trcAzimuthDemandDisplay2";
+            this.trcAzimuthDemandDisplay2.ReadOnly = true;
+            this.trcAzimuthDemandDisplay2.Size = new System.Drawing.Size(147, 20);
+            this.trcAzimuthDemandDisplay2.TabIndex = 28;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(289, 367);
+            this.label5.Location = new System.Drawing.Point(287, 101);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 13);
             this.label5.TabIndex = 27;
             this.label5.Text = "Azimuth Demand(%):";
             // 
-            // pitchDemandDisplay2
+            // trcPitchDemandDisplay2
             // 
-            this.pitchDemandDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.pitchDemandDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pitchDemandDisplay2.Location = new System.Drawing.Point(399, 334);
-            this.pitchDemandDisplay2.Name = "pitchDemandDisplay2";
-            this.pitchDemandDisplay2.ReadOnly = true;
-            this.pitchDemandDisplay2.Size = new System.Drawing.Size(147, 20);
-            this.pitchDemandDisplay2.TabIndex = 26;
+            this.trcPitchDemandDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trcPitchDemandDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trcPitchDemandDisplay2.Location = new System.Drawing.Point(397, 68);
+            this.trcPitchDemandDisplay2.Name = "trcPitchDemandDisplay2";
+            this.trcPitchDemandDisplay2.ReadOnly = true;
+            this.trcPitchDemandDisplay2.Size = new System.Drawing.Size(147, 20);
+            this.trcPitchDemandDisplay2.TabIndex = 26;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(289, 341);
+            this.label6.Location = new System.Drawing.Point(287, 75);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 13);
             this.label6.TabIndex = 25;
             this.label6.Text = "Pitch Demand(%):";
             // 
-            // rpmDemandDisplay2
+            // trcRpmDemandDisplay2
             // 
-            this.rpmDemandDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.rpmDemandDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rpmDemandDisplay2.Location = new System.Drawing.Point(399, 308);
-            this.rpmDemandDisplay2.Name = "rpmDemandDisplay2";
-            this.rpmDemandDisplay2.ReadOnly = true;
-            this.rpmDemandDisplay2.Size = new System.Drawing.Size(147, 20);
-            this.rpmDemandDisplay2.TabIndex = 24;
+            this.trcRpmDemandDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trcRpmDemandDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trcRpmDemandDisplay2.Location = new System.Drawing.Point(397, 42);
+            this.trcRpmDemandDisplay2.Name = "trcRpmDemandDisplay2";
+            this.trcRpmDemandDisplay2.ReadOnly = true;
+            this.trcRpmDemandDisplay2.Size = new System.Drawing.Size(147, 20);
+            this.trcRpmDemandDisplay2.TabIndex = 24;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(289, 315);
+            this.label7.Location = new System.Drawing.Point(287, 49);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 13);
             this.label7.TabIndex = 23;
@@ -330,11 +326,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(289, 288);
+            this.label8.Location = new System.Drawing.Point(287, 22);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 13);
+            this.label8.Size = new System.Drawing.Size(83, 13);
             this.label8.TabIndex = 22;
-            this.label8.Text = "Stern Thruster";
+            this.label8.Text = "Stern Thruster 2";
             // 
             // timer1
             // 
@@ -343,19 +339,22 @@
             // NMEA_String_Box
             // 
             this.NMEA_String_Box.AllowDrop = true;
-            this.NMEA_String_Box.Cursor = System.Windows.Forms.Cursors.Default;
+            this.NMEA_String_Box.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.NMEA_String_Box.FormattingEnabled = true;
             this.NMEA_String_Box.Items.AddRange(new object[] {
             "$--TRC,1,9.9,P,5.0,D,0.0,C,R*hh<CR><LF>",
             "$--TRC,2,99,P,15,P,0.0,C,R*hh<CR><LF>",
             "$--TRC,2,55,P,75,P,25,B,C*hh<CR><LF>",
             "$--ETL,123456.78,O,04,30,B,1*hh<CR><LF>",
-            "$--PRC,1.2,R,3.4,P,5.6,D,B,1*hh<CR><LF>",
-            "$--RPM,1,1,25,40,A*hh<CR><LF>",
+            "$--PRC,1.2,A,3.4,P,5.6,D,B,1*hh<CR><LF>",
+            "$--RPM,S,1,12,40,A*hh<CR><LF>",
+            "$--RPM,E,1,34,33,A*hh<CR><LF>",
+            "$--RPM,S,2,56,40,A*hh<CR><LF>",
+            "$--RPM,E,2,78,33,A*hh<CR><LF>",
             "$--TRD,1,50,R,25,P,3000*hh<CR><LF>",
             "$DPBOW,45,80,10",
             "$PBBTR,1.2,A,3.4,A",
-            "$NTEOM,0,123465.78",
+            "$NTEOM,2,123465.78",
             "$DPMPS,45,80,10",
             "$DPMSB,45,80,10",
             "$DPSTN,45,80,10"});
@@ -364,44 +363,808 @@
             this.NMEA_String_Box.Size = new System.Drawing.Size(357, 21);
             this.NMEA_String_Box.TabIndex = 33;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.trcRpmDemandDisplay1);
+            this.groupBox1.Controls.Add(this.label_bowThruster);
+            this.groupBox1.Controls.Add(this.rpmDemandLabel);
+            this.groupBox1.Controls.Add(this.pitchDemandLabel);
+            this.groupBox1.Controls.Add(this.trcPitchDemandDisplay1);
+            this.groupBox1.Controls.Add(this.trcAzimuthDemandDisplay2);
+            this.groupBox1.Controls.Add(this.azimuthDemandLabel);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.trcAzimuthDemandDisplay1);
+            this.groupBox1.Controls.Add(this.trcPitchDemandDisplay2);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.trcRpmDemandDisplay2);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Location = new System.Drawing.Point(12, 127);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(553, 125);
+            this.groupBox1.TabIndex = 34;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thruster Control Data (TRC)";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label9.Location = new System.Drawing.Point(15, 310);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 13);
+            this.label9.TabIndex = 35;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.etlEventTime2);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.etlTelegraphPos2);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.etlSubTelPos2);
+            this.groupBox2.Controls.Add(this.etlEventTime1);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.etlTelegraphPos1);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.etlSubTelPos1);
+            this.groupBox2.Controls.Add(this.label21);
+            this.groupBox2.Location = new System.Drawing.Point(12, 268);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(553, 128);
+            this.groupBox2.TabIndex = 36;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Engine Telegraph Operation Status (ETL))";
+            // 
+            // etlEventTime1
+            // 
+            this.etlEventTime1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.etlEventTime1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.etlEventTime1.Location = new System.Drawing.Point(116, 42);
+            this.etlEventTime1.Name = "etlEventTime1";
+            this.etlEventTime1.ReadOnly = true;
+            this.etlEventTime1.Size = new System.Drawing.Size(147, 20);
+            this.etlEventTime1.TabIndex = 12;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(10, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(128, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Starboard Engine/Shaft 1";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(10, 49);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(61, 13);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Event Time";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(10, 75);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(95, 13);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Telegraph Position";
+            // 
+            // etlTelegraphPos1
+            // 
+            this.etlTelegraphPos1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.etlTelegraphPos1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.etlTelegraphPos1.Location = new System.Drawing.Point(116, 68);
+            this.etlTelegraphPos1.Name = "etlTelegraphPos1";
+            this.etlTelegraphPos1.ReadOnly = true;
+            this.etlTelegraphPos1.Size = new System.Drawing.Size(147, 20);
+            this.etlTelegraphPos1.TabIndex = 14;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(10, 101);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(98, 13);
+            this.label15.TabIndex = 15;
+            this.label15.Text = "Sub-Telegraph Pos";
+            // 
+            // etlSubTelPos1
+            // 
+            this.etlSubTelPos1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.etlSubTelPos1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.etlSubTelPos1.Location = new System.Drawing.Point(116, 94);
+            this.etlSubTelPos1.Name = "etlSubTelPos1";
+            this.etlSubTelPos1.ReadOnly = true;
+            this.etlSubTelPos1.Size = new System.Drawing.Size(147, 20);
+            this.etlSubTelPos1.TabIndex = 16;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(291, 22);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(101, 13);
+            this.label21.TabIndex = 22;
+            this.label21.Text = "Port Engine/Shaft 2";
+            // 
+            // etlEventTime2
+            // 
+            this.etlEventTime2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.etlEventTime2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.etlEventTime2.Location = new System.Drawing.Point(397, 42);
+            this.etlEventTime2.Name = "etlEventTime2";
+            this.etlEventTime2.ReadOnly = true;
+            this.etlEventTime2.Size = new System.Drawing.Size(147, 20);
+            this.etlEventTime2.TabIndex = 24;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(291, 49);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(61, 13);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "Event Time";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(291, 75);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(95, 13);
+            this.label14.TabIndex = 25;
+            this.label14.Text = "Telegraph Position";
+            // 
+            // etlTelegraphPos2
+            // 
+            this.etlTelegraphPos2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.etlTelegraphPos2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.etlTelegraphPos2.Location = new System.Drawing.Point(397, 68);
+            this.etlTelegraphPos2.Name = "etlTelegraphPos2";
+            this.etlTelegraphPos2.ReadOnly = true;
+            this.etlTelegraphPos2.Size = new System.Drawing.Size(147, 20);
+            this.etlTelegraphPos2.TabIndex = 26;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(291, 101);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(98, 13);
+            this.label16.TabIndex = 27;
+            this.label16.Text = "Sub-Telegraph Pos";
+            // 
+            // etlSubTelPos2
+            // 
+            this.etlSubTelPos2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.etlSubTelPos2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.etlSubTelPos2.Location = new System.Drawing.Point(397, 94);
+            this.etlSubTelPos2.Name = "etlSubTelPos2";
+            this.etlSubTelPos2.ReadOnly = true;
+            this.etlSubTelPos2.Size = new System.Drawing.Size(147, 20);
+            this.etlSubTelPos2.TabIndex = 28;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.prcLeverPos2);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.prcRpmDemand2);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.prcPitchDemand2);
+            this.groupBox3.Controls.Add(this.prcLeverPos1);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.label23);
+            this.groupBox3.Controls.Add(this.prcRpmDemand1);
+            this.groupBox3.Controls.Add(this.label24);
+            this.groupBox3.Controls.Add(this.prcPitchDemand1);
+            this.groupBox3.Controls.Add(this.label25);
+            this.groupBox3.Location = new System.Drawing.Point(12, 411);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(553, 128);
+            this.groupBox3.TabIndex = 37;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Propulsion Remote Control Status (PRC)";
+            // 
+            // prcLeverPos2
+            // 
+            this.prcLeverPos2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.prcLeverPos2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.prcLeverPos2.Location = new System.Drawing.Point(397, 42);
+            this.prcLeverPos2.Name = "prcLeverPos2";
+            this.prcLeverPos2.ReadOnly = true;
+            this.prcLeverPos2.Size = new System.Drawing.Size(147, 20);
+            this.prcLeverPos2.TabIndex = 24;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(291, 49);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(74, 13);
+            this.label17.TabIndex = 23;
+            this.label17.Text = "Lever Position";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(291, 75);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(74, 13);
+            this.label18.TabIndex = 25;
+            this.label18.Text = "RPM Demand";
+            // 
+            // prcRpmDemand2
+            // 
+            this.prcRpmDemand2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.prcRpmDemand2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.prcRpmDemand2.Location = new System.Drawing.Point(397, 68);
+            this.prcRpmDemand2.Name = "prcRpmDemand2";
+            this.prcRpmDemand2.ReadOnly = true;
+            this.prcRpmDemand2.Size = new System.Drawing.Size(147, 20);
+            this.prcRpmDemand2.TabIndex = 26;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(291, 101);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(74, 13);
+            this.label19.TabIndex = 27;
+            this.label19.Text = "Pitch Demand";
+            // 
+            // prcPitchDemand2
+            // 
+            this.prcPitchDemand2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.prcPitchDemand2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.prcPitchDemand2.Location = new System.Drawing.Point(397, 94);
+            this.prcPitchDemand2.Name = "prcPitchDemand2";
+            this.prcPitchDemand2.ReadOnly = true;
+            this.prcPitchDemand2.Size = new System.Drawing.Size(147, 20);
+            this.prcPitchDemand2.TabIndex = 28;
+            // 
+            // prcLeverPos1
+            // 
+            this.prcLeverPos1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.prcLeverPos1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.prcLeverPos1.Location = new System.Drawing.Point(116, 42);
+            this.prcLeverPos1.Name = "prcLeverPos1";
+            this.prcLeverPos1.ReadOnly = true;
+            this.prcLeverPos1.Size = new System.Drawing.Size(147, 20);
+            this.prcLeverPos1.TabIndex = 12;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(10, 22);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(98, 13);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "Starboard Engine 1";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(10, 49);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(74, 13);
+            this.label22.TabIndex = 11;
+            this.label22.Text = "Lever Position";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(10, 75);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(74, 13);
+            this.label23.TabIndex = 13;
+            this.label23.Text = "RPM Demand";
+            // 
+            // prcRpmDemand1
+            // 
+            this.prcRpmDemand1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.prcRpmDemand1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.prcRpmDemand1.Location = new System.Drawing.Point(116, 68);
+            this.prcRpmDemand1.Name = "prcRpmDemand1";
+            this.prcRpmDemand1.ReadOnly = true;
+            this.prcRpmDemand1.Size = new System.Drawing.Size(147, 20);
+            this.prcRpmDemand1.TabIndex = 14;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(10, 101);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(74, 13);
+            this.label24.TabIndex = 15;
+            this.label24.Text = "Pitch Demand";
+            // 
+            // prcPitchDemand1
+            // 
+            this.prcPitchDemand1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.prcPitchDemand1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.prcPitchDemand1.Location = new System.Drawing.Point(116, 94);
+            this.prcPitchDemand1.Name = "prcPitchDemand1";
+            this.prcPitchDemand1.ReadOnly = true;
+            this.prcPitchDemand1.Size = new System.Drawing.Size(147, 20);
+            this.prcPitchDemand1.TabIndex = 16;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(291, 22);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(71, 13);
+            this.label25.TabIndex = 22;
+            this.label25.Text = "Port Engine 2";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(291, 22);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(71, 13);
+            this.label33.TabIndex = 22;
+            this.label33.Text = "Port Engine 2";
+            // 
+            // rpmShaftSpeed1
+            // 
+            this.rpmShaftSpeed1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.rpmShaftSpeed1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rpmShaftSpeed1.Location = new System.Drawing.Point(116, 68);
+            this.rpmShaftSpeed1.Name = "rpmShaftSpeed1";
+            this.rpmShaftSpeed1.ReadOnly = true;
+            this.rpmShaftSpeed1.Size = new System.Drawing.Size(147, 20);
+            this.rpmShaftSpeed1.TabIndex = 14;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(10, 75);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(59, 13);
+            this.label31.TabIndex = 13;
+            this.label31.Text = "Shaft RPM";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(10, 49);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(67, 13);
+            this.label30.TabIndex = 11;
+            this.label30.Text = "Engine RPM";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(10, 22);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(98, 13);
+            this.label29.TabIndex = 9;
+            this.label29.Text = "Starboard Engine 1";
+            // 
+            // rpmEngSpeed1
+            // 
+            this.rpmEngSpeed1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.rpmEngSpeed1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rpmEngSpeed1.Location = new System.Drawing.Point(116, 42);
+            this.rpmEngSpeed1.Name = "rpmEngSpeed1";
+            this.rpmEngSpeed1.ReadOnly = true;
+            this.rpmEngSpeed1.Size = new System.Drawing.Size(147, 20);
+            this.rpmEngSpeed1.TabIndex = 12;
+            // 
+            // rpmShaftSpeed2
+            // 
+            this.rpmShaftSpeed2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.rpmShaftSpeed2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rpmShaftSpeed2.Location = new System.Drawing.Point(397, 68);
+            this.rpmShaftSpeed2.Name = "rpmShaftSpeed2";
+            this.rpmShaftSpeed2.ReadOnly = true;
+            this.rpmShaftSpeed2.Size = new System.Drawing.Size(147, 20);
+            this.rpmShaftSpeed2.TabIndex = 26;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(291, 75);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(59, 13);
+            this.label27.TabIndex = 25;
+            this.label27.Text = "Shaft RPM";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(291, 49);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(67, 13);
+            this.label26.TabIndex = 23;
+            this.label26.Text = "Engine RPM";
+            // 
+            // rpmEngSpeed2
+            // 
+            this.rpmEngSpeed2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.rpmEngSpeed2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rpmEngSpeed2.Location = new System.Drawing.Point(397, 42);
+            this.rpmEngSpeed2.Name = "rpmEngSpeed2";
+            this.rpmEngSpeed2.ReadOnly = true;
+            this.rpmEngSpeed2.Size = new System.Drawing.Size(147, 20);
+            this.rpmEngSpeed2.TabIndex = 24;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.rpmPropPitch2);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.rpmPropPitch1);
+            this.groupBox4.Controls.Add(this.rpmEngSpeed2);
+            this.groupBox4.Controls.Add(this.label26);
+            this.groupBox4.Controls.Add(this.label27);
+            this.groupBox4.Controls.Add(this.rpmShaftSpeed2);
+            this.groupBox4.Controls.Add(this.rpmEngSpeed1);
+            this.groupBox4.Controls.Add(this.label29);
+            this.groupBox4.Controls.Add(this.label30);
+            this.groupBox4.Controls.Add(this.label31);
+            this.groupBox4.Controls.Add(this.rpmShaftSpeed1);
+            this.groupBox4.Controls.Add(this.label33);
+            this.groupBox4.Location = new System.Drawing.Point(12, 555);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(553, 125);
+            this.groupBox4.TabIndex = 38;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Revolutions (RPM)";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.trdRpmDemand1);
+            this.groupBox5.Controls.Add(this.label28);
+            this.groupBox5.Controls.Add(this.label34);
+            this.groupBox5.Controls.Add(this.label35);
+            this.groupBox5.Controls.Add(this.trdPitchDemand1);
+            this.groupBox5.Controls.Add(this.trdAzimuthDemand2);
+            this.groupBox5.Controls.Add(this.label37);
+            this.groupBox5.Controls.Add(this.label38);
+            this.groupBox5.Controls.Add(this.trdAzimuthDemand1);
+            this.groupBox5.Controls.Add(this.trdPitchDemand2);
+            this.groupBox5.Controls.Add(this.label40);
+            this.groupBox5.Controls.Add(this.trdRpmDemand2);
+            this.groupBox5.Controls.Add(this.label42);
+            this.groupBox5.Controls.Add(this.label43);
+            this.groupBox5.Location = new System.Drawing.Point(12, 686);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(553, 127);
+            this.groupBox5.TabIndex = 39;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Thruster Response Data (TRD)";
+            // 
+            // trdRpmDemand1
+            // 
+            this.trdRpmDemand1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trdRpmDemand1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trdRpmDemand1.Location = new System.Drawing.Point(116, 42);
+            this.trdRpmDemand1.Name = "trdRpmDemand1";
+            this.trdRpmDemand1.ReadOnly = true;
+            this.trdRpmDemand1.Size = new System.Drawing.Size(147, 20);
+            this.trdRpmDemand1.TabIndex = 12;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(10, 22);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(79, 13);
+            this.label28.TabIndex = 9;
+            this.label28.Text = "Bow Thruster 1";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(10, 49);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(91, 13);
+            this.label34.TabIndex = 11;
+            this.label34.Text = "RMP Demand(%):";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(10, 75);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(91, 13);
+            this.label35.TabIndex = 13;
+            this.label35.Text = "Pitch Demand(%):";
+            // 
+            // trdPitchDemand1
+            // 
+            this.trdPitchDemand1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trdPitchDemand1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trdPitchDemand1.Location = new System.Drawing.Point(116, 68);
+            this.trdPitchDemand1.Name = "trdPitchDemand1";
+            this.trdPitchDemand1.ReadOnly = true;
+            this.trdPitchDemand1.Size = new System.Drawing.Size(147, 20);
+            this.trdPitchDemand1.TabIndex = 14;
+            // 
+            // trdAzimuthDemand2
+            // 
+            this.trdAzimuthDemand2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trdAzimuthDemand2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trdAzimuthDemand2.Location = new System.Drawing.Point(397, 94);
+            this.trdAzimuthDemand2.Name = "trdAzimuthDemand2";
+            this.trdAzimuthDemand2.ReadOnly = true;
+            this.trdAzimuthDemand2.Size = new System.Drawing.Size(147, 20);
+            this.trdAzimuthDemand2.TabIndex = 28;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(10, 101);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(104, 13);
+            this.label37.TabIndex = 15;
+            this.label37.Text = "Azimuth Demand(%):";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(287, 101);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(104, 13);
+            this.label38.TabIndex = 27;
+            this.label38.Text = "Azimuth Demand(%):";
+            // 
+            // trdAzimuthDemand1
+            // 
+            this.trdAzimuthDemand1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trdAzimuthDemand1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trdAzimuthDemand1.Location = new System.Drawing.Point(116, 94);
+            this.trdAzimuthDemand1.Name = "trdAzimuthDemand1";
+            this.trdAzimuthDemand1.ReadOnly = true;
+            this.trdAzimuthDemand1.Size = new System.Drawing.Size(147, 20);
+            this.trdAzimuthDemand1.TabIndex = 16;
+            // 
+            // trdPitchDemand2
+            // 
+            this.trdPitchDemand2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trdPitchDemand2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trdPitchDemand2.Location = new System.Drawing.Point(397, 68);
+            this.trdPitchDemand2.Name = "trdPitchDemand2";
+            this.trdPitchDemand2.ReadOnly = true;
+            this.trdPitchDemand2.Size = new System.Drawing.Size(147, 20);
+            this.trdPitchDemand2.TabIndex = 26;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(287, 75);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(91, 13);
+            this.label40.TabIndex = 25;
+            this.label40.Text = "Pitch Demand(%):";
+            // 
+            // trdRpmDemand2
+            // 
+            this.trdRpmDemand2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trdRpmDemand2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trdRpmDemand2.Location = new System.Drawing.Point(397, 42);
+            this.trdRpmDemand2.Name = "trdRpmDemand2";
+            this.trdRpmDemand2.ReadOnly = true;
+            this.trdRpmDemand2.Size = new System.Drawing.Size(147, 20);
+            this.trdRpmDemand2.TabIndex = 24;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(287, 49);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(91, 13);
+            this.label42.TabIndex = 23;
+            this.label42.Text = "RMP Demand(%):";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(287, 22);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(83, 13);
+            this.label43.TabIndex = 22;
+            this.label43.Text = "Stern Thruster 2";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(291, 101);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Propeller Pitch";
+            // 
+            // rpmPropPitch2
+            // 
+            this.rpmPropPitch2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.rpmPropPitch2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rpmPropPitch2.Location = new System.Drawing.Point(397, 94);
+            this.rpmPropPitch2.Name = "rpmPropPitch2";
+            this.rpmPropPitch2.ReadOnly = true;
+            this.rpmPropPitch2.Size = new System.Drawing.Size(147, 20);
+            this.rpmPropPitch2.TabIndex = 30;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 101);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 13);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Propeller Pitch";
+            // 
+            // rpmPropPitch1
+            // 
+            this.rpmPropPitch1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.rpmPropPitch1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rpmPropPitch1.Location = new System.Drawing.Point(116, 94);
+            this.rpmPropPitch1.Name = "rpmPropPitch1";
+            this.rpmPropPitch1.ReadOnly = true;
+            this.rpmPropPitch1.Size = new System.Drawing.Size(147, 20);
+            this.rpmPropPitch1.TabIndex = 28;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.btrSetValue);
+            this.groupBox6.Controls.Add(this.label32);
+            this.groupBox6.Controls.Add(this.label36);
+            this.groupBox6.Controls.Add(this.label39);
+            this.groupBox6.Controls.Add(this.btrRealValue);
+            this.groupBox6.Location = new System.Drawing.Point(581, 127);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(278, 125);
+            this.groupBox6.TabIndex = 40;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Bow thruster set value (BTR)";
+            // 
+            // btrSetValue
+            // 
+            this.btrSetValue.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btrSetValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btrSetValue.Location = new System.Drawing.Point(116, 42);
+            this.btrSetValue.Name = "btrSetValue";
+            this.btrSetValue.ReadOnly = true;
+            this.btrSetValue.Size = new System.Drawing.Size(147, 20);
+            this.btrSetValue.TabIndex = 12;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(10, 22);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(70, 13);
+            this.label32.TabIndex = 9;
+            this.label32.Text = "Bow Thruster";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(10, 49);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(53, 13);
+            this.label36.TabIndex = 11;
+            this.label36.Text = "Set Value";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(10, 75);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(59, 13);
+            this.label39.TabIndex = 13;
+            this.label39.Text = "Real Value";
+            // 
+            // btrRealValue
+            // 
+            this.btrRealValue.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btrRealValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btrRealValue.Location = new System.Drawing.Point(116, 68);
+            this.btrRealValue.Name = "btrRealValue";
+            this.btrRealValue.ReadOnly = true;
+            this.btrRealValue.Size = new System.Drawing.Size(147, 20);
+            this.btrRealValue.TabIndex = 14;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.eomMissionStatus);
+            this.groupBox7.Controls.Add(this.label44);
+            this.groupBox7.Controls.Add(this.label45);
+            this.groupBox7.Controls.Add(this.eomElapsedTime);
+            this.groupBox7.Location = new System.Drawing.Point(581, 268);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(278, 125);
+            this.groupBox7.TabIndex = 41;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "End of Mission (EOM)";
+            // 
+            // eomMissionStatus
+            // 
+            this.eomMissionStatus.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.eomMissionStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.eomMissionStatus.Location = new System.Drawing.Point(116, 42);
+            this.eomMissionStatus.Name = "eomMissionStatus";
+            this.eomMissionStatus.ReadOnly = true;
+            this.eomMissionStatus.Size = new System.Drawing.Size(147, 20);
+            this.eomMissionStatus.TabIndex = 12;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(10, 49);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(75, 13);
+            this.label44.TabIndex = 11;
+            this.label44.Text = "Mission Status";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(10, 75);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(71, 13);
+            this.label45.TabIndex = 13;
+            this.label45.Text = "Elapsed Time";
+            // 
+            // eomElapsedTime
+            // 
+            this.eomElapsedTime.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.eomElapsedTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.eomElapsedTime.Location = new System.Drawing.Point(116, 68);
+            this.eomElapsedTime.Name = "eomElapsedTime";
+            this.eomElapsedTime.ReadOnly = true;
+            this.eomElapsedTime.Size = new System.Drawing.Size(147, 20);
+            this.eomElapsedTime.TabIndex = 14;
+            // 
             // TestForm
             // 
             this.AcceptButton = this.parse_button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.ClientSize = new System.Drawing.Size(1028, 853);
+            this.Controls.Add(this.groupBox7);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.NMEA_String_Box);
-            this.Controls.Add(this.sentenceStatusDisplay2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.locationDisplay2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.azimuthDemandDisplay2);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.pitchDemandDisplay2);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.rpmDemandDisplay2);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.errorMessage);
-            this.Controls.Add(this.sentenceStatusDisplay1);
-            this.Controls.Add(this.sentenceStatusLabel);
-            this.Controls.Add(this.locationDisplay1);
-            this.Controls.Add(this.locationLabel);
-            this.Controls.Add(this.azimuthDemandDisplay1);
-            this.Controls.Add(this.azimuthDemandLabel);
-            this.Controls.Add(this.pitchDemandDisplay1);
-            this.Controls.Add(this.pitchDemandLabel);
-            this.Controls.Add(this.rpmDemandDisplay1);
-            this.Controls.Add(this.rpmDemandLabel);
-            this.Controls.Add(this.label_bowThruster);
             this.Controls.Add(this.lastStringEntered);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.parse_button);
             this.Controls.Add(this.sentenceTypeDisplay);
             this.Controls.Add(this.sentenceTypeLabel);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.groupBox1);
             this.Name = "TestForm";
             this.Text = "Bridge Interface Test";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -417,29 +1180,94 @@
         private System.Windows.Forms.TextBox lastStringEntered;
         private System.Windows.Forms.Label label_bowThruster;
         private System.Windows.Forms.Label rpmDemandLabel;
-        private System.Windows.Forms.TextBox rpmDemandDisplay1;
-        private System.Windows.Forms.TextBox pitchDemandDisplay1;
+        private System.Windows.Forms.TextBox trcRpmDemandDisplay1;
+        private System.Windows.Forms.TextBox trcPitchDemandDisplay1;
         private System.Windows.Forms.Label pitchDemandLabel;
-        private System.Windows.Forms.TextBox azimuthDemandDisplay1;
+        private System.Windows.Forms.TextBox trcAzimuthDemandDisplay1;
         private System.Windows.Forms.Label azimuthDemandLabel;
-        private System.Windows.Forms.TextBox locationDisplay1;
-        private System.Windows.Forms.Label locationLabel;
-        private System.Windows.Forms.TextBox sentenceStatusDisplay1;
-        private System.Windows.Forms.Label sentenceStatusLabel;
         private System.Windows.Forms.Label errorMessage;
-        private System.Windows.Forms.TextBox sentenceStatusDisplay2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox locationDisplay2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox azimuthDemandDisplay2;
+        private System.Windows.Forms.TextBox trcAzimuthDemandDisplay2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox pitchDemandDisplay2;
+        private System.Windows.Forms.TextBox trcPitchDemandDisplay2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox rpmDemandDisplay2;
+        private System.Windows.Forms.TextBox trcRpmDemandDisplay2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ComboBox NMEA_String_Box;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox etlEventTime2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox etlTelegraphPos2;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox etlSubTelPos2;
+        private System.Windows.Forms.TextBox etlEventTime1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox etlTelegraphPos1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox etlSubTelPos1;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox prcLeverPos2;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox prcRpmDemand2;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox prcPitchDemand2;
+        private System.Windows.Forms.TextBox prcLeverPos1;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox prcRpmDemand1;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox prcPitchDemand1;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox rpmShaftSpeed1;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox rpmEngSpeed1;
+        private System.Windows.Forms.TextBox rpmShaftSpeed2;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox rpmEngSpeed2;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox trdRpmDemand1;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox trdPitchDemand1;
+        private System.Windows.Forms.TextBox trdAzimuthDemand2;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox trdAzimuthDemand1;
+        private System.Windows.Forms.TextBox trdPitchDemand2;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.TextBox trdRpmDemand2;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox rpmPropPitch2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox rpmPropPitch1;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.TextBox btrSetValue;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.TextBox btrRealValue;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.TextBox eomMissionStatus;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.TextBox eomElapsedTime;
     }
 }
 

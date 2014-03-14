@@ -15,33 +15,64 @@ namespace BridgeIface
         public TestForm()
         {
             InitializeComponent();
-
-            m_inputControls.Add(new DHControl("Bow Thruster RPM Demand", FloatIntBoolNone.Float, rpmDemandDisplay1, false));
-            m_inputControls.Add(new DHControl("Stern Thruster RPM Demand", FloatIntBoolNone.Float, rpmDemandDisplay2, false));
-            m_inputControls.Add(new DHControl("Bow Thruster Pitch Demand", FloatIntBoolNone.Float, pitchDemandDisplay1, false));
-            m_inputControls.Add(new DHControl("Stern Thruster Pitch Demand", FloatIntBoolNone.Float, pitchDemandDisplay2, false));
-            m_inputControls.Add(new DHControl("Bow Thruster Azimuth Demand", FloatIntBoolNone.Float, azimuthDemandDisplay1, false));
-            m_inputControls.Add(new DHControl("Stern Thruster Azimuth Demand", FloatIntBoolNone.Float, azimuthDemandDisplay2, false));
-            m_inputControls.Add(new DHControl("Bow Thruster Operating Location",FloatIntBoolNone.None, locationDisplay1, false)); //TODO: decide if this needs enum or toss it.
-            m_inputControls.Add(new DHControl("Stern Thruster Operating Location", FloatIntBoolNone.None, locationDisplay2, false)); //TODO: decide if this needs enum or toss it.
-            m_inputControls.Add(new DHControl("Bow Thruster Sentence Status", FloatIntBoolNone.None, sentenceStatusDisplay1, false)); //TODO: decide if this needs enum or toss it.
-            m_inputControls.Add(new DHControl("Stern Thruster Sentence Status", FloatIntBoolNone.None, sentenceStatusDisplay2, false)); //TODO: decide if this needs enum or toss it.
             
-            m_inputControls.Add(new DHControl("Engine1 Event Time", FloatIntBoolNone.Float, null, false));
-            m_inputControls.Add(new DHControl("Engine1 Message Type", FloatIntBoolNone.None, null, false)); //TODO: decide if this needs enum or toss it.
-            m_inputControls.Add(new DHControl("Engine1 Telegraph Position", FloatIntBoolNone.Float, null, false));
-            m_inputControls.Add(new DHControl("Engine1 Sub-Telegraph Position", FloatIntBoolNone.Float, null, false));
-            m_inputControls.Add(new DHControl("Engine1 Operating Location", FloatIntBoolNone.Float, null, false));
+            //TRC Components
+            m_inputControls.Add(new DHControl("Bow Thruster 1 RPM Demand", FloatIntBoolNone.Float, trcRpmDemandDisplay1, false));
+            m_inputControls.Add(new DHControl("Bow Thruster 1 Pitch Demand", FloatIntBoolNone.Float, trcPitchDemandDisplay1, false));
+            m_inputControls.Add(new DHControl("Bow Thruster 1 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthDemandDisplay1, false));
+            //m_inputControls.Add(new DHControl("Bow Thruster 1 Operating Location",FloatIntBoolNone.None, locationDisplay1, false)); //TODO: decide if this needs enum or toss it.
+            //m_inputControls.Add(new DHControl("Bow Thruster 1 Sentence Status", FloatIntBoolNone.None, sentenceStatusDisplay1, false)); //TODO: decide if this needs enum or toss it.
+            m_inputControls.Add(new DHControl("Stern Thruster 2 RPM Demand", FloatIntBoolNone.Float, trcRpmDemandDisplay2, false));
+            m_inputControls.Add(new DHControl("Stern Thruster 2 Pitch Demand", FloatIntBoolNone.Float, trcPitchDemandDisplay2, false));
+            m_inputControls.Add(new DHControl("Stern Thruster 2 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthDemandDisplay2, false));
+            //m_inputControls.Add(new DHControl("Stern Thruster 2 Operating Location", FloatIntBoolNone.None, locationDisplay2, false)); //TODO: decide if this needs enum or toss it.
+            //m_inputControls.Add(new DHControl("Stern Thruster 2 Sentence Status", FloatIntBoolNone.None, sentenceStatusDisplay2, false)); //TODO: decide if this needs enum or toss it.
 
-            //Add similar m_inputControls.Add statements here for all the text boxes you want to display
+            //ETL Components
+            m_inputControls.Add(new DHControl("Engine 1 Event Time", FloatIntBoolNone.Float, etlEventTime1, false));
+            m_inputControls.Add(new DHControl("Engine 1 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphPos1, false));
+            m_inputControls.Add(new DHControl("Engine 1 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos1, false));
+            m_inputControls.Add(new DHControl("Engine 2 Event Time", FloatIntBoolNone.Float, etlEventTime2, false));
+            m_inputControls.Add(new DHControl("Engine 2 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphPos2, false));
+            m_inputControls.Add(new DHControl("Engine 2 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos2, false));
 
+            //PRC Components
+            m_inputControls.Add(new DHControl("Remote Engine 1 Lever Demand Position", FloatIntBoolNone.Float, prcLeverPos1, false));
+            m_inputControls.Add(new DHControl("Remote Engine 1 RPM Demand", FloatIntBoolNone.Float, prcRpmDemand1, false));
+            m_inputControls.Add(new DHControl("Remote Engine 1 Pitch Demand", FloatIntBoolNone.Float, prcPitchDemand1, false));
+            m_inputControls.Add(new DHControl("Remote Engine 2 Lever Demand Position", FloatIntBoolNone.Float, prcLeverPos2, false));
+            m_inputControls.Add(new DHControl("Remote Engine 2 RPM Demand", FloatIntBoolNone.Float, prcRpmDemand2, false));
+            m_inputControls.Add(new DHControl("Remote Engine 2 Pitch Demand", FloatIntBoolNone.Float, prcPitchDemand2, false));
+
+            //RPM Components
+            m_inputControls.Add(new DHControl("Engine 1 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeed1, false));
+            m_inputControls.Add(new DHControl("Engine 1 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeed1, false));
+            m_inputControls.Add(new DHControl("Engine 1 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitch1, false));
+            m_inputControls.Add(new DHControl("Engine 2 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeed2, false));
+            m_inputControls.Add(new DHControl("Engine 2 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeed2, false));
+            m_inputControls.Add(new DHControl("Engine 2 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitch2, false));
+
+            //TRD Components
+            m_inputControls.Add(new DHControl("Thruster 1 RPM", FloatIntBoolNone.Float, trdRpmDemand1, false));
+            m_inputControls.Add(new DHControl("Thruster 1 Pitch", FloatIntBoolNone.Float, trdPitchDemand1, false));
+            m_inputControls.Add(new DHControl("Thruster 1 Azimuth", FloatIntBoolNone.Float, trdAzimuthDemand1, false));
+            m_inputControls.Add(new DHControl("Thruster 2 RPM", FloatIntBoolNone.Float, trdRpmDemand2, false));
+            m_inputControls.Add(new DHControl("Thruster 2 Pitch", FloatIntBoolNone.Float, trdPitchDemand2, false));
+            m_inputControls.Add(new DHControl("Thruster 2 Azimuth", FloatIntBoolNone.Float, trdAzimuthDemand2, false));
+
+            //BTR Components
+            m_inputControls.Add(new DHControl("Bow Thruster Set Value", FloatIntBoolNone.Float, btrSetValue, false));
+            m_inputControls.Add(new DHControl("Bow Thruster Real Value", FloatIntBoolNone.Float, btrRealValue, false));
+            
+            //EOM Components
+            m_inputControls.Add(new DHControl("Mission Status", FloatIntBoolNone.Float, eomMissionStatus, false));
+            m_inputControls.Add(new DHControl("Mission Elapsed Time", FloatIntBoolNone.Float, eomElapsedTime, false));
 
             timer1.Enabled = true;
         }
         
         private void parse_button_Click(object sender, EventArgs e)
         {
-            //parser(NMEA_String.Text);
             parser(NMEA_String_Box.Text);
         }
         private void parser(String sentence)
@@ -115,27 +146,13 @@ namespace BridgeIface
             string sentenceStatus = data[8];
             string checkSum = data[9];
 
-            string thrusterName = "";
+            string thrusterName = convBowStern(thrusterNum);
 
-            switch(data[1])
-            {
-                case "1":
-                    thrusterName = "Bow";
-                    
-                    break;
-                case "2":
-                    thrusterName = "Stern";
-                    break;
-                default:
-                    errorMessage.Text = "Unsupported Thruster";
-                    return;
-            }
-
-            DataHolderIface.SetFloatVal(thrusterName + " Thruster RPM Demand", calcPercentDemand(rpmDemand, rpmMode));          //Always write to dataholder the percent
-            DataHolderIface.SetFloatVal(thrusterName + " Thruster Pitch Demand", calcPercentDemand(pitchDemand, pitchMode));          //Always write to dataholder the percent
-            DataHolderIface.SetFloatVal(thrusterName + " Thruster Azimuth Demand", float.Parse(azimuthDemand));
-            DataHolderIface.SetStringVal(thrusterName + " Thruster Operating Location", convLocation(operatingLocation));
-            DataHolderIface.SetStringVal(thrusterName + " Thruster Sentence Status", convStatus(sentenceStatus));
+            DataHolderIface.SetFloatVal(thrusterName + " Thruster " + thrusterNum + " RPM Demand", calcPercentDemand(rpmDemand, rpmMode));          //Always write to dataholder the percent
+            DataHolderIface.SetFloatVal(thrusterName + " Thruster " + thrusterNum + " Pitch Demand", calcPercentDemand(pitchDemand, pitchMode));          //Always write to dataholder the percent
+            DataHolderIface.SetFloatVal(thrusterName + " Thruster " + thrusterNum + " Azimuth Demand", float.Parse(azimuthDemand));
+            DataHolderIface.SetStringVal(thrusterName + " Thruster " + thrusterNum + " Operating Location", convLocation(operatingLocation));
+            DataHolderIface.SetStringVal(thrusterName + " Thruster " + thrusterNum + " Sentence Status", convStatus(sentenceStatus));
 
         }
         private void parseETL(string[] data)
@@ -155,11 +172,11 @@ namespace BridgeIface
             string engineNum = data[6];
             string checkSum = data[7];
 
-            DataHolderIface.SetFloatVal("Engine" + engineNum + " Event Time", float.Parse(eventTime));
-            DataHolderIface.SetStringVal("Engine" + engineNum + " Message Type", convMessageType(messageType));
-            DataHolderIface.SetFloatVal("Engine" + engineNum + " Telegraph Position", float.Parse(positionEngineTelegraph));
-            DataHolderIface.SetFloatVal("Engine" + engineNum + " Sub-Telegraph Position", float.Parse(positionSubTelegraph));
-            DataHolderIface.SetStringVal("Engine" + engineNum + " Operating Location", convLocation(operatingLocation));
+            DataHolderIface.SetFloatVal("Engine " + engineNum + " Event Time", float.Parse(eventTime));
+            DataHolderIface.SetStringVal("Engine " + engineNum + " Message Type", convMessageType(messageType));
+            DataHolderIface.SetFloatVal("Engine " + engineNum + " Telegraph Position", float.Parse(positionEngineTelegraph));
+            DataHolderIface.SetFloatVal("Engine " + engineNum + " Sub-Telegraph Position", float.Parse(positionSubTelegraph));
+            DataHolderIface.SetStringVal("Engine " + engineNum + " Operating Location", convLocation(operatingLocation));
         }
         private void parsePRC(string[] data)
         {
@@ -181,10 +198,10 @@ namespace BridgeIface
             string checkSum = data[9];
 
             if (leverDemandValid == "A") //TODO: should this negate entire nmea sentence or just lever demand?
-                DataHolderIface.SetFloatVal("Remote Engine" + engineNum + " Lever Demand Position", float.Parse(leverDemandPosition));
-            DataHolderIface.SetFloatVal("Remote Engine" + engineNum + " RPM Demand", calcPercentDemand(rpmDemand, rpmMode));
-            DataHolderIface.SetFloatVal("Remote Engine" + engineNum + " Pitch Demand", calcPercentDemand(pitchDemand, pitchMode));
-            DataHolderIface.SetStringVal("Remote Engine" + engineNum + " Operating Location", convLocation(operatingLocation));
+                DataHolderIface.SetFloatVal("Remote Engine " + engineNum + " Lever Demand Position", float.Parse(leverDemandPosition));
+            DataHolderIface.SetFloatVal("Remote Engine " + engineNum + " RPM Demand", calcPercentDemand(rpmDemand, rpmMode));
+            DataHolderIface.SetFloatVal("Remote Engine " + engineNum + " Pitch Demand", calcPercentDemand(pitchDemand, pitchMode));
+            DataHolderIface.SetStringVal("Remote Engine " + engineNum + " Operating Location", convLocation(operatingLocation));
         }
         private void parseRPM(string[] data)
         {
@@ -204,10 +221,11 @@ namespace BridgeIface
             if (status == "A")
             {
                 //TODO: Enumerate "source" after we know what it will look like
-                DataHolderIface.SetFloatVal("Engine " + engineNum + " " + source + " RPM", float.Parse(speed));
-                DataHolderIface.SetFloatVal("Engine " + engineNum + " " + source + " Propeller Pitch", float.Parse(propPitch));
+                DataHolderIface.SetFloatVal("Engine " + engineNum + " " + convSource(source) + " RPM", float.Parse(speed));
+                DataHolderIface.SetFloatVal("Engine " + engineNum + " Propeller Pitch", float.Parse(propPitch));
             }
         }
+
         private void parseTRD(string[] data)
         {
             if (data.Length < 8)
@@ -349,8 +367,19 @@ namespace BridgeIface
                     return 0.0f;        //???
             }
         }
-
-        private String convMode(String s)
+        private string convBowStern(string s)
+        {
+            if (int.Parse(s) % 2 == 0) //return Stern if even
+                return "Stern";
+            else return "Bow"; //return Bow if not even
+        }
+        private string convSource(String s)
+        {
+            if (s == "S") return "Shaft";
+            else if (s == "E") return "Engine";
+            else return ("Unrecognized Source");
+        }
+        private string convMode(String s)
         {
             switch (s)
             {
@@ -364,7 +393,7 @@ namespace BridgeIface
                     return "UNRECOGNIZED MODE";
             }
         }
-        private String convLocation(String s)
+        private string convLocation(String s)
         {
             switch (s)
             {
@@ -384,7 +413,7 @@ namespace BridgeIface
                     return "UNRECOGNIZED LOCATION";
             }
         }
-        private String convMessageType(String s)
+        private string convMessageType(String s)
         {
             switch (s)
             {
@@ -396,7 +425,7 @@ namespace BridgeIface
                     return "UNRECOGNIZED MESSAGE TYPE";
             }
         }
-        private String convStatus(String s)
+        private string convStatus(String s)
         {
             switch (s)
             {
