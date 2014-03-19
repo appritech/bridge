@@ -62,7 +62,6 @@
             this.trcAzimuthDemandSet2 = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
-            this.trcRpmDemandSet1 = new System.Windows.Forms.TextBox();
             this.trcPitchDemandSet1 = new System.Windows.Forms.TextBox();
             this.trcAzimuthDemandSet1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -171,15 +170,17 @@
             this.eomElapsedTime = new System.Windows.Forms.TextBox();
             this.lastStringSent = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
-            this.newNmeaBox = new System.Windows.Forms.ComboBox();
-            this.newNmeaInput1 = new System.Windows.Forms.TextBox();
-            this.newNmeaInput2 = new System.Windows.Forms.TextBox();
-            this.newNmeaInput3 = new System.Windows.Forms.TextBox();
-            this.newNmeaDisp1 = new System.Windows.Forms.Label();
-            this.newNmeaDisp2 = new System.Windows.Forms.Label();
-            this.newNmeaDisp3 = new System.Windows.Forms.Label();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.newNmeaSentenceButton = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.trcRpmTrackbar1 = new System.Windows.Forms.TrackBar();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.trcPitchTrackbar1 = new System.Windows.Forms.TrackBar();
+            this.label52 = new System.Windows.Forms.Label();
+            this.trcAzimuthTrackbar1 = new System.Windows.Forms.TrackBar();
+            this.trcRpmDemandSet1 = new System.Windows.Forms.TextBox();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -187,7 +188,12 @@
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trcRpmTrackbar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trcAzimuthTrackbar1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -266,7 +272,7 @@
             this.rpmDemandLabel.Name = "rpmDemandLabel";
             this.rpmDemandLabel.Size = new System.Drawing.Size(91, 13);
             this.rpmDemandLabel.TabIndex = 11;
-            this.rpmDemandLabel.Text = "RMP Demand(%):";
+            this.rpmDemandLabel.Text = "RPM Demand(%):";
             // 
             // trcRpmDemandDisplay1
             // 
@@ -386,7 +392,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 13);
             this.label7.TabIndex = 23;
-            this.label7.Text = "RMP Demand(%):";
+            this.label7.Text = "RPM Demand(%):";
             // 
             // label8
             // 
@@ -431,10 +437,17 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.vScrollBar1);
+            this.groupBox1.Controls.Add(this.label52);
             this.groupBox1.Controls.Add(this.trcSendButton2);
+            this.groupBox1.Controls.Add(this.trcAzimuthTrackbar1);
             this.groupBox1.Controls.Add(this.label49);
+            this.groupBox1.Controls.Add(this.label51);
+            this.groupBox1.Controls.Add(this.trcPitchTrackbar1);
             this.groupBox1.Controls.Add(this.trcSendButton1);
+            this.groupBox1.Controls.Add(this.label46);
             this.groupBox1.Controls.Add(this.label50);
+            this.groupBox1.Controls.Add(this.trcRpmTrackbar1);
             this.groupBox1.Controls.Add(this.trcRpmDemandSet2);
             this.groupBox1.Controls.Add(this.trcPitchDemandSet2);
             this.groupBox1.Controls.Add(this.trcAzimuthDemandSet2);
@@ -458,9 +471,9 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 127);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(553, 125);
+            this.groupBox1.Size = new System.Drawing.Size(710, 308);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thruster Control Data (TRC)";
@@ -547,14 +560,6 @@
             this.label47.TabIndex = 32;
             this.label47.Text = "DH Value";
             // 
-            // trcRpmDemandSet1
-            // 
-            this.trcRpmDemandSet1.BackColor = System.Drawing.SystemColors.Window;
-            this.trcRpmDemandSet1.Location = new System.Drawing.Point(179, 42);
-            this.trcRpmDemandSet1.Name = "trcRpmDemandSet1";
-            this.trcRpmDemandSet1.Size = new System.Drawing.Size(54, 20);
-            this.trcRpmDemandSet1.TabIndex = 29;
-            // 
             // trcPitchDemandSet1
             // 
             this.trcPitchDemandSet1.BackColor = System.Drawing.SystemColors.Window;
@@ -605,12 +610,12 @@
             this.groupBox2.Controls.Add(this.etlSubTelPos1);
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 686);
+            this.groupBox2.Location = new System.Drawing.Point(6, 271);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(553, 128);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Engine Telegraph Operation Status (ETL))";
+            this.groupBox2.Text = "Engine Telegraph Operation Status (ETL)";
             // 
             // etlSendButton2
             // 
@@ -847,7 +852,7 @@
             this.groupBox3.Controls.Add(this.prcPitchDemand1);
             this.groupBox3.Controls.Add(this.label25);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 411);
+            this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(553, 128);
             this.groupBox3.TabIndex = 37;
@@ -1189,7 +1194,7 @@
             this.groupBox4.Controls.Add(this.rpmShaftSpeed1);
             this.groupBox4.Controls.Add(this.label33);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(12, 555);
+            this.groupBox4.Location = new System.Drawing.Point(6, 140);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(553, 125);
             this.groupBox4.TabIndex = 38;
@@ -1331,7 +1336,7 @@
             this.groupBox5.Controls.Add(this.label43);
             this.groupBox5.Controls.Add(this.label37);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(12, 258);
+            this.groupBox5.Location = new System.Drawing.Point(574, 624);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(553, 127);
             this.groupBox5.TabIndex = 39;
@@ -1436,7 +1441,7 @@
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(99, 13);
             this.label34.TabIndex = 11;
-            this.label34.Text = "RMP Response(%):";
+            this.label34.Text = "RPM Response(%):";
             // 
             // label35
             // 
@@ -1527,7 +1532,7 @@
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(99, 13);
             this.label42.TabIndex = 23;
-            this.label42.Text = "RMP Response(%):";
+            this.label42.Text = "RPM Response(%):";
             // 
             // label43
             // 
@@ -1556,7 +1561,7 @@
             this.groupBox6.Controls.Add(this.label39);
             this.groupBox6.Controls.Add(this.btrRealValue);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(581, 127);
+            this.groupBox6.Location = new System.Drawing.Point(6, 336);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(278, 125);
             this.groupBox6.TabIndex = 40;
@@ -1619,7 +1624,7 @@
             this.groupBox7.Controls.Add(this.label45);
             this.groupBox7.Controls.Add(this.eomElapsedTime);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(581, 268);
+            this.groupBox7.Location = new System.Drawing.Point(16, 624);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(278, 125);
             this.groupBox7.TabIndex = 41;
@@ -1686,106 +1691,128 @@
             this.label41.TabIndex = 44;
             this.label41.Text = "Last Outgoing String:";
             // 
-            // newNmeaBox
+            // tabControl1
             // 
-            this.newNmeaBox.FormattingEnabled = true;
-            this.newNmeaBox.Items.AddRange(new object[] {
-            "TRC",
-            "TRD",
-            "PRC",
-            "RPM, Engine",
-            "RPM, Shaft",
-            "ETL"});
-            this.newNmeaBox.Location = new System.Drawing.Point(9, 22);
-            this.newNmeaBox.Name = "newNmeaBox";
-            this.newNmeaBox.Size = new System.Drawing.Size(121, 21);
-            this.newNmeaBox.TabIndex = 46;
-            this.newNmeaBox.Text = "Sentence Type";
-            this.newNmeaBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Location = new System.Drawing.Point(15, 111);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(882, 493);
+            this.tabControl1.TabIndex = 46;
             // 
-            // newNmeaInput1
+            // tabPage1
             // 
-            this.newNmeaInput1.BackColor = System.Drawing.SystemColors.Window;
-            this.newNmeaInput1.Location = new System.Drawing.Point(115, 53);
-            this.newNmeaInput1.Name = "newNmeaInput1";
-            this.newNmeaInput1.Size = new System.Drawing.Size(54, 20);
-            this.newNmeaInput1.TabIndex = 43;
-            this.newNmeaInput1.Visible = false;
+            this.tabPage1.Controls.Add(this.groupBox3);
+            this.tabPage1.Controls.Add(this.groupBox4);
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(874, 467);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Engines";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // newNmeaInput2
+            // tabPage2
             // 
-            this.newNmeaInput2.BackColor = System.Drawing.SystemColors.Window;
-            this.newNmeaInput2.Location = new System.Drawing.Point(115, 79);
-            this.newNmeaInput2.Name = "newNmeaInput2";
-            this.newNmeaInput2.Size = new System.Drawing.Size(54, 20);
-            this.newNmeaInput2.TabIndex = 44;
-            this.newNmeaInput2.Visible = false;
+            this.tabPage2.Controls.Add(this.groupBox1);
+            this.tabPage2.Controls.Add(this.groupBox6);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(874, 467);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Thrusters";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // newNmeaInput3
+            // trcRpmTrackbar1
             // 
-            this.newNmeaInput3.BackColor = System.Drawing.SystemColors.Window;
-            this.newNmeaInput3.Location = new System.Drawing.Point(115, 105);
-            this.newNmeaInput3.Name = "newNmeaInput3";
-            this.newNmeaInput3.Size = new System.Drawing.Size(54, 20);
-            this.newNmeaInput3.TabIndex = 45;
-            this.newNmeaInput3.Visible = false;
+            this.trcRpmTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.trcRpmTrackbar1.LargeChange = 10;
+            this.trcRpmTrackbar1.Location = new System.Drawing.Point(56, 171);
+            this.trcRpmTrackbar1.Maximum = 100;
+            this.trcRpmTrackbar1.Name = "trcRpmTrackbar1";
+            this.trcRpmTrackbar1.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trcRpmTrackbar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.trcRpmTrackbar1.Size = new System.Drawing.Size(45, 92);
+            this.trcRpmTrackbar1.TabIndex = 41;
+            this.trcRpmTrackbar1.TickFrequency = 10;
+            this.trcRpmTrackbar1.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trcRpmTrackbar1.Value = 15;
+            this.trcRpmTrackbar1.Scroll += new System.EventHandler(this.trcRpmTrackbar1_Scroll);
             // 
-            // newNmeaDisp1
+            // label46
             // 
-            this.newNmeaDisp1.AutoSize = true;
-            this.newNmeaDisp1.Location = new System.Drawing.Point(9, 56);
-            this.newNmeaDisp1.Name = "newNmeaDisp1";
-            this.newNmeaDisp1.Size = new System.Drawing.Size(45, 13);
-            this.newNmeaDisp1.TabIndex = 40;
-            this.newNmeaDisp1.Text = "display1";
-            this.newNmeaDisp1.Visible = false;
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(53, 155);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(31, 13);
+            this.label46.TabIndex = 42;
+            this.label46.Text = "RPM";
             // 
-            // newNmeaDisp2
+            // label51
             // 
-            this.newNmeaDisp2.AutoSize = true;
-            this.newNmeaDisp2.Location = new System.Drawing.Point(9, 82);
-            this.newNmeaDisp2.Name = "newNmeaDisp2";
-            this.newNmeaDisp2.Size = new System.Drawing.Size(45, 13);
-            this.newNmeaDisp2.TabIndex = 41;
-            this.newNmeaDisp2.Text = "display2";
-            this.newNmeaDisp2.Visible = false;
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(104, 155);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(31, 13);
+            this.label51.TabIndex = 44;
+            this.label51.Text = "Pitch";
             // 
-            // newNmeaDisp3
+            // trcPitchTrackbar1
             // 
-            this.newNmeaDisp3.AutoSize = true;
-            this.newNmeaDisp3.Location = new System.Drawing.Point(9, 108);
-            this.newNmeaDisp3.Name = "newNmeaDisp3";
-            this.newNmeaDisp3.Size = new System.Drawing.Size(48, 13);
-            this.newNmeaDisp3.TabIndex = 42;
-            this.newNmeaDisp3.Text = "display 3";
-            this.newNmeaDisp3.Visible = false;
+            this.trcPitchTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.trcPitchTrackbar1.LargeChange = 10;
+            this.trcPitchTrackbar1.Location = new System.Drawing.Point(107, 171);
+            this.trcPitchTrackbar1.Maximum = 100;
+            this.trcPitchTrackbar1.Name = "trcPitchTrackbar1";
+            this.trcPitchTrackbar1.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trcPitchTrackbar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.trcPitchTrackbar1.Size = new System.Drawing.Size(45, 92);
+            this.trcPitchTrackbar1.TabIndex = 43;
+            this.trcPitchTrackbar1.TickFrequency = 10;
+            this.trcPitchTrackbar1.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trcPitchTrackbar1.Value = 30;
             // 
-            // groupBox8
+            // label52
             // 
-            this.groupBox8.Controls.Add(this.newNmeaSentenceButton);
-            this.groupBox8.Controls.Add(this.newNmeaInput1);
-            this.groupBox8.Controls.Add(this.newNmeaInput2);
-            this.groupBox8.Controls.Add(this.newNmeaDisp3);
-            this.groupBox8.Controls.Add(this.newNmeaBox);
-            this.groupBox8.Controls.Add(this.newNmeaDisp2);
-            this.groupBox8.Controls.Add(this.newNmeaInput3);
-            this.groupBox8.Controls.Add(this.newNmeaDisp1);
-            this.groupBox8.Location = new System.Drawing.Point(581, 411);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(313, 166);
-            this.groupBox8.TabIndex = 47;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Create New NMEA String";
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(155, 155);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(44, 13);
+            this.label52.TabIndex = 46;
+            this.label52.Text = "Azimuth";
             // 
-            // newNmeaSentenceButton
+            // trcAzimuthTrackbar1
             // 
-            this.newNmeaSentenceButton.Enabled = false;
-            this.newNmeaSentenceButton.Location = new System.Drawing.Point(139, 131);
-            this.newNmeaSentenceButton.Name = "newNmeaSentenceButton";
-            this.newNmeaSentenceButton.Size = new System.Drawing.Size(30, 23);
-            this.newNmeaSentenceButton.TabIndex = 64;
-            this.newNmeaSentenceButton.Text = "Go";
-            this.newNmeaSentenceButton.UseVisualStyleBackColor = true;
+            this.trcAzimuthTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.trcAzimuthTrackbar1.LargeChange = 10;
+            this.trcAzimuthTrackbar1.Location = new System.Drawing.Point(158, 171);
+            this.trcAzimuthTrackbar1.Maximum = 100;
+            this.trcAzimuthTrackbar1.Name = "trcAzimuthTrackbar1";
+            this.trcAzimuthTrackbar1.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trcAzimuthTrackbar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.trcAzimuthTrackbar1.Size = new System.Drawing.Size(45, 92);
+            this.trcAzimuthTrackbar1.TabIndex = 45;
+            this.trcAzimuthTrackbar1.TickFrequency = 10;
+            this.trcAzimuthTrackbar1.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trcAzimuthTrackbar1.Value = 20;
+            // 
+            // trcRpmDemandSet1
+            // 
+            this.trcRpmDemandSet1.BackColor = System.Drawing.SystemColors.Window;
+            this.trcRpmDemandSet1.Location = new System.Drawing.Point(179, 42);
+            this.trcRpmDemandSet1.Name = "trcRpmDemandSet1";
+            this.trcRpmDemandSet1.Size = new System.Drawing.Size(54, 20);
+            this.trcRpmDemandSet1.TabIndex = 29;
+            // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Location = new System.Drawing.Point(216, 171);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(17, 92);
+            this.vScrollBar1.TabIndex = 47;
             // 
             // TestForm
             // 
@@ -1793,25 +1820,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 853);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lastStringSent);
             this.Controls.Add(this.label41);
             this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.NMEA_String_Box);
             this.Controls.Add(this.errorMessage);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.lastStringReceived);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.parse_button);
             this.Controls.Add(this.sentenceTypeReceivedDisplay);
             this.Controls.Add(this.sentenceTypeLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox8);
             this.Name = "TestForm";
             this.Text = "Bridge Interface Test";
             this.groupBox1.ResumeLayout(false);
@@ -1828,8 +1850,12 @@
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trcRpmTrackbar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trcAzimuthTrackbar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1938,7 +1964,6 @@
         private System.Windows.Forms.Button trcSendButton1;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.TextBox trcRpmDemandSet1;
         private System.Windows.Forms.TextBox trcPitchDemandSet1;
         private System.Windows.Forms.TextBox trcAzimuthDemandSet1;
         private System.Windows.Forms.Label label49;
@@ -1979,15 +2004,17 @@
         private System.Windows.Forms.TextBox trdRpmResponseSet1;
         private System.Windows.Forms.TextBox trdPitchResponseSet1;
         private System.Windows.Forms.TextBox trdAzimuthResponseSet1;
-        private System.Windows.Forms.ComboBox newNmeaBox;
-        private System.Windows.Forms.TextBox newNmeaInput1;
-        private System.Windows.Forms.TextBox newNmeaInput2;
-        private System.Windows.Forms.TextBox newNmeaInput3;
-        private System.Windows.Forms.Label newNmeaDisp1;
-        private System.Windows.Forms.Label newNmeaDisp2;
-        private System.Windows.Forms.Label newNmeaDisp3;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Button newNmeaSentenceButton;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TrackBar trcRpmTrackbar1;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.TrackBar trcAzimuthTrackbar1;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.TrackBar trcPitchTrackbar1;
+        private System.Windows.Forms.TextBox trcRpmDemandSet1;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
     }
 }
 

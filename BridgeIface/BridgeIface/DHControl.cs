@@ -54,6 +54,11 @@ namespace BridgeIface
                     //((HScrollBar)m_control).Scroll += new ScrollEventHandler(scrollEventHandler);
                     ((HScrollBar)m_control).ValueChanged += new EventHandler(DHControl_ValueChanged);
                 }
+
+                if (m_control is TrackBar)
+                {
+                    ((TrackBar)m_control).ValueChanged += new EventHandler(DHControl_ValueChanged);
+                }
             }
         }
 

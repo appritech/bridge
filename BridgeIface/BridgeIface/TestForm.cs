@@ -68,6 +68,9 @@ namespace BridgeIface
             m_inputControls.Add(new DHControl("Mission Status", FloatIntBoolNone.Float, eomMissionStatus, false));
             m_inputControls.Add(new DHControl("Mission Elapsed Time", FloatIntBoolNone.Float, eomElapsedTime, false));
 
+            m_outputControls.Add(new DHControl("Bow Thruster 1 RPM Demand", FloatIntBoolNone.Float, trcRpmTrackbar1, true));
+            m_outputControls.Add(new DHControl("Bow Thruster 2 RPM Demand", FloatIntBoolNone.Float, vScrollBar1, true));
+
             timer1.Enabled = true;
         }
         
@@ -445,6 +448,10 @@ namespace BridgeIface
             {
                 dh.readFromDataHolder();
             }
+            foreach (DHControl dh in m_outputControls)
+            {
+                dh.writeToDataHolder();
+            }
 
             trcSendButton1.Enabled = (trcAzimuthDemandSet1.Text != "" && trcRpmDemandSet1.Text != "" && trcPitchDemandSet1.Text != "");
             trcSendButton2.Enabled = (trcAzimuthDemandSet2.Text != "" && trcRpmDemandSet2.Text != "" && trcPitchDemandSet2.Text != "");
@@ -464,7 +471,7 @@ namespace BridgeIface
         
         private void sendTrc1Button_Click(object sender, EventArgs e)
         {
-            string s = "$--TRC,1," + trcRpmDemandSet1.Text + ",P," + trcPitchDemandSet1.Text + ",P," + float.Parse(trcAzimuthDemandSet1.Text)*10 + ",S,C*hh<CR><LF>";//TODO: should we calc checksums?
+            string s = "$--TRC,1," + trcRpmDemandSet1.Text + ",P," + trcPitchDemandSet1.Text + ",P," + float.Parse(trcAzimuthDemandSet1.Text) * 10 + ",S,C*hh\r\n";//TODO: should we calc checksums?
             parser(s);//TODO: should this just set dataholder instead?
             lastStringSent.Text = s;
 
@@ -476,7 +483,7 @@ namespace BridgeIface
         }
         private void sendTrc2Button_Click(object sender, EventArgs e)
         {
-            string s = "$--TRC,2," + trcRpmDemandSet2.Text + ",P," + trcPitchDemandSet2.Text + ",P," + float.Parse(trcAzimuthDemandSet2.Text) * 10 + ",S,C*hh<CR><LF>";
+            string s = "$--TRC,2," + trcRpmDemandSet2.Text + ",P," + trcPitchDemandSet2.Text + ",P," + float.Parse(trcAzimuthDemandSet2.Text) * 10 + ",S,C*hh\r\n";
             parser(s);//TODO: should this just set dataholder instead?
             lastStringSent.Text = s;
 
@@ -488,7 +495,7 @@ namespace BridgeIface
         }
         private void trdSendButton1_Click(object sender, EventArgs e)
         {
-            string s = "$--TRD,1," + trdRpmResponseSet1.Text + ",P," + trdPitchResponseSet1.Text + ",P," + float.Parse(trdAzimuthResponseSet1.Text)*10 + "*hh<CR><LF>";
+            string s = "$--TRD,1," + trdRpmResponseSet1.Text + ",P," + trdPitchResponseSet1.Text + ",P," + float.Parse(trdAzimuthResponseSet1.Text)*10 + "*hh\r\n";
             parser(s);
             lastStringSent.Text = s;
 
@@ -500,7 +507,7 @@ namespace BridgeIface
         }
         private void trdSendButton2_Click(object sender, EventArgs e)
         {
-            string s = "$--TRD,2," + trdRpmResponseSet2.Text + ",P," + trdPitchResponseSet2.Text + ",P," + float.Parse(trdAzimuthResponseSet2.Text) * 10 + "*hh<CR><LF>";
+            string s = "$--TRD,2," + trdRpmResponseSet2.Text + ",P," + trdPitchResponseSet2.Text + ",P," + float.Parse(trdAzimuthResponseSet2.Text) * 10 + "*hh\r\n";
             parser(s);
             lastStringSent.Text = s;
 
@@ -512,7 +519,7 @@ namespace BridgeIface
         }
         private void prcSendButton1_Click(object sender, EventArgs e)
         {
-            string s = "$--PRC," + prcLeverPosSet1.Text + ",A," + prcRpmDemandSet1.Text + ",P," + prcPitchDemandSet1.Text + ",P,S,1*hh<CR><LF>";
+            string s = "$--PRC," + prcLeverPosSet1.Text + ",A," + prcRpmDemandSet1.Text + ",P," + prcPitchDemandSet1.Text + ",P,S,1*hh\r\n";
             parser(s);
             lastStringSent.Text = s;
 
@@ -524,7 +531,7 @@ namespace BridgeIface
         }
         private void prcSendButton2_Click(object sender, EventArgs e)
         {
-            string s = "$--PRC," + prcLeverPosSet2.Text + ",A," + prcRpmDemandSet2.Text + ",P," + prcPitchDemandSet2.Text + ",P,S,2*hh<CR><LF>";
+            string s = "$--PRC," + prcLeverPosSet2.Text + ",A," + prcRpmDemandSet2.Text + ",P," + prcPitchDemandSet2.Text + ",P,S,2*hh\r\n";
             parser(s);
             lastStringSent.Text = s;
 
@@ -537,7 +544,7 @@ namespace BridgeIface
         private void rpmSendButton1_Click(object sender, EventArgs e)
         {
             string src = (rpmEngSpeedSet1.Text != "") ? "E" : "S";
-            string s = "$--RPM," + src + ",1," + rpmEngSpeedSet1.Text + rpmShaftSpeedSet1.Text + "," + rpmPropPitchSet1.Text + ",A*hh<CR><LF>";
+            string s = "$--RPM," + src + ",1," + rpmEngSpeedSet1.Text + rpmShaftSpeedSet1.Text + "," + rpmPropPitchSet1.Text + ",A*hh\r\n";
             parser(s);
             lastStringSent.Text = s;
 
@@ -550,7 +557,7 @@ namespace BridgeIface
         private void rpmSendButton2_Click(object sender, EventArgs e)
         {
             string src = (rpmEngSpeedSet2.Text != "") ? "E" : "S";
-            string s = "$--RPM," + src + ",2," + rpmEngSpeedSet2.Text + rpmShaftSpeedSet2.Text + "," + rpmPropPitchSet2.Text + ",A*hh<CR><LF>";
+            string s = "$--RPM," + src + ",2," + rpmEngSpeedSet2.Text + rpmShaftSpeedSet2.Text + "," + rpmPropPitchSet2.Text + ",A*hh\r\n";
             parser(s);
             lastStringSent.Text = s;
 
@@ -562,7 +569,7 @@ namespace BridgeIface
         }
         private void etlSendButton1_Click(object sender, EventArgs e)
         {
-            string s = "$--ETL," + etlEventTimeSet1.Text + ",O," + etlSubTelPosSet1.Text + "," + etlTelegraphPosSet1.Text + ",S,1*hh<CR><LF>";
+            string s = "$--ETL," + etlEventTimeSet1.Text + ",O," + etlSubTelPosSet1.Text + "," + etlTelegraphPosSet1.Text + ",S,1*hh\r\n";
             parser(s);
             lastStringSent.Text = s;
 
@@ -574,7 +581,7 @@ namespace BridgeIface
         }
         private void etlSendButton2_Click(object sender, EventArgs e)
         {
-            string s = "$--ETL," + etlEventTimeSet2.Text + ",O," + etlSubTelPosSet2.Text + "," + etlTelegraphPosSet2.Text + ",S,2*hh<CR><LF>";
+            string s = "$--ETL," + etlEventTimeSet2.Text + ",O," + etlSubTelPosSet2.Text + "," + etlTelegraphPosSet2.Text + ",S,2*hh\r\n";
             parser(s);
             lastStringSent.Text = s;
 
@@ -585,24 +592,10 @@ namespace BridgeIface
             etlSendButton2.Enabled = false;
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void trcRpmTrackbar1_Scroll(object sender, EventArgs e)
         {
-            switch(newNmeaBox.SelectedItem.ToString())
-            {
-                case ("TRC"):
-                    {
-                        newNmeaDisp1.Text = "RPM Demand(%):";
-                        newNmeaDisp2.Text = "Pitch Demand(%):";
-                        newNmeaDisp3.Text = "Azimuth Demand:";
-                        break;
-                    }
-            }
-            newNmeaDisp1.Visible = true;
-            newNmeaDisp2.Visible = true;
-            newNmeaDisp3.Visible = true;
-            newNmeaInput1.Visible = true;
-            newNmeaInput2.Visible = true;
-            newNmeaInput3.Visible = true;
+            //set dataholder value
         }
+
     }
 }
