@@ -53,6 +53,13 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.NMEA_String_Box = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.trcSendButton2 = new System.Windows.Forms.Button();
+            this.label49 = new System.Windows.Forms.Label();
+            this.trcSendButton1 = new System.Windows.Forms.Button();
+            this.label50 = new System.Windows.Forms.Label();
+            this.trcRpmDemandSet2 = new System.Windows.Forms.TextBox();
+            this.trcPitchDemandSet2 = new System.Windows.Forms.TextBox();
+            this.trcAzimuthDemandSet2 = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.trcRpmDemandSet1 = new System.Windows.Forms.TextBox();
@@ -60,8 +67,16 @@
             this.trcAzimuthDemandSet1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.etlSendButton2 = new System.Windows.Forms.Button();
+            this.etlEventTimeSet2 = new System.Windows.Forms.TextBox();
+            this.etlTelegraphPosSet2 = new System.Windows.Forms.TextBox();
+            this.etlSubTelPosSet2 = new System.Windows.Forms.TextBox();
+            this.etlSendButton1 = new System.Windows.Forms.Button();
             this.etlEventTime2 = new System.Windows.Forms.TextBox();
+            this.etlEventTimeSet1 = new System.Windows.Forms.TextBox();
+            this.etlTelegraphPosSet1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.etlSubTelPosSet1 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.etlTelegraphPos2 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -75,8 +90,16 @@
             this.etlSubTelPos1 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.prcSendButton2 = new System.Windows.Forms.Button();
+            this.prcLeverPosSet2 = new System.Windows.Forms.TextBox();
+            this.prcRpmDemandSet2 = new System.Windows.Forms.TextBox();
+            this.prcPitchDemandSet2 = new System.Windows.Forms.TextBox();
+            this.prcSendButton1 = new System.Windows.Forms.Button();
             this.prcLeverPos2 = new System.Windows.Forms.TextBox();
+            this.prcLeverPosSet1 = new System.Windows.Forms.TextBox();
+            this.prcRpmDemandSet1 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.prcPitchDemandSet1 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.prcRpmDemand2 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -100,13 +123,29 @@
             this.label26 = new System.Windows.Forms.Label();
             this.rpmEngSpeed2 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.rpmSendButton2 = new System.Windows.Forms.Button();
+            this.rpmEngSpeedSet2 = new System.Windows.Forms.TextBox();
+            this.rpmShaftSpeedSet2 = new System.Windows.Forms.TextBox();
+            this.rpmPropPitchSet2 = new System.Windows.Forms.TextBox();
+            this.rpmSendButton1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.rpmEngSpeedSet1 = new System.Windows.Forms.TextBox();
+            this.rpmShaftSpeedSet1 = new System.Windows.Forms.TextBox();
             this.rpmPropPitch2 = new System.Windows.Forms.TextBox();
+            this.rpmPropPitchSet1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.rpmPropPitch1 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.trdSendButton2 = new System.Windows.Forms.Button();
+            this.trdRpmResponseSet2 = new System.Windows.Forms.TextBox();
+            this.trdPitchResponseSet2 = new System.Windows.Forms.TextBox();
+            this.trdAzimuthResponseSet2 = new System.Windows.Forms.TextBox();
+            this.trdSendButton1 = new System.Windows.Forms.Button();
             this.trdRpmResponse1 = new System.Windows.Forms.TextBox();
+            this.trdRpmResponseSet1 = new System.Windows.Forms.TextBox();
+            this.trdPitchResponseSet1 = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
+            this.trdAzimuthResponseSet1 = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.trdPitchResponse1 = new System.Windows.Forms.TextBox();
@@ -132,13 +171,15 @@
             this.eomElapsedTime = new System.Windows.Forms.TextBox();
             this.lastStringSent = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
-            this.sendTrc1Button = new System.Windows.Forms.Button();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.trcRpmDemandSet2 = new System.Windows.Forms.TextBox();
-            this.trcPitchDemandSet2 = new System.Windows.Forms.TextBox();
-            this.trcAzimuthDemandSet2 = new System.Windows.Forms.TextBox();
-            this.sendTrc2Button = new System.Windows.Forms.Button();
+            this.newNmeaBox = new System.Windows.Forms.ComboBox();
+            this.newNmeaInput1 = new System.Windows.Forms.TextBox();
+            this.newNmeaInput2 = new System.Windows.Forms.TextBox();
+            this.newNmeaInput3 = new System.Windows.Forms.TextBox();
+            this.newNmeaDisp1 = new System.Windows.Forms.Label();
+            this.newNmeaDisp2 = new System.Windows.Forms.Label();
+            this.newNmeaDisp3 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.newNmeaSentenceButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -146,6 +187,7 @@
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -210,6 +252,7 @@
             // label_bowThruster
             // 
             this.label_bowThruster.AutoSize = true;
+            this.label_bowThruster.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_bowThruster.Location = new System.Drawing.Point(10, 22);
             this.label_bowThruster.Name = "label_bowThruster";
             this.label_bowThruster.Size = new System.Drawing.Size(79, 13);
@@ -348,6 +391,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(287, 22);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 13);
@@ -387,9 +431,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.sendTrc2Button);
+            this.groupBox1.Controls.Add(this.trcSendButton2);
             this.groupBox1.Controls.Add(this.label49);
-            this.groupBox1.Controls.Add(this.sendTrc1Button);
+            this.groupBox1.Controls.Add(this.trcSendButton1);
             this.groupBox1.Controls.Add(this.label50);
             this.groupBox1.Controls.Add(this.trcRpmDemandSet2);
             this.groupBox1.Controls.Add(this.trcPitchDemandSet2);
@@ -413,12 +457,77 @@
             this.groupBox1.Controls.Add(this.trcRpmDemandDisplay2);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 127);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(553, 125);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thruster Control Data (TRC)";
+            // 
+            // trcSendButton2
+            // 
+            this.trcSendButton2.Enabled = false;
+            this.trcSendButton2.Location = new System.Drawing.Point(516, 91);
+            this.trcSendButton2.Name = "trcSendButton2";
+            this.trcSendButton2.Size = new System.Drawing.Size(30, 23);
+            this.trcSendButton2.TabIndex = 39;
+            this.trcSendButton2.Text = "Go";
+            this.trcSendButton2.UseVisualStyleBackColor = true;
+            this.trcSendButton2.Click += new System.EventHandler(this.sendTrc2Button_Click);
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(457, 21);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(47, 13);
+            this.label49.TabIndex = 38;
+            this.label49.Text = "Override";
+            // 
+            // trcSendButton1
+            // 
+            this.trcSendButton1.Enabled = false;
+            this.trcSendButton1.Location = new System.Drawing.Point(239, 92);
+            this.trcSendButton1.Name = "trcSendButton1";
+            this.trcSendButton1.Size = new System.Drawing.Size(30, 23);
+            this.trcSendButton1.TabIndex = 32;
+            this.trcSendButton1.Text = "Go";
+            this.trcSendButton1.UseVisualStyleBackColor = true;
+            this.trcSendButton1.Click += new System.EventHandler(this.sendTrc1Button_Click);
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(398, 22);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(53, 13);
+            this.label50.TabIndex = 37;
+            this.label50.Text = "DH Value";
+            // 
+            // trcRpmDemandSet2
+            // 
+            this.trcRpmDemandSet2.BackColor = System.Drawing.SystemColors.Window;
+            this.trcRpmDemandSet2.Location = new System.Drawing.Point(457, 42);
+            this.trcRpmDemandSet2.Name = "trcRpmDemandSet2";
+            this.trcRpmDemandSet2.Size = new System.Drawing.Size(54, 20);
+            this.trcRpmDemandSet2.TabIndex = 34;
+            // 
+            // trcPitchDemandSet2
+            // 
+            this.trcPitchDemandSet2.BackColor = System.Drawing.SystemColors.Window;
+            this.trcPitchDemandSet2.Location = new System.Drawing.Point(457, 68);
+            this.trcPitchDemandSet2.Name = "trcPitchDemandSet2";
+            this.trcPitchDemandSet2.Size = new System.Drawing.Size(54, 20);
+            this.trcPitchDemandSet2.TabIndex = 35;
+            // 
+            // trcAzimuthDemandSet2
+            // 
+            this.trcAzimuthDemandSet2.BackColor = System.Drawing.SystemColors.Window;
+            this.trcAzimuthDemandSet2.Location = new System.Drawing.Point(457, 94);
+            this.trcAzimuthDemandSet2.Name = "trcAzimuthDemandSet2";
+            this.trcAzimuthDemandSet2.Size = new System.Drawing.Size(54, 20);
+            this.trcAzimuthDemandSet2.TabIndex = 36;
             // 
             // label48
             // 
@@ -473,8 +582,16 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.etlSendButton2);
+            this.groupBox2.Controls.Add(this.etlEventTimeSet2);
+            this.groupBox2.Controls.Add(this.etlTelegraphPosSet2);
+            this.groupBox2.Controls.Add(this.etlSubTelPosSet2);
+            this.groupBox2.Controls.Add(this.etlSendButton1);
             this.groupBox2.Controls.Add(this.etlEventTime2);
+            this.groupBox2.Controls.Add(this.etlEventTimeSet1);
+            this.groupBox2.Controls.Add(this.etlTelegraphPosSet1);
             this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.etlSubTelPosSet1);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.etlTelegraphPos2);
             this.groupBox2.Controls.Add(this.label16);
@@ -487,12 +604,59 @@
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.etlSubTelPos1);
             this.groupBox2.Controls.Add(this.label21);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(12, 686);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(553, 128);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Engine Telegraph Operation Status (ETL))";
+            // 
+            // etlSendButton2
+            // 
+            this.etlSendButton2.Enabled = false;
+            this.etlSendButton2.Location = new System.Drawing.Point(516, 91);
+            this.etlSendButton2.Name = "etlSendButton2";
+            this.etlSendButton2.Size = new System.Drawing.Size(30, 23);
+            this.etlSendButton2.TabIndex = 71;
+            this.etlSendButton2.Text = "Go";
+            this.etlSendButton2.UseVisualStyleBackColor = true;
+            this.etlSendButton2.Click += new System.EventHandler(this.etlSendButton2_Click);
+            // 
+            // etlEventTimeSet2
+            // 
+            this.etlEventTimeSet2.BackColor = System.Drawing.SystemColors.Window;
+            this.etlEventTimeSet2.Location = new System.Drawing.Point(457, 42);
+            this.etlEventTimeSet2.Name = "etlEventTimeSet2";
+            this.etlEventTimeSet2.Size = new System.Drawing.Size(54, 20);
+            this.etlEventTimeSet2.TabIndex = 68;
+            // 
+            // etlTelegraphPosSet2
+            // 
+            this.etlTelegraphPosSet2.BackColor = System.Drawing.SystemColors.Window;
+            this.etlTelegraphPosSet2.Location = new System.Drawing.Point(457, 68);
+            this.etlTelegraphPosSet2.Name = "etlTelegraphPosSet2";
+            this.etlTelegraphPosSet2.Size = new System.Drawing.Size(54, 20);
+            this.etlTelegraphPosSet2.TabIndex = 69;
+            // 
+            // etlSubTelPosSet2
+            // 
+            this.etlSubTelPosSet2.BackColor = System.Drawing.SystemColors.Window;
+            this.etlSubTelPosSet2.Location = new System.Drawing.Point(457, 94);
+            this.etlSubTelPosSet2.Name = "etlSubTelPosSet2";
+            this.etlSubTelPosSet2.Size = new System.Drawing.Size(54, 20);
+            this.etlSubTelPosSet2.TabIndex = 70;
+            // 
+            // etlSendButton1
+            // 
+            this.etlSendButton1.Enabled = false;
+            this.etlSendButton1.Location = new System.Drawing.Point(239, 91);
+            this.etlSendButton1.Name = "etlSendButton1";
+            this.etlSendButton1.Size = new System.Drawing.Size(30, 23);
+            this.etlSendButton1.TabIndex = 67;
+            this.etlSendButton1.Text = "Go";
+            this.etlSendButton1.UseVisualStyleBackColor = true;
+            this.etlSendButton1.Click += new System.EventHandler(this.etlSendButton1_Click);
             // 
             // etlEventTime2
             // 
@@ -505,6 +669,22 @@
             this.etlEventTime2.TabIndex = 24;
             this.etlEventTime2.TabStop = false;
             // 
+            // etlEventTimeSet1
+            // 
+            this.etlEventTimeSet1.BackColor = System.Drawing.SystemColors.Window;
+            this.etlEventTimeSet1.Location = new System.Drawing.Point(180, 42);
+            this.etlEventTimeSet1.Name = "etlEventTimeSet1";
+            this.etlEventTimeSet1.Size = new System.Drawing.Size(54, 20);
+            this.etlEventTimeSet1.TabIndex = 64;
+            // 
+            // etlTelegraphPosSet1
+            // 
+            this.etlTelegraphPosSet1.BackColor = System.Drawing.SystemColors.Window;
+            this.etlTelegraphPosSet1.Location = new System.Drawing.Point(180, 68);
+            this.etlTelegraphPosSet1.Name = "etlTelegraphPosSet1";
+            this.etlTelegraphPosSet1.Size = new System.Drawing.Size(54, 20);
+            this.etlTelegraphPosSet1.TabIndex = 65;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -513,6 +693,14 @@
             this.label11.Size = new System.Drawing.Size(61, 13);
             this.label11.TabIndex = 23;
             this.label11.Text = "Event Time";
+            // 
+            // etlSubTelPosSet1
+            // 
+            this.etlSubTelPosSet1.BackColor = System.Drawing.SystemColors.Window;
+            this.etlSubTelPosSet1.Location = new System.Drawing.Point(180, 94);
+            this.etlSubTelPosSet1.Name = "etlSubTelPosSet1";
+            this.etlSubTelPosSet1.Size = new System.Drawing.Size(54, 20);
+            this.etlSubTelPosSet1.TabIndex = 66;
             // 
             // label14
             // 
@@ -568,6 +756,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(10, 22);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(128, 13);
@@ -626,6 +815,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(291, 22);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(101, 13);
@@ -634,8 +824,16 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.prcSendButton2);
+            this.groupBox3.Controls.Add(this.prcLeverPosSet2);
+            this.groupBox3.Controls.Add(this.prcRpmDemandSet2);
+            this.groupBox3.Controls.Add(this.prcPitchDemandSet2);
+            this.groupBox3.Controls.Add(this.prcSendButton1);
             this.groupBox3.Controls.Add(this.prcLeverPos2);
+            this.groupBox3.Controls.Add(this.prcLeverPosSet1);
+            this.groupBox3.Controls.Add(this.prcRpmDemandSet1);
             this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.prcPitchDemandSet1);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.prcRpmDemand2);
             this.groupBox3.Controls.Add(this.label19);
@@ -648,12 +846,59 @@
             this.groupBox3.Controls.Add(this.label24);
             this.groupBox3.Controls.Add(this.prcPitchDemand1);
             this.groupBox3.Controls.Add(this.label25);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(12, 411);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(553, 128);
             this.groupBox3.TabIndex = 37;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Propulsion Remote Control Status (PRC)";
+            // 
+            // prcSendButton2
+            // 
+            this.prcSendButton2.Enabled = false;
+            this.prcSendButton2.Location = new System.Drawing.Point(516, 91);
+            this.prcSendButton2.Name = "prcSendButton2";
+            this.prcSendButton2.Size = new System.Drawing.Size(30, 23);
+            this.prcSendButton2.TabIndex = 55;
+            this.prcSendButton2.Text = "Go";
+            this.prcSendButton2.UseVisualStyleBackColor = true;
+            this.prcSendButton2.Click += new System.EventHandler(this.prcSendButton2_Click);
+            // 
+            // prcLeverPosSet2
+            // 
+            this.prcLeverPosSet2.BackColor = System.Drawing.SystemColors.Window;
+            this.prcLeverPosSet2.Location = new System.Drawing.Point(457, 42);
+            this.prcLeverPosSet2.Name = "prcLeverPosSet2";
+            this.prcLeverPosSet2.Size = new System.Drawing.Size(54, 20);
+            this.prcLeverPosSet2.TabIndex = 52;
+            // 
+            // prcRpmDemandSet2
+            // 
+            this.prcRpmDemandSet2.BackColor = System.Drawing.SystemColors.Window;
+            this.prcRpmDemandSet2.Location = new System.Drawing.Point(457, 68);
+            this.prcRpmDemandSet2.Name = "prcRpmDemandSet2";
+            this.prcRpmDemandSet2.Size = new System.Drawing.Size(54, 20);
+            this.prcRpmDemandSet2.TabIndex = 53;
+            // 
+            // prcPitchDemandSet2
+            // 
+            this.prcPitchDemandSet2.BackColor = System.Drawing.SystemColors.Window;
+            this.prcPitchDemandSet2.Location = new System.Drawing.Point(457, 94);
+            this.prcPitchDemandSet2.Name = "prcPitchDemandSet2";
+            this.prcPitchDemandSet2.Size = new System.Drawing.Size(54, 20);
+            this.prcPitchDemandSet2.TabIndex = 54;
+            // 
+            // prcSendButton1
+            // 
+            this.prcSendButton1.Enabled = false;
+            this.prcSendButton1.Location = new System.Drawing.Point(239, 90);
+            this.prcSendButton1.Name = "prcSendButton1";
+            this.prcSendButton1.Size = new System.Drawing.Size(30, 23);
+            this.prcSendButton1.TabIndex = 51;
+            this.prcSendButton1.Text = "Go";
+            this.prcSendButton1.UseVisualStyleBackColor = true;
+            this.prcSendButton1.Click += new System.EventHandler(this.prcSendButton1_Click);
             // 
             // prcLeverPos2
             // 
@@ -666,6 +911,22 @@
             this.prcLeverPos2.TabIndex = 24;
             this.prcLeverPos2.TabStop = false;
             // 
+            // prcLeverPosSet1
+            // 
+            this.prcLeverPosSet1.BackColor = System.Drawing.SystemColors.Window;
+            this.prcLeverPosSet1.Location = new System.Drawing.Point(180, 41);
+            this.prcLeverPosSet1.Name = "prcLeverPosSet1";
+            this.prcLeverPosSet1.Size = new System.Drawing.Size(54, 20);
+            this.prcLeverPosSet1.TabIndex = 48;
+            // 
+            // prcRpmDemandSet1
+            // 
+            this.prcRpmDemandSet1.BackColor = System.Drawing.SystemColors.Window;
+            this.prcRpmDemandSet1.Location = new System.Drawing.Point(180, 67);
+            this.prcRpmDemandSet1.Name = "prcRpmDemandSet1";
+            this.prcRpmDemandSet1.Size = new System.Drawing.Size(54, 20);
+            this.prcRpmDemandSet1.TabIndex = 49;
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -674,6 +935,14 @@
             this.label17.Size = new System.Drawing.Size(74, 13);
             this.label17.TabIndex = 23;
             this.label17.Text = "Lever Position";
+            // 
+            // prcPitchDemandSet1
+            // 
+            this.prcPitchDemandSet1.BackColor = System.Drawing.SystemColors.Window;
+            this.prcPitchDemandSet1.Location = new System.Drawing.Point(180, 93);
+            this.prcPitchDemandSet1.Name = "prcPitchDemandSet1";
+            this.prcPitchDemandSet1.Size = new System.Drawing.Size(54, 20);
+            this.prcPitchDemandSet1.TabIndex = 50;
             // 
             // label18
             // 
@@ -729,6 +998,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(10, 22);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(98, 13);
@@ -787,6 +1057,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.Location = new System.Drawing.Point(291, 22);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(71, 13);
@@ -796,6 +1067,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label33.Location = new System.Drawing.Point(291, 22);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(71, 13);
@@ -834,6 +1106,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.Location = new System.Drawing.Point(10, 22);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(98, 13);
@@ -893,8 +1166,16 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.rpmSendButton2);
+            this.groupBox4.Controls.Add(this.rpmEngSpeedSet2);
+            this.groupBox4.Controls.Add(this.rpmShaftSpeedSet2);
+            this.groupBox4.Controls.Add(this.rpmPropPitchSet2);
+            this.groupBox4.Controls.Add(this.rpmSendButton1);
             this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.rpmEngSpeedSet1);
+            this.groupBox4.Controls.Add(this.rpmShaftSpeedSet1);
             this.groupBox4.Controls.Add(this.rpmPropPitch2);
+            this.groupBox4.Controls.Add(this.rpmPropPitchSet1);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.rpmPropPitch1);
             this.groupBox4.Controls.Add(this.rpmEngSpeed2);
@@ -907,12 +1188,59 @@
             this.groupBox4.Controls.Add(this.label31);
             this.groupBox4.Controls.Add(this.rpmShaftSpeed1);
             this.groupBox4.Controls.Add(this.label33);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(12, 555);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(553, 125);
             this.groupBox4.TabIndex = 38;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Revolutions (RPM)";
+            // 
+            // rpmSendButton2
+            // 
+            this.rpmSendButton2.Enabled = false;
+            this.rpmSendButton2.Location = new System.Drawing.Point(516, 91);
+            this.rpmSendButton2.Name = "rpmSendButton2";
+            this.rpmSendButton2.Size = new System.Drawing.Size(30, 23);
+            this.rpmSendButton2.TabIndex = 63;
+            this.rpmSendButton2.Text = "Go";
+            this.rpmSendButton2.UseVisualStyleBackColor = true;
+            this.rpmSendButton2.Click += new System.EventHandler(this.rpmSendButton2_Click);
+            // 
+            // rpmEngSpeedSet2
+            // 
+            this.rpmEngSpeedSet2.BackColor = System.Drawing.SystemColors.Window;
+            this.rpmEngSpeedSet2.Location = new System.Drawing.Point(457, 42);
+            this.rpmEngSpeedSet2.Name = "rpmEngSpeedSet2";
+            this.rpmEngSpeedSet2.Size = new System.Drawing.Size(54, 20);
+            this.rpmEngSpeedSet2.TabIndex = 60;
+            // 
+            // rpmShaftSpeedSet2
+            // 
+            this.rpmShaftSpeedSet2.BackColor = System.Drawing.SystemColors.Window;
+            this.rpmShaftSpeedSet2.Location = new System.Drawing.Point(457, 68);
+            this.rpmShaftSpeedSet2.Name = "rpmShaftSpeedSet2";
+            this.rpmShaftSpeedSet2.Size = new System.Drawing.Size(54, 20);
+            this.rpmShaftSpeedSet2.TabIndex = 61;
+            // 
+            // rpmPropPitchSet2
+            // 
+            this.rpmPropPitchSet2.BackColor = System.Drawing.SystemColors.Window;
+            this.rpmPropPitchSet2.Location = new System.Drawing.Point(457, 94);
+            this.rpmPropPitchSet2.Name = "rpmPropPitchSet2";
+            this.rpmPropPitchSet2.Size = new System.Drawing.Size(54, 20);
+            this.rpmPropPitchSet2.TabIndex = 62;
+            // 
+            // rpmSendButton1
+            // 
+            this.rpmSendButton1.Enabled = false;
+            this.rpmSendButton1.Location = new System.Drawing.Point(239, 91);
+            this.rpmSendButton1.Name = "rpmSendButton1";
+            this.rpmSendButton1.Size = new System.Drawing.Size(30, 23);
+            this.rpmSendButton1.TabIndex = 59;
+            this.rpmSendButton1.Text = "Go";
+            this.rpmSendButton1.UseVisualStyleBackColor = true;
+            this.rpmSendButton1.Click += new System.EventHandler(this.rpmSendButton1_Click);
             // 
             // label2
             // 
@@ -922,6 +1250,22 @@
             this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 29;
             this.label2.Text = "Propeller Pitch";
+            // 
+            // rpmEngSpeedSet1
+            // 
+            this.rpmEngSpeedSet1.BackColor = System.Drawing.SystemColors.Window;
+            this.rpmEngSpeedSet1.Location = new System.Drawing.Point(180, 42);
+            this.rpmEngSpeedSet1.Name = "rpmEngSpeedSet1";
+            this.rpmEngSpeedSet1.Size = new System.Drawing.Size(54, 20);
+            this.rpmEngSpeedSet1.TabIndex = 56;
+            // 
+            // rpmShaftSpeedSet1
+            // 
+            this.rpmShaftSpeedSet1.BackColor = System.Drawing.SystemColors.Window;
+            this.rpmShaftSpeedSet1.Location = new System.Drawing.Point(180, 68);
+            this.rpmShaftSpeedSet1.Name = "rpmShaftSpeedSet1";
+            this.rpmShaftSpeedSet1.Size = new System.Drawing.Size(54, 20);
+            this.rpmShaftSpeedSet1.TabIndex = 57;
             // 
             // rpmPropPitch2
             // 
@@ -933,6 +1277,14 @@
             this.rpmPropPitch2.Size = new System.Drawing.Size(54, 20);
             this.rpmPropPitch2.TabIndex = 30;
             this.rpmPropPitch2.TabStop = false;
+            // 
+            // rpmPropPitchSet1
+            // 
+            this.rpmPropPitchSet1.BackColor = System.Drawing.SystemColors.Window;
+            this.rpmPropPitchSet1.Location = new System.Drawing.Point(180, 94);
+            this.rpmPropPitchSet1.Name = "rpmPropPitchSet1";
+            this.rpmPropPitchSet1.Size = new System.Drawing.Size(54, 20);
+            this.rpmPropPitchSet1.TabIndex = 58;
             // 
             // label4
             // 
@@ -956,8 +1308,16 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.trdSendButton2);
+            this.groupBox5.Controls.Add(this.trdRpmResponseSet2);
+            this.groupBox5.Controls.Add(this.trdPitchResponseSet2);
+            this.groupBox5.Controls.Add(this.trdAzimuthResponseSet2);
+            this.groupBox5.Controls.Add(this.trdSendButton1);
             this.groupBox5.Controls.Add(this.trdRpmResponse1);
+            this.groupBox5.Controls.Add(this.trdRpmResponseSet1);
+            this.groupBox5.Controls.Add(this.trdPitchResponseSet1);
             this.groupBox5.Controls.Add(this.label28);
+            this.groupBox5.Controls.Add(this.trdAzimuthResponseSet1);
             this.groupBox5.Controls.Add(this.label34);
             this.groupBox5.Controls.Add(this.label35);
             this.groupBox5.Controls.Add(this.trdPitchResponse1);
@@ -970,12 +1330,59 @@
             this.groupBox5.Controls.Add(this.label42);
             this.groupBox5.Controls.Add(this.label43);
             this.groupBox5.Controls.Add(this.label37);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(12, 258);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(553, 127);
             this.groupBox5.TabIndex = 39;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Thruster Response Data (TRD)";
+            // 
+            // trdSendButton2
+            // 
+            this.trdSendButton2.Enabled = false;
+            this.trdSendButton2.Location = new System.Drawing.Point(516, 91);
+            this.trdSendButton2.Name = "trdSendButton2";
+            this.trdSendButton2.Size = new System.Drawing.Size(30, 23);
+            this.trdSendButton2.TabIndex = 47;
+            this.trdSendButton2.Text = "Go";
+            this.trdSendButton2.UseVisualStyleBackColor = true;
+            this.trdSendButton2.Click += new System.EventHandler(this.trdSendButton2_Click);
+            // 
+            // trdRpmResponseSet2
+            // 
+            this.trdRpmResponseSet2.BackColor = System.Drawing.SystemColors.Window;
+            this.trdRpmResponseSet2.Location = new System.Drawing.Point(457, 42);
+            this.trdRpmResponseSet2.Name = "trdRpmResponseSet2";
+            this.trdRpmResponseSet2.Size = new System.Drawing.Size(54, 20);
+            this.trdRpmResponseSet2.TabIndex = 44;
+            // 
+            // trdPitchResponseSet2
+            // 
+            this.trdPitchResponseSet2.BackColor = System.Drawing.SystemColors.Window;
+            this.trdPitchResponseSet2.Location = new System.Drawing.Point(457, 68);
+            this.trdPitchResponseSet2.Name = "trdPitchResponseSet2";
+            this.trdPitchResponseSet2.Size = new System.Drawing.Size(54, 20);
+            this.trdPitchResponseSet2.TabIndex = 45;
+            // 
+            // trdAzimuthResponseSet2
+            // 
+            this.trdAzimuthResponseSet2.BackColor = System.Drawing.SystemColors.Window;
+            this.trdAzimuthResponseSet2.Location = new System.Drawing.Point(457, 94);
+            this.trdAzimuthResponseSet2.Name = "trdAzimuthResponseSet2";
+            this.trdAzimuthResponseSet2.Size = new System.Drawing.Size(54, 20);
+            this.trdAzimuthResponseSet2.TabIndex = 46;
+            // 
+            // trdSendButton1
+            // 
+            this.trdSendButton1.Enabled = false;
+            this.trdSendButton1.Location = new System.Drawing.Point(239, 90);
+            this.trdSendButton1.Name = "trdSendButton1";
+            this.trdSendButton1.Size = new System.Drawing.Size(30, 23);
+            this.trdSendButton1.TabIndex = 43;
+            this.trdSendButton1.Text = "Go";
+            this.trdSendButton1.UseVisualStyleBackColor = true;
+            this.trdSendButton1.Click += new System.EventHandler(this.trdSendButton1_Click);
             // 
             // trdRpmResponse1
             // 
@@ -988,14 +1395,39 @@
             this.trdRpmResponse1.TabIndex = 12;
             this.trdRpmResponse1.TabStop = false;
             // 
+            // trdRpmResponseSet1
+            // 
+            this.trdRpmResponseSet1.BackColor = System.Drawing.SystemColors.Window;
+            this.trdRpmResponseSet1.Location = new System.Drawing.Point(180, 41);
+            this.trdRpmResponseSet1.Name = "trdRpmResponseSet1";
+            this.trdRpmResponseSet1.Size = new System.Drawing.Size(54, 20);
+            this.trdRpmResponseSet1.TabIndex = 40;
+            // 
+            // trdPitchResponseSet1
+            // 
+            this.trdPitchResponseSet1.BackColor = System.Drawing.SystemColors.Window;
+            this.trdPitchResponseSet1.Location = new System.Drawing.Point(180, 67);
+            this.trdPitchResponseSet1.Name = "trdPitchResponseSet1";
+            this.trdPitchResponseSet1.Size = new System.Drawing.Size(54, 20);
+            this.trdPitchResponseSet1.TabIndex = 41;
+            // 
             // label28
             // 
             this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.Location = new System.Drawing.Point(10, 22);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(79, 13);
             this.label28.TabIndex = 9;
             this.label28.Text = "Bow Thruster 1";
+            // 
+            // trdAzimuthResponseSet1
+            // 
+            this.trdAzimuthResponseSet1.BackColor = System.Drawing.SystemColors.Window;
+            this.trdAzimuthResponseSet1.Location = new System.Drawing.Point(180, 93);
+            this.trdAzimuthResponseSet1.Name = "trdAzimuthResponseSet1";
+            this.trdAzimuthResponseSet1.Size = new System.Drawing.Size(54, 20);
+            this.trdAzimuthResponseSet1.TabIndex = 42;
             // 
             // label34
             // 
@@ -1100,6 +1532,7 @@
             // label43
             // 
             this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.Location = new System.Drawing.Point(287, 22);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(83, 13);
@@ -1122,6 +1555,7 @@
             this.groupBox6.Controls.Add(this.label36);
             this.groupBox6.Controls.Add(this.label39);
             this.groupBox6.Controls.Add(this.btrRealValue);
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(581, 127);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(278, 125);
@@ -1184,6 +1618,7 @@
             this.groupBox7.Controls.Add(this.label44);
             this.groupBox7.Controls.Add(this.label45);
             this.groupBox7.Controls.Add(this.eomElapsedTime);
+            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.Location = new System.Drawing.Point(581, 268);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(278, 125);
@@ -1251,69 +1686,106 @@
             this.label41.TabIndex = 44;
             this.label41.Text = "Last Outgoing String:";
             // 
-            // sendTrc1Button
+            // newNmeaBox
             // 
-            this.sendTrc1Button.Enabled = false;
-            this.sendTrc1Button.Location = new System.Drawing.Point(239, 92);
-            this.sendTrc1Button.Name = "sendTrc1Button";
-            this.sendTrc1Button.Size = new System.Drawing.Size(30, 23);
-            this.sendTrc1Button.TabIndex = 29;
-            this.sendTrc1Button.Text = "Go";
-            this.sendTrc1Button.UseVisualStyleBackColor = true;
-            this.sendTrc1Button.Click += new System.EventHandler(this.sendStringsButton_Click);
+            this.newNmeaBox.FormattingEnabled = true;
+            this.newNmeaBox.Items.AddRange(new object[] {
+            "TRC",
+            "TRD",
+            "PRC",
+            "RPM, Engine",
+            "RPM, Shaft",
+            "ETL"});
+            this.newNmeaBox.Location = new System.Drawing.Point(9, 22);
+            this.newNmeaBox.Name = "newNmeaBox";
+            this.newNmeaBox.Size = new System.Drawing.Size(121, 21);
+            this.newNmeaBox.TabIndex = 46;
+            this.newNmeaBox.Text = "Sentence Type";
+            this.newNmeaBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // label49
+            // newNmeaInput1
             // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(457, 21);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(47, 13);
-            this.label49.TabIndex = 38;
-            this.label49.Text = "Override";
+            this.newNmeaInput1.BackColor = System.Drawing.SystemColors.Window;
+            this.newNmeaInput1.Location = new System.Drawing.Point(115, 53);
+            this.newNmeaInput1.Name = "newNmeaInput1";
+            this.newNmeaInput1.Size = new System.Drawing.Size(54, 20);
+            this.newNmeaInput1.TabIndex = 43;
+            this.newNmeaInput1.Visible = false;
             // 
-            // label50
+            // newNmeaInput2
             // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(398, 22);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(53, 13);
-            this.label50.TabIndex = 37;
-            this.label50.Text = "DH Value";
+            this.newNmeaInput2.BackColor = System.Drawing.SystemColors.Window;
+            this.newNmeaInput2.Location = new System.Drawing.Point(115, 79);
+            this.newNmeaInput2.Name = "newNmeaInput2";
+            this.newNmeaInput2.Size = new System.Drawing.Size(54, 20);
+            this.newNmeaInput2.TabIndex = 44;
+            this.newNmeaInput2.Visible = false;
             // 
-            // trcRpmDemandSet2
+            // newNmeaInput3
             // 
-            this.trcRpmDemandSet2.BackColor = System.Drawing.SystemColors.Window;
-            this.trcRpmDemandSet2.Location = new System.Drawing.Point(457, 42);
-            this.trcRpmDemandSet2.Name = "trcRpmDemandSet2";
-            this.trcRpmDemandSet2.Size = new System.Drawing.Size(54, 20);
-            this.trcRpmDemandSet2.TabIndex = 34;
+            this.newNmeaInput3.BackColor = System.Drawing.SystemColors.Window;
+            this.newNmeaInput3.Location = new System.Drawing.Point(115, 105);
+            this.newNmeaInput3.Name = "newNmeaInput3";
+            this.newNmeaInput3.Size = new System.Drawing.Size(54, 20);
+            this.newNmeaInput3.TabIndex = 45;
+            this.newNmeaInput3.Visible = false;
             // 
-            // trcPitchDemandSet2
+            // newNmeaDisp1
             // 
-            this.trcPitchDemandSet2.BackColor = System.Drawing.SystemColors.Window;
-            this.trcPitchDemandSet2.Location = new System.Drawing.Point(457, 68);
-            this.trcPitchDemandSet2.Name = "trcPitchDemandSet2";
-            this.trcPitchDemandSet2.Size = new System.Drawing.Size(54, 20);
-            this.trcPitchDemandSet2.TabIndex = 35;
+            this.newNmeaDisp1.AutoSize = true;
+            this.newNmeaDisp1.Location = new System.Drawing.Point(9, 56);
+            this.newNmeaDisp1.Name = "newNmeaDisp1";
+            this.newNmeaDisp1.Size = new System.Drawing.Size(45, 13);
+            this.newNmeaDisp1.TabIndex = 40;
+            this.newNmeaDisp1.Text = "display1";
+            this.newNmeaDisp1.Visible = false;
             // 
-            // trcAzimuthDemandSet2
+            // newNmeaDisp2
             // 
-            this.trcAzimuthDemandSet2.BackColor = System.Drawing.SystemColors.Window;
-            this.trcAzimuthDemandSet2.Location = new System.Drawing.Point(457, 94);
-            this.trcAzimuthDemandSet2.Name = "trcAzimuthDemandSet2";
-            this.trcAzimuthDemandSet2.Size = new System.Drawing.Size(54, 20);
-            this.trcAzimuthDemandSet2.TabIndex = 36;
+            this.newNmeaDisp2.AutoSize = true;
+            this.newNmeaDisp2.Location = new System.Drawing.Point(9, 82);
+            this.newNmeaDisp2.Name = "newNmeaDisp2";
+            this.newNmeaDisp2.Size = new System.Drawing.Size(45, 13);
+            this.newNmeaDisp2.TabIndex = 41;
+            this.newNmeaDisp2.Text = "display2";
+            this.newNmeaDisp2.Visible = false;
             // 
-            // sendTrc2Button
+            // newNmeaDisp3
             // 
-            this.sendTrc2Button.Enabled = false;
-            this.sendTrc2Button.Location = new System.Drawing.Point(516, 91);
-            this.sendTrc2Button.Name = "sendTrc2Button";
-            this.sendTrc2Button.Size = new System.Drawing.Size(30, 23);
-            this.sendTrc2Button.TabIndex = 39;
-            this.sendTrc2Button.Text = "Go";
-            this.sendTrc2Button.UseVisualStyleBackColor = true;
-            this.sendTrc2Button.Click += new System.EventHandler(this.sendTrc2Button_Click);
+            this.newNmeaDisp3.AutoSize = true;
+            this.newNmeaDisp3.Location = new System.Drawing.Point(9, 108);
+            this.newNmeaDisp3.Name = "newNmeaDisp3";
+            this.newNmeaDisp3.Size = new System.Drawing.Size(48, 13);
+            this.newNmeaDisp3.TabIndex = 42;
+            this.newNmeaDisp3.Text = "display 3";
+            this.newNmeaDisp3.Visible = false;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.newNmeaSentenceButton);
+            this.groupBox8.Controls.Add(this.newNmeaInput1);
+            this.groupBox8.Controls.Add(this.newNmeaInput2);
+            this.groupBox8.Controls.Add(this.newNmeaDisp3);
+            this.groupBox8.Controls.Add(this.newNmeaBox);
+            this.groupBox8.Controls.Add(this.newNmeaDisp2);
+            this.groupBox8.Controls.Add(this.newNmeaInput3);
+            this.groupBox8.Controls.Add(this.newNmeaDisp1);
+            this.groupBox8.Location = new System.Drawing.Point(581, 411);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(313, 166);
+            this.groupBox8.TabIndex = 47;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Create New NMEA String";
+            // 
+            // newNmeaSentenceButton
+            // 
+            this.newNmeaSentenceButton.Enabled = false;
+            this.newNmeaSentenceButton.Location = new System.Drawing.Point(139, 131);
+            this.newNmeaSentenceButton.Name = "newNmeaSentenceButton";
+            this.newNmeaSentenceButton.Size = new System.Drawing.Size(30, 23);
+            this.newNmeaSentenceButton.TabIndex = 64;
+            this.newNmeaSentenceButton.Text = "Go";
+            this.newNmeaSentenceButton.UseVisualStyleBackColor = true;
             // 
             // TestForm
             // 
@@ -1339,6 +1811,7 @@
             this.Controls.Add(this.sentenceTypeLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox8);
             this.Name = "TestForm";
             this.Text = "Bridge Interface Test";
             this.groupBox1.ResumeLayout(false);
@@ -1355,6 +1828,8 @@
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1460,7 +1935,7 @@
         private System.Windows.Forms.TextBox eomElapsedTime;
         private System.Windows.Forms.TextBox lastStringSent;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Button sendTrc1Button;
+        private System.Windows.Forms.Button trcSendButton1;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.TextBox trcRpmDemandSet1;
@@ -1471,7 +1946,48 @@
         private System.Windows.Forms.TextBox trcRpmDemandSet2;
         private System.Windows.Forms.TextBox trcPitchDemandSet2;
         private System.Windows.Forms.TextBox trcAzimuthDemandSet2;
-        private System.Windows.Forms.Button sendTrc2Button;
+        private System.Windows.Forms.Button trcSendButton2;
+        private System.Windows.Forms.Button etlSendButton2;
+        private System.Windows.Forms.TextBox etlEventTimeSet2;
+        private System.Windows.Forms.TextBox etlTelegraphPosSet2;
+        private System.Windows.Forms.TextBox etlSubTelPosSet2;
+        private System.Windows.Forms.Button etlSendButton1;
+        private System.Windows.Forms.TextBox etlEventTimeSet1;
+        private System.Windows.Forms.TextBox etlTelegraphPosSet1;
+        private System.Windows.Forms.TextBox etlSubTelPosSet1;
+        private System.Windows.Forms.Button prcSendButton2;
+        private System.Windows.Forms.TextBox prcLeverPosSet2;
+        private System.Windows.Forms.TextBox prcRpmDemandSet2;
+        private System.Windows.Forms.TextBox prcPitchDemandSet2;
+        private System.Windows.Forms.Button prcSendButton1;
+        private System.Windows.Forms.TextBox prcLeverPosSet1;
+        private System.Windows.Forms.TextBox prcRpmDemandSet1;
+        private System.Windows.Forms.TextBox prcPitchDemandSet1;
+        private System.Windows.Forms.Button rpmSendButton2;
+        private System.Windows.Forms.TextBox rpmEngSpeedSet2;
+        private System.Windows.Forms.TextBox rpmShaftSpeedSet2;
+        private System.Windows.Forms.TextBox rpmPropPitchSet2;
+        private System.Windows.Forms.Button rpmSendButton1;
+        private System.Windows.Forms.TextBox rpmEngSpeedSet1;
+        private System.Windows.Forms.TextBox rpmShaftSpeedSet1;
+        private System.Windows.Forms.TextBox rpmPropPitchSet1;
+        private System.Windows.Forms.Button trdSendButton2;
+        private System.Windows.Forms.TextBox trdRpmResponseSet2;
+        private System.Windows.Forms.TextBox trdPitchResponseSet2;
+        private System.Windows.Forms.TextBox trdAzimuthResponseSet2;
+        private System.Windows.Forms.Button trdSendButton1;
+        private System.Windows.Forms.TextBox trdRpmResponseSet1;
+        private System.Windows.Forms.TextBox trdPitchResponseSet1;
+        private System.Windows.Forms.TextBox trdAzimuthResponseSet1;
+        private System.Windows.Forms.ComboBox newNmeaBox;
+        private System.Windows.Forms.TextBox newNmeaInput1;
+        private System.Windows.Forms.TextBox newNmeaInput2;
+        private System.Windows.Forms.TextBox newNmeaInput3;
+        private System.Windows.Forms.Label newNmeaDisp1;
+        private System.Windows.Forms.Label newNmeaDisp2;
+        private System.Windows.Forms.Label newNmeaDisp3;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Button newNmeaSentenceButton;
     }
 }
 

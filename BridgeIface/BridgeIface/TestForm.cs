@@ -350,7 +350,7 @@ namespace BridgeIface
         private void parseRSA(string[] data) { } // This Sentence is not in NMEA Interface Manual
 
         private const float MAX_DEGREES = 12.3f;  // Should this really be hard-coded? -nse
-        private const float MAX_RPM = 2000f;
+        private const float MAX_RPM = 2000f; //Just a wag at max rpm. Should be corrected later.
         private float calcPercentDemand(string rpmDemand, string rpmMode)
         {
             float value = float.Parse(rpmDemand);
@@ -446,24 +446,25 @@ namespace BridgeIface
                 dh.readFromDataHolder();
             }
 
-            if (trcAzimuthDemandSet1.Text != "" && trcRpmDemandSet1.Text != "" && trcPitchDemandSet1.Text != "")
-            {
-                sendTrc1Button.Enabled = true;
-            }
-            if (trcAzimuthDemandSet2.Text != "" && trcRpmDemandSet2.Text != "" && trcPitchDemandSet2.Text != "")
-            {
-                sendTrc2Button.Enabled = true;
-            }
-            
+            trcSendButton1.Enabled = (trcAzimuthDemandSet1.Text != "" && trcRpmDemandSet1.Text != "" && trcPitchDemandSet1.Text != "");
+            trcSendButton2.Enabled = (trcAzimuthDemandSet2.Text != "" && trcRpmDemandSet2.Text != "" && trcPitchDemandSet2.Text != "");
+            trdSendButton1.Enabled = (trdAzimuthResponseSet1.Text != "" && trdRpmResponseSet1.Text != "" && trdPitchResponseSet1.Text != "");
+            trdSendButton2.Enabled = (trdAzimuthResponseSet2.Text != "" && trdRpmResponseSet2.Text != "" && trdPitchResponseSet2.Text != "");
+            prcSendButton1.Enabled = (prcLeverPosSet1.Text != "" && prcPitchDemandSet1.Text != "" && prcRpmDemandSet1.Text != "");
+            prcSendButton2.Enabled = (prcLeverPosSet2.Text != "" && prcPitchDemandSet2.Text != "" && prcRpmDemandSet2.Text != "");
+            etlSendButton1.Enabled = (etlEventTimeSet1.Text != "" && etlSubTelPosSet1.Text != "" && etlEventTimeSet1.Text != "");
+            etlSendButton2.Enabled = (etlEventTimeSet2.Text != "" && etlSubTelPosSet2.Text != "" && etlEventTimeSet2.Text != "");
+            //rpm can only send engine or shaft in each nmea sentence. therefor xor operator is used here.
+            rpmSendButton1.Enabled = ((rpmEngSpeedSet1.Text != "" ^ rpmShaftSpeedSet1.Text != "") && rpmPropPitchSet1.Text != "");
+            rpmSendButton2.Enabled = ((rpmEngSpeedSet2.Text != "" ^ rpmShaftSpeedSet2.Text != "") && rpmPropPitchSet2.Text != "");
         }
 
         List<DHControl> m_outputControls = new List<DHControl>();           //This is for later, when trying to stimulate our output to VStep
         List<DHControl> m_inputControls = new List<DHControl>();//This is for taking DataHolder values (written to by parsing NMEA), and displaying them on the screen
         
-
-        private void sendStringsButton_Click(object sender, EventArgs e)
+        private void sendTrc1Button_Click(object sender, EventArgs e)
         {
-            string s = "$--TRC,1," + trcRpmDemandSet1.Text + ",P," + trcPitchDemandSet1.Text + ",P," + float.Parse(trcAzimuthDemandSet1.Text)*10 + ",S,C*hh<CR><LF>";//calc checksum?
+            string s = "$--TRC,1," + trcRpmDemandSet1.Text + ",P," + trcPitchDemandSet1.Text + ",P," + float.Parse(trcAzimuthDemandSet1.Text)*10 + ",S,C*hh<CR><LF>";//TODO: should we calc checksums?
             parser(s);//TODO: should this just set dataholder instead?
             lastStringSent.Text = s;
 
@@ -471,12 +472,11 @@ namespace BridgeIface
             trcRpmDemandSet1.Text = null;
             trcPitchDemandSet1.Text = null;
             trcAzimuthDemandSet1.Text = null;
-            sendTrc1Button.Enabled = false;
+            trcSendButton1.Enabled = false;
         }
-
         private void sendTrc2Button_Click(object sender, EventArgs e)
         {
-            string s = "$--TRC,2," + trcRpmDemandSet2.Text + ",P," + trcPitchDemandSet2.Text + ",P," + float.Parse(trcAzimuthDemandSet2.Text) * 10 + ",S,C*hh<CR><LF>";//calc checksum?
+            string s = "$--TRC,2," + trcRpmDemandSet2.Text + ",P," + trcPitchDemandSet2.Text + ",P," + float.Parse(trcAzimuthDemandSet2.Text) * 10 + ",S,C*hh<CR><LF>";
             parser(s);//TODO: should this just set dataholder instead?
             lastStringSent.Text = s;
 
@@ -484,7 +484,125 @@ namespace BridgeIface
             trcRpmDemandSet2.Text = null;
             trcPitchDemandSet2.Text = null;
             trcAzimuthDemandSet2.Text = null;
-            sendTrc2Button.Enabled = false;
+            trcSendButton2.Enabled = false;
+        }
+        private void trdSendButton1_Click(object sender, EventArgs e)
+        {
+            string s = "$--TRD,1," + trdRpmResponseSet1.Text + ",P," + trdPitchResponseSet1.Text + ",P," + float.Parse(trdAzimuthResponseSet1.Text)*10 + "*hh<CR><LF>";
+            parser(s);
+            lastStringSent.Text = s;
+
+            //null out Set boxes & button
+            trdRpmResponseSet1.Text = null;
+            trdPitchResponseSet1.Text = null;
+            trdAzimuthResponseSet1.Text = null;
+            trdSendButton1.Enabled = false;
+        }
+        private void trdSendButton2_Click(object sender, EventArgs e)
+        {
+            string s = "$--TRD,2," + trdRpmResponseSet2.Text + ",P," + trdPitchResponseSet2.Text + ",P," + float.Parse(trdAzimuthResponseSet2.Text) * 10 + "*hh<CR><LF>";
+            parser(s);
+            lastStringSent.Text = s;
+
+            //null out Set boxes & button
+            trdRpmResponseSet2.Text = null;
+            trdPitchResponseSet2.Text = null;
+            trdAzimuthResponseSet2.Text = null;
+            trdSendButton2.Enabled = false;
+        }
+        private void prcSendButton1_Click(object sender, EventArgs e)
+        {
+            string s = "$--PRC," + prcLeverPosSet1.Text + ",A," + prcRpmDemandSet1.Text + ",P," + prcPitchDemandSet1.Text + ",P,S,1*hh<CR><LF>";
+            parser(s);
+            lastStringSent.Text = s;
+
+            //null out Set boxes & button
+            prcLeverPosSet1.Text = null;
+            prcRpmDemandSet1.Text = null;
+            prcPitchDemandSet1.Text = null;
+            prcSendButton1.Enabled = false;
+        }
+        private void prcSendButton2_Click(object sender, EventArgs e)
+        {
+            string s = "$--PRC," + prcLeverPosSet2.Text + ",A," + prcRpmDemandSet2.Text + ",P," + prcPitchDemandSet2.Text + ",P,S,2*hh<CR><LF>";
+            parser(s);
+            lastStringSent.Text = s;
+
+            //null out Set boxes & button
+            prcLeverPosSet2.Text = null;
+            prcRpmDemandSet2.Text = null;
+            prcPitchDemandSet2.Text = null;
+            prcSendButton2.Enabled = false;
+        }
+        private void rpmSendButton1_Click(object sender, EventArgs e)
+        {
+            string src = (rpmEngSpeedSet1.Text != "") ? "E" : "S";
+            string s = "$--RPM," + src + ",1," + rpmEngSpeedSet1.Text + rpmShaftSpeedSet1.Text + "," + rpmPropPitchSet1.Text + ",A*hh<CR><LF>";
+            parser(s);
+            lastStringSent.Text = s;
+
+            //null out Set boxes & button
+            rpmEngSpeedSet1.Text = null;
+            rpmShaftSpeedSet1.Text = null;
+            rpmPropPitchSet1.Text = null;
+            rpmSendButton1.Enabled = false;
+        }
+        private void rpmSendButton2_Click(object sender, EventArgs e)
+        {
+            string src = (rpmEngSpeedSet2.Text != "") ? "E" : "S";
+            string s = "$--RPM," + src + ",2," + rpmEngSpeedSet2.Text + rpmShaftSpeedSet2.Text + "," + rpmPropPitchSet2.Text + ",A*hh<CR><LF>";
+            parser(s);
+            lastStringSent.Text = s;
+
+            //null out Set boxes & button
+            rpmEngSpeedSet2.Text = null;
+            rpmShaftSpeedSet2.Text = null;
+            rpmPropPitchSet2.Text = null;
+            rpmSendButton2.Enabled = false;
+        }
+        private void etlSendButton1_Click(object sender, EventArgs e)
+        {
+            string s = "$--ETL," + etlEventTimeSet1.Text + ",O," + etlSubTelPosSet1.Text + "," + etlTelegraphPosSet1.Text + ",S,1*hh<CR><LF>";
+            parser(s);
+            lastStringSent.Text = s;
+
+            //null out Set boxes & button
+            etlEventTimeSet1.Text = null;
+            etlSubTelPosSet1.Text = null;
+            etlTelegraphPosSet1.Text = null;
+            etlSendButton1.Enabled = false;
+        }
+        private void etlSendButton2_Click(object sender, EventArgs e)
+        {
+            string s = "$--ETL," + etlEventTimeSet2.Text + ",O," + etlSubTelPosSet2.Text + "," + etlTelegraphPosSet2.Text + ",S,2*hh<CR><LF>";
+            parser(s);
+            lastStringSent.Text = s;
+
+            //null out Set boxes & button
+            etlEventTimeSet2.Text = null;
+            etlSubTelPosSet2.Text = null;
+            etlTelegraphPosSet2.Text = null;
+            etlSendButton2.Enabled = false;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch(newNmeaBox.SelectedItem.ToString())
+            {
+                case ("TRC"):
+                    {
+                        newNmeaDisp1.Text = "RPM Demand(%):";
+                        newNmeaDisp2.Text = "Pitch Demand(%):";
+                        newNmeaDisp3.Text = "Azimuth Demand:";
+                        break;
+                    }
+            }
+            newNmeaDisp1.Visible = true;
+            newNmeaDisp2.Visible = true;
+            newNmeaDisp3.Visible = true;
+            newNmeaInput1.Visible = true;
+            newNmeaInput2.Visible = true;
+            newNmeaInput3.Visible = true;
         }
     }
 }
