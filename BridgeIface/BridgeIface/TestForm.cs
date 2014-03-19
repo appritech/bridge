@@ -53,12 +53,12 @@ namespace BridgeIface
             m_inputControls.Add(new DHControl("Engine 2 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitch2, false));
 
             //TRD Components
-            m_inputControls.Add(new DHControl("Thruster 1 RPM", FloatIntBoolNone.Float, trdRpmDemand1, false));
-            m_inputControls.Add(new DHControl("Thruster 1 Pitch", FloatIntBoolNone.Float, trdPitchDemand1, false));
-            m_inputControls.Add(new DHControl("Thruster 1 Azimuth", FloatIntBoolNone.Float, trdAzimuthDemand1, false));
-            m_inputControls.Add(new DHControl("Thruster 2 RPM", FloatIntBoolNone.Float, trdRpmDemand2, false));
-            m_inputControls.Add(new DHControl("Thruster 2 Pitch", FloatIntBoolNone.Float, trdPitchDemand2, false));
-            m_inputControls.Add(new DHControl("Thruster 2 Azimuth", FloatIntBoolNone.Float, trdAzimuthDemand2, false));
+            m_inputControls.Add(new DHControl("Thruster 1 RPM", FloatIntBoolNone.Float, trdRpmResponse1, false));
+            m_inputControls.Add(new DHControl("Thruster 1 Pitch", FloatIntBoolNone.Float, trdPitchResponse1, false));
+            m_inputControls.Add(new DHControl("Thruster 1 Azimuth", FloatIntBoolNone.Float, trdAzimuthResponse1, false));
+            m_inputControls.Add(new DHControl("Thruster 2 RPM", FloatIntBoolNone.Float, trdRpmResponse2, false));
+            m_inputControls.Add(new DHControl("Thruster 2 Pitch", FloatIntBoolNone.Float, trdPitchResponse2, false));
+            m_inputControls.Add(new DHControl("Thruster 2 Azimuth", FloatIntBoolNone.Float, trdAzimuthResponse2, false));
 
             //BTR Components
             m_inputControls.Add(new DHControl("Bow Thruster Set Value", FloatIntBoolNone.Float, btrSetValue, false));
@@ -78,7 +78,7 @@ namespace BridgeIface
         private void parser(String sentence)
         {
             errorMessage.Text = "";
-            lastStringEntered.Text = sentence;
+            lastStringReceived.Text = sentence;
             string[] data = sentence.Split(',','*');
 
             switch (data[0])
@@ -134,7 +134,7 @@ namespace BridgeIface
                 errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-            sentenceTypeDisplay.Text = "Thruster Control Data";
+            sentenceTypeReceivedDisplay.Text = "Thruster Control Data";
 
             string thrusterNum = data[1];
             string rpmDemand = data[2];
@@ -150,7 +150,7 @@ namespace BridgeIface
 
             DataHolderIface.SetFloatVal(thrusterName + " Thruster " + thrusterNum + " RPM Demand", calcPercentDemand(rpmDemand, rpmMode));          //Always write to dataholder the percent
             DataHolderIface.SetFloatVal(thrusterName + " Thruster " + thrusterNum + " Pitch Demand", calcPercentDemand(pitchDemand, pitchMode));          //Always write to dataholder the percent
-            DataHolderIface.SetFloatVal(thrusterName + " Thruster " + thrusterNum + " Azimuth Demand", float.Parse(azimuthDemand));
+            DataHolderIface.SetFloatVal(thrusterName + " Thruster " + thrusterNum + " Azimuth Demand", float.Parse(azimuthDemand)/10);
             DataHolderIface.SetStringVal(thrusterName + " Thruster " + thrusterNum + " Operating Location", convLocation(operatingLocation));
             DataHolderIface.SetStringVal(thrusterName + " Thruster " + thrusterNum + " Sentence Status", convStatus(sentenceStatus));
 
@@ -162,7 +162,7 @@ namespace BridgeIface
                 errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-            sentenceTypeDisplay.Text = "Engine telegraph operation status";
+            sentenceTypeReceivedDisplay.Text = "Engine telegraph operation status";
 
             string eventTime = data[1];
             string messageType = data[2];
@@ -185,7 +185,7 @@ namespace BridgeIface
                 errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-            sentenceTypeDisplay.Text = "Propulsion Remote Control Status";
+            sentenceTypeReceivedDisplay.Text = "Propulsion Remote Control Status";
 
             string leverDemandPosition = data[1];
             string leverDemandValid = data[2];
@@ -198,10 +198,12 @@ namespace BridgeIface
             string checkSum = data[9];
 
             if (leverDemandValid == "A") //TODO: should this negate entire nmea sentence or just lever demand?
+            {
                 DataHolderIface.SetFloatVal("Remote Engine " + engineNum + " Lever Demand Position", float.Parse(leverDemandPosition));
-            DataHolderIface.SetFloatVal("Remote Engine " + engineNum + " RPM Demand", calcPercentDemand(rpmDemand, rpmMode));
-            DataHolderIface.SetFloatVal("Remote Engine " + engineNum + " Pitch Demand", calcPercentDemand(pitchDemand, pitchMode));
-            DataHolderIface.SetStringVal("Remote Engine " + engineNum + " Operating Location", convLocation(operatingLocation));
+                DataHolderIface.SetFloatVal("Remote Engine " + engineNum + " RPM Demand", calcPercentDemand(rpmDemand, rpmMode));
+                DataHolderIface.SetFloatVal("Remote Engine " + engineNum + " Pitch Demand", calcPercentDemand(pitchDemand, pitchMode));
+                DataHolderIface.SetStringVal("Remote Engine " + engineNum + " Operating Location", convLocation(operatingLocation));
+            }
         }
         private void parseRPM(string[] data)
         {
@@ -210,7 +212,7 @@ namespace BridgeIface
                 errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-            sentenceTypeDisplay.Text = "Revolutions";
+            sentenceTypeReceivedDisplay.Text = "Revolutions";
 
             string source = data[1];    //Source, shaft/engine S/E
             string engineNum = data[2]; //Engine or shaft number, numbered from centreline; 0=single or on centreline; odd=starboard; even=port
@@ -225,7 +227,6 @@ namespace BridgeIface
                 DataHolderIface.SetFloatVal("Engine " + engineNum + " Propeller Pitch", float.Parse(propPitch));
             }
         }
-
         private void parseTRD(string[] data)
         {
             if (data.Length < 8)
@@ -233,7 +234,7 @@ namespace BridgeIface
                 errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-            sentenceTypeDisplay.Text = "Thruster response data";
+            sentenceTypeReceivedDisplay.Text = "Thruster response data";
 
             string thrusterNum = data[1];
             string rpmResponse = data[2];
@@ -244,7 +245,7 @@ namespace BridgeIface
 
             DataHolderIface.SetFloatVal("Thruster " + thrusterNum + " RPM", calcPercentDemand(rpmResponse, rpmMode));
             DataHolderIface.SetFloatVal("Thruster " + thrusterNum + " Pitch", calcPercentDemand(pitchResponse, pitchMode));
-            DataHolderIface.SetFloatVal("Thruster " + thrusterNum + " Azimuth", float.Parse(azimuthResponse));
+            DataHolderIface.SetFloatVal("Thruster " + thrusterNum + " Azimuth", float.Parse(azimuthResponse)/10);
         }
         private void parseBTR(string[] data)
         {
@@ -253,7 +254,7 @@ namespace BridgeIface
                 errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-            sentenceTypeDisplay.Text = "Bow thruster set value";
+            sentenceTypeReceivedDisplay.Text = "Bow thruster set value";
 
             string setValue = data[1];
             string setStatus = data[2];
@@ -270,7 +271,7 @@ namespace BridgeIface
                 errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-            sentenceTypeDisplay.Text = "End of Mission";
+            sentenceTypeReceivedDisplay.Text = "End of Mission";
 
             string missionStatus = data[1];
             string elapsedTime = data[2];
@@ -285,7 +286,7 @@ namespace BridgeIface
                 errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-            sentenceTypeDisplay.Text = "Bow thruster thrust";
+            sentenceTypeReceivedDisplay.Text = "Bow thruster thrust";
 
             string angle = data[1];
             string thrust = data[2];
@@ -302,7 +303,7 @@ namespace BridgeIface
                 errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-            sentenceTypeDisplay.Text = "Portside thrust and angle";
+            sentenceTypeReceivedDisplay.Text = "Portside thrust and angle";
 
             string angle = data[1];
             string thrust = data[2];
@@ -319,7 +320,7 @@ namespace BridgeIface
                 errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-            sentenceTypeDisplay.Text = "Starboard thrust and angle";
+            sentenceTypeReceivedDisplay.Text = "Starboard thrust and angle";
 
             string angle = data[1];
             string thrust = data[2];
@@ -336,7 +337,7 @@ namespace BridgeIface
                 errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-            sentenceTypeDisplay.Text = "Stern thrust and angle";
+            sentenceTypeReceivedDisplay.Text = "Stern thrust and angle";
 
             string angle = data[1];
             string thrust = data[2];
@@ -444,10 +445,46 @@ namespace BridgeIface
             {
                 dh.readFromDataHolder();
             }
+
+            if (trcAzimuthDemandSet1.Text != "" && trcRpmDemandSet1.Text != "" && trcPitchDemandSet1.Text != "")
+            {
+                sendTrc1Button.Enabled = true;
+            }
+            if (trcAzimuthDemandSet2.Text != "" && trcRpmDemandSet2.Text != "" && trcPitchDemandSet2.Text != "")
+            {
+                sendTrc2Button.Enabled = true;
+            }
+            
         }
 
         List<DHControl> m_outputControls = new List<DHControl>();           //This is for later, when trying to stimulate our output to VStep
-        List<DHControl> m_inputControls = new List<DHControl>();            //This is for taking DataHolder values (written to by parsing NMEA), and displaying them on the screen
+        List<DHControl> m_inputControls = new List<DHControl>();//This is for taking DataHolder values (written to by parsing NMEA), and displaying them on the screen
+        
 
+        private void sendStringsButton_Click(object sender, EventArgs e)
+        {
+            string s = "$--TRC,1," + trcRpmDemandSet1.Text + ",P," + trcPitchDemandSet1.Text + ",P," + float.Parse(trcAzimuthDemandSet1.Text)*10 + ",S,C*hh<CR><LF>";//calc checksum?
+            parser(s);//TODO: should this just set dataholder instead?
+            lastStringSent.Text = s;
+
+            //null out Set boxes & button
+            trcRpmDemandSet1.Text = null;
+            trcPitchDemandSet1.Text = null;
+            trcAzimuthDemandSet1.Text = null;
+            sendTrc1Button.Enabled = false;
+        }
+
+        private void sendTrc2Button_Click(object sender, EventArgs e)
+        {
+            string s = "$--TRC,2," + trcRpmDemandSet2.Text + ",P," + trcPitchDemandSet2.Text + ",P," + float.Parse(trcAzimuthDemandSet2.Text) * 10 + ",S,C*hh<CR><LF>";//calc checksum?
+            parser(s);//TODO: should this just set dataholder instead?
+            lastStringSent.Text = s;
+
+            //null out Set boxes & button
+            trcRpmDemandSet2.Text = null;
+            trcPitchDemandSet2.Text = null;
+            trcAzimuthDemandSet2.Text = null;
+            sendTrc2Button.Enabled = false;
+        }
     }
 }
