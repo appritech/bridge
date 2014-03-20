@@ -17,16 +17,19 @@ namespace BridgeIface
             InitializeComponent();
             
             //TRC Components
-            m_inputControls.Add(new DHControl("Bow Thruster 1 RPM Demand", FloatIntBoolNone.Float, trcRpmDemandDisplay1, false));
-            m_inputControls.Add(new DHControl("Bow Thruster 1 Pitch Demand", FloatIntBoolNone.Float, trcPitchDemandDisplay1, false));
-            m_inputControls.Add(new DHControl("Bow Thruster 1 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthDemandDisplay1, false));
-            //m_inputControls.Add(new DHControl("Bow Thruster 1 Operating Location",FloatIntBoolNone.None, locationDisplay1, false)); //TODO: decide if this needs enum or toss it.
-            //m_inputControls.Add(new DHControl("Bow Thruster 1 Sentence Status", FloatIntBoolNone.None, sentenceStatusDisplay1, false)); //TODO: decide if this needs enum or toss it.
-            m_inputControls.Add(new DHControl("Stern Thruster 2 RPM Demand", FloatIntBoolNone.Float, trcRpmDemandDisplay2, false));
-            m_inputControls.Add(new DHControl("Stern Thruster 2 Pitch Demand", FloatIntBoolNone.Float, trcPitchDemandDisplay2, false));
-            m_inputControls.Add(new DHControl("Stern Thruster 2 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthDemandDisplay2, false));
-            //m_inputControls.Add(new DHControl("Stern Thruster 2 Operating Location", FloatIntBoolNone.None, locationDisplay2, false)); //TODO: decide if this needs enum or toss it.
-            //m_inputControls.Add(new DHControl("Stern Thruster 2 Sentence Status", FloatIntBoolNone.None, sentenceStatusDisplay2, false)); //TODO: decide if this needs enum or toss it.
+            m_inputControls.Add(new DHControl("Thruster 1 RPM Demand", FloatIntBoolNone.Float, trcRpmDemandDisplay1, false));
+            m_inputControls.Add(new DHControl("Thruster 1 Pitch Demand", FloatIntBoolNone.Float, trcPitchDemandDisplay1, false));
+            m_inputControls.Add(new DHControl("Thruster 1 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthDemandDisplay1, false));
+            m_inputControls.Add(new DHControl("Thruster 2 RPM Demand", FloatIntBoolNone.Float, trcRpmDemandDisplay2, false));
+            m_inputControls.Add(new DHControl("Thruster 2 Pitch Demand", FloatIntBoolNone.Float, trcPitchDemandDisplay2, false));
+            m_inputControls.Add(new DHControl("Thruster 2 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthDemandDisplay2, false));
+
+            m_outputControls.Add(new DHControl("Thruster 1 RPM Demand", FloatIntBoolNone.Float, trcRpmTrackbar1, true));
+            m_outputControls.Add(new DHControl("Thruster 1 Pitch Demand", FloatIntBoolNone.Float, trcPitchTrackbar1, true));
+            m_outputControls.Add(new DHControl("Thruster 1 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthTrackbar1, true));
+            m_outputControls.Add(new DHControl("Thruster 2 RPM Demand", FloatIntBoolNone.Float, trcRpmTrackbar2, true));
+            m_outputControls.Add(new DHControl("Thruster 2 Pitch Demand", FloatIntBoolNone.Float, trcPitchTrackbar2, true));
+            m_outputControls.Add(new DHControl("Thruster 2 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthTrackbar2, true));
 
             //ETL Components
             m_inputControls.Add(new DHControl("Engine 1 Event Time", FloatIntBoolNone.Float, etlEventTime1, false));
@@ -36,6 +39,13 @@ namespace BridgeIface
             m_inputControls.Add(new DHControl("Engine 2 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphPos2, false));
             m_inputControls.Add(new DHControl("Engine 2 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos2, false));
 
+            //m_outputControls.Add(new DHControl("Engine 1 Event Time", FloatIntBoolNone.Float, etlEventTime1, true));
+            //m_outputControls.Add(new DHControl("Engine 1 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphPos1, true));
+            //m_outputControls.Add(new DHControl("Engine 1 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos1, true));
+            //m_outputControls.Add(new DHControl("Engine 2 Event Time", FloatIntBoolNone.Float, etlEventTime2, true));
+            //m_outputControls.Add(new DHControl("Engine 2 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphPos2, true));
+            //m_outputControls.Add(new DHControl("Engine 2 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos2, true));
+
             //PRC Components
             m_inputControls.Add(new DHControl("Remote Engine 1 Lever Demand Position", FloatIntBoolNone.Float, prcLeverPos1, false));
             m_inputControls.Add(new DHControl("Remote Engine 1 RPM Demand", FloatIntBoolNone.Float, prcRpmDemand1, false));
@@ -43,6 +53,13 @@ namespace BridgeIface
             m_inputControls.Add(new DHControl("Remote Engine 2 Lever Demand Position", FloatIntBoolNone.Float, prcLeverPos2, false));
             m_inputControls.Add(new DHControl("Remote Engine 2 RPM Demand", FloatIntBoolNone.Float, prcRpmDemand2, false));
             m_inputControls.Add(new DHControl("Remote Engine 2 Pitch Demand", FloatIntBoolNone.Float, prcPitchDemand2, false));
+
+            m_outputControls.Add(new DHControl("Remote Engine 1 Lever Demand Position", FloatIntBoolNone.Float, prcLeverTrackbar1, true));
+            m_outputControls.Add(new DHControl("Remote Engine 1 RPM Demand", FloatIntBoolNone.Float, prcRpmTrackbar1, true));
+            m_outputControls.Add(new DHControl("Remote Engine 1 Pitch Demand", FloatIntBoolNone.Float, prcPitchTrackbar1, true));
+            m_outputControls.Add(new DHControl("Remote Engine 2 Lever Demand Position", FloatIntBoolNone.Float, prcLeverTrackbar2, true));
+            m_outputControls.Add(new DHControl("Remote Engine 2 RPM Demand", FloatIntBoolNone.Float, prcRpmTrackbar2, true));
+            m_outputControls.Add(new DHControl("Remote Engine 2 Pitch Demand", FloatIntBoolNone.Float, prcPitchTrackbar2, true));
 
             //RPM Components
             m_inputControls.Add(new DHControl("Engine 1 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeed1, false));
@@ -52,6 +69,13 @@ namespace BridgeIface
             m_inputControls.Add(new DHControl("Engine 2 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeed2, false));
             m_inputControls.Add(new DHControl("Engine 2 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitch2, false));
 
+            m_outputControls.Add(new DHControl("Engine 1 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeedTrackbar1, true));
+            m_outputControls.Add(new DHControl("Engine 1 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeedTrackbar1, true));
+            m_outputControls.Add(new DHControl("Engine 1 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitchTrackbar1, true));
+            m_outputControls.Add(new DHControl("Engine 2 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeedTrackbar2, true));
+            m_outputControls.Add(new DHControl("Engine 2 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeedTrackbar2, true));
+            m_outputControls.Add(new DHControl("Engine 2 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitchTrackbar2, true));
+
             //TRD Components
             m_inputControls.Add(new DHControl("Thruster 1 RPM", FloatIntBoolNone.Float, trdRpmResponse1, false));
             m_inputControls.Add(new DHControl("Thruster 1 Pitch", FloatIntBoolNone.Float, trdPitchResponse1, false));
@@ -60,6 +84,13 @@ namespace BridgeIface
             m_inputControls.Add(new DHControl("Thruster 2 Pitch", FloatIntBoolNone.Float, trdPitchResponse2, false));
             m_inputControls.Add(new DHControl("Thruster 2 Azimuth", FloatIntBoolNone.Float, trdAzimuthResponse2, false));
 
+            m_outputControls.Add(new DHControl("Thruster 1 RPM", FloatIntBoolNone.Float, trdRpmTrackbar1, true));
+            m_outputControls.Add(new DHControl("Thruster 1 Pitch", FloatIntBoolNone.Float, trdPitchTrackbar1, true));
+            m_outputControls.Add(new DHControl("Thruster 1 Azimuth", FloatIntBoolNone.Float, trdAzimuthTrackbar1, true));
+            m_outputControls.Add(new DHControl("Thruster 2 RPM", FloatIntBoolNone.Float, trdRpmTrackbar2, true));
+            m_outputControls.Add(new DHControl("Thruster 2 Pitch", FloatIntBoolNone.Float, trdPitchTrackbar2, true));
+            m_outputControls.Add(new DHControl("Thruster 2 Azimuth", FloatIntBoolNone.Float, trdAzimuthTrackbar2, true));
+
             //BTR Components
             m_inputControls.Add(new DHControl("Bow Thruster Set Value", FloatIntBoolNone.Float, btrSetValue, false));
             m_inputControls.Add(new DHControl("Bow Thruster Real Value", FloatIntBoolNone.Float, btrRealValue, false));
@@ -67,9 +98,6 @@ namespace BridgeIface
             //EOM Components
             m_inputControls.Add(new DHControl("Mission Status", FloatIntBoolNone.Float, eomMissionStatus, false));
             m_inputControls.Add(new DHControl("Mission Elapsed Time", FloatIntBoolNone.Float, eomElapsedTime, false));
-
-            m_outputControls.Add(new DHControl("Bow Thruster 1 RPM Demand", FloatIntBoolNone.Float, trcRpmTrackbar1, true));
-            m_outputControls.Add(new DHControl("Bow Thruster 2 RPM Demand", FloatIntBoolNone.Float, vScrollBar1, true));
 
             timer1.Enabled = true;
         }
@@ -151,11 +179,9 @@ namespace BridgeIface
 
             string thrusterName = convBowStern(thrusterNum);
 
-            DataHolderIface.SetFloatVal(thrusterName + " Thruster " + thrusterNum + " RPM Demand", calcPercentDemand(rpmDemand, rpmMode));          //Always write to dataholder the percent
-            DataHolderIface.SetFloatVal(thrusterName + " Thruster " + thrusterNum + " Pitch Demand", calcPercentDemand(pitchDemand, pitchMode));          //Always write to dataholder the percent
-            DataHolderIface.SetFloatVal(thrusterName + " Thruster " + thrusterNum + " Azimuth Demand", float.Parse(azimuthDemand)/10);
-            DataHolderIface.SetStringVal(thrusterName + " Thruster " + thrusterNum + " Operating Location", convLocation(operatingLocation));
-            DataHolderIface.SetStringVal(thrusterName + " Thruster " + thrusterNum + " Sentence Status", convStatus(sentenceStatus));
+            DataHolderIface.SetFloatVal("Thruster " + thrusterNum + " RPM Demand", calcPercentDemand(rpmDemand, rpmMode));          //Always write to dataholder the percent
+            DataHolderIface.SetFloatVal("Thruster " + thrusterNum + " Pitch Demand", calcPercentDemand(pitchDemand, pitchMode));          //Always write to dataholder the percent
+            DataHolderIface.SetFloatVal("Thruster " + thrusterNum + " Azimuth Demand", float.Parse(azimuthDemand)/10);
 
         }
         private void parseETL(string[] data)
@@ -448,22 +474,14 @@ namespace BridgeIface
             {
                 dh.readFromDataHolder();
             }
-            foreach (DHControl dh in m_outputControls)
-            {
-                dh.writeToDataHolder();
-            }
+            //foreach (DHControl dh in m_outputControls)
+            //{
+            //    dh.writeToDataHolder();
+            //}
 
-            trcSendButton1.Enabled = (trcAzimuthDemandSet1.Text != "" && trcRpmDemandSet1.Text != "" && trcPitchDemandSet1.Text != "");
-            trcSendButton2.Enabled = (trcAzimuthDemandSet2.Text != "" && trcRpmDemandSet2.Text != "" && trcPitchDemandSet2.Text != "");
-            trdSendButton1.Enabled = (trdAzimuthResponseSet1.Text != "" && trdRpmResponseSet1.Text != "" && trdPitchResponseSet1.Text != "");
-            trdSendButton2.Enabled = (trdAzimuthResponseSet2.Text != "" && trdRpmResponseSet2.Text != "" && trdPitchResponseSet2.Text != "");
-            prcSendButton1.Enabled = (prcLeverPosSet1.Text != "" && prcPitchDemandSet1.Text != "" && prcRpmDemandSet1.Text != "");
-            prcSendButton2.Enabled = (prcLeverPosSet2.Text != "" && prcPitchDemandSet2.Text != "" && prcRpmDemandSet2.Text != "");
+            
             etlSendButton1.Enabled = (etlEventTimeSet1.Text != "" && etlSubTelPosSet1.Text != "" && etlEventTimeSet1.Text != "");
             etlSendButton2.Enabled = (etlEventTimeSet2.Text != "" && etlSubTelPosSet2.Text != "" && etlEventTimeSet2.Text != "");
-            //rpm can only send engine or shaft in each nmea sentence. therefor xor operator is used here.
-            rpmSendButton1.Enabled = ((rpmEngSpeedSet1.Text != "" ^ rpmShaftSpeedSet1.Text != "") && rpmPropPitchSet1.Text != "");
-            rpmSendButton2.Enabled = ((rpmEngSpeedSet2.Text != "" ^ rpmShaftSpeedSet2.Text != "") && rpmPropPitchSet2.Text != "");
         }
 
         List<DHControl> m_outputControls = new List<DHControl>();           //This is for later, when trying to stimulate our output to VStep
@@ -471,101 +489,66 @@ namespace BridgeIface
         
         private void sendTrc1Button_Click(object sender, EventArgs e)
         {
-            string s = "$--TRC,1," + trcRpmDemandSet1.Text + ",P," + trcPitchDemandSet1.Text + ",P," + float.Parse(trcAzimuthDemandSet1.Text) * 10 + ",S,C*hh\r\n";//TODO: should we calc checksums?
-            parser(s);//TODO: should this just set dataholder instead?
+            string s = "$--TRC,1," + trcRpmDemandDisplay1.Text + ",P," + trcPitchDemandDisplay1.Text + ",P," + float.Parse(trcAzimuthDemandDisplay1.Text) * 10 + ",S,C*hh\r\n";//TODO: should we calc checksums?
+            //parser(s);
             lastStringSent.Text = s;
-
-            //null out Set boxes & button
-            trcRpmDemandSet1.Text = null;
-            trcPitchDemandSet1.Text = null;
-            trcAzimuthDemandSet1.Text = null;
-            trcSendButton1.Enabled = false;
         }
         private void sendTrc2Button_Click(object sender, EventArgs e)
         {
-            string s = "$--TRC,2," + trcRpmDemandSet2.Text + ",P," + trcPitchDemandSet2.Text + ",P," + float.Parse(trcAzimuthDemandSet2.Text) * 10 + ",S,C*hh\r\n";
-            parser(s);//TODO: should this just set dataholder instead?
+            string s = "$--TRC,2," + trcRpmDemandDisplay2.Text + ",P," + trcPitchDemandDisplay2.Text + ",P," + float.Parse(trcAzimuthDemandDisplay2.Text) * 10 + ",S,C*hh\r\n";
+            //parser(s);
             lastStringSent.Text = s;
-
-            //null out Set boxes & button
-            trcRpmDemandSet2.Text = null;
-            trcPitchDemandSet2.Text = null;
-            trcAzimuthDemandSet2.Text = null;
-            trcSendButton2.Enabled = false;
         }
         private void trdSendButton1_Click(object sender, EventArgs e)
         {
-            string s = "$--TRD,1," + trdRpmResponseSet1.Text + ",P," + trdPitchResponseSet1.Text + ",P," + float.Parse(trdAzimuthResponseSet1.Text)*10 + "*hh\r\n";
-            parser(s);
-            lastStringSent.Text = s;
 
-            //null out Set boxes & button
-            trdRpmResponseSet1.Text = null;
-            trdPitchResponseSet1.Text = null;
-            trdAzimuthResponseSet1.Text = null;
-            trdSendButton1.Enabled = false;
+            string s = "$--TRD,1," + trdRpmResponse1.Text + ",P," + trdPitchResponse1.Text + ",P," + float.Parse(trdAzimuthResponse1.Text) * 10 + "*hh\r\n";
+            //parser(s);
+            lastStringSent.Text = s;
         }
         private void trdSendButton2_Click(object sender, EventArgs e)
         {
-            string s = "$--TRD,2," + trdRpmResponseSet2.Text + ",P," + trdPitchResponseSet2.Text + ",P," + float.Parse(trdAzimuthResponseSet2.Text) * 10 + "*hh\r\n";
-            parser(s);
+            string s = "$--TRD,2," + trdRpmResponse2.Text + ",P," + trdPitchResponse2.Text + ",P," + float.Parse(trdAzimuthResponse2.Text) * 10 + "*hh\r\n";
+            //parser(s);
             lastStringSent.Text = s;
-
-            //null out Set boxes & button
-            trdRpmResponseSet2.Text = null;
-            trdPitchResponseSet2.Text = null;
-            trdAzimuthResponseSet2.Text = null;
-            trdSendButton2.Enabled = false;
         }
         private void prcSendButton1_Click(object sender, EventArgs e)
         {
-            string s = "$--PRC," + prcLeverPosSet1.Text + ",A," + prcRpmDemandSet1.Text + ",P," + prcPitchDemandSet1.Text + ",P,S,1*hh\r\n";
-            parser(s);
+            string s = "$--PRC," + prcLeverPos1.Text + ",A," + prcRpmDemand1.Text + ",P," + prcPitchDemand1.Text + ",P,S,1*hh\r\n";
+            //parser(s);
             lastStringSent.Text = s;
-
-            //null out Set boxes & button
-            prcLeverPosSet1.Text = null;
-            prcRpmDemandSet1.Text = null;
-            prcPitchDemandSet1.Text = null;
-            prcSendButton1.Enabled = false;
         }
         private void prcSendButton2_Click(object sender, EventArgs e)
         {
-            string s = "$--PRC," + prcLeverPosSet2.Text + ",A," + prcRpmDemandSet2.Text + ",P," + prcPitchDemandSet2.Text + ",P,S,2*hh\r\n";
-            parser(s);
+            string s = "$--PRC," + prcLeverPos2.Text + ",A," + prcRpmDemand2.Text + ",P," + prcPitchDemand2.Text + ",P,S,2*hh\r\n";
+            //parser(s);
             lastStringSent.Text = s;
-
-            //null out Set boxes & button
-            prcLeverPosSet2.Text = null;
-            prcRpmDemandSet2.Text = null;
-            prcPitchDemandSet2.Text = null;
-            prcSendButton2.Enabled = false;
         }
-        private void rpmSendButton1_Click(object sender, EventArgs e)
+        private void rpmEngSendButton1_Click(object sender, EventArgs e)
         {
-            string src = (rpmEngSpeedSet1.Text != "") ? "E" : "S";
-            string s = "$--RPM," + src + ",1," + rpmEngSpeedSet1.Text + rpmShaftSpeedSet1.Text + "," + rpmPropPitchSet1.Text + ",A*hh\r\n";
-            parser(s);
-            lastStringSent.Text = s;
 
-            //null out Set boxes & button
-            rpmEngSpeedSet1.Text = null;
-            rpmShaftSpeedSet1.Text = null;
-            rpmPropPitchSet1.Text = null;
-            rpmSendButton1.Enabled = false;
+            string s = "$--RPM,E," + ",1," + rpmEngSpeed1.Text + "," + rpmPropPitch1.Text + ",A*hh\r\n";
+            //parser(s);
+            lastStringSent.Text = s;
         }
-        private void rpmSendButton2_Click(object sender, EventArgs e)
+        private void rpmEngSendButton2_Click(object sender, EventArgs e)
         {
-            string src = (rpmEngSpeedSet2.Text != "") ? "E" : "S";
-            string s = "$--RPM," + src + ",2," + rpmEngSpeedSet2.Text + rpmShaftSpeedSet2.Text + "," + rpmPropPitchSet2.Text + ",A*hh\r\n";
-            parser(s);
+            string s = "$--RPM,E," + ",1," + rpmEngSpeed2.Text + "," + rpmPropPitch2.Text + ",A*hh\r\n";
+            //parser(s);
             lastStringSent.Text = s;
+        }
+        private void rpmShaftSendButton1_Click(object sender, EventArgs e)
+        {
+            string s = "$--RPM,E," + ",1," + rpmShaftSpeed1.Text + "," + rpmPropPitch1.Text + ",A*hh\r\n";
+            //parser(s);
+            lastStringSent.Text = s;
+        }
 
-            //null out Set boxes & button
-            rpmEngSpeedSet2.Text = null;
-            rpmShaftSpeedSet2.Text = null;
-            rpmPropPitchSet2.Text = null;
-            rpmSendButton2.Enabled = false;
+        private void rpmShaftSendButton2_Click(object sender, EventArgs e)
+        {
+            string s = "$--RPM,E," + ",1," + rpmShaftSpeed2.Text + "," + rpmPropPitch2.Text + ",A*hh\r\n";
+            //parser(s);
+            lastStringSent.Text = s;
         }
         private void etlSendButton1_Click(object sender, EventArgs e)
         {

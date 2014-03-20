@@ -119,6 +119,14 @@ namespace BridgeIface
                     else if (m_type == FloatIntBoolNone.Float)
                         ((HScrollBar)m_control).Value = Convert.ToInt32(DataHolderIface.GetFloatVal(m_dhName) / m_scaler);
                 }
+
+                if (m_control is TrackBar)
+                {
+                    if (m_type == FloatIntBoolNone.Int)
+                        ((TrackBar)m_control).Value = Convert.ToInt32(DataHolderIface.GetIntVal(m_dhName));
+                    else if (m_type == FloatIntBoolNone.Float)
+                        ((TrackBar)m_control).Value = Convert.ToInt32(DataHolderIface.GetFloatVal(m_dhName) / m_scaler);
+                }
             }
             catch (Exception)
             {
@@ -162,6 +170,14 @@ namespace BridgeIface
                         DataHolderIface.SetIntVal(m_dhName, Convert.ToInt32(((HScrollBar)m_control).Value));
                     else if (m_type == FloatIntBoolNone.Float)
                         DataHolderIface.SetFloatVal(m_dhName, Convert.ToSingle(((HScrollBar)m_control).Value) * m_scaler);
+                }
+
+                if (m_control is TrackBar)
+                {
+                    if (m_type == FloatIntBoolNone.Int)
+                        DataHolderIface.SetIntVal(m_dhName, Convert.ToInt32(((TrackBar)m_control).Value));
+                    else if (m_type == FloatIntBoolNone.Float)
+                        DataHolderIface.SetFloatVal(m_dhName, Convert.ToSingle(((TrackBar)m_control).Value) * m_scaler);
                 }
             }
             catch (Exception)
