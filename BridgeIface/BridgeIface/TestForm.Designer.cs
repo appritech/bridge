@@ -68,27 +68,27 @@
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.etlSendButton2 = new System.Windows.Forms.Button();
-            this.etlEventTimeSet2 = new System.Windows.Forms.TextBox();
-            this.etlTelegraphPosSet2 = new System.Windows.Forms.TextBox();
-            this.etlSubTelPosSet2 = new System.Windows.Forms.TextBox();
-            this.etlSendButton1 = new System.Windows.Forms.Button();
-            this.etlEventTime2 = new System.Windows.Forms.TextBox();
-            this.etlEventTimeSet1 = new System.Windows.Forms.TextBox();
-            this.etlTelegraphPosSet1 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.etlSubTelPosSet1 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.etlTelegraphPos2 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.etlSubTelPos2 = new System.Windows.Forms.TextBox();
-            this.etlEventTime1 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.etlSendButton1 = new System.Windows.Forms.Button();
+            this.label61 = new System.Windows.Forms.Label();
+            this.etlSubTelTrackbar1 = new System.Windows.Forms.TrackBar();
+            this.label10 = new System.Windows.Forms.Label();
+            this.etlSubTelTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.etlSubTelPos1 = new System.Windows.Forms.TextBox();
+            this.label63 = new System.Windows.Forms.Label();
             this.etlTelegraphPos1 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.etlSubTelPos1 = new System.Windows.Forms.TextBox();
+            this.etlTelegraphTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.etlTelegraphTrackbar1 = new System.Windows.Forms.TrackBar();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.etlTelegraphPos2 = new System.Windows.Forms.TextBox();
+            this.etlSubTelPos2 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.prcPitchTrackbar2 = new System.Windows.Forms.TrackBar();
@@ -182,6 +182,11 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageEngines = new System.Windows.Forms.TabPage();
             this.tabPageThrusters = new System.Windows.Forms.TabPage();
+            this.udpReceiveButton = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.updReceiveLabel = new System.Windows.Forms.Label();
+            this.tbUdpPort = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trcAzimuthTrackbar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar2)).BeginInit();
@@ -190,6 +195,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcRpmTrackbar1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar1)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prcPitchTrackbar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcRpmTrackbar2)).BeginInit();
@@ -371,16 +380,16 @@
             this.NMEA_String_Box.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.NMEA_String_Box.FormattingEnabled = true;
             this.NMEA_String_Box.Items.AddRange(new object[] {
-            "$--TRC,1,9.9,P,5.0,D,0.0,C,R*hh<CR><LF>",
-            "$--TRC,2,99,P,15,P,0.0,C,R*hh<CR><LF>",
-            "$--TRC,2,55,P,75,P,25,B,C*hh<CR><LF>",
-            "$--ETL,123456.78,O,04,30,B,1*hh<CR><LF>",
-            "$--PRC,1.2,A,3.4,P,5.6,D,B,1*hh<CR><LF>",
-            "$--RPM,S,1,12,40,A*hh<CR><LF>",
-            "$--RPM,E,1,34,33,A*hh<CR><LF>",
-            "$--RPM,S,2,56,40,A*hh<CR><LF>",
-            "$--RPM,E,2,78,33,A*hh<CR><LF>",
-            "$--TRD,1,50,R,25,P,3000*hh<CR><LF>",
+            "$--TRC,1,9.9,P,5.0,D,0.0,C,R*hh\\r\\n",
+            "$--TRC,2,99,P,15,P,0.0,C,R*hh\\r\\n",
+            "$--TRC,2,55,P,75,P,25,B,C*hh\\r\\n",
+            "$--ETL,123456.78,O,04,30,B,1*hh\\r\\n",
+            "$--PRC,1.2,A,3.4,P,5.6,D,B,1*hh\\r\\n",
+            "$--RPM,S,1,12,40,A*hh\\r\\n",
+            "$--RPM,E,1,34,33,A*hh\\r\\n",
+            "$--RPM,S,2,56,40,A*hh\\r\\n",
+            "$--RPM,E,2,78,33,A*hh\\r\\n",
+            "$--TRD,1,50,R,25,P,3000*hh\\r\\n",
             "$DPBOW,45,80,10",
             "$PBBTR,1.2,A,3.4,A",
             "$NTEOM,2,123465.78",
@@ -439,6 +448,7 @@
             // 
             // trcAzimuthTrackbar2
             // 
+            this.trcAzimuthTrackbar2.BackColor = System.Drawing.SystemColors.Window;
             this.trcAzimuthTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
             this.trcAzimuthTrackbar2.LargeChange = 10;
             this.trcAzimuthTrackbar2.Location = new System.Drawing.Point(361, 60);
@@ -463,6 +473,7 @@
             // 
             // trcPitchTrackbar2
             // 
+            this.trcPitchTrackbar2.BackColor = System.Drawing.SystemColors.Window;
             this.trcPitchTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
             this.trcPitchTrackbar2.LargeChange = 10;
             this.trcPitchTrackbar2.Location = new System.Drawing.Point(310, 60);
@@ -487,6 +498,7 @@
             // 
             // trcRpmTrackbar2
             // 
+            this.trcRpmTrackbar2.BackColor = System.Drawing.SystemColors.Window;
             this.trcRpmTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
             this.trcRpmTrackbar2.LargeChange = 10;
             this.trcRpmTrackbar2.Location = new System.Drawing.Point(259, 60);
@@ -548,6 +560,7 @@
             // 
             // trcAzimuthTrackbar1
             // 
+            this.trcAzimuthTrackbar1.BackColor = System.Drawing.SystemColors.Window;
             this.trcAzimuthTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
             this.trcAzimuthTrackbar1.LargeChange = 10;
             this.trcAzimuthTrackbar1.Location = new System.Drawing.Point(146, 60);
@@ -572,6 +585,7 @@
             // 
             // trcPitchTrackbar1
             // 
+            this.trcPitchTrackbar1.BackColor = System.Drawing.SystemColors.Window;
             this.trcPitchTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
             this.trcPitchTrackbar1.LargeChange = 10;
             this.trcPitchTrackbar1.Location = new System.Drawing.Point(95, 60);
@@ -606,6 +620,7 @@
             // 
             // trcRpmTrackbar1
             // 
+            this.trcRpmTrackbar1.BackColor = System.Drawing.SystemColors.Window;
             this.trcRpmTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
             this.trcRpmTrackbar1.LargeChange = 10;
             this.trcRpmTrackbar1.Location = new System.Drawing.Point(44, 60);
@@ -618,7 +633,6 @@
             this.trcRpmTrackbar1.TickFrequency = 10;
             this.trcRpmTrackbar1.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trcRpmTrackbar1.Value = 15;
-            this.trcRpmTrackbar1.Scroll += new System.EventHandler(this.trcRpmTrackbar1_Scroll);
             // 
             // label47
             // 
@@ -653,31 +667,31 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.etlSendButton2);
-            this.groupBox2.Controls.Add(this.etlEventTimeSet2);
-            this.groupBox2.Controls.Add(this.etlTelegraphPosSet2);
-            this.groupBox2.Controls.Add(this.etlSubTelPosSet2);
-            this.groupBox2.Controls.Add(this.etlSendButton1);
-            this.groupBox2.Controls.Add(this.etlEventTime2);
-            this.groupBox2.Controls.Add(this.etlEventTimeSet1);
-            this.groupBox2.Controls.Add(this.etlTelegraphPosSet1);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.etlSubTelPosSet1);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.etlTelegraphPos2);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.etlSubTelPos2);
-            this.groupBox2.Controls.Add(this.etlEventTime1);
-            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label35);
+            this.groupBox2.Controls.Add(this.etlSendButton1);
+            this.groupBox2.Controls.Add(this.label61);
+            this.groupBox2.Controls.Add(this.etlSubTelTrackbar1);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.etlSubTelTrackbar2);
+            this.groupBox2.Controls.Add(this.label34);
+            this.groupBox2.Controls.Add(this.label62);
+            this.groupBox2.Controls.Add(this.etlSubTelPos1);
+            this.groupBox2.Controls.Add(this.label63);
             this.groupBox2.Controls.Add(this.etlTelegraphPos1);
             this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.etlSubTelPos1);
+            this.groupBox2.Controls.Add(this.etlTelegraphTrackbar2);
+            this.groupBox2.Controls.Add(this.etlTelegraphTrackbar1);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.label64);
             this.groupBox2.Controls.Add(this.label21);
+            this.groupBox2.Controls.Add(this.etlTelegraphPos2);
+            this.groupBox2.Controls.Add(this.etlSubTelPos2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(444, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(319, 367);
+            this.groupBox2.Size = new System.Drawing.Size(319, 537);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Engine Telegraph Operation Status (ETL)";
@@ -685,211 +699,243 @@
             // etlSendButton2
             // 
             this.etlSendButton2.Enabled = false;
-            this.etlSendButton2.Location = new System.Drawing.Point(237, 240);
+            this.etlSendButton2.Location = new System.Drawing.Point(37, 504);
             this.etlSendButton2.Name = "etlSendButton2";
-            this.etlSendButton2.Size = new System.Drawing.Size(30, 23);
+            this.etlSendButton2.Size = new System.Drawing.Size(232, 23);
             this.etlSendButton2.TabIndex = 71;
-            this.etlSendButton2.Text = "Go";
+            this.etlSendButton2.Text = "Send as NMEA String";
             this.etlSendButton2.UseVisualStyleBackColor = true;
             this.etlSendButton2.Click += new System.EventHandler(this.etlSendButton2_Click);
             // 
-            // etlEventTimeSet2
+            // label12
             // 
-            this.etlEventTimeSet2.BackColor = System.Drawing.SystemColors.Window;
-            this.etlEventTimeSet2.Location = new System.Drawing.Point(178, 191);
-            this.etlEventTimeSet2.Name = "etlEventTimeSet2";
-            this.etlEventTimeSet2.Size = new System.Drawing.Size(54, 20);
-            this.etlEventTimeSet2.TabIndex = 68;
-            // 
-            // etlTelegraphPosSet2
-            // 
-            this.etlTelegraphPosSet2.BackColor = System.Drawing.SystemColors.Window;
-            this.etlTelegraphPosSet2.Location = new System.Drawing.Point(178, 217);
-            this.etlTelegraphPosSet2.Name = "etlTelegraphPosSet2";
-            this.etlTelegraphPosSet2.Size = new System.Drawing.Size(54, 20);
-            this.etlTelegraphPosSet2.TabIndex = 69;
-            // 
-            // etlSubTelPosSet2
-            // 
-            this.etlSubTelPosSet2.BackColor = System.Drawing.SystemColors.Window;
-            this.etlSubTelPosSet2.Location = new System.Drawing.Point(178, 243);
-            this.etlSubTelPosSet2.Name = "etlSubTelPosSet2";
-            this.etlSubTelPosSet2.Size = new System.Drawing.Size(54, 20);
-            this.etlSubTelPosSet2.TabIndex = 70;
-            // 
-            // etlSendButton1
-            // 
-            this.etlSendButton1.Location = new System.Drawing.Point(239, 91);
-            this.etlSendButton1.Name = "etlSendButton1";
-            this.etlSendButton1.Size = new System.Drawing.Size(30, 23);
-            this.etlSendButton1.TabIndex = 67;
-            this.etlSendButton1.Text = "Go";
-            this.etlSendButton1.UseVisualStyleBackColor = true;
-            this.etlSendButton1.Click += new System.EventHandler(this.etlSendButton1_Click);
-            // 
-            // etlEventTime2
-            // 
-            this.etlEventTime2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.etlEventTime2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.etlEventTime2.Location = new System.Drawing.Point(118, 191);
-            this.etlEventTime2.Name = "etlEventTime2";
-            this.etlEventTime2.ReadOnly = true;
-            this.etlEventTime2.Size = new System.Drawing.Size(54, 20);
-            this.etlEventTime2.TabIndex = 24;
-            this.etlEventTime2.TabStop = false;
-            // 
-            // etlEventTimeSet1
-            // 
-            this.etlEventTimeSet1.BackColor = System.Drawing.SystemColors.Window;
-            this.etlEventTimeSet1.Location = new System.Drawing.Point(180, 42);
-            this.etlEventTimeSet1.Name = "etlEventTimeSet1";
-            this.etlEventTimeSet1.Size = new System.Drawing.Size(54, 20);
-            this.etlEventTimeSet1.TabIndex = 64;
-            // 
-            // etlTelegraphPosSet1
-            // 
-            this.etlTelegraphPosSet1.BackColor = System.Drawing.SystemColors.Window;
-            this.etlTelegraphPosSet1.Location = new System.Drawing.Point(180, 68);
-            this.etlTelegraphPosSet1.Name = "etlTelegraphPosSet1";
-            this.etlTelegraphPosSet1.Size = new System.Drawing.Size(54, 20);
-            this.etlTelegraphPosSet1.TabIndex = 65;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 225);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(26, 13);
+            this.label12.TabIndex = 63;
+            this.label12.Text = "DH:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 198);
+            this.label11.Location = new System.Drawing.Point(7, 480);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 13);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "Event Time";
+            this.label11.Size = new System.Drawing.Size(26, 13);
+            this.label11.TabIndex = 75;
+            this.label11.Text = "DH:";
             // 
-            // etlSubTelPosSet1
+            // label35
             // 
-            this.etlSubTelPosSet1.BackColor = System.Drawing.SystemColors.Window;
-            this.etlSubTelPosSet1.Location = new System.Drawing.Point(180, 94);
-            this.etlSubTelPosSet1.Name = "etlSubTelPosSet1";
-            this.etlSubTelPosSet1.Size = new System.Drawing.Size(54, 20);
-            this.etlSubTelPosSet1.TabIndex = 66;
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(185, 65);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(47, 143);
+            this.label35.TabIndex = 64;
+            this.label35.Text = "40 - F/E\r\n\r\n\r\n\r\n\r\n30 - F/A\r\n\r\n\r\n\r\n\r\n20 - S/B";
             // 
-            // label14
+            // etlSendButton1
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(12, 224);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(95, 13);
-            this.label14.TabIndex = 25;
-            this.label14.Text = "Telegraph Position";
+            this.etlSendButton1.Location = new System.Drawing.Point(39, 249);
+            this.etlSendButton1.Name = "etlSendButton1";
+            this.etlSendButton1.Size = new System.Drawing.Size(232, 23);
+            this.etlSendButton1.TabIndex = 67;
+            this.etlSendButton1.Text = "Send as NMEA String";
+            this.etlSendButton1.UseVisualStyleBackColor = true;
+            this.etlSendButton1.Click += new System.EventHandler(this.etlSendButton1_Click);
             // 
-            // etlTelegraphPos2
+            // label61
             // 
-            this.etlTelegraphPos2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.etlTelegraphPos2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.etlTelegraphPos2.Location = new System.Drawing.Point(118, 217);
-            this.etlTelegraphPos2.Name = "etlTelegraphPos2";
-            this.etlTelegraphPos2.ReadOnly = true;
-            this.etlTelegraphPos2.Size = new System.Drawing.Size(54, 20);
-            this.etlTelegraphPos2.TabIndex = 26;
-            this.etlTelegraphPos2.TabStop = false;
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(185, 320);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(47, 143);
+            this.label61.TabIndex = 77;
+            this.label61.Text = "40 - F/E\r\n\r\n\r\n\r\n\r\n30 - F/A\r\n\r\n\r\n\r\n\r\n20 - S/B";
             // 
-            // label16
+            // etlSubTelTrackbar1
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(12, 250);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(98, 13);
-            this.label16.TabIndex = 27;
-            this.label16.Text = "Sub-Telegraph Pos";
-            // 
-            // etlSubTelPos2
-            // 
-            this.etlSubTelPos2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.etlSubTelPos2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.etlSubTelPos2.Location = new System.Drawing.Point(118, 243);
-            this.etlSubTelPos2.Name = "etlSubTelPos2";
-            this.etlSubTelPos2.ReadOnly = true;
-            this.etlSubTelPos2.Size = new System.Drawing.Size(54, 20);
-            this.etlSubTelPos2.TabIndex = 28;
-            this.etlSubTelPos2.TabStop = false;
-            // 
-            // etlEventTime1
-            // 
-            this.etlEventTime1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.etlEventTime1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.etlEventTime1.Location = new System.Drawing.Point(120, 42);
-            this.etlEventTime1.Name = "etlEventTime1";
-            this.etlEventTime1.ReadOnly = true;
-            this.etlEventTime1.Size = new System.Drawing.Size(54, 20);
-            this.etlEventTime1.TabIndex = 12;
-            this.etlEventTime1.TabStop = false;
+            this.etlSubTelTrackbar1.BackColor = System.Drawing.SystemColors.Window;
+            this.etlSubTelTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.etlSubTelTrackbar1.LargeChange = 1;
+            this.etlSubTelTrackbar1.Location = new System.Drawing.Point(163, 59);
+            this.etlSubTelTrackbar1.Maximum = 4;
+            this.etlSubTelTrackbar1.Minimum = 2;
+            this.etlSubTelTrackbar1.Name = "etlSubTelTrackbar1";
+            this.etlSubTelTrackbar1.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.etlSubTelTrackbar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.etlSubTelTrackbar1.Size = new System.Drawing.Size(45, 158);
+            this.etlSubTelTrackbar1.TabIndex = 65;
+            this.etlSubTelTrackbar1.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.etlSubTelTrackbar1.Value = 4;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(10, 22);
+            this.label10.Location = new System.Drawing.Point(6, 22);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(128, 13);
             this.label10.TabIndex = 9;
             this.label10.Text = "Starboard Engine/Shaft 1";
             // 
-            // label12
+            // etlSubTelTrackbar2
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(10, 49);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(61, 13);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Event Time";
+            this.etlSubTelTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.etlSubTelTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.etlSubTelTrackbar2.LargeChange = 1;
+            this.etlSubTelTrackbar2.Location = new System.Drawing.Point(163, 314);
+            this.etlSubTelTrackbar2.Maximum = 4;
+            this.etlSubTelTrackbar2.Minimum = 2;
+            this.etlSubTelTrackbar2.Name = "etlSubTelTrackbar2";
+            this.etlSubTelTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.etlSubTelTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.etlSubTelTrackbar2.Size = new System.Drawing.Size(45, 158);
+            this.etlSubTelTrackbar2.TabIndex = 78;
+            this.etlSubTelTrackbar2.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.etlSubTelTrackbar2.Value = 4;
             // 
-            // label13
+            // label34
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(10, 75);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(95, 13);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "Telegraph Position";
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(59, 65);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(88, 143);
+            this.label34.TabIndex = 39;
+            this.label34.Text = "05 - Nav Full\r\n04 - Full\r\n03 - Half\r\n02 - Slow\r\n01 - Dead Slow\r\n00 - Stop Engine\r" +
+    "\n11 - Dead Slow\r\n12 - Slow\r\n13 - Half\r\n14 - Full\r\n15 - Crash Astern";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(59, 320);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(88, 143);
+            this.label62.TabIndex = 74;
+            this.label62.Text = "05 - Nav Full\r\n04 - Full\r\n03 - Half\r\n02 - Slow\r\n01 - Dead Slow\r\n00 - Stop Engine\r" +
+    "\n11 - Dead Slow\r\n12 - Slow\r\n13 - Half\r\n14 - Full\r\n15 - Crash Astern";
+            // 
+            // etlSubTelPos1
+            // 
+            this.etlSubTelPos1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.etlSubTelPos1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.etlSubTelPos1.Location = new System.Drawing.Point(163, 223);
+            this.etlSubTelPos1.Name = "etlSubTelPos1";
+            this.etlSubTelPos1.ReadOnly = true;
+            this.etlSubTelPos1.Size = new System.Drawing.Size(108, 20);
+            this.etlSubTelPos1.TabIndex = 16;
+            this.etlSubTelPos1.TabStop = false;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(160, 298);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(77, 13);
+            this.label63.TabIndex = 73;
+            this.label63.Text = "Sub-Telegraph";
             // 
             // etlTelegraphPos1
             // 
             this.etlTelegraphPos1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.etlTelegraphPos1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.etlTelegraphPos1.Location = new System.Drawing.Point(120, 68);
+            this.etlTelegraphPos1.Location = new System.Drawing.Point(39, 223);
             this.etlTelegraphPos1.Name = "etlTelegraphPos1";
             this.etlTelegraphPos1.ReadOnly = true;
-            this.etlTelegraphPos1.Size = new System.Drawing.Size(54, 20);
+            this.etlTelegraphPos1.Size = new System.Drawing.Size(108, 20);
             this.etlTelegraphPos1.TabIndex = 14;
             this.etlTelegraphPos1.TabStop = false;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(10, 101);
+            this.label15.Location = new System.Drawing.Point(160, 43);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(98, 13);
+            this.label15.Size = new System.Drawing.Size(77, 13);
             this.label15.TabIndex = 15;
-            this.label15.Text = "Sub-Telegraph Pos";
+            this.label15.Text = "Sub-Telegraph";
             // 
-            // etlSubTelPos1
+            // etlTelegraphTrackbar2
             // 
-            this.etlSubTelPos1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.etlSubTelPos1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.etlSubTelPos1.Location = new System.Drawing.Point(120, 94);
-            this.etlSubTelPos1.Name = "etlSubTelPos1";
-            this.etlSubTelPos1.ReadOnly = true;
-            this.etlSubTelPos1.Size = new System.Drawing.Size(54, 20);
-            this.etlSubTelPos1.TabIndex = 16;
-            this.etlSubTelPos1.TabStop = false;
+            this.etlTelegraphTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.etlTelegraphTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.etlTelegraphTrackbar2.LargeChange = 1;
+            this.etlTelegraphTrackbar2.Location = new System.Drawing.Point(37, 314);
+            this.etlTelegraphTrackbar2.Maximum = 5;
+            this.etlTelegraphTrackbar2.Minimum = -5;
+            this.etlTelegraphTrackbar2.Name = "etlTelegraphTrackbar2";
+            this.etlTelegraphTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.etlTelegraphTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.etlTelegraphTrackbar2.Size = new System.Drawing.Size(45, 158);
+            this.etlTelegraphTrackbar2.TabIndex = 76;
+            this.etlTelegraphTrackbar2.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.etlTelegraphTrackbar2.Value = 5;
+            // 
+            // etlTelegraphTrackbar1
+            // 
+            this.etlTelegraphTrackbar1.BackColor = System.Drawing.SystemColors.Window;
+            this.etlTelegraphTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.etlTelegraphTrackbar1.LargeChange = 1;
+            this.etlTelegraphTrackbar1.Location = new System.Drawing.Point(37, 59);
+            this.etlTelegraphTrackbar1.Maximum = 5;
+            this.etlTelegraphTrackbar1.Minimum = -5;
+            this.etlTelegraphTrackbar1.Name = "etlTelegraphTrackbar1";
+            this.etlTelegraphTrackbar1.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.etlTelegraphTrackbar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.etlTelegraphTrackbar1.Size = new System.Drawing.Size(45, 158);
+            this.etlTelegraphTrackbar1.TabIndex = 63;
+            this.etlTelegraphTrackbar1.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.etlTelegraphTrackbar1.Value = 5;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(36, 43);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(55, 13);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Telegraph";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(36, 298);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(55, 13);
+            this.label64.TabIndex = 72;
+            this.label64.Text = "Telegraph";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(12, 171);
+            this.label21.Location = new System.Drawing.Point(7, 275);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(101, 13);
             this.label21.TabIndex = 22;
             this.label21.Text = "Port Engine/Shaft 2";
+            // 
+            // etlTelegraphPos2
+            // 
+            this.etlTelegraphPos2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.etlTelegraphPos2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.etlTelegraphPos2.Location = new System.Drawing.Point(39, 478);
+            this.etlTelegraphPos2.Name = "etlTelegraphPos2";
+            this.etlTelegraphPos2.ReadOnly = true;
+            this.etlTelegraphPos2.Size = new System.Drawing.Size(108, 20);
+            this.etlTelegraphPos2.TabIndex = 26;
+            this.etlTelegraphPos2.TabStop = false;
+            // 
+            // etlSubTelPos2
+            // 
+            this.etlSubTelPos2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.etlSubTelPos2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.etlSubTelPos2.Location = new System.Drawing.Point(163, 478);
+            this.etlSubTelPos2.Name = "etlSubTelPos2";
+            this.etlSubTelPos2.ReadOnly = true;
+            this.etlSubTelPos2.Size = new System.Drawing.Size(108, 20);
+            this.etlSubTelPos2.TabIndex = 28;
+            this.etlSubTelPos2.TabStop = false;
             // 
             // groupBox3
             // 
@@ -936,6 +982,7 @@
             // 
             // prcPitchTrackbar2
             // 
+            this.prcPitchTrackbar2.BackColor = System.Drawing.SystemColors.Window;
             this.prcPitchTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
             this.prcPitchTrackbar2.LargeChange = 10;
             this.prcPitchTrackbar2.Location = new System.Drawing.Point(361, 59);
@@ -960,6 +1007,7 @@
             // 
             // prcRpmTrackbar2
             // 
+            this.prcRpmTrackbar2.BackColor = System.Drawing.SystemColors.Window;
             this.prcRpmTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
             this.prcRpmTrackbar2.LargeChange = 10;
             this.prcRpmTrackbar2.Location = new System.Drawing.Point(310, 59);
@@ -984,6 +1032,7 @@
             // 
             // prcLeverTrackbar2
             // 
+            this.prcLeverTrackbar2.BackColor = System.Drawing.SystemColors.Window;
             this.prcLeverTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
             this.prcLeverTrackbar2.LargeChange = 10;
             this.prcLeverTrackbar2.Location = new System.Drawing.Point(259, 59);
@@ -994,7 +1043,7 @@
             this.prcLeverTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.prcLeverTrackbar2.Size = new System.Drawing.Size(45, 92);
             this.prcLeverTrackbar2.TabIndex = 57;
-            this.prcLeverTrackbar2.TickFrequency = 25;
+            this.prcLeverTrackbar2.TickFrequency = 10;
             this.prcLeverTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.prcLeverTrackbar2.Value = 15;
             // 
@@ -1028,6 +1077,7 @@
             // 
             // prcPitchTrackbar1
             // 
+            this.prcPitchTrackbar1.BackColor = System.Drawing.SystemColors.Window;
             this.prcPitchTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
             this.prcPitchTrackbar1.LargeChange = 10;
             this.prcPitchTrackbar1.Location = new System.Drawing.Point(144, 59);
@@ -1052,6 +1102,7 @@
             // 
             // prcRpmTrackbar1
             // 
+            this.prcRpmTrackbar1.BackColor = System.Drawing.SystemColors.Window;
             this.prcRpmTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
             this.prcRpmTrackbar1.LargeChange = 10;
             this.prcRpmTrackbar1.Location = new System.Drawing.Point(93, 59);
@@ -1097,6 +1148,7 @@
             // 
             // prcLeverTrackbar1
             // 
+            this.prcLeverTrackbar1.BackColor = System.Drawing.SystemColors.Window;
             this.prcLeverTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
             this.prcLeverTrackbar1.LargeChange = 10;
             this.prcLeverTrackbar1.Location = new System.Drawing.Point(42, 59);
@@ -1107,7 +1159,7 @@
             this.prcLeverTrackbar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.prcLeverTrackbar1.Size = new System.Drawing.Size(45, 92);
             this.prcLeverTrackbar1.TabIndex = 50;
-            this.prcLeverTrackbar1.TickFrequency = 25;
+            this.prcLeverTrackbar1.TickFrequency = 10;
             this.prcLeverTrackbar1.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.prcLeverTrackbar1.Value = 15;
             // 
@@ -1326,6 +1378,7 @@
             // 
             // rpmPropPitchTrackbar2
             // 
+            this.rpmPropPitchTrackbar2.BackColor = System.Drawing.SystemColors.Window;
             this.rpmPropPitchTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
             this.rpmPropPitchTrackbar2.LargeChange = 10;
             this.rpmPropPitchTrackbar2.Location = new System.Drawing.Point(361, 68);
@@ -1350,6 +1403,7 @@
             // 
             // rpmShaftSpeedTrackbar2
             // 
+            this.rpmShaftSpeedTrackbar2.BackColor = System.Drawing.SystemColors.Window;
             this.rpmShaftSpeedTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
             this.rpmShaftSpeedTrackbar2.LargeChange = 10;
             this.rpmShaftSpeedTrackbar2.Location = new System.Drawing.Point(310, 68);
@@ -1374,6 +1428,7 @@
             // 
             // rpmEngSpeedTrackbar2
             // 
+            this.rpmEngSpeedTrackbar2.BackColor = System.Drawing.SystemColors.Window;
             this.rpmEngSpeedTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
             this.rpmEngSpeedTrackbar2.LargeChange = 10;
             this.rpmEngSpeedTrackbar2.Location = new System.Drawing.Point(259, 68);
@@ -1417,6 +1472,7 @@
             // 
             // rpmPropPitchTrackbar1
             // 
+            this.rpmPropPitchTrackbar1.BackColor = System.Drawing.SystemColors.Window;
             this.rpmPropPitchTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
             this.rpmPropPitchTrackbar1.LargeChange = 10;
             this.rpmPropPitchTrackbar1.Location = new System.Drawing.Point(144, 68);
@@ -1441,6 +1497,7 @@
             // 
             // rpmShaftSpeedTrackbar1
             // 
+            this.rpmShaftSpeedTrackbar1.BackColor = System.Drawing.SystemColors.Window;
             this.rpmShaftSpeedTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
             this.rpmShaftSpeedTrackbar1.LargeChange = 10;
             this.rpmShaftSpeedTrackbar1.Location = new System.Drawing.Point(93, 68);
@@ -1465,6 +1522,7 @@
             // 
             // rpmEngSpeedTrackbar1
             // 
+            this.rpmEngSpeedTrackbar1.BackColor = System.Drawing.SystemColors.Window;
             this.rpmEngSpeedTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
             this.rpmEngSpeedTrackbar1.LargeChange = 10;
             this.rpmEngSpeedTrackbar1.Location = new System.Drawing.Point(42, 68);
@@ -1484,7 +1542,7 @@
             this.rpmEngSendButton1.Name = "rpmEngSendButton1";
             this.rpmEngSendButton1.Size = new System.Drawing.Size(147, 23);
             this.rpmEngSendButton1.TabIndex = 59;
-            this.rpmEngSendButton1.Text = "Send End RPM";
+            this.rpmEngSendButton1.Text = "Send Eng RPM";
             this.rpmEngSendButton1.UseVisualStyleBackColor = true;
             this.rpmEngSendButton1.Click += new System.EventHandler(this.rpmEngSendButton1_Click);
             // 
@@ -1573,6 +1631,7 @@
             // 
             // trdAzimuthTrackbar1
             // 
+            this.trdAzimuthTrackbar1.BackColor = System.Drawing.SystemColors.Window;
             this.trdAzimuthTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
             this.trdAzimuthTrackbar1.LargeChange = 10;
             this.trdAzimuthTrackbar1.Location = new System.Drawing.Point(146, 57);
@@ -1597,6 +1656,7 @@
             // 
             // trdAzimuthTrackbar2
             // 
+            this.trdAzimuthTrackbar2.BackColor = System.Drawing.SystemColors.Window;
             this.trdAzimuthTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
             this.trdAzimuthTrackbar2.LargeChange = 10;
             this.trdAzimuthTrackbar2.Location = new System.Drawing.Point(361, 57);
@@ -1612,6 +1672,7 @@
             // 
             // trdPitchTrackbar1
             // 
+            this.trdPitchTrackbar1.BackColor = System.Drawing.SystemColors.Window;
             this.trdPitchTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
             this.trdPitchTrackbar1.LargeChange = 10;
             this.trdPitchTrackbar1.Location = new System.Drawing.Point(95, 57);
@@ -1636,6 +1697,7 @@
             // 
             // trdRpmTrackbar1
             // 
+            this.trdRpmTrackbar1.BackColor = System.Drawing.SystemColors.Window;
             this.trdRpmTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
             this.trdRpmTrackbar1.LargeChange = 10;
             this.trdRpmTrackbar1.Location = new System.Drawing.Point(44, 57);
@@ -1690,6 +1752,7 @@
             // 
             // trdPitchTrackbar2
             // 
+            this.trdPitchTrackbar2.BackColor = System.Drawing.SystemColors.Window;
             this.trdPitchTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
             this.trdPitchTrackbar2.LargeChange = 10;
             this.trdPitchTrackbar2.Location = new System.Drawing.Point(310, 57);
@@ -1715,6 +1778,7 @@
             // 
             // trdRpmTrackbar2
             // 
+            this.trdRpmTrackbar2.BackColor = System.Drawing.SystemColors.Window;
             this.trdRpmTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
             this.trdRpmTrackbar2.LargeChange = 10;
             this.trdRpmTrackbar2.Location = new System.Drawing.Point(259, 57);
@@ -1829,7 +1893,7 @@
             this.groupBox6.Controls.Add(this.label39);
             this.groupBox6.Controls.Add(this.btrRealValue);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(459, 6);
+            this.groupBox6.Location = new System.Drawing.Point(444, 6);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(278, 125);
             this.groupBox6.TabIndex = 40;
@@ -1892,7 +1956,7 @@
             this.groupBox7.Controls.Add(this.label45);
             this.groupBox7.Controls.Add(this.eomElapsedTime);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(16, 624);
+            this.groupBox7.Location = new System.Drawing.Point(18, 700);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(278, 125);
             this.groupBox7.TabIndex = 41;
@@ -1943,7 +2007,7 @@
             // 
             this.lastStringSent.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.lastStringSent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lastStringSent.Location = new System.Drawing.Point(590, 53);
+            this.lastStringSent.Location = new System.Drawing.Point(498, 51);
             this.lastStringSent.Name = "lastStringSent";
             this.lastStringSent.ReadOnly = true;
             this.lastStringSent.Size = new System.Drawing.Size(254, 20);
@@ -1953,7 +2017,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(475, 57);
+            this.label41.Location = new System.Drawing.Point(383, 55);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(106, 13);
             this.label41.TabIndex = 44;
@@ -1966,7 +2030,7 @@
             this.tabControl1.Location = new System.Drawing.Point(15, 111);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(882, 529);
+            this.tabControl1.Size = new System.Drawing.Size(882, 574);
             this.tabControl1.TabIndex = 46;
             // 
             // tabPageEngines
@@ -1977,7 +2041,7 @@
             this.tabPageEngines.Location = new System.Drawing.Point(4, 22);
             this.tabPageEngines.Name = "tabPageEngines";
             this.tabPageEngines.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEngines.Size = new System.Drawing.Size(874, 503);
+            this.tabPageEngines.Size = new System.Drawing.Size(874, 548);
             this.tabPageEngines.TabIndex = 0;
             this.tabPageEngines.Text = "Engines";
             this.tabPageEngines.UseVisualStyleBackColor = true;
@@ -1990,10 +2054,57 @@
             this.tabPageThrusters.Location = new System.Drawing.Point(4, 22);
             this.tabPageThrusters.Name = "tabPageThrusters";
             this.tabPageThrusters.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageThrusters.Size = new System.Drawing.Size(874, 503);
+            this.tabPageThrusters.Size = new System.Drawing.Size(874, 548);
             this.tabPageThrusters.TabIndex = 1;
             this.tabPageThrusters.Text = "Thrusters";
             this.tabPageThrusters.UseVisualStyleBackColor = true;
+            // 
+            // udpReceiveButton
+            // 
+            this.udpReceiveButton.Location = new System.Drawing.Point(801, 68);
+            this.udpReceiveButton.Name = "udpReceiveButton";
+            this.udpReceiveButton.Size = new System.Drawing.Size(75, 23);
+            this.udpReceiveButton.TabIndex = 47;
+            this.udpReceiveButton.Text = "Start";
+            this.udpReceiveButton.UseVisualStyleBackColor = true;
+            this.udpReceiveButton.Click += new System.EventHandler(this.udpReceiveButton_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(798, 31);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(72, 13);
+            this.label14.TabIndex = 48;
+            this.label14.Text = "UDP Packets";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(798, 52);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(29, 13);
+            this.label16.TabIndex = 49;
+            this.label16.Text = "Port:";
+            // 
+            // updReceiveLabel
+            // 
+            this.updReceiveLabel.AutoSize = true;
+            this.updReceiveLabel.Location = new System.Drawing.Point(806, 94);
+            this.updReceiveLabel.Name = "updReceiveLabel";
+            this.updReceiveLabel.Size = new System.Drawing.Size(64, 13);
+            this.updReceiveLabel.TabIndex = 51;
+            this.updReceiveLabel.Text = "Receiving...";
+            this.updReceiveLabel.Visible = false;
+            // 
+            // tbUdpPort
+            // 
+            this.tbUdpPort.Location = new System.Drawing.Point(834, 47);
+            this.tbUdpPort.Name = "tbUdpPort";
+            this.tbUdpPort.ReadOnly = true;
+            this.tbUdpPort.Size = new System.Drawing.Size(33, 20);
+            this.tbUdpPort.TabIndex = 50;
             // 
             // TestForm
             // 
@@ -2001,6 +2112,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 853);
+            this.Controls.Add(this.updReceiveLabel);
+            this.Controls.Add(this.tbUdpPort);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.udpReceiveButton);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lastStringSent);
             this.Controls.Add(this.label41);
@@ -2026,6 +2142,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.trcRpmTrackbar1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prcPitchTrackbar2)).EndInit();
@@ -2083,15 +2203,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox etlEventTime2;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox etlTelegraphPos2;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox etlSubTelPos2;
-        private System.Windows.Forms.TextBox etlEventTime1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox etlTelegraphPos1;
         private System.Windows.Forms.Label label15;
@@ -2141,13 +2255,7 @@
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Button trcSendButton2;
         private System.Windows.Forms.Button etlSendButton2;
-        private System.Windows.Forms.TextBox etlEventTimeSet2;
-        private System.Windows.Forms.TextBox etlTelegraphPosSet2;
-        private System.Windows.Forms.TextBox etlSubTelPosSet2;
         private System.Windows.Forms.Button etlSendButton1;
-        private System.Windows.Forms.TextBox etlEventTimeSet1;
-        private System.Windows.Forms.TextBox etlTelegraphPosSet1;
-        private System.Windows.Forms.TextBox etlSubTelPosSet1;
         private System.Windows.Forms.Button prcSendButton2;
         private System.Windows.Forms.Button prcSendButton1;
         private System.Windows.Forms.Button rpmEngSendButton2;
@@ -2217,6 +2325,23 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Button rpmShaftSendButton2;
         private System.Windows.Forms.Button rpmShaftSendButton1;
+        private System.Windows.Forms.TrackBar etlTelegraphTrackbar1;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TrackBar etlSubTelTrackbar1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.TrackBar etlSubTelTrackbar2;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.TrackBar etlTelegraphTrackbar2;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Button udpReceiveButton;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label updReceiveLabel;
+        private System.Windows.Forms.TextBox tbUdpPort;
     }
 }
 

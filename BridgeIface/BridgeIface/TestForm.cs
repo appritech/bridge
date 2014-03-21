@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading;
 
 namespace BridgeIface
 {
@@ -17,76 +20,72 @@ namespace BridgeIface
             InitializeComponent();
             
             //TRC Components
-            m_inputControls.Add(new DHControl("Thruster 1 RPM Demand", FloatIntBoolNone.Float, trcRpmDemandDisplay1, false));
-            m_inputControls.Add(new DHControl("Thruster 1 Pitch Demand", FloatIntBoolNone.Float, trcPitchDemandDisplay1, false));
-            m_inputControls.Add(new DHControl("Thruster 1 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthDemandDisplay1, false));
+            m_inputControls.Add(new DHControl("Thruster 0 RPM Demand", FloatIntBoolNone.Float, trcRpmDemandDisplay1, false));
+            m_inputControls.Add(new DHControl("Thruster 0 Pitch Demand", FloatIntBoolNone.Float, trcPitchDemandDisplay1, false));
+            m_inputControls.Add(new DHControl("Thruster 0 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthDemandDisplay1, false));
             m_inputControls.Add(new DHControl("Thruster 2 RPM Demand", FloatIntBoolNone.Float, trcRpmDemandDisplay2, false));
             m_inputControls.Add(new DHControl("Thruster 2 Pitch Demand", FloatIntBoolNone.Float, trcPitchDemandDisplay2, false));
             m_inputControls.Add(new DHControl("Thruster 2 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthDemandDisplay2, false));
 
-            m_outputControls.Add(new DHControl("Thruster 1 RPM Demand", FloatIntBoolNone.Float, trcRpmTrackbar1, true));
-            m_outputControls.Add(new DHControl("Thruster 1 Pitch Demand", FloatIntBoolNone.Float, trcPitchTrackbar1, true));
-            m_outputControls.Add(new DHControl("Thruster 1 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthTrackbar1, true));
+            m_outputControls.Add(new DHControl("Thruster 0 RPM Demand", FloatIntBoolNone.Float, trcRpmTrackbar1, true));
+            m_outputControls.Add(new DHControl("Thruster 0 Pitch Demand", FloatIntBoolNone.Float, trcPitchTrackbar1, true));
+            m_outputControls.Add(new DHControl("Thruster 0 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthTrackbar1, true));
             m_outputControls.Add(new DHControl("Thruster 2 RPM Demand", FloatIntBoolNone.Float, trcRpmTrackbar2, true));
             m_outputControls.Add(new DHControl("Thruster 2 Pitch Demand", FloatIntBoolNone.Float, trcPitchTrackbar2, true));
             m_outputControls.Add(new DHControl("Thruster 2 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthTrackbar2, true));
 
             //ETL Components
-            m_inputControls.Add(new DHControl("Engine 1 Event Time", FloatIntBoolNone.Float, etlEventTime1, false));
-            m_inputControls.Add(new DHControl("Engine 1 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphPos1, false));
-            m_inputControls.Add(new DHControl("Engine 1 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos1, false));
-            m_inputControls.Add(new DHControl("Engine 2 Event Time", FloatIntBoolNone.Float, etlEventTime2, false));
+            m_inputControls.Add(new DHControl("Engine 0 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphPos1, false));
+            m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos1, false));
             m_inputControls.Add(new DHControl("Engine 2 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphPos2, false));
             m_inputControls.Add(new DHControl("Engine 2 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos2, false));
 
-            //m_outputControls.Add(new DHControl("Engine 1 Event Time", FloatIntBoolNone.Float, etlEventTime1, true));
-            //m_outputControls.Add(new DHControl("Engine 1 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphPos1, true));
-            //m_outputControls.Add(new DHControl("Engine 1 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos1, true));
-            //m_outputControls.Add(new DHControl("Engine 2 Event Time", FloatIntBoolNone.Float, etlEventTime2, true));
-            //m_outputControls.Add(new DHControl("Engine 2 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphPos2, true));
-            //m_outputControls.Add(new DHControl("Engine 2 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos2, true));
+            m_outputControls.Add(new DHControl("Engine 0 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphTrackbar1, true));
+            m_outputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelTrackbar1, true));
+            m_outputControls.Add(new DHControl("Engine 2 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphTrackbar2, true));
+            m_outputControls.Add(new DHControl("Engine 2 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelTrackbar2, true));
 
             //PRC Components
-            m_inputControls.Add(new DHControl("Remote Engine 1 Lever Demand Position", FloatIntBoolNone.Float, prcLeverPos1, false));
-            m_inputControls.Add(new DHControl("Remote Engine 1 RPM Demand", FloatIntBoolNone.Float, prcRpmDemand1, false));
-            m_inputControls.Add(new DHControl("Remote Engine 1 Pitch Demand", FloatIntBoolNone.Float, prcPitchDemand1, false));
+            m_inputControls.Add(new DHControl("Remote Engine 0 Lever Demand Position", FloatIntBoolNone.Float, prcLeverPos1, false));
+            m_inputControls.Add(new DHControl("Remote Engine 0 RPM Demand", FloatIntBoolNone.Float, prcRpmDemand1, false));
+            m_inputControls.Add(new DHControl("Remote Engine 0 Pitch Demand", FloatIntBoolNone.Float, prcPitchDemand1, false));
             m_inputControls.Add(new DHControl("Remote Engine 2 Lever Demand Position", FloatIntBoolNone.Float, prcLeverPos2, false));
             m_inputControls.Add(new DHControl("Remote Engine 2 RPM Demand", FloatIntBoolNone.Float, prcRpmDemand2, false));
             m_inputControls.Add(new DHControl("Remote Engine 2 Pitch Demand", FloatIntBoolNone.Float, prcPitchDemand2, false));
 
-            m_outputControls.Add(new DHControl("Remote Engine 1 Lever Demand Position", FloatIntBoolNone.Float, prcLeverTrackbar1, true));
-            m_outputControls.Add(new DHControl("Remote Engine 1 RPM Demand", FloatIntBoolNone.Float, prcRpmTrackbar1, true));
-            m_outputControls.Add(new DHControl("Remote Engine 1 Pitch Demand", FloatIntBoolNone.Float, prcPitchTrackbar1, true));
+            m_outputControls.Add(new DHControl("Remote Engine 0 Lever Demand Position", FloatIntBoolNone.Float, prcLeverTrackbar1, true));
+            m_outputControls.Add(new DHControl("Remote Engine 0 RPM Demand", FloatIntBoolNone.Float, prcRpmTrackbar1, true));
+            m_outputControls.Add(new DHControl("Remote Engine 0 Pitch Demand", FloatIntBoolNone.Float, prcPitchTrackbar1, true));
             m_outputControls.Add(new DHControl("Remote Engine 2 Lever Demand Position", FloatIntBoolNone.Float, prcLeverTrackbar2, true));
             m_outputControls.Add(new DHControl("Remote Engine 2 RPM Demand", FloatIntBoolNone.Float, prcRpmTrackbar2, true));
             m_outputControls.Add(new DHControl("Remote Engine 2 Pitch Demand", FloatIntBoolNone.Float, prcPitchTrackbar2, true));
 
             //RPM Components
-            m_inputControls.Add(new DHControl("Engine 1 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeed1, false));
-            m_inputControls.Add(new DHControl("Engine 1 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeed1, false));
-            m_inputControls.Add(new DHControl("Engine 1 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitch1, false));
+            m_inputControls.Add(new DHControl("Engine 0 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeed1, false));
+            m_inputControls.Add(new DHControl("Engine 0 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeed1, false));
+            m_inputControls.Add(new DHControl("Engine 0 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitch1, false));
             m_inputControls.Add(new DHControl("Engine 2 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeed2, false));
             m_inputControls.Add(new DHControl("Engine 2 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeed2, false));
             m_inputControls.Add(new DHControl("Engine 2 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitch2, false));
 
-            m_outputControls.Add(new DHControl("Engine 1 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeedTrackbar1, true));
-            m_outputControls.Add(new DHControl("Engine 1 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeedTrackbar1, true));
-            m_outputControls.Add(new DHControl("Engine 1 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitchTrackbar1, true));
+            m_outputControls.Add(new DHControl("Engine 0 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeedTrackbar1, true));
+            m_outputControls.Add(new DHControl("Engine 0 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeedTrackbar1, true));
+            m_outputControls.Add(new DHControl("Engine 0 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitchTrackbar1, true));
             m_outputControls.Add(new DHControl("Engine 2 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeedTrackbar2, true));
             m_outputControls.Add(new DHControl("Engine 2 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeedTrackbar2, true));
             m_outputControls.Add(new DHControl("Engine 2 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitchTrackbar2, true));
 
             //TRD Components
-            m_inputControls.Add(new DHControl("Thruster 1 RPM", FloatIntBoolNone.Float, trdRpmResponse1, false));
-            m_inputControls.Add(new DHControl("Thruster 1 Pitch", FloatIntBoolNone.Float, trdPitchResponse1, false));
-            m_inputControls.Add(new DHControl("Thruster 1 Azimuth", FloatIntBoolNone.Float, trdAzimuthResponse1, false));
+            m_inputControls.Add(new DHControl("Thruster 0 RPM", FloatIntBoolNone.Float, trdRpmResponse1, false));
+            m_inputControls.Add(new DHControl("Thruster 0 Pitch", FloatIntBoolNone.Float, trdPitchResponse1, false));
+            m_inputControls.Add(new DHControl("Thruster 0 Azimuth", FloatIntBoolNone.Float, trdAzimuthResponse1, false));
             m_inputControls.Add(new DHControl("Thruster 2 RPM", FloatIntBoolNone.Float, trdRpmResponse2, false));
             m_inputControls.Add(new DHControl("Thruster 2 Pitch", FloatIntBoolNone.Float, trdPitchResponse2, false));
             m_inputControls.Add(new DHControl("Thruster 2 Azimuth", FloatIntBoolNone.Float, trdAzimuthResponse2, false));
 
-            m_outputControls.Add(new DHControl("Thruster 1 RPM", FloatIntBoolNone.Float, trdRpmTrackbar1, true));
-            m_outputControls.Add(new DHControl("Thruster 1 Pitch", FloatIntBoolNone.Float, trdPitchTrackbar1, true));
-            m_outputControls.Add(new DHControl("Thruster 1 Azimuth", FloatIntBoolNone.Float, trdAzimuthTrackbar1, true));
+            m_outputControls.Add(new DHControl("Thruster 0 RPM", FloatIntBoolNone.Float, trdRpmTrackbar1, true));
+            m_outputControls.Add(new DHControl("Thruster 0 Pitch", FloatIntBoolNone.Float, trdPitchTrackbar1, true));
+            m_outputControls.Add(new DHControl("Thruster 0 Azimuth", FloatIntBoolNone.Float, trdAzimuthTrackbar1, true));
             m_outputControls.Add(new DHControl("Thruster 2 RPM", FloatIntBoolNone.Float, trdRpmTrackbar2, true));
             m_outputControls.Add(new DHControl("Thruster 2 Pitch", FloatIntBoolNone.Float, trdPitchTrackbar2, true));
             m_outputControls.Add(new DHControl("Thruster 2 Azimuth", FloatIntBoolNone.Float, trdAzimuthTrackbar2, true));
@@ -100,6 +99,8 @@ namespace BridgeIface
             m_inputControls.Add(new DHControl("Mission Elapsed Time", FloatIntBoolNone.Float, eomElapsedTime, false));
 
             timer1.Enabled = true;
+            tbUdpPort.Text = port.ToString();
+
         }
         
         private void parse_button_Click(object sender, EventArgs e)
@@ -110,26 +111,34 @@ namespace BridgeIface
         {
             errorMessage.Text = "";
             lastStringReceived.Text = sentence;
-            string[] data = sentence.Split(',','*');
+
+            string[] data = sentence.Split(',', '*');
+            //string[] dataTemp = sentence.Split(',','*');
+            //string[] data = nullToOne(dataTemp);
 
             switch (data[0])
             {
-                case "$GCTRC":          //This one isn't real, just an example. We should get rid of it soon.
+                case "$SSTRC":
                 case "$--TRC":
                     parseTRC(data);
                     break;
+                case "$SSETL":
                 case "$--ETL":
                     parseETL(data);
                     break;
+                case "$SSPRC":
                 case "$--PRC":
                     parsePRC(data);
                     break;
+                case "$SSRPM":
                 case "$--RPM":
                     parseRPM(data);
                     break;
+                case "$GPRSA":
                 case "$--RSA":
                     parseRSA(data);
                     break;
+                case "$SSTRD":
                 case "$--TRD":
                     parseTRD(data);
                     break;
@@ -474,15 +483,47 @@ namespace BridgeIface
             {
                 dh.readFromDataHolder();
             }
-            //foreach (DHControl dh in m_outputControls)
-            //{
-            //    dh.writeToDataHolder();
-            //}
-
-            
-            etlSendButton1.Enabled = (etlEventTimeSet1.Text != "" && etlSubTelPosSet1.Text != "" && etlEventTimeSet1.Text != "");
-            etlSendButton2.Enabled = (etlEventTimeSet2.Text != "" && etlSubTelPosSet2.Text != "" && etlEventTimeSet2.Text != "");
         }
+        
+        static int port = 1254;
+        private volatile bool runThread;
+        UdpClient listener = new UdpClient(port);
+        private void receiveNmeaMessage()
+        {
+            while (runThread)
+            {
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, port);
+                byte[] content = listener.Receive(ref endPoint);
+                if (content.Length > 0)
+                {
+                    string nmeaMessage = Encoding.ASCII.GetString(content);
+                    parser(nmeaMessage);
+                }
+            }
+        }
+        
+        private void udpReceiveButton_Click(object sender, EventArgs e)
+        {
+            Thread udpReadThread = new Thread(receiveNmeaMessage);
+            if (udpReceiveButton.Text == "Start")
+            {
+                CheckForIllegalCrossThreadCalls = false;//Not sure why this makes things work.
+                runThread = true;
+                udpReadThread.IsBackground = true;
+                udpReadThread.Start();
+                udpReceiveButton.Text = "Stop";
+                updReceiveLabel.Visible = true;
+            }
+            else
+            {
+                //udpReadThread.Abort();//doesn't actually abort
+                runThread = false;
+                udpReceiveButton.Text = "Start";
+                updReceiveLabel.Visible = false;
+                
+            }
+        }
+
 
         List<DHControl> m_outputControls = new List<DHControl>();           //This is for later, when trying to stimulate our output to VStep
         List<DHControl> m_inputControls = new List<DHControl>();//This is for taking DataHolder values (written to by parsing NMEA), and displaying them on the screen
@@ -543,7 +584,6 @@ namespace BridgeIface
             //parser(s);
             lastStringSent.Text = s;
         }
-
         private void rpmShaftSendButton2_Click(object sender, EventArgs e)
         {
             string s = "$--RPM,E," + ",1," + rpmShaftSpeed2.Text + "," + rpmPropPitch2.Text + ",A*hh\r\n";
@@ -552,33 +592,17 @@ namespace BridgeIface
         }
         private void etlSendButton1_Click(object sender, EventArgs e)
         {
-            string s = "$--ETL," + etlEventTimeSet1.Text + ",O," + etlSubTelPosSet1.Text + "," + etlTelegraphPosSet1.Text + ",S,1*hh\r\n";
-            parser(s);
+            string s = "$--ETL,0,O," + etlTelegraphPos1.Text + "," + etlSubTelPos1.Text + ",S,1*hh\r\n";
+            //parser(s);
             lastStringSent.Text = s;
-
-            //null out Set boxes & button
-            etlEventTimeSet1.Text = null;
-            etlSubTelPosSet1.Text = null;
-            etlTelegraphPosSet1.Text = null;
-            etlSendButton1.Enabled = false;
         }
         private void etlSendButton2_Click(object sender, EventArgs e)
         {
-            string s = "$--ETL," + etlEventTimeSet2.Text + ",O," + etlSubTelPosSet2.Text + "," + etlTelegraphPosSet2.Text + ",S,2*hh\r\n";
-            parser(s);
+            string s = "$--ETL,0,O," + etlTelegraphPos2.Text + "," + etlSubTelPos2.Text + ",S,2*hh\r\n";
+            //parser(s);
             lastStringSent.Text = s;
-
-            //null out Set boxes & button
-            etlEventTimeSet2.Text = null;
-            etlSubTelPosSet2.Text = null;
-            etlTelegraphPosSet2.Text = null;
-            etlSendButton2.Enabled = false;
         }
 
-        private void trcRpmTrackbar1_Scroll(object sender, EventArgs e)
-        {
-            //set dataholder value
-        }
 
     }
 }
