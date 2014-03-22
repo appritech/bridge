@@ -40,10 +40,10 @@ namespace BridgeIface
             m_inputControls.Add(new DHControl("Engine 2 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphPos2, false));
             m_inputControls.Add(new DHControl("Engine 2 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos2, false));
 
-            m_outputControls.Add(new DHControl("Engine 0 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphTrackbar1, true));
-            m_outputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelTrackbar1, true));
-            m_outputControls.Add(new DHControl("Engine 2 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphTrackbar2, true));
-            m_outputControls.Add(new DHControl("Engine 2 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelTrackbar2, true));
+            m_inputControls.Add(new DHControl("Engine 0 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphTrackbar1, false));
+            m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelTrackbar1, false));
+            m_inputControls.Add(new DHControl("Engine 2 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphTrackbar2, false));
+            m_inputControls.Add(new DHControl("Engine 2 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelTrackbar2, false));
 
             //PRC Components
             m_inputControls.Add(new DHControl("Remote Engine 0 Lever Demand Position", FloatIntBoolNone.Float, prcLeverPos1, false));
@@ -102,25 +102,59 @@ namespace BridgeIface
             tbUdpPort.Text = port.ToString();
 
         }
-        
-        private void parse_button_Click(object sender, EventArgs e)
+        class nmeaObject
         {
-            parser(NMEA_String_Box.Text);
+            public string sentence { get; set; }
+            public DateTime time { get; set; }
         }
+        Dictionary<string, int> nmeaTypes = new Dictionary<string, int>();
+
+
+        BindingList<nmeaObject> tableReceivedNmeaStrings = new BindingList<nmeaObject>();
+        private void updateTable(string sentence, string index)
+        {
+            //If sentence exists at index, remove it.
+           // try { tableReceivedNmeaStrings.RemoveAt(nmeaTypes[index]); }
+           // catch (ArgumentOutOfRangeException e) { }
+
+            //Insert new sentence at index
+            try
+            {
+                tableReceivedNmeaStrings[nmeaTypes[index]] = new nmeaObject() { sentence = sentence, time = System.DateTime.Now };
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                tableReceivedNmeaStrings.Insert(nmeaTypes[index], new nmeaObject() { sentence = sentence, time = System.DateTime.Now });
+            }
+            //tableReceivedNmeaStrings(nmeaTypes[index]) = new nmeaObject(){ sentence = sentence, time = System.DateTime.Now };
+            //tableReceivedNmeaStrings.Insert(nmeaTypes[index], new nmeaObject() { sentence = sentence, time = System.DateTime.Now });
+            dataGridReceivedNMEA.DataSource = tableReceivedNmeaStrings;
+        }
+
+
         private void parser(String sentence)
         {
             errorMessage.Text = "";
             lastStringReceived.Text = sentence;
-
             string[] data = sentence.Split(',', '*');
-            //string[] dataTemp = sentence.Split(',','*');
-            //string[] data = nullToOne(dataTemp);
 
+            //Check if string has been seen before. If not, add it to Dictionary for array indexing.
+            if (nmeaTypes.ContainsKey(data[0]) == false)
+            {
+                nmeaTypes.Add(data[0], nmeaTypes.Count);
+            }
+            updateTable(sentence, data[0]);
+            
             switch (data[0])
             {
                 case "$SSTRC":
                 case "$--TRC":
                     parseTRC(data);
+                    break;
+                case "$SSTRD":
+                case "$GPTRD":
+                case "$--TRD":
+                    parseTRD(data);
                     break;
                 case "$SSETL":
                 case "$--ETL":
@@ -137,10 +171,6 @@ namespace BridgeIface
                 case "$GPRSA":
                 case "$--RSA":
                     parseRSA(data);
-                    break;
-                case "$SSTRD":
-                case "$--TRD":
-                    parseTRD(data);
                     break;
                 case "$DPBOW":
                     parseBOW(data);
@@ -477,13 +507,6 @@ namespace BridgeIface
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            foreach (DHControl dh in m_inputControls)
-            {
-                dh.readFromDataHolder();
-            }
-        }
         
         static int port = 1254;
         private volatile bool runThread;
@@ -502,12 +525,97 @@ namespace BridgeIface
             }
         }
         
+        
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            foreach (DHControl dh in m_inputControls)
+            {
+                dh.readFromDataHolder();
+            }
+        }
+        List<DHControl> m_outputControls = new List<DHControl>();           //This is for later, when trying to stimulate our output to VStep
+        List<DHControl> m_inputControls = new List<DHControl>();//This is for taking DataHolder values (written to by parsing NMEA), and displaying them on the screen
+        
+        private void sendTrc1Button_Click(object sender, EventArgs e)
+        {
+            string s = "$--TRC,1," + trcRpmDemandDisplay1.Text + ",P," + trcPitchDemandDisplay1.Text + ",P," + float.Parse(trcAzimuthDemandDisplay1.Text) * 10 + ",S,C*hh\r\n";//TODO: should we calc checksums?
+            parser(s);
+            lastStringSent.Text = s;
+        }
+        private void sendTrc2Button_Click(object sender, EventArgs e)
+        {
+            string s = "$--TRC,2," + trcRpmDemandDisplay2.Text + ",P," + trcPitchDemandDisplay2.Text + ",P," + float.Parse(trcAzimuthDemandDisplay2.Text) * 10 + ",S,C*hh\r\n";
+            parser(s);
+            lastStringSent.Text = s;
+        }
+        private void trdSendButton1_Click(object sender, EventArgs e)
+        {
+
+            string s = "$--TRD,1," + trdRpmResponse1.Text + ",P," + trdPitchResponse1.Text + ",P," + float.Parse(trdAzimuthResponse1.Text) * 10 + "*hh\r\n";
+            parser(s);
+            lastStringSent.Text = s;
+        }
+        private void trdSendButton2_Click(object sender, EventArgs e)
+        {
+            string s = "$--TRD,2," + trdRpmResponse2.Text + ",P," + trdPitchResponse2.Text + ",P," + float.Parse(trdAzimuthResponse2.Text) * 10 + "*hh\r\n";
+            parser(s);
+            lastStringSent.Text = s;
+        }
+        private void prcSendButton1_Click(object sender, EventArgs e)
+        {
+            string s = "$--PRC," + prcLeverPos1.Text + ",A," + prcRpmDemand1.Text + ",P," + prcPitchDemand1.Text + ",P,S,1*hh\r\n";
+            parser(s);
+            lastStringSent.Text = s;
+        }
+        private void prcSendButton2_Click(object sender, EventArgs e)
+        {
+            string s = "$--PRC," + prcLeverPos2.Text + ",A," + prcRpmDemand2.Text + ",P," + prcPitchDemand2.Text + ",P,S,2*hh\r\n";
+            parser(s);
+            lastStringSent.Text = s;
+        }
+        private void rpmEngSendButton1_Click(object sender, EventArgs e)
+        {
+
+            string s = "$--RPM,E," + ",1," + rpmEngSpeed1.Text + "," + rpmPropPitch1.Text + ",A*hh\r\n";
+            parser(s);
+            lastStringSent.Text = s;
+        }
+        private void rpmEngSendButton2_Click(object sender, EventArgs e)
+        {
+            string s = "$--RPM,E," + ",1," + rpmEngSpeed2.Text + "," + rpmPropPitch2.Text + ",A*hh\r\n";
+            parser(s);
+            lastStringSent.Text = s;
+        }
+        private void rpmShaftSendButton1_Click(object sender, EventArgs e)
+        {
+            string s = "$--RPM,E," + ",1," + rpmShaftSpeed1.Text + "," + rpmPropPitch1.Text + ",A*hh\r\n";
+            parser(s);
+            lastStringSent.Text = s;
+        }
+        private void rpmShaftSendButton2_Click(object sender, EventArgs e)
+        {
+            string s = "$--RPM,E," + ",1," + rpmShaftSpeed2.Text + "," + rpmPropPitch2.Text + ",A*hh\r\n";
+            parser(s);
+            lastStringSent.Text = s;
+        }
+        private void etlSendButton1_Click(object sender, EventArgs e)
+        {
+            string s = "$--ETL,0,O," + etlTelegraphPos1.Text + "," + etlSubTelPos1.Text + ",S,1*hh\r\n";
+            parser(s);
+            lastStringSent.Text = s;
+        }
+        private void etlSendButton2_Click(object sender, EventArgs e)
+        {
+            string s = "$--ETL,0,O," + etlTelegraphPos2.Text + "," + etlSubTelPos2.Text + ",S,2*hh\r\n";
+            parser(s);
+            lastStringSent.Text = s;
+        }
         private void udpReceiveButton_Click(object sender, EventArgs e)
         {
             Thread udpReadThread = new Thread(receiveNmeaMessage);
             if (udpReceiveButton.Text == "Start")
             {
-                CheckForIllegalCrossThreadCalls = false;//Not sure why this makes things work.
+                CheckForIllegalCrossThreadCalls = false;
                 runThread = true;
                 udpReadThread.IsBackground = true;
                 udpReadThread.Start();
@@ -516,93 +624,15 @@ namespace BridgeIface
             }
             else
             {
-                //udpReadThread.Abort();//doesn't actually abort
                 runThread = false;
                 udpReceiveButton.Text = "Start";
                 updReceiveLabel.Visible = false;
-                
+
             }
         }
-
-
-        List<DHControl> m_outputControls = new List<DHControl>();           //This is for later, when trying to stimulate our output to VStep
-        List<DHControl> m_inputControls = new List<DHControl>();//This is for taking DataHolder values (written to by parsing NMEA), and displaying them on the screen
-        
-        private void sendTrc1Button_Click(object sender, EventArgs e)
+        private void parse_button_Click(object sender, EventArgs e)
         {
-            string s = "$--TRC,1," + trcRpmDemandDisplay1.Text + ",P," + trcPitchDemandDisplay1.Text + ",P," + float.Parse(trcAzimuthDemandDisplay1.Text) * 10 + ",S,C*hh\r\n";//TODO: should we calc checksums?
-            //parser(s);
-            lastStringSent.Text = s;
+            parser(NMEA_String_Box.Text);
         }
-        private void sendTrc2Button_Click(object sender, EventArgs e)
-        {
-            string s = "$--TRC,2," + trcRpmDemandDisplay2.Text + ",P," + trcPitchDemandDisplay2.Text + ",P," + float.Parse(trcAzimuthDemandDisplay2.Text) * 10 + ",S,C*hh\r\n";
-            //parser(s);
-            lastStringSent.Text = s;
-        }
-        private void trdSendButton1_Click(object sender, EventArgs e)
-        {
-
-            string s = "$--TRD,1," + trdRpmResponse1.Text + ",P," + trdPitchResponse1.Text + ",P," + float.Parse(trdAzimuthResponse1.Text) * 10 + "*hh\r\n";
-            //parser(s);
-            lastStringSent.Text = s;
-        }
-        private void trdSendButton2_Click(object sender, EventArgs e)
-        {
-            string s = "$--TRD,2," + trdRpmResponse2.Text + ",P," + trdPitchResponse2.Text + ",P," + float.Parse(trdAzimuthResponse2.Text) * 10 + "*hh\r\n";
-            //parser(s);
-            lastStringSent.Text = s;
-        }
-        private void prcSendButton1_Click(object sender, EventArgs e)
-        {
-            string s = "$--PRC," + prcLeverPos1.Text + ",A," + prcRpmDemand1.Text + ",P," + prcPitchDemand1.Text + ",P,S,1*hh\r\n";
-            //parser(s);
-            lastStringSent.Text = s;
-        }
-        private void prcSendButton2_Click(object sender, EventArgs e)
-        {
-            string s = "$--PRC," + prcLeverPos2.Text + ",A," + prcRpmDemand2.Text + ",P," + prcPitchDemand2.Text + ",P,S,2*hh\r\n";
-            //parser(s);
-            lastStringSent.Text = s;
-        }
-        private void rpmEngSendButton1_Click(object sender, EventArgs e)
-        {
-
-            string s = "$--RPM,E," + ",1," + rpmEngSpeed1.Text + "," + rpmPropPitch1.Text + ",A*hh\r\n";
-            //parser(s);
-            lastStringSent.Text = s;
-        }
-        private void rpmEngSendButton2_Click(object sender, EventArgs e)
-        {
-            string s = "$--RPM,E," + ",1," + rpmEngSpeed2.Text + "," + rpmPropPitch2.Text + ",A*hh\r\n";
-            //parser(s);
-            lastStringSent.Text = s;
-        }
-        private void rpmShaftSendButton1_Click(object sender, EventArgs e)
-        {
-            string s = "$--RPM,E," + ",1," + rpmShaftSpeed1.Text + "," + rpmPropPitch1.Text + ",A*hh\r\n";
-            //parser(s);
-            lastStringSent.Text = s;
-        }
-        private void rpmShaftSendButton2_Click(object sender, EventArgs e)
-        {
-            string s = "$--RPM,E," + ",1," + rpmShaftSpeed2.Text + "," + rpmPropPitch2.Text + ",A*hh\r\n";
-            //parser(s);
-            lastStringSent.Text = s;
-        }
-        private void etlSendButton1_Click(object sender, EventArgs e)
-        {
-            string s = "$--ETL,0,O," + etlTelegraphPos1.Text + "," + etlSubTelPos1.Text + ",S,1*hh\r\n";
-            //parser(s);
-            lastStringSent.Text = s;
-        }
-        private void etlSendButton2_Click(object sender, EventArgs e)
-        {
-            string s = "$--ETL,0,O," + etlTelegraphPos2.Text + "," + etlSubTelPos2.Text + ",S,2*hh\r\n";
-            //parser(s);
-            lastStringSent.Text = s;
-        }
-
-
     }
 }

@@ -31,6 +31,9 @@ namespace BridgeIface
             if (m_scaler == 0.0f)
                 m_scaler = 1.0f;
 
+            if (!isOutput)
+                LinkedControl.Enabled = false;
+
             if (m_isOutput)
             {
                 if (m_control is CheckBox)

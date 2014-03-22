@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.sentenceTypeLabel = new System.Windows.Forms.Label();
             this.sentenceTypeReceivedDisplay = new System.Windows.Forms.TextBox();
@@ -182,6 +183,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageEngines = new System.Windows.Forms.TabPage();
             this.tabPageThrusters = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridReceivedNMEA = new System.Windows.Forms.DataGridView();
             this.udpReceiveButton = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -225,6 +228,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPageEngines.SuspendLayout();
             this.tabPageThrusters.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridReceivedNMEA)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -691,7 +695,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(444, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(319, 537);
+            this.groupBox2.Size = new System.Drawing.Size(281, 537);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Engine Telegraph Operation Status (ETL)";
@@ -2027,10 +2031,11 @@
             // 
             this.tabControl1.Controls.Add(this.tabPageEngines);
             this.tabControl1.Controls.Add(this.tabPageThrusters);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(15, 111);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(882, 574);
+            this.tabControl1.Size = new System.Drawing.Size(737, 574);
             this.tabControl1.TabIndex = 46;
             // 
             // tabPageEngines
@@ -2041,7 +2046,7 @@
             this.tabPageEngines.Location = new System.Drawing.Point(4, 22);
             this.tabPageEngines.Name = "tabPageEngines";
             this.tabPageEngines.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEngines.Size = new System.Drawing.Size(874, 548);
+            this.tabPageEngines.Size = new System.Drawing.Size(729, 548);
             this.tabPageEngines.TabIndex = 0;
             this.tabPageEngines.Text = "Engines";
             this.tabPageEngines.UseVisualStyleBackColor = true;
@@ -2054,14 +2059,42 @@
             this.tabPageThrusters.Location = new System.Drawing.Point(4, 22);
             this.tabPageThrusters.Name = "tabPageThrusters";
             this.tabPageThrusters.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageThrusters.Size = new System.Drawing.Size(874, 548);
+            this.tabPageThrusters.Size = new System.Drawing.Size(769, 548);
             this.tabPageThrusters.TabIndex = 1;
             this.tabPageThrusters.Text = "Thrusters";
             this.tabPageThrusters.UseVisualStyleBackColor = true;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(874, 548);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridReceivedNMEA
+            // 
+            this.dataGridReceivedNMEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridReceivedNMEA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Format = "T";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridReceivedNMEA.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridReceivedNMEA.Location = new System.Drawing.Point(761, 134);
+            this.dataGridReceivedNMEA.Name = "dataGridReceivedNMEA";
+            this.dataGridReceivedNMEA.Size = new System.Drawing.Size(384, 277);
+            this.dataGridReceivedNMEA.TabIndex = 41;
+            // 
             // udpReceiveButton
             // 
-            this.udpReceiveButton.Location = new System.Drawing.Point(801, 68);
+            this.udpReceiveButton.Location = new System.Drawing.Point(761, 69);
             this.udpReceiveButton.Name = "udpReceiveButton";
             this.udpReceiveButton.Size = new System.Drawing.Size(75, 23);
             this.udpReceiveButton.TabIndex = 47;
@@ -2073,7 +2106,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(798, 31);
+            this.label14.Location = new System.Drawing.Point(758, 32);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(72, 13);
             this.label14.TabIndex = 48;
@@ -2082,7 +2115,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(798, 52);
+            this.label16.Location = new System.Drawing.Point(758, 53);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(29, 13);
             this.label16.TabIndex = 49;
@@ -2091,7 +2124,7 @@
             // updReceiveLabel
             // 
             this.updReceiveLabel.AutoSize = true;
-            this.updReceiveLabel.Location = new System.Drawing.Point(806, 94);
+            this.updReceiveLabel.Location = new System.Drawing.Point(766, 95);
             this.updReceiveLabel.Name = "updReceiveLabel";
             this.updReceiveLabel.Size = new System.Drawing.Size(64, 13);
             this.updReceiveLabel.TabIndex = 51;
@@ -2100,7 +2133,7 @@
             // 
             // tbUdpPort
             // 
-            this.tbUdpPort.Location = new System.Drawing.Point(834, 47);
+            this.tbUdpPort.Location = new System.Drawing.Point(794, 48);
             this.tbUdpPort.Name = "tbUdpPort";
             this.tbUdpPort.ReadOnly = true;
             this.tbUdpPort.Size = new System.Drawing.Size(33, 20);
@@ -2111,7 +2144,8 @@
             this.AcceptButton = this.parse_button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 853);
+            this.ClientSize = new System.Drawing.Size(1157, 829);
+            this.Controls.Add(this.dataGridReceivedNMEA);
             this.Controls.Add(this.updReceiveLabel);
             this.Controls.Add(this.tbUdpPort);
             this.Controls.Add(this.label16);
@@ -2177,6 +2211,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPageEngines.ResumeLayout(false);
             this.tabPageThrusters.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridReceivedNMEA)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2342,6 +2377,8 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label updReceiveLabel;
         private System.Windows.Forms.TextBox tbUdpPort;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView dataGridReceivedNMEA;
     }
 }
 
