@@ -40,10 +40,10 @@ namespace BridgeIface
             m_inputControls.Add(new DHControl("Engine 2 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphPos2, false));
             m_inputControls.Add(new DHControl("Engine 2 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos2, false));
 
-            m_inputControls.Add(new DHControl("Engine 0 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphTrackbar1, false));
-            m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelTrackbar1, false));
-            m_inputControls.Add(new DHControl("Engine 2 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphTrackbar2, false));
-            m_inputControls.Add(new DHControl("Engine 2 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelTrackbar2, false));
+            m_inputControls.Add(new DHControl("Engine 0 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphTrackbar1, true));
+            m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelTrackbar1, true));
+            m_inputControls.Add(new DHControl("Engine 2 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphTrackbar2, true));
+            m_inputControls.Add(new DHControl("Engine 2 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelTrackbar2, true));
 
             //PRC Components
             m_inputControls.Add(new DHControl("Remote Engine 0 Lever Demand Position", FloatIntBoolNone.Float, prcLeverPos1, false));
@@ -98,8 +98,11 @@ namespace BridgeIface
             m_inputControls.Add(new DHControl("Mission Status", FloatIntBoolNone.Float, eomMissionStatus, false));
             m_inputControls.Add(new DHControl("Mission Elapsed Time", FloatIntBoolNone.Float, eomElapsedTime, false));
 
+            //ROR
+            m_outputControls.Add(new DHControl("Rudder Angle", FloatIntBoolNone.Float, rorLever, true));
+
             timer1.Enabled = true;
-            tbUdpPort.Text = port.ToString();
+            tbUdpPort.Text = portReceive.ToString();
 
         }
         class nmeaObject
@@ -109,33 +112,27 @@ namespace BridgeIface
         }
         Dictionary<string, int> nmeaTypes = new Dictionary<string, int>();
 
-
         BindingList<nmeaObject> tableReceivedNmeaStrings = new BindingList<nmeaObject>();
         private void updateTable(string sentence, string index)
         {
-            //If sentence exists at index, remove it.
-           // try { tableReceivedNmeaStrings.RemoveAt(nmeaTypes[index]); }
-           // catch (ArgumentOutOfRangeException e) { }
-
             //Insert new sentence at index
             try
             {
                 tableReceivedNmeaStrings[nmeaTypes[index]] = new nmeaObject() { sentence = sentence, time = System.DateTime.Now };
             }
-            catch (ArgumentOutOfRangeException e)
+            catch
             {
                 tableReceivedNmeaStrings.Insert(nmeaTypes[index], new nmeaObject() { sentence = sentence, time = System.DateTime.Now });
             }
-            //tableReceivedNmeaStrings(nmeaTypes[index]) = new nmeaObject(){ sentence = sentence, time = System.DateTime.Now };
-            //tableReceivedNmeaStrings.Insert(nmeaTypes[index], new nmeaObject() { sentence = sentence, time = System.DateTime.Now });
             dataGridReceivedNMEA.DataSource = tableReceivedNmeaStrings;
         }
 
-
+        //Parser Stuff        
         private void parser(String sentence)
         {
             errorMessage.Text = "";
-            lastStringReceived.Text = sentence;
+            try { lastStringReceived.Text = sentence; }
+            catch {}
             string[] data = sentence.Split(',', '*');
 
             //Check if string has been seen before. If not, add it to Dictionary for array indexing.
@@ -196,7 +193,6 @@ namespace BridgeIface
                     break;
             }
         }
-
         private void parseTRC(string[] data)
         {
             if (data.Length < 10)
@@ -506,16 +502,26 @@ namespace BridgeIface
                     return "UNRECOGNIZED STATUS";
             }
         }
-
+        private string calcChecksum(string s)
+        {
+            int checksum = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                checksum ^= Convert.ToByte(s[i]);
+            }
+            return checksum.ToString("X2");
+        }
         
-        static int port = 1254;
+        static int portReceive = 1254;
+        static int portSend = 8011;
         private volatile bool runThread;
-        UdpClient listener = new UdpClient(port);
+        UdpClient listener = new UdpClient(portReceive);
+        //UdpClient udpSender = new UdpClient(portSend);
         private void receiveNmeaMessage()
         {
             while (runThread)
             {
-                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, port);
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, portReceive);
                 byte[] content = listener.Receive(ref endPoint);
                 if (content.Length > 0)
                 {
@@ -524,21 +530,78 @@ namespace BridgeIface
                 }
             }
         }
-        
-        
-        private void timer1_Tick(object sender, EventArgs e)
+        IPEndPoint sendEP = new IPEndPoint(IPAddress.Parse("192.168.0.6"), portSend);
+        Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+        // Creates one SocketPermission object for access restrictions
+        SocketPermission permission;
+        private void sendNmeaMessage(string s)
         {
-            foreach (DHControl dh in m_inputControls)
+            // Creates one SocketPermission object for access restrictions
+                permission = new SocketPermission(
+                NetworkAccess.Accept,     // Allowed to accept connections 
+                TransportType.Udp,        // Defines transport types 
+                "",                       // The IP addresses of local host 
+                SocketPermission.AllPorts // Specifies all ports 
+                );
+
+            try {
+                listener.Connect(sendEP);
+                Byte[] sendBytes = Encoding.ASCII.GetBytes(s);
+                listener.Send(sendBytes, sendBytes.Length);
+                //sock.SendTo(sendBytes, sendEP);
+            }
+            catch (Exception e)
             {
-                dh.readFromDataHolder();
+                Console.WriteLine(e.ToString());
             }
         }
-        List<DHControl> m_outputControls = new List<DHControl>();           //This is for later, when trying to stimulate our output to VStep
-        List<DHControl> m_inputControls = new List<DHControl>();//This is for taking DataHolder values (written to by parsing NMEA), and displaying them on the screen
-        
+
+        private void prcSendButton1_Click(object sender, EventArgs e)
+        {
+            string command = "XXPRC," + prcLeverPos1.Text + ",A," + prcRpmDemand1.Text + ",P," + prcPitchDemand1.Text + ",P,S,0";
+            string sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
+            lastStringSent.Text = sOut;
+            sendNmeaMessage(sOut);
+        }
+        private void etlSendButton1_Click(object sender, EventArgs e)
+        {
+            string command = "XXETL,0,O," + etlTelegraphPos1.Text + "," + etlSubTelPos1.Text + ",S,0";
+            string sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
+            lastStringSent.Text = sOut;
+            sendNmeaMessage(sOut);
+        }
+        private void rorSendButton_Click(object sender, EventArgs e)
+        {
+            string command = "XXROR," + rorLever.Value + ",A," + rorLever.Value + ",A,C";
+            string sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
+            lastStringSent.Text = sOut;
+            sendNmeaMessage(sOut);
+        }
+
+        //Unused Button Clicks
+        private void rpmEngSendButton1_Click(object sender, EventArgs e)
+        {
+            string s = "$--RPM,E," + ",1," + rpmEngSpeed1.Text + "," + rpmPropPitch1.Text + ",A*hh\r\n";
+            parser(s);
+            lastStringSent.Text = s;
+        }
+        private void rpmShaftSendButton1_Click(object sender, EventArgs e)
+        {
+            string s = "$--RPM,E," + ",1," + rpmShaftSpeed1.Text + "," + rpmPropPitch1.Text + ",A*hh\r\n";
+            parser(s);
+            lastStringSent.Text = s;
+        }  
         private void sendTrc1Button_Click(object sender, EventArgs e)
         {
-            string s = "$--TRC,1," + trcRpmDemandDisplay1.Text + ",P," + trcPitchDemandDisplay1.Text + ",P," + float.Parse(trcAzimuthDemandDisplay1.Text) * 10 + ",S,C*hh\r\n";//TODO: should we calc checksums?
+            string s_1 = "--TRC,1," + trcRpmDemandDisplay1.Text + ",P," + trcPitchDemandDisplay1.Text + ",P," + float.Parse(trcAzimuthDemandDisplay1.Text) * 10 + ",S,C";
+            string s = "$" + s_1 + "*" + calcChecksum(s_1) + "\r\n";
+            lastStringSent.Text = s;
+            sendNmeaMessage(s);
+        }
+        private void trdSendButton1_Click(object sender, EventArgs e)
+        {
+
+            string s = "$--TRD,1," + trdRpmResponse1.Text + ",P," + trdPitchResponse1.Text + ",P," + float.Parse(trdAzimuthResponse1.Text) * 10 + "*hh\r\n";
             parser(s);
             lastStringSent.Text = s;
         }
@@ -548,35 +611,15 @@ namespace BridgeIface
             parser(s);
             lastStringSent.Text = s;
         }
-        private void trdSendButton1_Click(object sender, EventArgs e)
-        {
-
-            string s = "$--TRD,1," + trdRpmResponse1.Text + ",P," + trdPitchResponse1.Text + ",P," + float.Parse(trdAzimuthResponse1.Text) * 10 + "*hh\r\n";
-            parser(s);
-            lastStringSent.Text = s;
-        }
         private void trdSendButton2_Click(object sender, EventArgs e)
         {
             string s = "$--TRD,2," + trdRpmResponse2.Text + ",P," + trdPitchResponse2.Text + ",P," + float.Parse(trdAzimuthResponse2.Text) * 10 + "*hh\r\n";
             parser(s);
             lastStringSent.Text = s;
         }
-        private void prcSendButton1_Click(object sender, EventArgs e)
-        {
-            string s = "$--PRC," + prcLeverPos1.Text + ",A," + prcRpmDemand1.Text + ",P," + prcPitchDemand1.Text + ",P,S,1*hh\r\n";
-            parser(s);
-            lastStringSent.Text = s;
-        }
-        private void prcSendButton2_Click(object sender, EventArgs e)
+        private void prcSendButton2_Click_1(object sender, EventArgs e)
         {
             string s = "$--PRC," + prcLeverPos2.Text + ",A," + prcRpmDemand2.Text + ",P," + prcPitchDemand2.Text + ",P,S,2*hh\r\n";
-            parser(s);
-            lastStringSent.Text = s;
-        }
-        private void rpmEngSendButton1_Click(object sender, EventArgs e)
-        {
-
-            string s = "$--RPM,E," + ",1," + rpmEngSpeed1.Text + "," + rpmPropPitch1.Text + ",A*hh\r\n";
             parser(s);
             lastStringSent.Text = s;
         }
@@ -586,21 +629,9 @@ namespace BridgeIface
             parser(s);
             lastStringSent.Text = s;
         }
-        private void rpmShaftSendButton1_Click(object sender, EventArgs e)
-        {
-            string s = "$--RPM,E," + ",1," + rpmShaftSpeed1.Text + "," + rpmPropPitch1.Text + ",A*hh\r\n";
-            parser(s);
-            lastStringSent.Text = s;
-        }
         private void rpmShaftSendButton2_Click(object sender, EventArgs e)
         {
             string s = "$--RPM,E," + ",1," + rpmShaftSpeed2.Text + "," + rpmPropPitch2.Text + ",A*hh\r\n";
-            parser(s);
-            lastStringSent.Text = s;
-        }
-        private void etlSendButton1_Click(object sender, EventArgs e)
-        {
-            string s = "$--ETL,0,O," + etlTelegraphPos1.Text + "," + etlSubTelPos1.Text + ",S,1*hh\r\n";
             parser(s);
             lastStringSent.Text = s;
         }
@@ -610,6 +641,7 @@ namespace BridgeIface
             parser(s);
             lastStringSent.Text = s;
         }
+       
         private void udpReceiveButton_Click(object sender, EventArgs e)
         {
             Thread udpReadThread = new Thread(receiveNmeaMessage);
@@ -629,10 +661,21 @@ namespace BridgeIface
                 updReceiveLabel.Visible = false;
 
             }
-        }
+        }        
         private void parse_button_Click(object sender, EventArgs e)
         {
             parser(NMEA_String_Box.Text);
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            foreach (DHControl dh in m_inputControls)
+            {
+                dh.readFromDataHolder();
+            }
+        }
+        List<DHControl> m_outputControls = new List<DHControl>();           //This is for later, when trying to stimulate our output to VStep
+        List<DHControl> m_inputControls = new List<DHControl>();//This is for taking DataHolder values (written to by parsing NMEA), and displaying them on the screen
+        
     }
 }

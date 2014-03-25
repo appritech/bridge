@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.sentenceTypeLabel = new System.Windows.Forms.Label();
             this.sentenceTypeReceivedDisplay = new System.Windows.Forms.TextBox();
@@ -40,24 +40,12 @@
             this.trcRpmDemandDisplay1 = new System.Windows.Forms.TextBox();
             this.trcAzimuthDemandDisplay1 = new System.Windows.Forms.TextBox();
             this.errorMessage = new System.Windows.Forms.Label();
-            this.trcAzimuthDemandDisplay2 = new System.Windows.Forms.TextBox();
-            this.trcPitchDemandDisplay2 = new System.Windows.Forms.TextBox();
-            this.trcRpmDemandDisplay2 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.NMEA_String_Box = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.trcAzimuthTrackbar2 = new System.Windows.Forms.TrackBar();
-            this.label6 = new System.Windows.Forms.Label();
-            this.trcPitchTrackbar2 = new System.Windows.Forms.TrackBar();
-            this.label7 = new System.Windows.Forms.Label();
-            this.trcRpmTrackbar2 = new System.Windows.Forms.TrackBar();
-            this.label49 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
-            this.trcSendButton2 = new System.Windows.Forms.Button();
             this.trcAzimuthTrackbar1 = new System.Windows.Forms.TrackBar();
             this.label51 = new System.Windows.Forms.Label();
             this.trcPitchTrackbar1 = new System.Windows.Forms.TrackBar();
@@ -67,72 +55,36 @@
             this.label47 = new System.Windows.Forms.Label();
             this.trcPitchDemandDisplay1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.etlSendButton2 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.etlSendButton1 = new System.Windows.Forms.Button();
-            this.label61 = new System.Windows.Forms.Label();
-            this.etlSubTelTrackbar1 = new System.Windows.Forms.TrackBar();
-            this.label10 = new System.Windows.Forms.Label();
-            this.etlSubTelTrackbar2 = new System.Windows.Forms.TrackBar();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.etlSubTelPos1 = new System.Windows.Forms.TextBox();
-            this.label63 = new System.Windows.Forms.Label();
-            this.etlTelegraphPos1 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.etlTelegraphTrackbar2 = new System.Windows.Forms.TrackBar();
-            this.etlTelegraphTrackbar1 = new System.Windows.Forms.TrackBar();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.etlTelegraphPos2 = new System.Windows.Forms.TextBox();
-            this.etlSubTelPos2 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.prcPitchTrackbar2 = new System.Windows.Forms.TrackBar();
-            this.label18 = new System.Windows.Forms.Label();
-            this.prcRpmTrackbar2 = new System.Windows.Forms.TrackBar();
-            this.label19 = new System.Windows.Forms.Label();
-            this.prcLeverTrackbar2 = new System.Windows.Forms.TrackBar();
-            this.label22 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.prcSendButton2 = new System.Windows.Forms.Button();
             this.prcPitchTrackbar1 = new System.Windows.Forms.TrackBar();
+            this.label35 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.prcRpmTrackbar1 = new System.Windows.Forms.TrackBar();
+            this.etlSendButton1 = new System.Windows.Forms.Button();
             this.prcSendButton1 = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
-            this.prcLeverPos2 = new System.Windows.Forms.TextBox();
+            this.etlSubTelTrackbar1 = new System.Windows.Forms.TrackBar();
             this.prcLeverTrackbar1 = new System.Windows.Forms.TrackBar();
             this.label42 = new System.Windows.Forms.Label();
-            this.prcRpmDemand2 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.prcLeverPos1 = new System.Windows.Forms.TextBox();
-            this.prcPitchDemand2 = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
             this.prcRpmDemand1 = new System.Windows.Forms.TextBox();
+            this.etlSubTelPos1 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.prcPitchDemand1 = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
+            this.etlTelegraphPos1 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.etlTelegraphTrackbar1 = new System.Windows.Forms.TrackBar();
+            this.label15 = new System.Windows.Forms.Label();
             this.rpmShaftSpeed1 = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.rpmEngSpeed1 = new System.Windows.Forms.TextBox();
-            this.rpmShaftSpeed2 = new System.Windows.Forms.TextBox();
-            this.rpmEngSpeed2 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.rpmShaftSendButton2 = new System.Windows.Forms.Button();
             this.rpmShaftSendButton1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rpmPropPitchTrackbar2 = new System.Windows.Forms.TrackBar();
-            this.label26 = new System.Windows.Forms.Label();
-            this.rpmShaftSpeedTrackbar2 = new System.Windows.Forms.TrackBar();
-            this.label27 = new System.Windows.Forms.Label();
-            this.rpmEngSpeedTrackbar2 = new System.Windows.Forms.TrackBar();
-            this.label31 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.rpmEngSendButton2 = new System.Windows.Forms.Button();
             this.rpmPropPitchTrackbar1 = new System.Windows.Forms.TrackBar();
             this.label23 = new System.Windows.Forms.Label();
             this.rpmShaftSpeedTrackbar1 = new System.Windows.Forms.TrackBar();
@@ -140,33 +92,20 @@
             this.rpmEngSpeedTrackbar1 = new System.Windows.Forms.TrackBar();
             this.rpmEngSendButton1 = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
-            this.rpmPropPitch2 = new System.Windows.Forms.TextBox();
             this.rpmPropPitch1 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label57 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.trdAzimuthTrackbar1 = new System.Windows.Forms.TrackBar();
             this.label54 = new System.Windows.Forms.Label();
-            this.trdAzimuthTrackbar2 = new System.Windows.Forms.TrackBar();
             this.trdPitchTrackbar1 = new System.Windows.Forms.TrackBar();
             this.label55 = new System.Windows.Forms.Label();
             this.trdRpmTrackbar1 = new System.Windows.Forms.TrackBar();
-            this.label58 = new System.Windows.Forms.Label();
             this.trdSendButton1 = new System.Windows.Forms.Button();
             this.label56 = new System.Windows.Forms.Label();
             this.trdRpmResponse1 = new System.Windows.Forms.TextBox();
-            this.trdPitchTrackbar2 = new System.Windows.Forms.TrackBar();
             this.label28 = new System.Windows.Forms.Label();
-            this.trdRpmTrackbar2 = new System.Windows.Forms.TrackBar();
             this.trdPitchResponse1 = new System.Windows.Forms.TextBox();
-            this.label59 = new System.Windows.Forms.Label();
             this.trdAzimuthResponse1 = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.trdRpmResponse2 = new System.Windows.Forms.TextBox();
-            this.trdSendButton2 = new System.Windows.Forms.Button();
-            this.trdAzimuthResponse2 = new System.Windows.Forms.TextBox();
-            this.trdPitchResponse2 = new System.Windows.Forms.TextBox();
-            this.label60 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btrSetValue = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
@@ -184,51 +123,115 @@
             this.tabPageEngines = new System.Windows.Forms.TabPage();
             this.tabPageThrusters = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label57 = new System.Windows.Forms.Label();
+            this.trdAzimuthTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.label58 = new System.Windows.Forms.Label();
+            this.trdPitchTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.trdRpmTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.trdRpmResponse2 = new System.Windows.Forms.TextBox();
+            this.trdSendButton2 = new System.Windows.Forms.Button();
+            this.trdAzimuthResponse2 = new System.Windows.Forms.TextBox();
+            this.trdPitchResponse2 = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.trcAzimuthTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.label6 = new System.Windows.Forms.Label();
+            this.trcPitchTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.label7 = new System.Windows.Forms.Label();
+            this.trcRpmTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.label49 = new System.Windows.Forms.Label();
+            this.trcSendButton2 = new System.Windows.Forms.Button();
+            this.trcAzimuthDemandDisplay2 = new System.Windows.Forms.TextBox();
+            this.trcPitchDemandDisplay2 = new System.Windows.Forms.TextBox();
+            this.trcRpmDemandDisplay2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.etlSendButton2 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.etlSubTelTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.etlTelegraphTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.etlTelegraphPos2 = new System.Windows.Forms.TextBox();
+            this.etlSubTelPos2 = new System.Windows.Forms.TextBox();
+            this.rpmShaftSendButton2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.rpmPropPitchTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.label26 = new System.Windows.Forms.Label();
+            this.rpmShaftSpeedTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.label27 = new System.Windows.Forms.Label();
+            this.rpmEngSpeedTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.label31 = new System.Windows.Forms.Label();
+            this.rpmEngSendButton2 = new System.Windows.Forms.Button();
+            this.rpmPropPitch2 = new System.Windows.Forms.TextBox();
+            this.rpmEngSpeed2 = new System.Windows.Forms.TextBox();
+            this.rpmShaftSpeed2 = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.prcPitchTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.label18 = new System.Windows.Forms.Label();
+            this.prcRpmTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.label19 = new System.Windows.Forms.Label();
+            this.prcLeverTrackbar2 = new System.Windows.Forms.TrackBar();
+            this.label22 = new System.Windows.Forms.Label();
+            this.prcSendButton2 = new System.Windows.Forms.Button();
+            this.prcLeverPos2 = new System.Windows.Forms.TextBox();
+            this.prcRpmDemand2 = new System.Windows.Forms.TextBox();
+            this.prcPitchDemand2 = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.dataGridReceivedNMEA = new System.Windows.Forms.DataGridView();
             this.udpReceiveButton = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.updReceiveLabel = new System.Windows.Forms.Label();
             this.tbUdpPort = new System.Windows.Forms.TextBox();
+            this.rorLever = new System.Windows.Forms.TrackBar();
+            this.label65 = new System.Windows.Forms.Label();
+            this.rorSendButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trcAzimuthTrackbar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trcRpmTrackbar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcAzimuthTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcRpmTrackbar1)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar1)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.prcPitchTrackbar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prcRpmTrackbar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prcLeverTrackbar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcPitchTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcRpmTrackbar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcLeverTrackbar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar1)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rpmPropPitchTrackbar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rpmShaftSpeedTrackbar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rpmEngSpeedTrackbar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpmPropPitchTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpmShaftSpeedTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpmEngSpeedTrackbar1)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trdAzimuthTrackbar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trdAzimuthTrackbar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trdPitchTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trdRpmTrackbar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trdPitchTrackbar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trdRpmTrackbar2)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageEngines.SuspendLayout();
             this.tabPageThrusters.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trdAzimuthTrackbar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trdPitchTrackbar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trdRpmTrackbar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trcAzimuthTrackbar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trcRpmTrackbar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpmPropPitchTrackbar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpmShaftSpeedTrackbar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpmEngSpeedTrackbar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prcPitchTrackbar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prcRpmTrackbar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prcLeverTrackbar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReceivedNMEA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rorLever)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -331,49 +334,6 @@
             this.errorMessage.Size = new System.Drawing.Size(0, 13);
             this.errorMessage.TabIndex = 21;
             // 
-            // trcAzimuthDemandDisplay2
-            // 
-            this.trcAzimuthDemandDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.trcAzimuthDemandDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.trcAzimuthDemandDisplay2.Location = new System.Drawing.Point(362, 158);
-            this.trcAzimuthDemandDisplay2.Name = "trcAzimuthDemandDisplay2";
-            this.trcAzimuthDemandDisplay2.ReadOnly = true;
-            this.trcAzimuthDemandDisplay2.Size = new System.Drawing.Size(44, 20);
-            this.trcAzimuthDemandDisplay2.TabIndex = 28;
-            this.trcAzimuthDemandDisplay2.TabStop = false;
-            // 
-            // trcPitchDemandDisplay2
-            // 
-            this.trcPitchDemandDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.trcPitchDemandDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.trcPitchDemandDisplay2.Location = new System.Drawing.Point(310, 158);
-            this.trcPitchDemandDisplay2.Name = "trcPitchDemandDisplay2";
-            this.trcPitchDemandDisplay2.ReadOnly = true;
-            this.trcPitchDemandDisplay2.Size = new System.Drawing.Size(45, 20);
-            this.trcPitchDemandDisplay2.TabIndex = 26;
-            this.trcPitchDemandDisplay2.TabStop = false;
-            // 
-            // trcRpmDemandDisplay2
-            // 
-            this.trcRpmDemandDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.trcRpmDemandDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.trcRpmDemandDisplay2.Location = new System.Drawing.Point(259, 158);
-            this.trcRpmDemandDisplay2.Name = "trcRpmDemandDisplay2";
-            this.trcRpmDemandDisplay2.ReadOnly = true;
-            this.trcRpmDemandDisplay2.Size = new System.Drawing.Size(45, 20);
-            this.trcRpmDemandDisplay2.TabIndex = 24;
-            this.trcRpmDemandDisplay2.TabStop = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(227, 22);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 13);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Stern Thruster 2";
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -407,17 +367,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.trcAzimuthTrackbar2);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.trcPitchTrackbar2);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.trcRpmTrackbar2);
-            this.groupBox1.Controls.Add(this.label49);
             this.groupBox1.Controls.Add(this.label53);
             this.groupBox1.Controls.Add(this.label48);
             this.groupBox1.Controls.Add(this.label52);
-            this.groupBox1.Controls.Add(this.trcSendButton2);
             this.groupBox1.Controls.Add(this.trcAzimuthTrackbar1);
             this.groupBox1.Controls.Add(this.label51);
             this.groupBox1.Controls.Add(this.trcPitchTrackbar1);
@@ -428,11 +380,7 @@
             this.groupBox1.Controls.Add(this.trcRpmDemandDisplay1);
             this.groupBox1.Controls.Add(this.label_bowThruster);
             this.groupBox1.Controls.Add(this.trcPitchDemandDisplay1);
-            this.groupBox1.Controls.Add(this.trcAzimuthDemandDisplay2);
             this.groupBox1.Controls.Add(this.trcAzimuthDemandDisplay1);
-            this.groupBox1.Controls.Add(this.trcPitchDemandDisplay2);
-            this.groupBox1.Controls.Add(this.trcRpmDemandDisplay2);
-            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
@@ -440,90 +388,6 @@
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thruster Control Data (TRC)";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(358, 44);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
-            this.label5.TabIndex = 55;
-            this.label5.Text = "Azimuth";
-            // 
-            // trcAzimuthTrackbar2
-            // 
-            this.trcAzimuthTrackbar2.BackColor = System.Drawing.SystemColors.Window;
-            this.trcAzimuthTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.trcAzimuthTrackbar2.LargeChange = 10;
-            this.trcAzimuthTrackbar2.Location = new System.Drawing.Point(361, 60);
-            this.trcAzimuthTrackbar2.Maximum = 100;
-            this.trcAzimuthTrackbar2.Name = "trcAzimuthTrackbar2";
-            this.trcAzimuthTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trcAzimuthTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.trcAzimuthTrackbar2.Size = new System.Drawing.Size(45, 92);
-            this.trcAzimuthTrackbar2.TabIndex = 54;
-            this.trcAzimuthTrackbar2.TickFrequency = 10;
-            this.trcAzimuthTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trcAzimuthTrackbar2.Value = 20;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(307, 44);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 13);
-            this.label6.TabIndex = 53;
-            this.label6.Text = "Pitch";
-            // 
-            // trcPitchTrackbar2
-            // 
-            this.trcPitchTrackbar2.BackColor = System.Drawing.SystemColors.Window;
-            this.trcPitchTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.trcPitchTrackbar2.LargeChange = 10;
-            this.trcPitchTrackbar2.Location = new System.Drawing.Point(310, 60);
-            this.trcPitchTrackbar2.Maximum = 100;
-            this.trcPitchTrackbar2.Name = "trcPitchTrackbar2";
-            this.trcPitchTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trcPitchTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.trcPitchTrackbar2.Size = new System.Drawing.Size(45, 92);
-            this.trcPitchTrackbar2.TabIndex = 52;
-            this.trcPitchTrackbar2.TickFrequency = 10;
-            this.trcPitchTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trcPitchTrackbar2.Value = 30;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(256, 44);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 13);
-            this.label7.TabIndex = 51;
-            this.label7.Text = "RPM";
-            // 
-            // trcRpmTrackbar2
-            // 
-            this.trcRpmTrackbar2.BackColor = System.Drawing.SystemColors.Window;
-            this.trcRpmTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.trcRpmTrackbar2.LargeChange = 10;
-            this.trcRpmTrackbar2.Location = new System.Drawing.Point(259, 60);
-            this.trcRpmTrackbar2.Maximum = 100;
-            this.trcRpmTrackbar2.Name = "trcRpmTrackbar2";
-            this.trcRpmTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trcRpmTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.trcRpmTrackbar2.Size = new System.Drawing.Size(45, 92);
-            this.trcRpmTrackbar2.TabIndex = 50;
-            this.trcRpmTrackbar2.TickFrequency = 10;
-            this.trcRpmTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trcRpmTrackbar2.Value = 15;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(227, 163);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(26, 13);
-            this.label49.TabIndex = 49;
-            this.label49.Text = "DH:";
             // 
             // label53
             // 
@@ -551,16 +415,6 @@
             this.label52.Size = new System.Drawing.Size(44, 13);
             this.label52.TabIndex = 46;
             this.label52.Text = "Azimuth";
-            // 
-            // trcSendButton2
-            // 
-            this.trcSendButton2.Location = new System.Drawing.Point(259, 182);
-            this.trcSendButton2.Name = "trcSendButton2";
-            this.trcSendButton2.Size = new System.Drawing.Size(147, 23);
-            this.trcSendButton2.TabIndex = 39;
-            this.trcSendButton2.Text = "Send as NMEA String";
-            this.trcSendButton2.UseVisualStyleBackColor = true;
-            this.trcSendButton2.Click += new System.EventHandler(this.sendTrc2Button_Click);
             // 
             // trcAzimuthTrackbar1
             // 
@@ -668,397 +522,47 @@
             this.label9.Size = new System.Drawing.Size(0, 13);
             this.label9.TabIndex = 35;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.etlSendButton2);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label35);
-            this.groupBox2.Controls.Add(this.etlSendButton1);
-            this.groupBox2.Controls.Add(this.label61);
-            this.groupBox2.Controls.Add(this.etlSubTelTrackbar1);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.etlSubTelTrackbar2);
-            this.groupBox2.Controls.Add(this.label34);
-            this.groupBox2.Controls.Add(this.label62);
-            this.groupBox2.Controls.Add(this.etlSubTelPos1);
-            this.groupBox2.Controls.Add(this.label63);
-            this.groupBox2.Controls.Add(this.etlTelegraphPos1);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.etlTelegraphTrackbar2);
-            this.groupBox2.Controls.Add(this.etlTelegraphTrackbar1);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label64);
-            this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.etlTelegraphPos2);
-            this.groupBox2.Controls.Add(this.etlSubTelPos2);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(444, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(281, 537);
-            this.groupBox2.TabIndex = 36;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Engine Telegraph Operation Status (ETL)";
-            // 
-            // etlSendButton2
-            // 
-            this.etlSendButton2.Enabled = false;
-            this.etlSendButton2.Location = new System.Drawing.Point(37, 504);
-            this.etlSendButton2.Name = "etlSendButton2";
-            this.etlSendButton2.Size = new System.Drawing.Size(232, 23);
-            this.etlSendButton2.TabIndex = 71;
-            this.etlSendButton2.Text = "Send as NMEA String";
-            this.etlSendButton2.UseVisualStyleBackColor = true;
-            this.etlSendButton2.Click += new System.EventHandler(this.etlSendButton2_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 225);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(26, 13);
-            this.label12.TabIndex = 63;
-            this.label12.Text = "DH:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 480);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(26, 13);
-            this.label11.TabIndex = 75;
-            this.label11.Text = "DH:";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(185, 65);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(47, 143);
-            this.label35.TabIndex = 64;
-            this.label35.Text = "40 - F/E\r\n\r\n\r\n\r\n\r\n30 - F/A\r\n\r\n\r\n\r\n\r\n20 - S/B";
-            // 
-            // etlSendButton1
-            // 
-            this.etlSendButton1.Location = new System.Drawing.Point(39, 249);
-            this.etlSendButton1.Name = "etlSendButton1";
-            this.etlSendButton1.Size = new System.Drawing.Size(232, 23);
-            this.etlSendButton1.TabIndex = 67;
-            this.etlSendButton1.Text = "Send as NMEA String";
-            this.etlSendButton1.UseVisualStyleBackColor = true;
-            this.etlSendButton1.Click += new System.EventHandler(this.etlSendButton1_Click);
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(185, 320);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(47, 143);
-            this.label61.TabIndex = 77;
-            this.label61.Text = "40 - F/E\r\n\r\n\r\n\r\n\r\n30 - F/A\r\n\r\n\r\n\r\n\r\n20 - S/B";
-            // 
-            // etlSubTelTrackbar1
-            // 
-            this.etlSubTelTrackbar1.BackColor = System.Drawing.SystemColors.Window;
-            this.etlSubTelTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.etlSubTelTrackbar1.LargeChange = 1;
-            this.etlSubTelTrackbar1.Location = new System.Drawing.Point(163, 59);
-            this.etlSubTelTrackbar1.Maximum = 4;
-            this.etlSubTelTrackbar1.Minimum = 2;
-            this.etlSubTelTrackbar1.Name = "etlSubTelTrackbar1";
-            this.etlSubTelTrackbar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.etlSubTelTrackbar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.etlSubTelTrackbar1.Size = new System.Drawing.Size(45, 158);
-            this.etlSubTelTrackbar1.TabIndex = 65;
-            this.etlSubTelTrackbar1.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.etlSubTelTrackbar1.Value = 4;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(6, 22);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(128, 13);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Starboard Engine/Shaft 1";
-            // 
-            // etlSubTelTrackbar2
-            // 
-            this.etlSubTelTrackbar2.BackColor = System.Drawing.SystemColors.Window;
-            this.etlSubTelTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.etlSubTelTrackbar2.LargeChange = 1;
-            this.etlSubTelTrackbar2.Location = new System.Drawing.Point(163, 314);
-            this.etlSubTelTrackbar2.Maximum = 4;
-            this.etlSubTelTrackbar2.Minimum = 2;
-            this.etlSubTelTrackbar2.Name = "etlSubTelTrackbar2";
-            this.etlSubTelTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.etlSubTelTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.etlSubTelTrackbar2.Size = new System.Drawing.Size(45, 158);
-            this.etlSubTelTrackbar2.TabIndex = 78;
-            this.etlSubTelTrackbar2.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.etlSubTelTrackbar2.Value = 4;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(59, 65);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(88, 143);
-            this.label34.TabIndex = 39;
-            this.label34.Text = "05 - Nav Full\r\n04 - Full\r\n03 - Half\r\n02 - Slow\r\n01 - Dead Slow\r\n00 - Stop Engine\r" +
-    "\n11 - Dead Slow\r\n12 - Slow\r\n13 - Half\r\n14 - Full\r\n15 - Crash Astern";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(59, 320);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(88, 143);
-            this.label62.TabIndex = 74;
-            this.label62.Text = "05 - Nav Full\r\n04 - Full\r\n03 - Half\r\n02 - Slow\r\n01 - Dead Slow\r\n00 - Stop Engine\r" +
-    "\n11 - Dead Slow\r\n12 - Slow\r\n13 - Half\r\n14 - Full\r\n15 - Crash Astern";
-            // 
-            // etlSubTelPos1
-            // 
-            this.etlSubTelPos1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.etlSubTelPos1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.etlSubTelPos1.Location = new System.Drawing.Point(163, 223);
-            this.etlSubTelPos1.Name = "etlSubTelPos1";
-            this.etlSubTelPos1.ReadOnly = true;
-            this.etlSubTelPos1.Size = new System.Drawing.Size(108, 20);
-            this.etlSubTelPos1.TabIndex = 16;
-            this.etlSubTelPos1.TabStop = false;
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(160, 298);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(77, 13);
-            this.label63.TabIndex = 73;
-            this.label63.Text = "Sub-Telegraph";
-            // 
-            // etlTelegraphPos1
-            // 
-            this.etlTelegraphPos1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.etlTelegraphPos1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.etlTelegraphPos1.Location = new System.Drawing.Point(39, 223);
-            this.etlTelegraphPos1.Name = "etlTelegraphPos1";
-            this.etlTelegraphPos1.ReadOnly = true;
-            this.etlTelegraphPos1.Size = new System.Drawing.Size(108, 20);
-            this.etlTelegraphPos1.TabIndex = 14;
-            this.etlTelegraphPos1.TabStop = false;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(160, 43);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(77, 13);
-            this.label15.TabIndex = 15;
-            this.label15.Text = "Sub-Telegraph";
-            // 
-            // etlTelegraphTrackbar2
-            // 
-            this.etlTelegraphTrackbar2.BackColor = System.Drawing.SystemColors.Window;
-            this.etlTelegraphTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.etlTelegraphTrackbar2.LargeChange = 1;
-            this.etlTelegraphTrackbar2.Location = new System.Drawing.Point(37, 314);
-            this.etlTelegraphTrackbar2.Maximum = 5;
-            this.etlTelegraphTrackbar2.Minimum = -5;
-            this.etlTelegraphTrackbar2.Name = "etlTelegraphTrackbar2";
-            this.etlTelegraphTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.etlTelegraphTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.etlTelegraphTrackbar2.Size = new System.Drawing.Size(45, 158);
-            this.etlTelegraphTrackbar2.TabIndex = 76;
-            this.etlTelegraphTrackbar2.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.etlTelegraphTrackbar2.Value = 5;
-            // 
-            // etlTelegraphTrackbar1
-            // 
-            this.etlTelegraphTrackbar1.BackColor = System.Drawing.SystemColors.Window;
-            this.etlTelegraphTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.etlTelegraphTrackbar1.LargeChange = 1;
-            this.etlTelegraphTrackbar1.Location = new System.Drawing.Point(37, 59);
-            this.etlTelegraphTrackbar1.Maximum = 5;
-            this.etlTelegraphTrackbar1.Minimum = -5;
-            this.etlTelegraphTrackbar1.Name = "etlTelegraphTrackbar1";
-            this.etlTelegraphTrackbar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.etlTelegraphTrackbar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.etlTelegraphTrackbar1.Size = new System.Drawing.Size(45, 158);
-            this.etlTelegraphTrackbar1.TabIndex = 63;
-            this.etlTelegraphTrackbar1.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.etlTelegraphTrackbar1.Value = 5;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(36, 43);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(55, 13);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "Telegraph";
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(36, 298);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(55, 13);
-            this.label64.TabIndex = 72;
-            this.label64.Text = "Telegraph";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(7, 275);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(101, 13);
-            this.label21.TabIndex = 22;
-            this.label21.Text = "Port Engine/Shaft 2";
-            // 
-            // etlTelegraphPos2
-            // 
-            this.etlTelegraphPos2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.etlTelegraphPos2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.etlTelegraphPos2.Location = new System.Drawing.Point(39, 478);
-            this.etlTelegraphPos2.Name = "etlTelegraphPos2";
-            this.etlTelegraphPos2.ReadOnly = true;
-            this.etlTelegraphPos2.Size = new System.Drawing.Size(108, 20);
-            this.etlTelegraphPos2.TabIndex = 26;
-            this.etlTelegraphPos2.TabStop = false;
-            // 
-            // etlSubTelPos2
-            // 
-            this.etlSubTelPos2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.etlSubTelPos2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.etlSubTelPos2.Location = new System.Drawing.Point(163, 478);
-            this.etlSubTelPos2.Name = "etlSubTelPos2";
-            this.etlSubTelPos2.ReadOnly = true;
-            this.etlSubTelPos2.Size = new System.Drawing.Size(108, 20);
-            this.etlSubTelPos2.TabIndex = 28;
-            this.etlSubTelPos2.TabStop = false;
-            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.prcPitchTrackbar2);
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.prcRpmTrackbar2);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.prcLeverTrackbar2);
-            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label37);
-            this.groupBox3.Controls.Add(this.prcSendButton2);
             this.groupBox3.Controls.Add(this.prcPitchTrackbar1);
+            this.groupBox3.Controls.Add(this.label35);
             this.groupBox3.Controls.Add(this.label38);
             this.groupBox3.Controls.Add(this.prcRpmTrackbar1);
+            this.groupBox3.Controls.Add(this.etlSendButton1);
             this.groupBox3.Controls.Add(this.prcSendButton1);
             this.groupBox3.Controls.Add(this.label40);
-            this.groupBox3.Controls.Add(this.prcLeverPos2);
+            this.groupBox3.Controls.Add(this.etlSubTelTrackbar1);
             this.groupBox3.Controls.Add(this.prcLeverTrackbar1);
             this.groupBox3.Controls.Add(this.label42);
-            this.groupBox3.Controls.Add(this.prcRpmDemand2);
+            this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.prcLeverPos1);
-            this.groupBox3.Controls.Add(this.prcPitchDemand2);
+            this.groupBox3.Controls.Add(this.label34);
             this.groupBox3.Controls.Add(this.prcRpmDemand1);
+            this.groupBox3.Controls.Add(this.etlSubTelPos1);
             this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.prcPitchDemand1);
-            this.groupBox3.Controls.Add(this.label25);
+            this.groupBox3.Controls.Add(this.etlTelegraphPos1);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.etlTelegraphTrackbar1);
+            this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(418, 214);
+            this.groupBox3.Size = new System.Drawing.Size(519, 274);
             this.groupBox3.TabIndex = 37;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Propulsion Remote Control Status (PRC)";
             // 
-            // label17
+            // label12
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(358, 43);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(31, 13);
-            this.label17.TabIndex = 62;
-            this.label17.Text = "Pitch";
-            // 
-            // prcPitchTrackbar2
-            // 
-            this.prcPitchTrackbar2.BackColor = System.Drawing.SystemColors.Window;
-            this.prcPitchTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.prcPitchTrackbar2.LargeChange = 10;
-            this.prcPitchTrackbar2.Location = new System.Drawing.Point(361, 59);
-            this.prcPitchTrackbar2.Maximum = 100;
-            this.prcPitchTrackbar2.Name = "prcPitchTrackbar2";
-            this.prcPitchTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.prcPitchTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.prcPitchTrackbar2.Size = new System.Drawing.Size(45, 92);
-            this.prcPitchTrackbar2.TabIndex = 61;
-            this.prcPitchTrackbar2.TickFrequency = 10;
-            this.prcPitchTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.prcPitchTrackbar2.Value = 20;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(307, 43);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(31, 13);
-            this.label18.TabIndex = 60;
-            this.label18.Text = "RPM";
-            // 
-            // prcRpmTrackbar2
-            // 
-            this.prcRpmTrackbar2.BackColor = System.Drawing.SystemColors.Window;
-            this.prcRpmTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.prcRpmTrackbar2.LargeChange = 10;
-            this.prcRpmTrackbar2.Location = new System.Drawing.Point(310, 59);
-            this.prcRpmTrackbar2.Maximum = 100;
-            this.prcRpmTrackbar2.Name = "prcRpmTrackbar2";
-            this.prcRpmTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.prcRpmTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.prcRpmTrackbar2.Size = new System.Drawing.Size(45, 92);
-            this.prcRpmTrackbar2.TabIndex = 59;
-            this.prcRpmTrackbar2.TickFrequency = 10;
-            this.prcRpmTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.prcRpmTrackbar2.Value = 30;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(256, 43);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(34, 13);
-            this.label19.TabIndex = 58;
-            this.label19.Text = "Lever";
-            // 
-            // prcLeverTrackbar2
-            // 
-            this.prcLeverTrackbar2.BackColor = System.Drawing.SystemColors.Window;
-            this.prcLeverTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.prcLeverTrackbar2.LargeChange = 10;
-            this.prcLeverTrackbar2.Location = new System.Drawing.Point(259, 59);
-            this.prcLeverTrackbar2.Maximum = 100;
-            this.prcLeverTrackbar2.Minimum = -100;
-            this.prcLeverTrackbar2.Name = "prcLeverTrackbar2";
-            this.prcLeverTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.prcLeverTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.prcLeverTrackbar2.Size = new System.Drawing.Size(45, 92);
-            this.prcLeverTrackbar2.TabIndex = 57;
-            this.prcLeverTrackbar2.TickFrequency = 10;
-            this.prcLeverTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.prcLeverTrackbar2.Value = 15;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(227, 162);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(26, 13);
-            this.label22.TabIndex = 56;
-            this.label22.Text = "DH:";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(227, 225);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(26, 13);
+            this.label12.TabIndex = 63;
+            this.label12.Text = "DH:";
             // 
             // label37
             // 
@@ -1068,16 +572,6 @@
             this.label37.Size = new System.Drawing.Size(31, 13);
             this.label37.TabIndex = 55;
             this.label37.Text = "Pitch";
-            // 
-            // prcSendButton2
-            // 
-            this.prcSendButton2.Location = new System.Drawing.Point(259, 183);
-            this.prcSendButton2.Name = "prcSendButton2";
-            this.prcSendButton2.Size = new System.Drawing.Size(147, 23);
-            this.prcSendButton2.TabIndex = 55;
-            this.prcSendButton2.Text = "Send as NMEA String";
-            this.prcSendButton2.UseVisualStyleBackColor = true;
-            this.prcSendButton2.Click += new System.EventHandler(this.prcSendButton2_Click);
             // 
             // prcPitchTrackbar1
             // 
@@ -1094,6 +588,15 @@
             this.prcPitchTrackbar1.TickFrequency = 10;
             this.prcPitchTrackbar1.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.prcPitchTrackbar1.Value = 20;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(405, 65);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(47, 143);
+            this.label35.TabIndex = 64;
+            this.label35.Text = "40 - F/E\r\n\r\n\r\n\r\n\r\n30 - F/A\r\n\r\n\r\n\r\n\r\n20 - S/B";
             // 
             // label38
             // 
@@ -1120,6 +623,16 @@
             this.prcRpmTrackbar1.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.prcRpmTrackbar1.Value = 30;
             // 
+            // etlSendButton1
+            // 
+            this.etlSendButton1.Location = new System.Drawing.Point(259, 249);
+            this.etlSendButton1.Name = "etlSendButton1";
+            this.etlSendButton1.Size = new System.Drawing.Size(232, 23);
+            this.etlSendButton1.TabIndex = 67;
+            this.etlSendButton1.Text = "Send as NMEA String";
+            this.etlSendButton1.UseVisualStyleBackColor = true;
+            this.etlSendButton1.Click += new System.EventHandler(this.etlSendButton1_Click);
+            // 
             // prcSendButton1
             // 
             this.prcSendButton1.Location = new System.Drawing.Point(42, 183);
@@ -1139,16 +652,21 @@
             this.label40.TabIndex = 51;
             this.label40.Text = "Lever";
             // 
-            // prcLeverPos2
+            // etlSubTelTrackbar1
             // 
-            this.prcLeverPos2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.prcLeverPos2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.prcLeverPos2.Location = new System.Drawing.Point(259, 157);
-            this.prcLeverPos2.Name = "prcLeverPos2";
-            this.prcLeverPos2.ReadOnly = true;
-            this.prcLeverPos2.Size = new System.Drawing.Size(45, 20);
-            this.prcLeverPos2.TabIndex = 24;
-            this.prcLeverPos2.TabStop = false;
+            this.etlSubTelTrackbar1.BackColor = System.Drawing.SystemColors.Window;
+            this.etlSubTelTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.etlSubTelTrackbar1.LargeChange = 1;
+            this.etlSubTelTrackbar1.Location = new System.Drawing.Point(383, 59);
+            this.etlSubTelTrackbar1.Maximum = 4;
+            this.etlSubTelTrackbar1.Minimum = 2;
+            this.etlSubTelTrackbar1.Name = "etlSubTelTrackbar1";
+            this.etlSubTelTrackbar1.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.etlSubTelTrackbar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.etlSubTelTrackbar1.Size = new System.Drawing.Size(45, 158);
+            this.etlSubTelTrackbar1.TabIndex = 65;
+            this.etlSubTelTrackbar1.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.etlSubTelTrackbar1.Value = 4;
             // 
             // prcLeverTrackbar1
             // 
@@ -1176,16 +694,15 @@
             this.label42.TabIndex = 49;
             this.label42.Text = "DH:";
             // 
-            // prcRpmDemand2
+            // label10
             // 
-            this.prcRpmDemand2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.prcRpmDemand2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.prcRpmDemand2.Location = new System.Drawing.Point(310, 157);
-            this.prcRpmDemand2.Name = "prcRpmDemand2";
-            this.prcRpmDemand2.ReadOnly = true;
-            this.prcRpmDemand2.Size = new System.Drawing.Size(45, 20);
-            this.prcRpmDemand2.TabIndex = 26;
-            this.prcRpmDemand2.TabStop = false;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(226, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(202, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Engine Telegraph Operation Status (ETL)";
             // 
             // prcLeverPos1
             // 
@@ -1198,16 +715,15 @@
             this.prcLeverPos1.TabIndex = 12;
             this.prcLeverPos1.TabStop = false;
             // 
-            // prcPitchDemand2
+            // label34
             // 
-            this.prcPitchDemand2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.prcPitchDemand2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.prcPitchDemand2.Location = new System.Drawing.Point(361, 157);
-            this.prcPitchDemand2.Name = "prcPitchDemand2";
-            this.prcPitchDemand2.ReadOnly = true;
-            this.prcPitchDemand2.Size = new System.Drawing.Size(45, 20);
-            this.prcPitchDemand2.TabIndex = 28;
-            this.prcPitchDemand2.TabStop = false;
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(279, 65);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(88, 143);
+            this.label34.TabIndex = 39;
+            this.label34.Text = "05 - Nav Full\r\n04 - Full\r\n03 - Half\r\n02 - Slow\r\n01 - Dead Slow\r\n00 - Stop Engine\r" +
+    "\n11 - Dead Slow\r\n12 - Slow\r\n13 - Half\r\n14 - Full\r\n15 - Crash Astern";
             // 
             // prcRpmDemand1
             // 
@@ -1220,15 +736,26 @@
             this.prcRpmDemand1.TabIndex = 14;
             this.prcRpmDemand1.TabStop = false;
             // 
+            // etlSubTelPos1
+            // 
+            this.etlSubTelPos1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.etlSubTelPos1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.etlSubTelPos1.Location = new System.Drawing.Point(383, 223);
+            this.etlSubTelPos1.Name = "etlSubTelPos1";
+            this.etlSubTelPos1.ReadOnly = true;
+            this.etlSubTelPos1.Size = new System.Drawing.Size(108, 20);
+            this.etlSubTelPos1.TabIndex = 16;
+            this.etlSubTelPos1.TabStop = false;
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(10, 22);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(98, 13);
+            this.label20.Size = new System.Drawing.Size(196, 13);
             this.label20.TabIndex = 9;
-            this.label20.Text = "Starboard Engine 1";
+            this.label20.Text = "Propulsion Remote Control Status (PRC)";
             // 
             // prcPitchDemand1
             // 
@@ -1241,25 +768,50 @@
             this.prcPitchDemand1.TabIndex = 16;
             this.prcPitchDemand1.TabStop = false;
             // 
-            // label25
+            // etlTelegraphPos1
             // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(227, 22);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(71, 13);
-            this.label25.TabIndex = 22;
-            this.label25.Text = "Port Engine 2";
+            this.etlTelegraphPos1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.etlTelegraphPos1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.etlTelegraphPos1.Location = new System.Drawing.Point(259, 223);
+            this.etlTelegraphPos1.Name = "etlTelegraphPos1";
+            this.etlTelegraphPos1.ReadOnly = true;
+            this.etlTelegraphPos1.Size = new System.Drawing.Size(108, 20);
+            this.etlTelegraphPos1.TabIndex = 14;
+            this.etlTelegraphPos1.TabStop = false;
             // 
-            // label33
+            // label13
             // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(227, 22);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(71, 13);
-            this.label33.TabIndex = 22;
-            this.label33.Text = "Port Engine 2";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(256, 43);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(55, 13);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Telegraph";
+            // 
+            // etlTelegraphTrackbar1
+            // 
+            this.etlTelegraphTrackbar1.BackColor = System.Drawing.SystemColors.Window;
+            this.etlTelegraphTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.etlTelegraphTrackbar1.LargeChange = 1;
+            this.etlTelegraphTrackbar1.Location = new System.Drawing.Point(257, 59);
+            this.etlTelegraphTrackbar1.Maximum = 5;
+            this.etlTelegraphTrackbar1.Minimum = -5;
+            this.etlTelegraphTrackbar1.Name = "etlTelegraphTrackbar1";
+            this.etlTelegraphTrackbar1.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.etlTelegraphTrackbar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.etlTelegraphTrackbar1.Size = new System.Drawing.Size(45, 158);
+            this.etlTelegraphTrackbar1.TabIndex = 63;
+            this.etlTelegraphTrackbar1.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.etlTelegraphTrackbar1.Value = 5;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(380, 43);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(77, 13);
+            this.label15.TabIndex = 15;
+            this.label15.Text = "Sub-Telegraph";
             // 
             // rpmShaftSpeed1
             // 
@@ -1278,9 +830,9 @@
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.Location = new System.Drawing.Point(10, 22);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(98, 13);
+            this.label29.Size = new System.Drawing.Size(74, 13);
             this.label29.TabIndex = 9;
-            this.label29.Text = "Starboard Engine 1";
+            this.label29.Text = "Center Engine";
             // 
             // rpmEngSpeed1
             // 
@@ -1293,41 +845,10 @@
             this.rpmEngSpeed1.TabIndex = 12;
             this.rpmEngSpeed1.TabStop = false;
             // 
-            // rpmShaftSpeed2
-            // 
-            this.rpmShaftSpeed2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.rpmShaftSpeed2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rpmShaftSpeed2.Location = new System.Drawing.Point(310, 166);
-            this.rpmShaftSpeed2.Name = "rpmShaftSpeed2";
-            this.rpmShaftSpeed2.ReadOnly = true;
-            this.rpmShaftSpeed2.Size = new System.Drawing.Size(45, 20);
-            this.rpmShaftSpeed2.TabIndex = 26;
-            this.rpmShaftSpeed2.TabStop = false;
-            // 
-            // rpmEngSpeed2
-            // 
-            this.rpmEngSpeed2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.rpmEngSpeed2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rpmEngSpeed2.Location = new System.Drawing.Point(259, 166);
-            this.rpmEngSpeed2.Name = "rpmEngSpeed2";
-            this.rpmEngSpeed2.ReadOnly = true;
-            this.rpmEngSpeed2.Size = new System.Drawing.Size(45, 20);
-            this.rpmEngSpeed2.TabIndex = 24;
-            this.rpmEngSpeed2.TabStop = false;
-            // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.rpmShaftSendButton2);
             this.groupBox4.Controls.Add(this.rpmShaftSendButton1);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.rpmPropPitchTrackbar2);
-            this.groupBox4.Controls.Add(this.label26);
-            this.groupBox4.Controls.Add(this.rpmShaftSpeedTrackbar2);
-            this.groupBox4.Controls.Add(this.label27);
-            this.groupBox4.Controls.Add(this.rpmEngSpeedTrackbar2);
-            this.groupBox4.Controls.Add(this.label31);
             this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.rpmEngSendButton2);
             this.groupBox4.Controls.Add(this.rpmPropPitchTrackbar1);
             this.groupBox4.Controls.Add(this.label23);
             this.groupBox4.Controls.Add(this.rpmShaftSpeedTrackbar1);
@@ -1335,31 +856,17 @@
             this.groupBox4.Controls.Add(this.rpmEngSpeedTrackbar1);
             this.groupBox4.Controls.Add(this.rpmEngSendButton1);
             this.groupBox4.Controls.Add(this.label30);
-            this.groupBox4.Controls.Add(this.rpmPropPitch2);
             this.groupBox4.Controls.Add(this.rpmPropPitch1);
-            this.groupBox4.Controls.Add(this.rpmEngSpeed2);
-            this.groupBox4.Controls.Add(this.rpmShaftSpeed2);
             this.groupBox4.Controls.Add(this.rpmEngSpeed1);
             this.groupBox4.Controls.Add(this.label29);
             this.groupBox4.Controls.Add(this.rpmShaftSpeed1);
-            this.groupBox4.Controls.Add(this.label33);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(6, 226);
+            this.groupBox4.Location = new System.Drawing.Point(6, 286);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(418, 259);
             this.groupBox4.TabIndex = 38;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Revolutions (RPM)";
-            // 
-            // rpmShaftSendButton2
-            // 
-            this.rpmShaftSendButton2.Location = new System.Drawing.Point(259, 221);
-            this.rpmShaftSendButton2.Name = "rpmShaftSendButton2";
-            this.rpmShaftSendButton2.Size = new System.Drawing.Size(147, 23);
-            this.rpmShaftSendButton2.TabIndex = 78;
-            this.rpmShaftSendButton2.Text = "Send Shaft RPM";
-            this.rpmShaftSendButton2.UseVisualStyleBackColor = true;
-            this.rpmShaftSendButton2.Click += new System.EventHandler(this.rpmShaftSendButton2_Click);
             // 
             // rpmShaftSendButton1
             // 
@@ -1371,90 +878,6 @@
             this.rpmShaftSendButton1.UseVisualStyleBackColor = true;
             this.rpmShaftSendButton1.Click += new System.EventHandler(this.rpmShaftSendButton1_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(358, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 26);
-            this.label2.TabIndex = 76;
-            this.label2.Text = "Propeller\r\nPitch\r\n";
-            // 
-            // rpmPropPitchTrackbar2
-            // 
-            this.rpmPropPitchTrackbar2.BackColor = System.Drawing.SystemColors.Window;
-            this.rpmPropPitchTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.rpmPropPitchTrackbar2.LargeChange = 10;
-            this.rpmPropPitchTrackbar2.Location = new System.Drawing.Point(361, 68);
-            this.rpmPropPitchTrackbar2.Maximum = 100;
-            this.rpmPropPitchTrackbar2.Name = "rpmPropPitchTrackbar2";
-            this.rpmPropPitchTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.rpmPropPitchTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.rpmPropPitchTrackbar2.Size = new System.Drawing.Size(45, 92);
-            this.rpmPropPitchTrackbar2.TabIndex = 75;
-            this.rpmPropPitchTrackbar2.TickFrequency = 10;
-            this.rpmPropPitchTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.rpmPropPitchTrackbar2.Value = 20;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(307, 39);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(32, 26);
-            this.label26.TabIndex = 74;
-            this.label26.Text = "Shaft\r\nRpm\r\n";
-            // 
-            // rpmShaftSpeedTrackbar2
-            // 
-            this.rpmShaftSpeedTrackbar2.BackColor = System.Drawing.SystemColors.Window;
-            this.rpmShaftSpeedTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.rpmShaftSpeedTrackbar2.LargeChange = 10;
-            this.rpmShaftSpeedTrackbar2.Location = new System.Drawing.Point(310, 68);
-            this.rpmShaftSpeedTrackbar2.Maximum = 100;
-            this.rpmShaftSpeedTrackbar2.Name = "rpmShaftSpeedTrackbar2";
-            this.rpmShaftSpeedTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.rpmShaftSpeedTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.rpmShaftSpeedTrackbar2.Size = new System.Drawing.Size(45, 92);
-            this.rpmShaftSpeedTrackbar2.TabIndex = 73;
-            this.rpmShaftSpeedTrackbar2.TickFrequency = 10;
-            this.rpmShaftSpeedTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.rpmShaftSpeedTrackbar2.Value = 30;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(256, 38);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(40, 26);
-            this.label27.TabIndex = 72;
-            this.label27.Text = "Engine\r\nRPM";
-            // 
-            // rpmEngSpeedTrackbar2
-            // 
-            this.rpmEngSpeedTrackbar2.BackColor = System.Drawing.SystemColors.Window;
-            this.rpmEngSpeedTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.rpmEngSpeedTrackbar2.LargeChange = 10;
-            this.rpmEngSpeedTrackbar2.Location = new System.Drawing.Point(259, 68);
-            this.rpmEngSpeedTrackbar2.Maximum = 100;
-            this.rpmEngSpeedTrackbar2.Name = "rpmEngSpeedTrackbar2";
-            this.rpmEngSpeedTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.rpmEngSpeedTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.rpmEngSpeedTrackbar2.Size = new System.Drawing.Size(45, 92);
-            this.rpmEngSpeedTrackbar2.TabIndex = 71;
-            this.rpmEngSpeedTrackbar2.TickFrequency = 10;
-            this.rpmEngSpeedTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.rpmEngSpeedTrackbar2.Value = 15;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(227, 171);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(26, 13);
-            this.label31.TabIndex = 70;
-            this.label31.Text = "DH:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -1463,16 +886,6 @@
             this.label4.Size = new System.Drawing.Size(48, 26);
             this.label4.TabIndex = 69;
             this.label4.Text = "Propeller\r\nPitch\r\n";
-            // 
-            // rpmEngSendButton2
-            // 
-            this.rpmEngSendButton2.Location = new System.Drawing.Point(259, 192);
-            this.rpmEngSendButton2.Name = "rpmEngSendButton2";
-            this.rpmEngSendButton2.Size = new System.Drawing.Size(147, 23);
-            this.rpmEngSendButton2.TabIndex = 63;
-            this.rpmEngSendButton2.Text = "Send Eng RPM";
-            this.rpmEngSendButton2.UseVisualStyleBackColor = true;
-            this.rpmEngSendButton2.Click += new System.EventHandler(this.rpmEngSendButton2_Click);
             // 
             // rpmPropPitchTrackbar1
             // 
@@ -1559,17 +972,6 @@
             this.label30.TabIndex = 63;
             this.label30.Text = "DH:";
             // 
-            // rpmPropPitch2
-            // 
-            this.rpmPropPitch2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.rpmPropPitch2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rpmPropPitch2.Location = new System.Drawing.Point(361, 166);
-            this.rpmPropPitch2.Name = "rpmPropPitch2";
-            this.rpmPropPitch2.ReadOnly = true;
-            this.rpmPropPitch2.Size = new System.Drawing.Size(45, 20);
-            this.rpmPropPitch2.TabIndex = 30;
-            this.rpmPropPitch2.TabStop = false;
-            // 
             // rpmPropPitch1
             // 
             this.rpmPropPitch1.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -1583,30 +985,18 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.label57);
             this.groupBox5.Controls.Add(this.label50);
             this.groupBox5.Controls.Add(this.trdAzimuthTrackbar1);
             this.groupBox5.Controls.Add(this.label54);
-            this.groupBox5.Controls.Add(this.trdAzimuthTrackbar2);
             this.groupBox5.Controls.Add(this.trdPitchTrackbar1);
             this.groupBox5.Controls.Add(this.label55);
             this.groupBox5.Controls.Add(this.trdRpmTrackbar1);
-            this.groupBox5.Controls.Add(this.label58);
             this.groupBox5.Controls.Add(this.trdSendButton1);
             this.groupBox5.Controls.Add(this.label56);
             this.groupBox5.Controls.Add(this.trdRpmResponse1);
-            this.groupBox5.Controls.Add(this.trdPitchTrackbar2);
             this.groupBox5.Controls.Add(this.label28);
-            this.groupBox5.Controls.Add(this.trdRpmTrackbar2);
             this.groupBox5.Controls.Add(this.trdPitchResponse1);
-            this.groupBox5.Controls.Add(this.label59);
             this.groupBox5.Controls.Add(this.trdAzimuthResponse1);
-            this.groupBox5.Controls.Add(this.label43);
-            this.groupBox5.Controls.Add(this.trdRpmResponse2);
-            this.groupBox5.Controls.Add(this.trdSendButton2);
-            this.groupBox5.Controls.Add(this.trdAzimuthResponse2);
-            this.groupBox5.Controls.Add(this.trdPitchResponse2);
-            this.groupBox5.Controls.Add(this.label60);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(6, 226);
             this.groupBox5.Name = "groupBox5";
@@ -1614,15 +1004,6 @@
             this.groupBox5.TabIndex = 39;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Thruster Response Data (TRD)";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(358, 41);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(44, 13);
-            this.label57.TabIndex = 69;
-            this.label57.Text = "Azimuth";
             // 
             // label50
             // 
@@ -1657,22 +1038,6 @@
             this.label54.Size = new System.Drawing.Size(31, 13);
             this.label54.TabIndex = 60;
             this.label54.Text = "Pitch";
-            // 
-            // trdAzimuthTrackbar2
-            // 
-            this.trdAzimuthTrackbar2.BackColor = System.Drawing.SystemColors.Window;
-            this.trdAzimuthTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.trdAzimuthTrackbar2.LargeChange = 10;
-            this.trdAzimuthTrackbar2.Location = new System.Drawing.Point(361, 57);
-            this.trdAzimuthTrackbar2.Maximum = 100;
-            this.trdAzimuthTrackbar2.Name = "trdAzimuthTrackbar2";
-            this.trdAzimuthTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trdAzimuthTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.trdAzimuthTrackbar2.Size = new System.Drawing.Size(45, 92);
-            this.trdAzimuthTrackbar2.TabIndex = 68;
-            this.trdAzimuthTrackbar2.TickFrequency = 10;
-            this.trdAzimuthTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trdAzimuthTrackbar2.Value = 20;
             // 
             // trdPitchTrackbar1
             // 
@@ -1715,15 +1080,6 @@
             this.trdRpmTrackbar1.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trdRpmTrackbar1.Value = 15;
             // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(307, 41);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(31, 13);
-            this.label58.TabIndex = 67;
-            this.label58.Text = "Pitch";
-            // 
             // trdSendButton1
             // 
             this.trdSendButton1.Location = new System.Drawing.Point(44, 181);
@@ -1754,22 +1110,6 @@
             this.trdRpmResponse1.TabIndex = 12;
             this.trdRpmResponse1.TabStop = false;
             // 
-            // trdPitchTrackbar2
-            // 
-            this.trdPitchTrackbar2.BackColor = System.Drawing.SystemColors.Window;
-            this.trdPitchTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.trdPitchTrackbar2.LargeChange = 10;
-            this.trdPitchTrackbar2.Location = new System.Drawing.Point(310, 57);
-            this.trdPitchTrackbar2.Maximum = 100;
-            this.trdPitchTrackbar2.Name = "trdPitchTrackbar2";
-            this.trdPitchTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trdPitchTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.trdPitchTrackbar2.Size = new System.Drawing.Size(45, 92);
-            this.trdPitchTrackbar2.TabIndex = 66;
-            this.trdPitchTrackbar2.TickFrequency = 10;
-            this.trdPitchTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trdPitchTrackbar2.Value = 30;
-            // 
             // label28
             // 
             this.label28.AutoSize = true;
@@ -1779,22 +1119,6 @@
             this.label28.Size = new System.Drawing.Size(79, 13);
             this.label28.TabIndex = 9;
             this.label28.Text = "Bow Thruster 1";
-            // 
-            // trdRpmTrackbar2
-            // 
-            this.trdRpmTrackbar2.BackColor = System.Drawing.SystemColors.Window;
-            this.trdRpmTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.trdRpmTrackbar2.LargeChange = 10;
-            this.trdRpmTrackbar2.Location = new System.Drawing.Point(259, 57);
-            this.trdRpmTrackbar2.Maximum = 100;
-            this.trdRpmTrackbar2.Name = "trdRpmTrackbar2";
-            this.trdRpmTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trdRpmTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.trdRpmTrackbar2.Size = new System.Drawing.Size(45, 92);
-            this.trdRpmTrackbar2.TabIndex = 64;
-            this.trdRpmTrackbar2.TickFrequency = 10;
-            this.trdRpmTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trdRpmTrackbar2.Value = 15;
             // 
             // trdPitchResponse1
             // 
@@ -1807,15 +1131,6 @@
             this.trdPitchResponse1.TabIndex = 14;
             this.trdPitchResponse1.TabStop = false;
             // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(256, 41);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(31, 13);
-            this.label59.TabIndex = 65;
-            this.label59.Text = "RPM";
-            // 
             // trdAzimuthResponse1
             // 
             this.trdAzimuthResponse1.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -1826,68 +1141,6 @@
             this.trdAzimuthResponse1.Size = new System.Drawing.Size(45, 20);
             this.trdAzimuthResponse1.TabIndex = 16;
             this.trdAzimuthResponse1.TabStop = false;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(227, 22);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(83, 13);
-            this.label43.TabIndex = 22;
-            this.label43.Text = "Stern Thruster 2";
-            // 
-            // trdRpmResponse2
-            // 
-            this.trdRpmResponse2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.trdRpmResponse2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.trdRpmResponse2.Location = new System.Drawing.Point(259, 155);
-            this.trdRpmResponse2.Name = "trdRpmResponse2";
-            this.trdRpmResponse2.ReadOnly = true;
-            this.trdRpmResponse2.Size = new System.Drawing.Size(45, 20);
-            this.trdRpmResponse2.TabIndex = 24;
-            this.trdRpmResponse2.TabStop = false;
-            // 
-            // trdSendButton2
-            // 
-            this.trdSendButton2.Location = new System.Drawing.Point(259, 181);
-            this.trdSendButton2.Name = "trdSendButton2";
-            this.trdSendButton2.Size = new System.Drawing.Size(147, 23);
-            this.trdSendButton2.TabIndex = 47;
-            this.trdSendButton2.Text = "Send as NMEA String";
-            this.trdSendButton2.UseVisualStyleBackColor = true;
-            this.trdSendButton2.Click += new System.EventHandler(this.trdSendButton2_Click);
-            // 
-            // trdAzimuthResponse2
-            // 
-            this.trdAzimuthResponse2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.trdAzimuthResponse2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.trdAzimuthResponse2.Location = new System.Drawing.Point(361, 155);
-            this.trdAzimuthResponse2.Name = "trdAzimuthResponse2";
-            this.trdAzimuthResponse2.ReadOnly = true;
-            this.trdAzimuthResponse2.Size = new System.Drawing.Size(45, 20);
-            this.trdAzimuthResponse2.TabIndex = 28;
-            this.trdAzimuthResponse2.TabStop = false;
-            // 
-            // trdPitchResponse2
-            // 
-            this.trdPitchResponse2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.trdPitchResponse2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.trdPitchResponse2.Location = new System.Drawing.Point(310, 155);
-            this.trdPitchResponse2.Name = "trdPitchResponse2";
-            this.trdPitchResponse2.ReadOnly = true;
-            this.trdPitchResponse2.Size = new System.Drawing.Size(45, 20);
-            this.trdPitchResponse2.TabIndex = 26;
-            this.trdPitchResponse2.TabStop = false;
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(227, 160);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(26, 13);
-            this.label60.TabIndex = 63;
-            this.label60.Text = "DH:";
             // 
             // groupBox6
             // 
@@ -2040,8 +1293,10 @@
             // 
             // tabPageEngines
             // 
+            this.tabPageEngines.Controls.Add(this.rorSendButton);
+            this.tabPageEngines.Controls.Add(this.label65);
+            this.tabPageEngines.Controls.Add(this.rorLever);
             this.tabPageEngines.Controls.Add(this.groupBox4);
-            this.tabPageEngines.Controls.Add(this.groupBox2);
             this.tabPageEngines.Controls.Add(this.groupBox3);
             this.tabPageEngines.Location = new System.Drawing.Point(4, 22);
             this.tabPageEngines.Name = "tabPageEngines";
@@ -2059,34 +1314,769 @@
             this.tabPageThrusters.Location = new System.Drawing.Point(4, 22);
             this.tabPageThrusters.Name = "tabPageThrusters";
             this.tabPageThrusters.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageThrusters.Size = new System.Drawing.Size(769, 548);
+            this.tabPageThrusters.Size = new System.Drawing.Size(729, 548);
             this.tabPageThrusters.TabIndex = 1;
             this.tabPageThrusters.Text = "Thrusters";
             this.tabPageThrusters.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label57);
+            this.tabPage1.Controls.Add(this.trdAzimuthTrackbar2);
+            this.tabPage1.Controls.Add(this.label58);
+            this.tabPage1.Controls.Add(this.trdPitchTrackbar2);
+            this.tabPage1.Controls.Add(this.trdRpmTrackbar2);
+            this.tabPage1.Controls.Add(this.label59);
+            this.tabPage1.Controls.Add(this.label43);
+            this.tabPage1.Controls.Add(this.trdRpmResponse2);
+            this.tabPage1.Controls.Add(this.trdSendButton2);
+            this.tabPage1.Controls.Add(this.trdAzimuthResponse2);
+            this.tabPage1.Controls.Add(this.trdPitchResponse2);
+            this.tabPage1.Controls.Add(this.label60);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.trcAzimuthTrackbar2);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.trcPitchTrackbar2);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.trcRpmTrackbar2);
+            this.tabPage1.Controls.Add(this.label49);
+            this.tabPage1.Controls.Add(this.trcSendButton2);
+            this.tabPage1.Controls.Add(this.trcAzimuthDemandDisplay2);
+            this.tabPage1.Controls.Add(this.trcPitchDemandDisplay2);
+            this.tabPage1.Controls.Add(this.trcRpmDemandDisplay2);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.etlSendButton2);
+            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.label61);
+            this.tabPage1.Controls.Add(this.etlSubTelTrackbar2);
+            this.tabPage1.Controls.Add(this.label62);
+            this.tabPage1.Controls.Add(this.label63);
+            this.tabPage1.Controls.Add(this.etlTelegraphTrackbar2);
+            this.tabPage1.Controls.Add(this.label64);
+            this.tabPage1.Controls.Add(this.label21);
+            this.tabPage1.Controls.Add(this.etlTelegraphPos2);
+            this.tabPage1.Controls.Add(this.etlSubTelPos2);
+            this.tabPage1.Controls.Add(this.rpmShaftSendButton2);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.rpmPropPitchTrackbar2);
+            this.tabPage1.Controls.Add(this.label26);
+            this.tabPage1.Controls.Add(this.rpmShaftSpeedTrackbar2);
+            this.tabPage1.Controls.Add(this.label27);
+            this.tabPage1.Controls.Add(this.rpmEngSpeedTrackbar2);
+            this.tabPage1.Controls.Add(this.label31);
+            this.tabPage1.Controls.Add(this.rpmEngSendButton2);
+            this.tabPage1.Controls.Add(this.rpmPropPitch2);
+            this.tabPage1.Controls.Add(this.rpmEngSpeed2);
+            this.tabPage1.Controls.Add(this.rpmShaftSpeed2);
+            this.tabPage1.Controls.Add(this.label33);
+            this.tabPage1.Controls.Add(this.label17);
+            this.tabPage1.Controls.Add(this.prcPitchTrackbar2);
+            this.tabPage1.Controls.Add(this.label18);
+            this.tabPage1.Controls.Add(this.prcRpmTrackbar2);
+            this.tabPage1.Controls.Add(this.label19);
+            this.tabPage1.Controls.Add(this.prcLeverTrackbar2);
+            this.tabPage1.Controls.Add(this.label22);
+            this.tabPage1.Controls.Add(this.prcSendButton2);
+            this.tabPage1.Controls.Add(this.prcLeverPos2);
+            this.tabPage1.Controls.Add(this.prcRpmDemand2);
+            this.tabPage1.Controls.Add(this.prcPitchDemand2);
+            this.tabPage1.Controls.Add(this.label25);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(874, 548);
+            this.tabPage1.Size = new System.Drawing.Size(729, 548);
             this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Unnecessary Components";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(633, 237);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(44, 13);
+            this.label57.TabIndex = 126;
+            this.label57.Text = "Azimuth";
+            // 
+            // trdAzimuthTrackbar2
+            // 
+            this.trdAzimuthTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.trdAzimuthTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.trdAzimuthTrackbar2.LargeChange = 10;
+            this.trdAzimuthTrackbar2.Location = new System.Drawing.Point(636, 253);
+            this.trdAzimuthTrackbar2.Maximum = 100;
+            this.trdAzimuthTrackbar2.Name = "trdAzimuthTrackbar2";
+            this.trdAzimuthTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trdAzimuthTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.trdAzimuthTrackbar2.Size = new System.Drawing.Size(45, 92);
+            this.trdAzimuthTrackbar2.TabIndex = 125;
+            this.trdAzimuthTrackbar2.TickFrequency = 10;
+            this.trdAzimuthTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trdAzimuthTrackbar2.Value = 20;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(582, 237);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(31, 13);
+            this.label58.TabIndex = 124;
+            this.label58.Text = "Pitch";
+            // 
+            // trdPitchTrackbar2
+            // 
+            this.trdPitchTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.trdPitchTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.trdPitchTrackbar2.LargeChange = 10;
+            this.trdPitchTrackbar2.Location = new System.Drawing.Point(585, 253);
+            this.trdPitchTrackbar2.Maximum = 100;
+            this.trdPitchTrackbar2.Name = "trdPitchTrackbar2";
+            this.trdPitchTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trdPitchTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.trdPitchTrackbar2.Size = new System.Drawing.Size(45, 92);
+            this.trdPitchTrackbar2.TabIndex = 123;
+            this.trdPitchTrackbar2.TickFrequency = 10;
+            this.trdPitchTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trdPitchTrackbar2.Value = 30;
+            // 
+            // trdRpmTrackbar2
+            // 
+            this.trdRpmTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.trdRpmTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.trdRpmTrackbar2.LargeChange = 10;
+            this.trdRpmTrackbar2.Location = new System.Drawing.Point(534, 253);
+            this.trdRpmTrackbar2.Maximum = 100;
+            this.trdRpmTrackbar2.Name = "trdRpmTrackbar2";
+            this.trdRpmTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trdRpmTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.trdRpmTrackbar2.Size = new System.Drawing.Size(45, 92);
+            this.trdRpmTrackbar2.TabIndex = 121;
+            this.trdRpmTrackbar2.TickFrequency = 10;
+            this.trdRpmTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trdRpmTrackbar2.Value = 15;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(531, 237);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(31, 13);
+            this.label59.TabIndex = 122;
+            this.label59.Text = "RPM";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(502, 218);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(109, 13);
+            this.label43.TabIndex = 115;
+            this.label43.Text = "Stern Thruster 2 TRD";
+            // 
+            // trdRpmResponse2
+            // 
+            this.trdRpmResponse2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trdRpmResponse2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trdRpmResponse2.Location = new System.Drawing.Point(534, 351);
+            this.trdRpmResponse2.Name = "trdRpmResponse2";
+            this.trdRpmResponse2.ReadOnly = true;
+            this.trdRpmResponse2.Size = new System.Drawing.Size(45, 20);
+            this.trdRpmResponse2.TabIndex = 116;
+            this.trdRpmResponse2.TabStop = false;
+            // 
+            // trdSendButton2
+            // 
+            this.trdSendButton2.Location = new System.Drawing.Point(534, 377);
+            this.trdSendButton2.Name = "trdSendButton2";
+            this.trdSendButton2.Size = new System.Drawing.Size(147, 23);
+            this.trdSendButton2.TabIndex = 119;
+            this.trdSendButton2.Text = "Send as NMEA String";
+            this.trdSendButton2.UseVisualStyleBackColor = true;
+            // 
+            // trdAzimuthResponse2
+            // 
+            this.trdAzimuthResponse2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trdAzimuthResponse2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trdAzimuthResponse2.Location = new System.Drawing.Point(636, 351);
+            this.trdAzimuthResponse2.Name = "trdAzimuthResponse2";
+            this.trdAzimuthResponse2.ReadOnly = true;
+            this.trdAzimuthResponse2.Size = new System.Drawing.Size(45, 20);
+            this.trdAzimuthResponse2.TabIndex = 118;
+            this.trdAzimuthResponse2.TabStop = false;
+            // 
+            // trdPitchResponse2
+            // 
+            this.trdPitchResponse2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trdPitchResponse2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trdPitchResponse2.Location = new System.Drawing.Point(585, 351);
+            this.trdPitchResponse2.Name = "trdPitchResponse2";
+            this.trdPitchResponse2.ReadOnly = true;
+            this.trdPitchResponse2.Size = new System.Drawing.Size(45, 20);
+            this.trdPitchResponse2.TabIndex = 117;
+            this.trdPitchResponse2.TabStop = false;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(502, 356);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(26, 13);
+            this.label60.TabIndex = 120;
+            this.label60.Text = "DH:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(633, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.TabIndex = 114;
+            this.label5.Text = "Azimuth";
+            // 
+            // trcAzimuthTrackbar2
+            // 
+            this.trcAzimuthTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.trcAzimuthTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.trcAzimuthTrackbar2.LargeChange = 10;
+            this.trcAzimuthTrackbar2.Location = new System.Drawing.Point(636, 51);
+            this.trcAzimuthTrackbar2.Maximum = 100;
+            this.trcAzimuthTrackbar2.Name = "trcAzimuthTrackbar2";
+            this.trcAzimuthTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trcAzimuthTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.trcAzimuthTrackbar2.Size = new System.Drawing.Size(45, 92);
+            this.trcAzimuthTrackbar2.TabIndex = 113;
+            this.trcAzimuthTrackbar2.TickFrequency = 10;
+            this.trcAzimuthTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trcAzimuthTrackbar2.Value = 20;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(582, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.TabIndex = 112;
+            this.label6.Text = "Pitch";
+            // 
+            // trcPitchTrackbar2
+            // 
+            this.trcPitchTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.trcPitchTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.trcPitchTrackbar2.LargeChange = 10;
+            this.trcPitchTrackbar2.Location = new System.Drawing.Point(585, 51);
+            this.trcPitchTrackbar2.Maximum = 100;
+            this.trcPitchTrackbar2.Name = "trcPitchTrackbar2";
+            this.trcPitchTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trcPitchTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.trcPitchTrackbar2.Size = new System.Drawing.Size(45, 92);
+            this.trcPitchTrackbar2.TabIndex = 111;
+            this.trcPitchTrackbar2.TickFrequency = 10;
+            this.trcPitchTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trcPitchTrackbar2.Value = 30;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(531, 35);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 13);
+            this.label7.TabIndex = 110;
+            this.label7.Text = "RPM";
+            // 
+            // trcRpmTrackbar2
+            // 
+            this.trcRpmTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.trcRpmTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.trcRpmTrackbar2.LargeChange = 10;
+            this.trcRpmTrackbar2.Location = new System.Drawing.Point(534, 51);
+            this.trcRpmTrackbar2.Maximum = 100;
+            this.trcRpmTrackbar2.Name = "trcRpmTrackbar2";
+            this.trcRpmTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trcRpmTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.trcRpmTrackbar2.Size = new System.Drawing.Size(45, 92);
+            this.trcRpmTrackbar2.TabIndex = 109;
+            this.trcRpmTrackbar2.TickFrequency = 10;
+            this.trcRpmTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trcRpmTrackbar2.Value = 15;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(502, 154);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(26, 13);
+            this.label49.TabIndex = 108;
+            this.label49.Text = "DH:";
+            // 
+            // trcSendButton2
+            // 
+            this.trcSendButton2.Location = new System.Drawing.Point(534, 173);
+            this.trcSendButton2.Name = "trcSendButton2";
+            this.trcSendButton2.Size = new System.Drawing.Size(147, 23);
+            this.trcSendButton2.TabIndex = 107;
+            this.trcSendButton2.Text = "Send as NMEA String";
+            this.trcSendButton2.UseVisualStyleBackColor = true;
+            // 
+            // trcAzimuthDemandDisplay2
+            // 
+            this.trcAzimuthDemandDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trcAzimuthDemandDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trcAzimuthDemandDisplay2.Location = new System.Drawing.Point(637, 149);
+            this.trcAzimuthDemandDisplay2.Name = "trcAzimuthDemandDisplay2";
+            this.trcAzimuthDemandDisplay2.ReadOnly = true;
+            this.trcAzimuthDemandDisplay2.Size = new System.Drawing.Size(44, 20);
+            this.trcAzimuthDemandDisplay2.TabIndex = 106;
+            this.trcAzimuthDemandDisplay2.TabStop = false;
+            // 
+            // trcPitchDemandDisplay2
+            // 
+            this.trcPitchDemandDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trcPitchDemandDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trcPitchDemandDisplay2.Location = new System.Drawing.Point(585, 149);
+            this.trcPitchDemandDisplay2.Name = "trcPitchDemandDisplay2";
+            this.trcPitchDemandDisplay2.ReadOnly = true;
+            this.trcPitchDemandDisplay2.Size = new System.Drawing.Size(45, 20);
+            this.trcPitchDemandDisplay2.TabIndex = 105;
+            this.trcPitchDemandDisplay2.TabStop = false;
+            // 
+            // trcRpmDemandDisplay2
+            // 
+            this.trcRpmDemandDisplay2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.trcRpmDemandDisplay2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.trcRpmDemandDisplay2.Location = new System.Drawing.Point(534, 149);
+            this.trcRpmDemandDisplay2.Name = "trcRpmDemandDisplay2";
+            this.trcRpmDemandDisplay2.ReadOnly = true;
+            this.trcRpmDemandDisplay2.Size = new System.Drawing.Size(45, 20);
+            this.trcRpmDemandDisplay2.TabIndex = 104;
+            this.trcRpmDemandDisplay2.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(502, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(108, 13);
+            this.label8.TabIndex = 103;
+            this.label8.Text = "Stern Thruster 2 TRC";
+            // 
+            // etlSendButton2
+            // 
+            this.etlSendButton2.Enabled = false;
+            this.etlSendButton2.Location = new System.Drawing.Point(237, 242);
+            this.etlSendButton2.Name = "etlSendButton2";
+            this.etlSendButton2.Size = new System.Drawing.Size(232, 23);
+            this.etlSendButton2.TabIndex = 95;
+            this.etlSendButton2.Text = "Send as NMEA String";
+            this.etlSendButton2.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(207, 218);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(26, 13);
+            this.label11.TabIndex = 99;
+            this.label11.Text = "DH:";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(385, 58);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(47, 143);
+            this.label61.TabIndex = 101;
+            this.label61.Text = "40 - F/E\r\n\r\n\r\n\r\n\r\n30 - F/A\r\n\r\n\r\n\r\n\r\n20 - S/B";
+            // 
+            // etlSubTelTrackbar2
+            // 
+            this.etlSubTelTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.etlSubTelTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.etlSubTelTrackbar2.LargeChange = 1;
+            this.etlSubTelTrackbar2.Location = new System.Drawing.Point(363, 52);
+            this.etlSubTelTrackbar2.Maximum = 4;
+            this.etlSubTelTrackbar2.Minimum = 2;
+            this.etlSubTelTrackbar2.Name = "etlSubTelTrackbar2";
+            this.etlSubTelTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.etlSubTelTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.etlSubTelTrackbar2.Size = new System.Drawing.Size(45, 158);
+            this.etlSubTelTrackbar2.TabIndex = 102;
+            this.etlSubTelTrackbar2.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.etlSubTelTrackbar2.Value = 4;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(259, 58);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(88, 143);
+            this.label62.TabIndex = 98;
+            this.label62.Text = "05 - Nav Full\r\n04 - Full\r\n03 - Half\r\n02 - Slow\r\n01 - Dead Slow\r\n00 - Stop Engine\r" +
+    "\n11 - Dead Slow\r\n12 - Slow\r\n13 - Half\r\n14 - Full\r\n15 - Crash Astern";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(360, 36);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(77, 13);
+            this.label63.TabIndex = 97;
+            this.label63.Text = "Sub-Telegraph";
+            // 
+            // etlTelegraphTrackbar2
+            // 
+            this.etlTelegraphTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.etlTelegraphTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.etlTelegraphTrackbar2.LargeChange = 1;
+            this.etlTelegraphTrackbar2.Location = new System.Drawing.Point(237, 52);
+            this.etlTelegraphTrackbar2.Maximum = 5;
+            this.etlTelegraphTrackbar2.Minimum = -5;
+            this.etlTelegraphTrackbar2.Name = "etlTelegraphTrackbar2";
+            this.etlTelegraphTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.etlTelegraphTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.etlTelegraphTrackbar2.Size = new System.Drawing.Size(45, 158);
+            this.etlTelegraphTrackbar2.TabIndex = 100;
+            this.etlTelegraphTrackbar2.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.etlTelegraphTrackbar2.Value = 5;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(236, 36);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(55, 13);
+            this.label64.TabIndex = 96;
+            this.label64.Text = "Telegraph";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(207, 13);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(124, 13);
+            this.label21.TabIndex = 92;
+            this.label21.Text = "Port Engine/Shaft 2 ETL";
+            // 
+            // etlTelegraphPos2
+            // 
+            this.etlTelegraphPos2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.etlTelegraphPos2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.etlTelegraphPos2.Location = new System.Drawing.Point(239, 216);
+            this.etlTelegraphPos2.Name = "etlTelegraphPos2";
+            this.etlTelegraphPos2.ReadOnly = true;
+            this.etlTelegraphPos2.Size = new System.Drawing.Size(108, 20);
+            this.etlTelegraphPos2.TabIndex = 93;
+            this.etlTelegraphPos2.TabStop = false;
+            // 
+            // etlSubTelPos2
+            // 
+            this.etlSubTelPos2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.etlSubTelPos2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.etlSubTelPos2.Location = new System.Drawing.Point(363, 216);
+            this.etlSubTelPos2.Name = "etlSubTelPos2";
+            this.etlSubTelPos2.ReadOnly = true;
+            this.etlSubTelPos2.Size = new System.Drawing.Size(108, 20);
+            this.etlSubTelPos2.TabIndex = 94;
+            this.etlSubTelPos2.TabStop = false;
+            // 
+            // rpmShaftSendButton2
+            // 
+            this.rpmShaftSendButton2.Location = new System.Drawing.Point(41, 410);
+            this.rpmShaftSendButton2.Name = "rpmShaftSendButton2";
+            this.rpmShaftSendButton2.Size = new System.Drawing.Size(147, 23);
+            this.rpmShaftSendButton2.TabIndex = 91;
+            this.rpmShaftSendButton2.Text = "Send Shaft RPM";
+            this.rpmShaftSendButton2.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(140, 228);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 26);
+            this.label2.TabIndex = 90;
+            this.label2.Text = "Propeller\r\nPitch\r\n";
+            // 
+            // rpmPropPitchTrackbar2
+            // 
+            this.rpmPropPitchTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.rpmPropPitchTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rpmPropPitchTrackbar2.LargeChange = 10;
+            this.rpmPropPitchTrackbar2.Location = new System.Drawing.Point(143, 257);
+            this.rpmPropPitchTrackbar2.Maximum = 100;
+            this.rpmPropPitchTrackbar2.Name = "rpmPropPitchTrackbar2";
+            this.rpmPropPitchTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.rpmPropPitchTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.rpmPropPitchTrackbar2.Size = new System.Drawing.Size(45, 92);
+            this.rpmPropPitchTrackbar2.TabIndex = 89;
+            this.rpmPropPitchTrackbar2.TickFrequency = 10;
+            this.rpmPropPitchTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.rpmPropPitchTrackbar2.Value = 20;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(89, 228);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(32, 26);
+            this.label26.TabIndex = 88;
+            this.label26.Text = "Shaft\r\nRpm\r\n";
+            // 
+            // rpmShaftSpeedTrackbar2
+            // 
+            this.rpmShaftSpeedTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.rpmShaftSpeedTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rpmShaftSpeedTrackbar2.LargeChange = 10;
+            this.rpmShaftSpeedTrackbar2.Location = new System.Drawing.Point(92, 257);
+            this.rpmShaftSpeedTrackbar2.Maximum = 100;
+            this.rpmShaftSpeedTrackbar2.Name = "rpmShaftSpeedTrackbar2";
+            this.rpmShaftSpeedTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.rpmShaftSpeedTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.rpmShaftSpeedTrackbar2.Size = new System.Drawing.Size(45, 92);
+            this.rpmShaftSpeedTrackbar2.TabIndex = 87;
+            this.rpmShaftSpeedTrackbar2.TickFrequency = 10;
+            this.rpmShaftSpeedTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.rpmShaftSpeedTrackbar2.Value = 30;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(38, 227);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(40, 26);
+            this.label27.TabIndex = 86;
+            this.label27.Text = "Engine\r\nRPM";
+            // 
+            // rpmEngSpeedTrackbar2
+            // 
+            this.rpmEngSpeedTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.rpmEngSpeedTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rpmEngSpeedTrackbar2.LargeChange = 10;
+            this.rpmEngSpeedTrackbar2.Location = new System.Drawing.Point(41, 257);
+            this.rpmEngSpeedTrackbar2.Maximum = 100;
+            this.rpmEngSpeedTrackbar2.Name = "rpmEngSpeedTrackbar2";
+            this.rpmEngSpeedTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.rpmEngSpeedTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.rpmEngSpeedTrackbar2.Size = new System.Drawing.Size(45, 92);
+            this.rpmEngSpeedTrackbar2.TabIndex = 85;
+            this.rpmEngSpeedTrackbar2.TickFrequency = 10;
+            this.rpmEngSpeedTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.rpmEngSpeedTrackbar2.Value = 15;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(9, 360);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(26, 13);
+            this.label31.TabIndex = 84;
+            this.label31.Text = "DH:";
+            // 
+            // rpmEngSendButton2
+            // 
+            this.rpmEngSendButton2.Location = new System.Drawing.Point(41, 381);
+            this.rpmEngSendButton2.Name = "rpmEngSendButton2";
+            this.rpmEngSendButton2.Size = new System.Drawing.Size(147, 23);
+            this.rpmEngSendButton2.TabIndex = 83;
+            this.rpmEngSendButton2.Text = "Send Eng RPM";
+            this.rpmEngSendButton2.UseVisualStyleBackColor = true;
+            // 
+            // rpmPropPitch2
+            // 
+            this.rpmPropPitch2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.rpmPropPitch2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rpmPropPitch2.Location = new System.Drawing.Point(143, 355);
+            this.rpmPropPitch2.Name = "rpmPropPitch2";
+            this.rpmPropPitch2.ReadOnly = true;
+            this.rpmPropPitch2.Size = new System.Drawing.Size(45, 20);
+            this.rpmPropPitch2.TabIndex = 82;
+            this.rpmPropPitch2.TabStop = false;
+            // 
+            // rpmEngSpeed2
+            // 
+            this.rpmEngSpeed2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.rpmEngSpeed2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rpmEngSpeed2.Location = new System.Drawing.Point(41, 355);
+            this.rpmEngSpeed2.Name = "rpmEngSpeed2";
+            this.rpmEngSpeed2.ReadOnly = true;
+            this.rpmEngSpeed2.Size = new System.Drawing.Size(45, 20);
+            this.rpmEngSpeed2.TabIndex = 80;
+            this.rpmEngSpeed2.TabStop = false;
+            // 
+            // rpmShaftSpeed2
+            // 
+            this.rpmShaftSpeed2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.rpmShaftSpeed2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rpmShaftSpeed2.Location = new System.Drawing.Point(92, 355);
+            this.rpmShaftSpeed2.Name = "rpmShaftSpeed2";
+            this.rpmShaftSpeed2.ReadOnly = true;
+            this.rpmShaftSpeed2.Size = new System.Drawing.Size(45, 20);
+            this.rpmShaftSpeed2.TabIndex = 81;
+            this.rpmShaftSpeed2.TabStop = false;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(9, 211);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(98, 13);
+            this.label33.TabIndex = 79;
+            this.label33.Text = "Port Engine 2 RPM";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(140, 34);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(31, 13);
+            this.label17.TabIndex = 74;
+            this.label17.Text = "Pitch";
+            // 
+            // prcPitchTrackbar2
+            // 
+            this.prcPitchTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.prcPitchTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.prcPitchTrackbar2.LargeChange = 10;
+            this.prcPitchTrackbar2.Location = new System.Drawing.Point(143, 50);
+            this.prcPitchTrackbar2.Maximum = 100;
+            this.prcPitchTrackbar2.Name = "prcPitchTrackbar2";
+            this.prcPitchTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.prcPitchTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.prcPitchTrackbar2.Size = new System.Drawing.Size(45, 92);
+            this.prcPitchTrackbar2.TabIndex = 73;
+            this.prcPitchTrackbar2.TickFrequency = 10;
+            this.prcPitchTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.prcPitchTrackbar2.Value = 20;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(89, 34);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(31, 13);
+            this.label18.TabIndex = 72;
+            this.label18.Text = "RPM";
+            // 
+            // prcRpmTrackbar2
+            // 
+            this.prcRpmTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.prcRpmTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.prcRpmTrackbar2.LargeChange = 10;
+            this.prcRpmTrackbar2.Location = new System.Drawing.Point(92, 50);
+            this.prcRpmTrackbar2.Maximum = 100;
+            this.prcRpmTrackbar2.Name = "prcRpmTrackbar2";
+            this.prcRpmTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.prcRpmTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.prcRpmTrackbar2.Size = new System.Drawing.Size(45, 92);
+            this.prcRpmTrackbar2.TabIndex = 71;
+            this.prcRpmTrackbar2.TickFrequency = 10;
+            this.prcRpmTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.prcRpmTrackbar2.Value = 30;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(38, 34);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(34, 13);
+            this.label19.TabIndex = 70;
+            this.label19.Text = "Lever";
+            // 
+            // prcLeverTrackbar2
+            // 
+            this.prcLeverTrackbar2.BackColor = System.Drawing.SystemColors.Window;
+            this.prcLeverTrackbar2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.prcLeverTrackbar2.LargeChange = 10;
+            this.prcLeverTrackbar2.Location = new System.Drawing.Point(41, 50);
+            this.prcLeverTrackbar2.Maximum = 100;
+            this.prcLeverTrackbar2.Minimum = -100;
+            this.prcLeverTrackbar2.Name = "prcLeverTrackbar2";
+            this.prcLeverTrackbar2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.prcLeverTrackbar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.prcLeverTrackbar2.Size = new System.Drawing.Size(45, 92);
+            this.prcLeverTrackbar2.TabIndex = 69;
+            this.prcLeverTrackbar2.TickFrequency = 10;
+            this.prcLeverTrackbar2.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.prcLeverTrackbar2.Value = 15;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(9, 153);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(26, 13);
+            this.label22.TabIndex = 68;
+            this.label22.Text = "DH:";
+            // 
+            // prcSendButton2
+            // 
+            this.prcSendButton2.Location = new System.Drawing.Point(41, 174);
+            this.prcSendButton2.Name = "prcSendButton2";
+            this.prcSendButton2.Size = new System.Drawing.Size(147, 23);
+            this.prcSendButton2.TabIndex = 67;
+            this.prcSendButton2.Text = "Send as NMEA String";
+            this.prcSendButton2.UseVisualStyleBackColor = true;
+            this.prcSendButton2.Click += new System.EventHandler(this.prcSendButton2_Click_1);
+            // 
+            // prcLeverPos2
+            // 
+            this.prcLeverPos2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.prcLeverPos2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.prcLeverPos2.Location = new System.Drawing.Point(41, 148);
+            this.prcLeverPos2.Name = "prcLeverPos2";
+            this.prcLeverPos2.ReadOnly = true;
+            this.prcLeverPos2.Size = new System.Drawing.Size(45, 20);
+            this.prcLeverPos2.TabIndex = 64;
+            this.prcLeverPos2.TabStop = false;
+            // 
+            // prcRpmDemand2
+            // 
+            this.prcRpmDemand2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.prcRpmDemand2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.prcRpmDemand2.Location = new System.Drawing.Point(92, 148);
+            this.prcRpmDemand2.Name = "prcRpmDemand2";
+            this.prcRpmDemand2.ReadOnly = true;
+            this.prcRpmDemand2.Size = new System.Drawing.Size(45, 20);
+            this.prcRpmDemand2.TabIndex = 65;
+            this.prcRpmDemand2.TabStop = false;
+            // 
+            // prcPitchDemand2
+            // 
+            this.prcPitchDemand2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.prcPitchDemand2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.prcPitchDemand2.Location = new System.Drawing.Point(143, 148);
+            this.prcPitchDemand2.Name = "prcPitchDemand2";
+            this.prcPitchDemand2.ReadOnly = true;
+            this.prcPitchDemand2.Size = new System.Drawing.Size(45, 20);
+            this.prcPitchDemand2.TabIndex = 66;
+            this.prcPitchDemand2.TabStop = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(9, 13);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(96, 13);
+            this.label25.TabIndex = 63;
+            this.label25.Text = "Port Engine 2 PRC";
             // 
             // dataGridReceivedNMEA
             // 
             this.dataGridReceivedNMEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridReceivedNMEA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Format = "T";
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridReceivedNMEA.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.Format = "T";
+            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridReceivedNMEA.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridReceivedNMEA.Location = new System.Drawing.Point(761, 134);
             this.dataGridReceivedNMEA.Name = "dataGridReceivedNMEA";
             this.dataGridReceivedNMEA.Size = new System.Drawing.Size(384, 277);
@@ -2139,6 +2129,41 @@
             this.tbUdpPort.Size = new System.Drawing.Size(33, 20);
             this.tbUdpPort.TabIndex = 50;
             // 
+            // rorLever
+            // 
+            this.rorLever.BackColor = System.Drawing.SystemColors.Window;
+            this.rorLever.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rorLever.LargeChange = 10;
+            this.rorLever.Location = new System.Drawing.Point(537, 354);
+            this.rorLever.Maximum = 100;
+            this.rorLever.Minimum = -100;
+            this.rorLever.Name = "rorLever";
+            this.rorLever.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.rorLever.Size = new System.Drawing.Size(92, 45);
+            this.rorLever.TabIndex = 68;
+            this.rorLever.TickFrequency = 10;
+            this.rorLever.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.rorLever.Value = 15;
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(544, 335);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(75, 13);
+            this.label65.TabIndex = 69;
+            this.label65.Text = "Rudder (ROR)";
+            // 
+            // rorSendButton
+            // 
+            this.rorSendButton.Location = new System.Drawing.Point(547, 396);
+            this.rorSendButton.Name = "rorSendButton";
+            this.rorSendButton.Size = new System.Drawing.Size(72, 23);
+            this.rorSendButton.TabIndex = 68;
+            this.rorSendButton.Text = "Send ROR";
+            this.rorSendButton.UseVisualStyleBackColor = true;
+            this.rorSendButton.Click += new System.EventHandler(this.rorSendButton_Click);
+            // 
             // TestForm
             // 
             this.AcceptButton = this.parse_button;
@@ -2168,50 +2193,52 @@
             this.Text = "Bridge Interface Test";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trcAzimuthTrackbar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trcRpmTrackbar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcAzimuthTrackbar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcRpmTrackbar1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.prcPitchTrackbar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prcRpmTrackbar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prcLeverTrackbar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcPitchTrackbar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcRpmTrackbar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcLeverTrackbar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rpmPropPitchTrackbar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rpmShaftSpeedTrackbar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rpmEngSpeedTrackbar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpmPropPitchTrackbar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpmShaftSpeedTrackbar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpmEngSpeedTrackbar1)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trdAzimuthTrackbar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trdAzimuthTrackbar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trdPitchTrackbar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trdRpmTrackbar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trdPitchTrackbar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trdRpmTrackbar2)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPageEngines.ResumeLayout(false);
+            this.tabPageEngines.PerformLayout();
             this.tabPageThrusters.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trdAzimuthTrackbar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trdPitchTrackbar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trdRpmTrackbar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trcAzimuthTrackbar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trcRpmTrackbar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpmPropPitchTrackbar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpmShaftSpeedTrackbar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpmEngSpeedTrackbar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prcPitchTrackbar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prcRpmTrackbar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prcLeverTrackbar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReceivedNMEA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rorLever)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2229,49 +2256,24 @@
         private System.Windows.Forms.TextBox trcRpmDemandDisplay1;
         private System.Windows.Forms.TextBox trcAzimuthDemandDisplay1;
         private System.Windows.Forms.Label errorMessage;
-        private System.Windows.Forms.TextBox trcAzimuthDemandDisplay2;
-        private System.Windows.Forms.TextBox trcPitchDemandDisplay2;
-        private System.Windows.Forms.TextBox trcRpmDemandDisplay2;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ComboBox NMEA_String_Box;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox etlTelegraphPos2;
-        private System.Windows.Forms.TextBox etlSubTelPos2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox etlTelegraphPos1;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox etlSubTelPos1;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox prcLeverPos2;
-        private System.Windows.Forms.TextBox prcRpmDemand2;
-        private System.Windows.Forms.TextBox prcPitchDemand2;
         private System.Windows.Forms.TextBox prcLeverPos1;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox prcRpmDemand1;
         private System.Windows.Forms.TextBox prcPitchDemand1;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox rpmShaftSpeed1;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox rpmEngSpeed1;
-        private System.Windows.Forms.TextBox rpmShaftSpeed2;
-        private System.Windows.Forms.TextBox rpmEngSpeed2;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox trdRpmResponse1;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox trdPitchResponse1;
-        private System.Windows.Forms.TextBox trdAzimuthResponse2;
         private System.Windows.Forms.TextBox trdAzimuthResponse1;
-        private System.Windows.Forms.TextBox trdPitchResponse2;
-        private System.Windows.Forms.TextBox trdRpmResponse2;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.TextBox rpmPropPitch2;
         private System.Windows.Forms.TextBox rpmPropPitch1;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox btrSetValue;
@@ -2288,14 +2290,8 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Button trcSendButton1;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Button trcSendButton2;
-        private System.Windows.Forms.Button etlSendButton2;
-        private System.Windows.Forms.Button etlSendButton1;
-        private System.Windows.Forms.Button prcSendButton2;
         private System.Windows.Forms.Button prcSendButton1;
-        private System.Windows.Forms.Button rpmEngSendButton2;
         private System.Windows.Forms.Button rpmEngSendButton1;
-        private System.Windows.Forms.Button trdSendButton2;
         private System.Windows.Forms.Button trdSendButton1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageEngines;
@@ -2308,35 +2304,14 @@
         private System.Windows.Forms.TrackBar trcPitchTrackbar1;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TrackBar trcAzimuthTrackbar2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TrackBar trcPitchTrackbar2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TrackBar trcRpmTrackbar2;
-        private System.Windows.Forms.Label label49;
         private System.Windows.Forms.TextBox trcPitchDemandDisplay1;
-        private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.TrackBar trdAzimuthTrackbar1;
         private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.TrackBar trdAzimuthTrackbar2;
         private System.Windows.Forms.TrackBar trdPitchTrackbar1;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.TrackBar trdRpmTrackbar1;
-        private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.TrackBar trdPitchTrackbar2;
-        private System.Windows.Forms.TrackBar trdRpmTrackbar2;
-        private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TrackBar prcPitchTrackbar2;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TrackBar prcRpmTrackbar2;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TrackBar prcLeverTrackbar2;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TrackBar prcPitchTrackbar1;
         private System.Windows.Forms.Label label38;
@@ -2344,13 +2319,6 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.TrackBar prcLeverTrackbar1;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TrackBar rpmPropPitchTrackbar2;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TrackBar rpmShaftSpeedTrackbar2;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TrackBar rpmEngSpeedTrackbar2;
-        private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TrackBar rpmPropPitchTrackbar1;
         private System.Windows.Forms.Label label23;
@@ -2358,20 +2326,7 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TrackBar rpmEngSpeedTrackbar1;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Button rpmShaftSendButton2;
         private System.Windows.Forms.Button rpmShaftSendButton1;
-        private System.Windows.Forms.TrackBar etlTelegraphTrackbar1;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TrackBar etlSubTelTrackbar1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label61;
-        private System.Windows.Forms.TrackBar etlSubTelTrackbar2;
-        private System.Windows.Forms.Label label62;
-        private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.TrackBar etlTelegraphTrackbar2;
-        private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Button udpReceiveButton;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label16;
@@ -2379,6 +2334,80 @@
         private System.Windows.Forms.TextBox tbUdpPort;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridReceivedNMEA;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Button etlSendButton1;
+        private System.Windows.Forms.TrackBar etlSubTelTrackbar1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox etlSubTelPos1;
+        private System.Windows.Forms.TextBox etlTelegraphPos1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TrackBar etlTelegraphTrackbar1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.TrackBar trdAzimuthTrackbar2;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.TrackBar trdPitchTrackbar2;
+        private System.Windows.Forms.TrackBar trdRpmTrackbar2;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox trdRpmResponse2;
+        private System.Windows.Forms.Button trdSendButton2;
+        private System.Windows.Forms.TextBox trdAzimuthResponse2;
+        private System.Windows.Forms.TextBox trdPitchResponse2;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TrackBar trcAzimuthTrackbar2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TrackBar trcPitchTrackbar2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TrackBar trcRpmTrackbar2;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Button trcSendButton2;
+        private System.Windows.Forms.TextBox trcAzimuthDemandDisplay2;
+        private System.Windows.Forms.TextBox trcPitchDemandDisplay2;
+        private System.Windows.Forms.TextBox trcRpmDemandDisplay2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button etlSendButton2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.TrackBar etlSubTelTrackbar2;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.TrackBar etlTelegraphTrackbar2;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox etlTelegraphPos2;
+        private System.Windows.Forms.TextBox etlSubTelPos2;
+        private System.Windows.Forms.Button rpmShaftSendButton2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TrackBar rpmPropPitchTrackbar2;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TrackBar rpmShaftSpeedTrackbar2;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TrackBar rpmEngSpeedTrackbar2;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button rpmEngSendButton2;
+        private System.Windows.Forms.TextBox rpmPropPitch2;
+        private System.Windows.Forms.TextBox rpmEngSpeed2;
+        private System.Windows.Forms.TextBox rpmShaftSpeed2;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TrackBar prcPitchTrackbar2;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TrackBar prcRpmTrackbar2;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TrackBar prcLeverTrackbar2;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Button prcSendButton2;
+        private System.Windows.Forms.TextBox prcLeverPos2;
+        private System.Windows.Forms.TextBox prcRpmDemand2;
+        private System.Windows.Forms.TextBox prcPitchDemand2;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.TrackBar rorLever;
+        private System.Windows.Forms.Button rorSendButton;
     }
 }
 
