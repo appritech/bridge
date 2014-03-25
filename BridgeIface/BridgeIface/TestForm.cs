@@ -18,91 +18,56 @@ namespace BridgeIface
         public TestForm()
         {
             InitializeComponent();
-            
-            //TRC Components
-            m_inputControls.Add(new DHControl("Thruster 0 RPM Demand", FloatIntBoolNone.Float, trcRpmDemandDisplay1, false));
-            m_inputControls.Add(new DHControl("Thruster 0 Pitch Demand", FloatIntBoolNone.Float, trcPitchDemandDisplay1, false));
-            m_inputControls.Add(new DHControl("Thruster 0 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthDemandDisplay1, false));
-            m_inputControls.Add(new DHControl("Thruster 2 RPM Demand", FloatIntBoolNone.Float, trcRpmDemandDisplay2, false));
-            m_inputControls.Add(new DHControl("Thruster 2 Pitch Demand", FloatIntBoolNone.Float, trcPitchDemandDisplay2, false));
-            m_inputControls.Add(new DHControl("Thruster 2 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthDemandDisplay2, false));
 
-            m_outputControls.Add(new DHControl("Thruster 0 RPM Demand", FloatIntBoolNone.Float, trcRpmTrackbar1, true));
-            m_outputControls.Add(new DHControl("Thruster 0 Pitch Demand", FloatIntBoolNone.Float, trcPitchTrackbar1, true));
-            m_outputControls.Add(new DHControl("Thruster 0 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthTrackbar1, true));
-            m_outputControls.Add(new DHControl("Thruster 2 RPM Demand", FloatIntBoolNone.Float, trcRpmTrackbar2, true));
-            m_outputControls.Add(new DHControl("Thruster 2 Pitch Demand", FloatIntBoolNone.Float, trcPitchTrackbar2, true));
-            m_outputControls.Add(new DHControl("Thruster 2 Azimuth Demand", FloatIntBoolNone.Float, trcAzimuthTrackbar2, true));
-
-            //ETL Components
-            m_inputControls.Add(new DHControl("Engine 0 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphPos1, false));
-            m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos1, false));
-            m_inputControls.Add(new DHControl("Engine 2 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphPos2, false));
-            m_inputControls.Add(new DHControl("Engine 2 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos2, false));
-
-            m_inputControls.Add(new DHControl("Engine 0 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphTrackbar1, true));
-            m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelTrackbar1, true));
-            m_inputControls.Add(new DHControl("Engine 2 Telegraph Position", FloatIntBoolNone.Float, etlTelegraphTrackbar2, true));
-            m_inputControls.Add(new DHControl("Engine 2 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelTrackbar2, true));
-
+            //Outpus TO Nautis
             //PRC Components
-            m_inputControls.Add(new DHControl("Remote Engine 0 Lever Demand Position", FloatIntBoolNone.Float, prcLeverPos1, false));
-            m_inputControls.Add(new DHControl("Remote Engine 0 RPM Demand", FloatIntBoolNone.Float, prcRpmDemand1, false));
-            m_inputControls.Add(new DHControl("Remote Engine 0 Pitch Demand", FloatIntBoolNone.Float, prcPitchDemand1, false));
-            m_inputControls.Add(new DHControl("Remote Engine 2 Lever Demand Position", FloatIntBoolNone.Float, prcLeverPos2, false));
-            m_inputControls.Add(new DHControl("Remote Engine 2 RPM Demand", FloatIntBoolNone.Float, prcRpmDemand2, false));
-            m_inputControls.Add(new DHControl("Remote Engine 2 Pitch Demand", FloatIntBoolNone.Float, prcPitchDemand2, false));
+            m_inputControls.Add(new DHControl("Remote Engine 0 Lever Demand Position Command", FloatIntBoolNone.Float, prcLeverPos1, false));
+            m_outputControls.Add(new DHControl("Remote Engine 0 Lever Demand Position Command", FloatIntBoolNone.Float, prcLeverTrackbar1, true));
+            m_inputControls.Add(new DHControl("Remote Engine 0 RPM Demand Command", FloatIntBoolNone.Float, prcRpmDemand1, false));
+            m_outputControls.Add(new DHControl("Remote Engine 0 RPM Demand Command", FloatIntBoolNone.Float, prcRpmTrackbar1, true));
+            m_inputControls.Add(new DHControl("Remote Engine 0 Pitch Demand Command", FloatIntBoolNone.Float, prcPitchDemand1, false));
+            m_outputControls.Add(new DHControl("Remote Engine 0 Pitch Demand Command", FloatIntBoolNone.Float, prcPitchTrackbar1, true));
+            //ETL Components
+            m_inputControls.Add(new DHControl("Engine 0 Telegraph Position Command", FloatIntBoolNone.Float, etlTelegraphPos1, false));
+            m_inputControls.Add(new DHControl("Engine 0 Telegraph Position Command", FloatIntBoolNone.Float, etlTelegraphTrackbar1, true));
+            m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position Command", FloatIntBoolNone.Float, etlSubTelPos1, false));
+            m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position Command", FloatIntBoolNone.Float, etlSubTelTrackbar1, true));
+            //ROR
+            m_outputControls.Add(new DHControl("Rudder Angle", FloatIntBoolNone.Float, rorLever, true));
+            m_inputControls.Add(new DHControl("Rudder Angle", FloatIntBoolNone.Float, rorDhTb, false));
 
-            m_outputControls.Add(new DHControl("Remote Engine 0 Lever Demand Position", FloatIntBoolNone.Float, prcLeverTrackbar1, true));
-            m_outputControls.Add(new DHControl("Remote Engine 0 RPM Demand", FloatIntBoolNone.Float, prcRpmTrackbar1, true));
-            m_outputControls.Add(new DHControl("Remote Engine 0 Pitch Demand", FloatIntBoolNone.Float, prcPitchTrackbar1, true));
-            m_outputControls.Add(new DHControl("Remote Engine 2 Lever Demand Position", FloatIntBoolNone.Float, prcLeverTrackbar2, true));
-            m_outputControls.Add(new DHControl("Remote Engine 2 RPM Demand", FloatIntBoolNone.Float, prcRpmTrackbar2, true));
-            m_outputControls.Add(new DHControl("Remote Engine 2 Pitch Demand", FloatIntBoolNone.Float, prcPitchTrackbar2, true));
 
-            //RPM Components
-            m_inputControls.Add(new DHControl("Engine 0 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeed1, false));
-            m_inputControls.Add(new DHControl("Engine 0 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeed1, false));
-            m_inputControls.Add(new DHControl("Engine 0 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitch1, false));
-            m_inputControls.Add(new DHControl("Engine 2 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeed2, false));
-            m_inputControls.Add(new DHControl("Engine 2 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeed2, false));
-            m_inputControls.Add(new DHControl("Engine 2 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitch2, false));
-
-            m_outputControls.Add(new DHControl("Engine 0 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeedTrackbar1, true));
-            m_outputControls.Add(new DHControl("Engine 0 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeedTrackbar1, true));
-            m_outputControls.Add(new DHControl("Engine 0 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitchTrackbar1, true));
-            m_outputControls.Add(new DHControl("Engine 2 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeedTrackbar2, true));
-            m_outputControls.Add(new DHControl("Engine 2 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeedTrackbar2, true));
-            m_outputControls.Add(new DHControl("Engine 2 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitchTrackbar2, true));
-
-            //TRD Components
-            m_inputControls.Add(new DHControl("Thruster 0 RPM", FloatIntBoolNone.Float, trdRpmResponse1, false));
-            m_inputControls.Add(new DHControl("Thruster 0 Pitch", FloatIntBoolNone.Float, trdPitchResponse1, false));
-            m_inputControls.Add(new DHControl("Thruster 0 Azimuth", FloatIntBoolNone.Float, trdAzimuthResponse1, false));
-            m_inputControls.Add(new DHControl("Thruster 2 RPM", FloatIntBoolNone.Float, trdRpmResponse2, false));
-            m_inputControls.Add(new DHControl("Thruster 2 Pitch", FloatIntBoolNone.Float, trdPitchResponse2, false));
-            m_inputControls.Add(new DHControl("Thruster 2 Azimuth", FloatIntBoolNone.Float, trdAzimuthResponse2, false));
-
-            m_outputControls.Add(new DHControl("Thruster 0 RPM", FloatIntBoolNone.Float, trdRpmTrackbar1, true));
-            m_outputControls.Add(new DHControl("Thruster 0 Pitch", FloatIntBoolNone.Float, trdPitchTrackbar1, true));
-            m_outputControls.Add(new DHControl("Thruster 0 Azimuth", FloatIntBoolNone.Float, trdAzimuthTrackbar1, true));
-            m_outputControls.Add(new DHControl("Thruster 2 RPM", FloatIntBoolNone.Float, trdRpmTrackbar2, true));
-            m_outputControls.Add(new DHControl("Thruster 2 Pitch", FloatIntBoolNone.Float, trdPitchTrackbar2, true));
-            m_outputControls.Add(new DHControl("Thruster 2 Azimuth", FloatIntBoolNone.Float, trdAzimuthTrackbar2, true));
-
-            //BTR Components
-            m_inputControls.Add(new DHControl("Bow Thruster Set Value", FloatIntBoolNone.Float, btrSetValue, false));
-            m_inputControls.Add(new DHControl("Bow Thruster Real Value", FloatIntBoolNone.Float, btrRealValue, false));
-            
+            //Inputs FROM Nautis 
+            //RSA
+            m_inputControls.Add(new DHControl("Rudder Sensor Angle", FloatIntBoolNone.Float, rsaLever, false));
+            m_inputControls.Add(new DHControl("Rudder Sensor Angle", FloatIntBoolNone.Float, rsaDhTb, false));
             //EOM Components
             m_inputControls.Add(new DHControl("Mission Status", FloatIntBoolNone.Float, eomMissionStatus, false));
             m_inputControls.Add(new DHControl("Mission Elapsed Time", FloatIntBoolNone.Float, eomElapsedTime, false));
+            //RPM Components
+            m_inputControls.Add(new DHControl("Engine 0 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeed1, false));
+            m_inputControls.Add(new DHControl("Engine 0 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeedTrackbar1, false));
+            m_inputControls.Add(new DHControl("Engine 0 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeed1, false));
+            m_inputControls.Add(new DHControl("Engine 0 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeedTrackbar1, false));
+            m_inputControls.Add(new DHControl("Engine 0 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitch1, false));
+            m_inputControls.Add(new DHControl("Engine 0 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitchTrackbar1, false));
+            //PRC Components
+            m_inputControls.Add(new DHControl("Remote Engine 0 Lever Demand Position", FloatIntBoolNone.Float, prcLeverPos1Rec, false));
+            m_inputControls.Add(new DHControl("Remote Engine 0 Lever Demand Position", FloatIntBoolNone.Float, prcLeverTrackbar1Rec, false));
+            m_inputControls.Add(new DHControl("Remote Engine 0 RPM Demand", FloatIntBoolNone.Float, prcRpmDemand1Rec, false));
+            m_inputControls.Add(new DHControl("Remote Engine 0 RPM Demand", FloatIntBoolNone.Float, prcRpmTrackbar1Rec, false));
+            m_inputControls.Add(new DHControl("Remote Engine 0 Pitch Demand", FloatIntBoolNone.Float, prcPitchDemand1Rec, false));
+            m_inputControls.Add(new DHControl("Remote Engine 0 Pitch Demand", FloatIntBoolNone.Float, prcPitchTrackbar1Rec, false));
+            //ETL Components
+            m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos1Rec, false));
+            m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelTrackbar1Rec, false));
 
-            //ROR
-            m_outputControls.Add(new DHControl("Rudder Angle", FloatIntBoolNone.Float, rorLever, true));
+
 
             timer1.Enabled = true;
-            tbUdpPort.Text = portReceive.ToString();
+            tbUdpRecPort.Text = portReceive.ToString();
+            tbUdpSendPort.Text = portSend.ToString();
+            tbUdpSendIP.Text = ipAddress;
 
         }
         class nmeaObject
@@ -110,37 +75,50 @@ namespace BridgeIface
             public string sentence { get; set; }
             public DateTime time { get; set; }
         }
-        Dictionary<string, int> nmeaTypes = new Dictionary<string, int>();
+        private enum nmeaType
+        {
+            ROR,
+            PRC,
+            ETL,
+            RSA,
+            TRC,
+            TRD,
+            RPM
+        }
+        Dictionary<string, int> sentNmeaTypes = new Dictionary<string, int>();
 
         BindingList<nmeaObject> tableReceivedNmeaStrings = new BindingList<nmeaObject>();
-        private void updateTable(string sentence, string index)
+        private void updateReceivedTable(string sentence, string index)
         {
             //Insert new sentence at index
             try
             {
-                tableReceivedNmeaStrings[nmeaTypes[index]] = new nmeaObject() { sentence = sentence, time = System.DateTime.Now };
+                tableReceivedNmeaStrings[sentNmeaTypes[index]] = new nmeaObject() { sentence = sentence, time = System.DateTime.Now };
             }
             catch
             {
-                tableReceivedNmeaStrings.Insert(nmeaTypes[index], new nmeaObject() { sentence = sentence, time = System.DateTime.Now });
+                tableReceivedNmeaStrings.Insert(sentNmeaTypes[index], new nmeaObject() { sentence = sentence, time = System.DateTime.Now });
             }
             dataGridReceivedNMEA.DataSource = tableReceivedNmeaStrings;
         }
 
-        //Parser Stuff        
+        //Parsers        
         private void parser(String sentence)
         {
-            errorMessage.Text = "";
-            try { lastStringReceived.Text = sentence; }
+            try
+            {
+                errorMessage.Text = "";
+                lastStringReceived.Text = sentence;
+            }
             catch {}
             string[] data = sentence.Split(',', '*');
 
             //Check if string has been seen before. If not, add it to Dictionary for array indexing.
-            if (nmeaTypes.ContainsKey(data[0]) == false)
+            if (sentNmeaTypes.ContainsKey(data[0]) == false)
             {
-                nmeaTypes.Add(data[0], nmeaTypes.Count);
+                sentNmeaTypes.Add(data[0], sentNmeaTypes.Count);
             }
-            updateTable(sentence, data[0]);
+            updateReceivedTable(sentence, data[0]);
             
             switch (data[0])
             {
@@ -411,8 +389,29 @@ namespace BridgeIface
             DataHolderIface.SetFloatVal("Stern Thruster Thrust", float.Parse(thrust));
             DataHolderIface.SetFloatVal("Stern Thruster Depth", float.Parse(depth));
         }
-        private void parseRSA(string[] data) { } // This Sentence is not in NMEA Interface Manual
+        private void parseRSA(string[] data)
+        {
+            //Example: $GPRSA,20.3,A,0.0,V*71
+            if (data.Length < 6)
+            {
+                errorMessage.Text = "NMEA Sentence not long enough";
+                return;
+            }
+            sentenceTypeReceivedDisplay.Text = "Rudder Sensor Angle";
 
+            string angle0 = data[1];
+            string angle0valid = data[2];
+            string angle1 = data[3];
+            string angle1valid = data[4];
+            string checkSum = data[5];
+
+            if (angle0valid == "A")
+            {
+                DataHolderIface.SetFloatVal("Rudder Sensor Angle", float.Parse(angle0));
+            }
+        } 
+        
+        //Calculators & Converters
         private const float MAX_DEGREES = 12.3f;  // Should this really be hard-coded? -nse
         private const float MAX_RPM = 2000f; //Just a wag at max rpm. Should be corrected later.
         private float calcPercentDemand(string rpmDemand, string rpmMode)
@@ -514,6 +513,7 @@ namespace BridgeIface
         
         static int portReceive = 1254;
         static int portSend = 8011;
+        static string ipAddress = "192.168.0.6";
         private volatile bool runThread;
         UdpClient listener = new UdpClient(portReceive);
         //UdpClient udpSender = new UdpClient(portSend);
@@ -530,54 +530,83 @@ namespace BridgeIface
                 }
             }
         }
-        IPEndPoint sendEP = new IPEndPoint(IPAddress.Parse("192.168.0.6"), portSend);
+        IPEndPoint sendEP = new IPEndPoint(IPAddress.Parse(ipAddress), portSend);
         Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-        // Creates one SocketPermission object for access restrictions
-        SocketPermission permission;
+        
+
+        private void prcSendButton1_Click(object sender, EventArgs e)
+        {
+            sendNmea(nmeaType.PRC);
+        }
+        private void etlSendButton1_Click(object sender, EventArgs e)
+        {
+            sendNmea(nmeaType.ETL);
+        }
+        private void sendNmea(nmeaType type)
+        {
+            string command;
+            string sOut = "";
+            string index = "";
+            switch (type)
+            {
+                case nmeaType.ROR:
+                    command = "XXROR," + rorLever.Value + ",A,,A,C";
+                    sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
+                    index = "$XXROR";
+                    break;
+                case nmeaType.PRC:
+                    command = "XXPRC," + prcLeverPos1.Text + ",A," + prcRpmDemand1.Text + ",P," + prcPitchDemand1.Text + ",P,S,0";
+                    //command = "XXPRC," + prcLeverPos1.Text + ",A,,V,,V,S,0";
+                    sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
+                    index = "$XXPRC";
+                    break;
+                case nmeaType.ETL:
+                    command = "XXETL,0,O," + etlTelegraphPos1.Text + "," + etlSubTelPos1.Text + "0,S,0";
+                    //command = "XXETL,0,O,," + etlSubTelPos1.Text + "0,S,0";
+                    sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
+                    index = "$XXETL";
+                    break;
+            }
+            lastStringSent.Text = sOut;
+
+            //update Sent Table here
+            if (receivedNmeaTypes.ContainsKey(index) == false)
+            {
+                receivedNmeaTypes.Add(index, receivedNmeaTypes.Count);
+            }
+            updateSentTable(sOut, index);
+
+            sendNmeaMessage(sOut);
+        }
+
+
+        Dictionary<string, int> receivedNmeaTypes = new Dictionary<string, int>();
+        BindingList<nmeaObject> tableSentNmeaStrings = new BindingList<nmeaObject>();
+        private void updateSentTable(string sentence, string index)
+        {
+            //Insert new sentence at index
+            try
+            {
+                tableSentNmeaStrings[receivedNmeaTypes[index]] = new nmeaObject() { sentence = sentence, time = System.DateTime.Now };
+            }
+            catch
+            {
+                tableSentNmeaStrings.Insert(receivedNmeaTypes[index], new nmeaObject() { sentence = sentence, time = System.DateTime.Now });
+            }
+            dataGridSentNMEA.DataSource = tableSentNmeaStrings;
+        }
         private void sendNmeaMessage(string s)
         {
-            // Creates one SocketPermission object for access restrictions
-                permission = new SocketPermission(
-                NetworkAccess.Accept,     // Allowed to accept connections 
-                TransportType.Udp,        // Defines transport types 
-                "",                       // The IP addresses of local host 
-                SocketPermission.AllPorts // Specifies all ports 
-                );
-
-            try {
-                listener.Connect(sendEP);
+            try
+            {
                 Byte[] sendBytes = Encoding.ASCII.GetBytes(s);
-                listener.Send(sendBytes, sendBytes.Length);
-                //sock.SendTo(sendBytes, sendEP);
+                sock.SendTo(sendBytes, sendEP);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
         }
-
-        private void prcSendButton1_Click(object sender, EventArgs e)
-        {
-            string command = "XXPRC," + prcLeverPos1.Text + ",A," + prcRpmDemand1.Text + ",P," + prcPitchDemand1.Text + ",P,S,0";
-            string sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
-            lastStringSent.Text = sOut;
-            sendNmeaMessage(sOut);
-        }
-        private void etlSendButton1_Click(object sender, EventArgs e)
-        {
-            string command = "XXETL,0,O," + etlTelegraphPos1.Text + "," + etlSubTelPos1.Text + ",S,0";
-            string sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
-            lastStringSent.Text = sOut;
-            sendNmeaMessage(sOut);
-        }
-        private void rorSendButton_Click(object sender, EventArgs e)
-        {
-            string command = "XXROR," + rorLever.Value + ",A," + rorLever.Value + ",A,C";
-            string sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
-            lastStringSent.Text = sOut;
-            sendNmeaMessage(sOut);
-        }
-
         //Unused Button Clicks
         private void rpmEngSendButton1_Click(object sender, EventArgs e)
         {
@@ -676,6 +705,60 @@ namespace BridgeIface
         }
         List<DHControl> m_outputControls = new List<DHControl>();           //This is for later, when trying to stimulate our output to VStep
         List<DHControl> m_inputControls = new List<DHControl>();//This is for taking DataHolder values (written to by parsing NMEA), and displaying them on the screen
+        bool outputEn = false;
+        private void rorLever_ValueChanged(object sender, EventArgs e)
+        {
+            if (outputEn) sendNmea(nmeaType.ROR);
+        }
+
+        private void outputEnableButton_Click(object sender, EventArgs e)
+        {
+            if (outputEnableButton.Text == "Enable")
+            {
+                outputEn = true;
+                outputEnableLabel.Text = "Output is Enabled";
+                rorLever.Enabled = true;
+                prcLeverTrackbar1.Enabled = true;
+                prcPitchTrackbar1.Enabled = true;
+                prcRpmTrackbar1.Enabled = true;
+                etlTelegraphTrackbar1.Enabled = true;
+                etlSubTelTrackbar1.Enabled = true;
+                outputEnableButton.Text = "Disable";
+            }
+            else
+            {
+                outputEn = false;
+                outputEnableLabel.Text = "Output is Disabled";
+                rorLever.Enabled = false;
+                prcLeverTrackbar1.Enabled = false;
+                prcPitchTrackbar1.Enabled = false;
+                prcRpmTrackbar1.Enabled = false;
+                etlTelegraphTrackbar1.Enabled = false;
+                etlSubTelTrackbar1.Enabled = false;
+                outputEnableButton.Text = "Enable";
+
+            }
+        }
+
+        private void rorCntrButton_Click(object sender, EventArgs e)
+        {
+            rorLever.Value = 0;
+        }
+
+        private void prcLeverTrackbar1_ValueChanged(object sender, EventArgs e)
+        {
+            sendNmea(nmeaType.PRC);
+        }
+
+        private void prcRpmTrackbar1_ValueChanged(object sender, EventArgs e)
+        {
+            sendNmea(nmeaType.PRC);
+        }
+
+        private void prcPitchTrackbar1_ValueChanged(object sender, EventArgs e)
+        {
+            sendNmea(nmeaType.PRC);
+        }
         
     }
 }
