@@ -15,6 +15,8 @@ namespace BridgeIface
 {
     public partial class TestForm : Form
     {
+        List<DHControl> m_outputControls = new List<DHControl>();           //This is for later, when trying to stimulate our output to VStep
+        List<DHControl> m_inputControls = new List<DHControl>();//This is for taking DataHolder values (written to by parsing NMEA), and displaying them on the screen
         public TestForm()
         {
             InitializeComponent();
@@ -32,25 +34,25 @@ namespace BridgeIface
             m_inputControls.Add(new DHControl("Engine 0 Telegraph Position Command", FloatIntBoolNone.Float, etlTelegraphTrackbar1, true));
             m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position Command", FloatIntBoolNone.Float, etlSubTelPos1, false));
             m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position Command", FloatIntBoolNone.Float, etlSubTelTrackbar1, true));
-            //ROR
-            m_outputControls.Add(new DHControl("Rudder Angle", FloatIntBoolNone.Float, rorLever, true));
-            m_inputControls.Add(new DHControl("Rudder Angle", FloatIntBoolNone.Float, rorDhTb, false));
+            //RSA
+            m_outputControls.Add(new DHControl("Rudder Sensor Angle", FloatIntBoolNone.Float, rsaLever, true));
+            m_inputControls.Add(new DHControl("Rudder Sensor Angle", FloatIntBoolNone.Float, rsaDhTb, false));
 
 
             //Inputs FROM Nautis 
-            //RSA
-            m_inputControls.Add(new DHControl("Rudder Sensor Angle", FloatIntBoolNone.Float, rsaLever, false));
-            m_inputControls.Add(new DHControl("Rudder Sensor Angle", FloatIntBoolNone.Float, rsaDhTb, false));
+            //ROR
+            m_outputControls.Add(new DHControl("Rudder Angle2", FloatIntBoolNone.Float, rorLever, true));
+            m_inputControls.Add(new DHControl("Rudder Angle", FloatIntBoolNone.Float, rorDhTb, false));
             //EOM Components
             m_inputControls.Add(new DHControl("Mission Status", FloatIntBoolNone.Float, eomMissionStatus, false));
             m_inputControls.Add(new DHControl("Mission Elapsed Time", FloatIntBoolNone.Float, eomElapsedTime, false));
             //RPM Components
             m_inputControls.Add(new DHControl("Engine 0 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeed1, false));
-            m_inputControls.Add(new DHControl("Engine 0 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeedTrackbar1, false));
+            m_outputControls.Add(new DHControl("Engine 0 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeedTrackbar1, true));
             m_inputControls.Add(new DHControl("Engine 0 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeed1, false));
-            m_inputControls.Add(new DHControl("Engine 0 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeedTrackbar1, false));
+            m_outputControls.Add(new DHControl("Engine 0 Engine RPM", FloatIntBoolNone.Float, rpmEngSpeedTrackbar1, true));
             m_inputControls.Add(new DHControl("Engine 0 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitch1, false));
-            m_inputControls.Add(new DHControl("Engine 0 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitchTrackbar1, false));
+            m_outputControls.Add(new DHControl("Engine 0 Propeller Pitch", FloatIntBoolNone.Float, rpmPropPitchTrackbar1, true));
             //PRC Components
             m_inputControls.Add(new DHControl("Remote Engine 0 Lever Demand Position", FloatIntBoolNone.Float, prcLeverPos1Rec, false));
             m_inputControls.Add(new DHControl("Remote Engine 0 Lever Demand Position", FloatIntBoolNone.Float, prcLeverTrackbar1Rec, false));
@@ -63,13 +65,19 @@ namespace BridgeIface
             m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelTrackbar1Rec, false));
 
 
-
             timer1.Enabled = true;
             tbUdpRecPort.Text = portReceive.ToString();
             tbUdpSendPort.Text = portSend.ToString();
             tbUdpSendIP.Text = ipAddress;
 
         }
+
+        private const float MAX_DEGREES = 12.3f;  // Should this really be hard-coded? -nse
+        private const float MAX_RPM = 2000f; //Just a wag at max rpm. Should be corrected later.
+        static int portReceive = 1254;
+        static int portSend = 8011;
+        static string ipAddress = "192.168.0.6";
+
         class nmeaObject
         {
             public string sentence { get; set; }
@@ -86,8 +94,11 @@ namespace BridgeIface
             RPM
         }
         Dictionary<string, int> sentNmeaTypes = new Dictionary<string, int>();
+        Dictionary<string, int> receivedNmeaTypes = new Dictionary<string, int>();
 
+        BindingList<nmeaObject> tableSentNmeaStrings = new BindingList<nmeaObject>();
         BindingList<nmeaObject> tableReceivedNmeaStrings = new BindingList<nmeaObject>();
+
         private void updateReceivedTable(string sentence, string index)
         {
             //Insert new sentence at index
@@ -97,7 +108,11 @@ namespace BridgeIface
             }
             catch
             {
-                tableReceivedNmeaStrings.Insert(sentNmeaTypes[index], new nmeaObject() { sentence = sentence, time = System.DateTime.Now });
+                try
+                {
+                    tableReceivedNmeaStrings.Insert(sentNmeaTypes[index], new nmeaObject() { sentence = sentence, time = System.DateTime.Now });
+                }
+                catch { }
             }
             dataGridReceivedNMEA.DataSource = tableReceivedNmeaStrings;
         }
@@ -113,35 +128,36 @@ namespace BridgeIface
             catch {}
             string[] data = sentence.Split(',', '*');
 
-            //Check if string has been seen before. If not, add it to Dictionary for array indexing.
-            if (sentNmeaTypes.ContainsKey(data[0]) == false)
-            {
-                sentNmeaTypes.Add(data[0], sentNmeaTypes.Count);
-            }
-            updateReceivedTable(sentence, data[0]);
+            string index = data[0];//NMEA Sentecne Header
             
             switch (data[0])
             {
                 case "$SSTRC":
                 case "$--TRC":
                     parseTRC(data);
+                    index += data[1];//thruster number
                     break;
                 case "$SSTRD":
                 case "$GPTRD":
+                case "$DPTRD":
                 case "$--TRD":
                     parseTRD(data);
+                    index += data[1];//thruster number
                     break;
                 case "$SSETL":
                 case "$--ETL":
                     parseETL(data);
+                    index += data[6];//engine number
                     break;
                 case "$SSPRC":
                 case "$--PRC":
                     parsePRC(data);
+                    index += data[8];//engine number
                     break;
                 case "$SSRPM":
                 case "$--RPM":
                     parseRPM(data);
+                    index += data[2];//engine number
                     break;
                 case "$GPRSA":
                 case "$--RSA":
@@ -170,7 +186,16 @@ namespace BridgeIface
                     errorMessage.Text = "Unrecognized NMEA_String String";
                     break;
             }
+            //Check if string has been seen before. If not, add it to Dictionary for array indexing.
+            if (sentNmeaTypes.ContainsKey(index) == false)
+            {
+                sentNmeaTypes.Add(index, sentNmeaTypes.Count);
+            }
+            //updateReceivedTable(sentence, index);
+            Thread worker = new Thread(() => updateReceivedTable(sentence, index));
+            worker.Start();
         }
+
         private void parseTRC(string[] data)
         {
             if (data.Length < 10)
@@ -189,8 +214,6 @@ namespace BridgeIface
             string operatingLocation = data[7];
             string sentenceStatus = data[8];
             string checkSum = data[9];
-
-            string thrusterName = convBowStern(thrusterNum);
 
             DataHolderIface.SetFloatVal("Thruster " + thrusterNum + " RPM Demand", calcPercentDemand(rpmDemand, rpmMode));          //Always write to dataholder the percent
             DataHolderIface.SetFloatVal("Thruster " + thrusterNum + " Pitch Demand", calcPercentDemand(pitchDemand, pitchMode));          //Always write to dataholder the percent
@@ -214,11 +237,24 @@ namespace BridgeIface
             string engineNum = data[6];
             string checkSum = data[7];
 
-            DataHolderIface.SetFloatVal("Engine " + engineNum + " Event Time", float.Parse(eventTime));
-            DataHolderIface.SetStringVal("Engine " + engineNum + " Message Type", convMessageType(messageType));
-            DataHolderIface.SetFloatVal("Engine " + engineNum + " Telegraph Position", float.Parse(positionEngineTelegraph));
-            DataHolderIface.SetFloatVal("Engine " + engineNum + " Sub-Telegraph Position", float.Parse(positionSubTelegraph));
-            DataHolderIface.SetStringVal("Engine " + engineNum + " Operating Location", convLocation(operatingLocation));
+            if (messageType == "O") //Order
+            {
+                //set Sub-Telegraph setting to pending
+            }
+            if (messageType == "A")//Answer-back
+            {
+                DataHolderIface.SetFloatVal("Engine " + engineNum + " Telegraph Position", float.Parse(positionEngineTelegraph));
+                DataHolderIface.SetFloatVal("Engine " + engineNum + " Sub-Telegraph Position", float.Parse(positionSubTelegraph));
+                flash20 = false;
+                flash30 = false;
+                flash40 = false;
+            }
+
+            //DataHolderIface.SetFloatVal("Engine " + engineNum + " Event Time", float.Parse(eventTime));
+            //DataHolderIface.SetStringVal("Engine " + engineNum + " Message Type", convMessageType(messageType));
+            //DataHolderIface.SetFloatVal("Engine " + engineNum + " Telegraph Position", float.Parse(positionEngineTelegraph));
+            //DataHolderIface.SetFloatVal("Engine " + engineNum + " Sub-Telegraph Position", float.Parse(positionSubTelegraph));
+            //DataHolderIface.SetStringVal("Engine " + engineNum + " Operating Location", convLocation(operatingLocation));
         }
         private void parsePRC(string[] data)
         {
@@ -242,10 +278,9 @@ namespace BridgeIface
             if (leverDemandValid == "A") //TODO: should this negate entire nmea sentence or just lever demand?
             {
                 DataHolderIface.SetFloatVal("Remote Engine " + engineNum + " Lever Demand Position", float.Parse(leverDemandPosition));
-                DataHolderIface.SetFloatVal("Remote Engine " + engineNum + " RPM Demand", calcPercentDemand(rpmDemand, rpmMode));
-                DataHolderIface.SetFloatVal("Remote Engine " + engineNum + " Pitch Demand", calcPercentDemand(pitchDemand, pitchMode));
-                DataHolderIface.SetStringVal("Remote Engine " + engineNum + " Operating Location", convLocation(operatingLocation));
             }
+            DataHolderIface.SetFloatVal("Remote Engine " + engineNum + " RPM Demand", calcPercentDemand(rpmDemand, rpmMode));
+            DataHolderIface.SetFloatVal("Remote Engine " + engineNum + " Pitch Demand", calcPercentDemand(pitchDemand, pitchMode));
         }
         private void parseRPM(string[] data)
         {
@@ -412,8 +447,6 @@ namespace BridgeIface
         } 
         
         //Calculators & Converters
-        private const float MAX_DEGREES = 12.3f;  // Should this really be hard-coded? -nse
-        private const float MAX_RPM = 2000f; //Just a wag at max rpm. Should be corrected later.
         private float calcPercentDemand(string rpmDemand, string rpmMode)
         {
             float value = float.Parse(rpmDemand);
@@ -431,75 +464,11 @@ namespace BridgeIface
                     return 0.0f;        //???
             }
         }
-        private string convBowStern(string s)
-        {
-            if (int.Parse(s) % 2 == 0) //return Stern if even
-                return "Stern";
-            else return "Bow"; //return Bow if not even
-        }
         private string convSource(String s)
         {
             if (s == "S") return "Shaft";
             else if (s == "E") return "Engine";
             else return ("Unrecognized Source");
-        }
-        private string convMode(String s)
-        {
-            switch (s)
-            {
-                case "P":
-                    return "%";
-                case "D":
-                    return "°";
-                case "V":
-                    return "(invalid)";
-                default:
-                    return "UNRECOGNIZED MODE";
-            }
-        }
-        private string convLocation(String s)
-        {
-            switch (s)
-            {
-                case "B":
-                    return "Bridge";
-                case "P":
-                    return "Port Wing";
-                case "S":
-                    return "Starboard Wing";
-                case "C":
-                    return "Engine Control Room";
-                case "E":
-                    return "Engine Side / Local";
-                case "W":
-                    return "Wing";
-                default:
-                    return "UNRECOGNIZED LOCATION";
-            }
-        }
-        private string convMessageType(String s)
-        {
-            switch (s)
-            {
-                case "O":
-                    return "Order";
-                case "A":
-                    return "Answer-back";
-                default:
-                    return "UNRECOGNIZED MESSAGE TYPE";
-            }
-        }
-        private string convStatus(String s)
-        {
-            switch (s)
-            {
-                case "R":
-                    return "Status Report";
-                case "C":
-                    return "Config Command";
-                default:
-                    return "UNRECOGNIZED STATUS";
-            }
         }
         private string calcChecksum(string s)
         {
@@ -511,12 +480,8 @@ namespace BridgeIface
             return checksum.ToString("X2");
         }
         
-        static int portReceive = 1254;
-        static int portSend = 8011;
-        static string ipAddress = "192.168.0.6";
         private volatile bool runThread;
         UdpClient listener = new UdpClient(portReceive);
-        //UdpClient udpSender = new UdpClient(portSend);
         private void receiveNmeaMessage()
         {
             while (runThread)
@@ -555,17 +520,32 @@ namespace BridgeIface
                     index = "$XXROR";
                     break;
                 case nmeaType.PRC:
-                    command = "XXPRC," + prcLeverPos1.Text + ",A," + prcRpmDemand1.Text + ",P," + prcPitchDemand1.Text + ",P,S,0";
+                    //command = "XXPRC," + prcLeverPos1.Text + ",A," + prcRpmDemand1.Text + ",P," + prcPitchDemand1.Text + ",P,S,0";
                     //command = "XXPRC," + prcLeverPos1.Text + ",A,,V,,V,S,0";
+                    command = "XXPRC,,V," + prcRpmTrackbar1.Value + ",P," + prcPitchTrackbar1.Value + ",P,C,0";
                     sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
                     index = "$XXPRC";
                     break;
                 case nmeaType.ETL:
-                    command = "XXETL,0,O," + etlTelegraphPos1.Text + "," + etlSubTelPos1.Text + "0,S,0";
+                    command = "XXETL,0,O,0," + etlToSend + ",S,0";
+                    //command = "XXETL,0,O," + etlTelegraphTrackbar1.Value + "," + etlSubTelTrackbar1.Text + "0,S,0";
                     //command = "XXETL,0,O,," + etlSubTelPos1.Text + "0,S,0";
                     sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
                     index = "$XXETL";
                     break;
+                case nmeaType.RSA:
+                    //Example: $GPRSA,20.3,A,0.0,V*71
+                    command = "XXRSA," + rsaLever.Value + ",A,,V";
+                    sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
+                    index = "$XXRSA";
+                    break;
+                case nmeaType.RPM:
+                    //Example: $SSRPM,S,0,39.5,0.00,A*4E
+                    command = "XXRPM,S," + rpmEngSpeedTrackbar1.Value + "," + rpmShaftSpeedTrackbar1.Value + "," + rpmPropPitchTrackbar1.Value + ",A";
+                    sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
+                    index = "$XXRPM";
+                    break;
+
             }
             lastStringSent.Text = sOut;
 
@@ -580,8 +560,6 @@ namespace BridgeIface
         }
 
 
-        Dictionary<string, int> receivedNmeaTypes = new Dictionary<string, int>();
-        BindingList<nmeaObject> tableSentNmeaStrings = new BindingList<nmeaObject>();
         private void updateSentTable(string sentence, string index)
         {
             //Insert new sentence at index
@@ -607,6 +585,183 @@ namespace BridgeIface
                 Console.WriteLine(e.ToString());
             }
         }
+        private void udpReceiveButton_Click(object sender, EventArgs e)
+        {
+            Thread udpReadThread = new Thread(receiveNmeaMessage);
+            if (udpReceiveButton.Text == "Start")
+            {
+                CheckForIllegalCrossThreadCalls = false;
+                runThread = true;
+                udpReadThread.IsBackground = true;
+                udpReadThread.Start();
+                udpReceiveButton.Text = "Stop";
+                updReceiveLabel.Visible = true;
+            }
+            else
+            {
+                runThread = false;
+                udpReceiveButton.Text = "Start";
+                updReceiveLabel.Visible = false;
+
+            }
+        }        
+        private void parse_button_Click(object sender, EventArgs e)
+        {
+            parser(NMEA_String_Box.Text);
+        }
+        int count = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            foreach (DHControl dh in m_inputControls)
+            {
+                dh.readFromDataHolder();
+            }
+            count += count < 19 ? 1:-19;//increment count, reset at 10
+            if (count == 0)
+            {
+                if (flash20)
+                {
+                    etlRecSubTelCB20.Checked = true;
+                    etlSendSubTelCB20.Checked = true;
+                }
+                if (flash30)
+                {
+                    etlRecSubTelCB30.Checked = true;
+                    etlSendSubTelCB30.Checked = true;
+                }
+
+                if (flash40)
+                {
+                    etlRecSubTelCB40.Checked = true;
+                    etlSendSubTelCB40.Checked = true;
+                }
+            }
+            else if (count == 10)
+            {
+                if (flash20)
+                {
+                    etlRecSubTelCB20.Checked = false;
+                    etlSendSubTelCB20.Checked = false;
+                }
+                if (flash30)
+                {
+                    etlRecSubTelCB30.Checked = false;
+                    etlSendSubTelCB30.Checked = false;
+                }
+
+                if (flash40)
+                {
+                    etlRecSubTelCB40.Checked = false;
+                    etlSendSubTelCB40.Checked = false;
+                }
+            }
+        }
+        bool outputEn;
+        private void outputEnableButton_Click(object sender, EventArgs e)
+        {
+            if (outputEnableButton.Text == "Enable")
+            {
+                outputEn = true;
+                outputEnableLabel.Text = "Output is Enabled";
+                rorLever.Enabled = true;
+                prcPitchTrackbar1.Enabled = true;
+                prcRpmTrackbar1.Enabled = true;
+                etlTelegraphTrackbar1.Enabled = true;
+                etlSubTelTrackbar1.Enabled = true;
+                rsaLever.Enabled = true;
+                outputEnableButton.Text = "Disable";
+            }
+            else
+            {
+                outputEn = false;
+                outputEnableLabel.Text = "Output is Disabled";
+                rorLever.Enabled = false;
+                prcPitchTrackbar1.Enabled = false;
+                prcRpmTrackbar1.Enabled = false;
+                etlTelegraphTrackbar1.Enabled = false;
+                etlSubTelTrackbar1.Enabled = false;
+                rsaLever.Enabled = false;
+                outputEnableButton.Text = "Enable";
+
+            }
+        }
+        private void trackbar_ValueChanged(object sender, EventArgs e)
+        {
+            TrackBar tb = (TrackBar)sender;
+            switch (tb.Name)
+            {
+                case ("rpmShaftSpeedTrackbar1"):
+                case ("rpmPropPitchTrackbar1"):
+                case ("rpmEngSpeedTrackbar1"):
+                    sendNmea(nmeaType.RPM);
+                    break;
+                case ("prcRpmTrackbar1"):
+                case ("prcPitchTrackbar1"):
+                    sendNmea(nmeaType.PRC);
+                    break;
+                case ("rorLever"):
+                    sendNmea(nmeaType.ROR);
+                    break;
+                case ("rsaLever"):
+                    sendNmea(nmeaType.RSA);
+                    break;
+                default:
+                    break; //place breakpoint here to catch unhandled trackbar changes.
+            }
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            button4.Enabled = false;
+            new ECR_Sim().Show();
+        }
+        bool button1pressed = false;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button1pressed = !button1pressed;
+        }
+
+        bool flash20 = false;
+        bool flash30 = false;
+        bool flash40 = false;
+
+        private void etlSendCheckBox_Click(object sender, EventArgs e)
+        {
+            CheckBox cb = (CheckBox)sender;
+            if (cb.Checked)
+            {
+                switch (cb.Text)
+                {
+                    case ("20"):
+                        etlToSend = 20;
+                        flash20 = true;
+                        sendNmea(nmeaType.ETL);
+                        //etlSendSubTelCB30.Checked = false;
+                        //etlSendSubTelCB40.Checked = false;
+                        break;
+                    case ("30"):
+                        etlToSend = 30;
+                        flash30 = true;
+                        sendNmea(nmeaType.ETL);
+                        //etlSendSubTelCB20.Checked = false;
+                        //etlSendSubTelCB40.Checked = false;
+                        break;
+                    case ("40"):
+                        etlToSend = 40;
+                        flash40 = true;
+                        sendNmea(nmeaType.ETL);
+                        //etlSendSubTelCB20.Checked = false;
+                        //etlSendSubTelCB30.Checked = false;
+                        break;
+                }
+            }
+        }
+        int etlToSend;
+
+        private void clearTable_button_Click(object sender, EventArgs e)
+        {
+            sentNmeaTypes.Clear();
+            tableReceivedNmeaStrings.Clear();
+        }
         //Unused Button Clicks
         private void rpmEngSendButton1_Click(object sender, EventArgs e)
         {
@@ -619,7 +774,7 @@ namespace BridgeIface
             string s = "$--RPM,E," + ",1," + rpmShaftSpeed1.Text + "," + rpmPropPitch1.Text + ",A*hh\r\n";
             parser(s);
             lastStringSent.Text = s;
-        }  
+        }
         private void sendTrc1Button_Click(object sender, EventArgs e)
         {
             string s_1 = "--TRC,1," + trcRpmDemandDisplay1.Text + ",P," + trcPitchDemandDisplay1.Text + ",P," + float.Parse(trcAzimuthDemandDisplay1.Text) * 10 + ",S,C";
@@ -671,94 +826,5 @@ namespace BridgeIface
             lastStringSent.Text = s;
         }
        
-        private void udpReceiveButton_Click(object sender, EventArgs e)
-        {
-            Thread udpReadThread = new Thread(receiveNmeaMessage);
-            if (udpReceiveButton.Text == "Start")
-            {
-                CheckForIllegalCrossThreadCalls = false;
-                runThread = true;
-                udpReadThread.IsBackground = true;
-                udpReadThread.Start();
-                udpReceiveButton.Text = "Stop";
-                updReceiveLabel.Visible = true;
-            }
-            else
-            {
-                runThread = false;
-                udpReceiveButton.Text = "Start";
-                updReceiveLabel.Visible = false;
-
-            }
-        }        
-        private void parse_button_Click(object sender, EventArgs e)
-        {
-            parser(NMEA_String_Box.Text);
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            foreach (DHControl dh in m_inputControls)
-            {
-                dh.readFromDataHolder();
-            }
-        }
-        List<DHControl> m_outputControls = new List<DHControl>();           //This is for later, when trying to stimulate our output to VStep
-        List<DHControl> m_inputControls = new List<DHControl>();//This is for taking DataHolder values (written to by parsing NMEA), and displaying them on the screen
-        bool outputEn = false;
-        private void rorLever_ValueChanged(object sender, EventArgs e)
-        {
-            if (outputEn) sendNmea(nmeaType.ROR);
-        }
-
-        private void outputEnableButton_Click(object sender, EventArgs e)
-        {
-            if (outputEnableButton.Text == "Enable")
-            {
-                outputEn = true;
-                outputEnableLabel.Text = "Output is Enabled";
-                rorLever.Enabled = true;
-                prcLeverTrackbar1.Enabled = true;
-                prcPitchTrackbar1.Enabled = true;
-                prcRpmTrackbar1.Enabled = true;
-                etlTelegraphTrackbar1.Enabled = true;
-                etlSubTelTrackbar1.Enabled = true;
-                outputEnableButton.Text = "Disable";
-            }
-            else
-            {
-                outputEn = false;
-                outputEnableLabel.Text = "Output is Disabled";
-                rorLever.Enabled = false;
-                prcLeverTrackbar1.Enabled = false;
-                prcPitchTrackbar1.Enabled = false;
-                prcRpmTrackbar1.Enabled = false;
-                etlTelegraphTrackbar1.Enabled = false;
-                etlSubTelTrackbar1.Enabled = false;
-                outputEnableButton.Text = "Enable";
-
-            }
-        }
-
-        private void rorCntrButton_Click(object sender, EventArgs e)
-        {
-            rorLever.Value = 0;
-        }
-
-        private void prcLeverTrackbar1_ValueChanged(object sender, EventArgs e)
-        {
-            sendNmea(nmeaType.PRC);
-        }
-
-        private void prcRpmTrackbar1_ValueChanged(object sender, EventArgs e)
-        {
-            sendNmea(nmeaType.PRC);
-        }
-
-        private void prcPitchTrackbar1_ValueChanged(object sender, EventArgs e)
-        {
-            sendNmea(nmeaType.PRC);
-        }
-        
     }
 }
