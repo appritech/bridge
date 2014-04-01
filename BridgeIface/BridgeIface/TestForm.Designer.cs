@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.parse_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -230,11 +230,7 @@
             this.label83 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.label84 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.clearTable_button = new System.Windows.Forms.Button();
@@ -593,7 +589,7 @@
             // 
             this.etlSendSubTelCB20.Appearance = System.Windows.Forms.Appearance.Button;
             this.etlSendSubTelCB20.AutoSize = true;
-            this.etlSendSubTelCB20.Location = new System.Drawing.Point(372, 162);
+            this.etlSendSubTelCB20.Location = new System.Drawing.Point(523, 174);
             this.etlSendSubTelCB20.Name = "etlSendSubTelCB20";
             this.etlSendSubTelCB20.Size = new System.Drawing.Size(29, 23);
             this.etlSendSubTelCB20.TabIndex = 92;
@@ -605,7 +601,7 @@
             // 
             this.etlSendSubTelCB30.Appearance = System.Windows.Forms.Appearance.Button;
             this.etlSendSubTelCB30.AutoSize = true;
-            this.etlSendSubTelCB30.Location = new System.Drawing.Point(372, 139);
+            this.etlSendSubTelCB30.Location = new System.Drawing.Point(558, 174);
             this.etlSendSubTelCB30.Name = "etlSendSubTelCB30";
             this.etlSendSubTelCB30.Size = new System.Drawing.Size(29, 23);
             this.etlSendSubTelCB30.TabIndex = 91;
@@ -626,7 +622,7 @@
             // 
             this.etlSendSubTelCB40.Appearance = System.Windows.Forms.Appearance.Button;
             this.etlSendSubTelCB40.AutoSize = true;
-            this.etlSendSubTelCB40.Location = new System.Drawing.Point(372, 116);
+            this.etlSendSubTelCB40.Location = new System.Drawing.Point(592, 174);
             this.etlSendSubTelCB40.Name = "etlSendSubTelCB40";
             this.etlSendSubTelCB40.Size = new System.Drawing.Size(29, 23);
             this.etlSendSubTelCB40.TabIndex = 90;
@@ -1064,7 +1060,7 @@
             this.etlRecSubTelCB20.Appearance = System.Windows.Forms.Appearance.Button;
             this.etlRecSubTelCB20.AutoSize = true;
             this.etlRecSubTelCB20.Enabled = false;
-            this.etlRecSubTelCB20.Location = new System.Drawing.Point(513, 226);
+            this.etlRecSubTelCB20.Location = new System.Drawing.Point(547, 184);
             this.etlRecSubTelCB20.Name = "etlRecSubTelCB20";
             this.etlRecSubTelCB20.Size = new System.Drawing.Size(57, 23);
             this.etlRecSubTelCB20.TabIndex = 89;
@@ -1076,7 +1072,7 @@
             this.etlRecSubTelCB30.Appearance = System.Windows.Forms.Appearance.Button;
             this.etlRecSubTelCB30.AutoSize = true;
             this.etlRecSubTelCB30.Enabled = false;
-            this.etlRecSubTelCB30.Location = new System.Drawing.Point(513, 203);
+            this.etlRecSubTelCB30.Location = new System.Drawing.Point(547, 161);
             this.etlRecSubTelCB30.Name = "etlRecSubTelCB30";
             this.etlRecSubTelCB30.Size = new System.Drawing.Size(56, 23);
             this.etlRecSubTelCB30.TabIndex = 88;
@@ -1088,7 +1084,7 @@
             this.etlRecSubTelCB40.Appearance = System.Windows.Forms.Appearance.Button;
             this.etlRecSubTelCB40.AutoSize = true;
             this.etlRecSubTelCB40.Enabled = false;
-            this.etlRecSubTelCB40.Location = new System.Drawing.Point(513, 180);
+            this.etlRecSubTelCB40.Location = new System.Drawing.Point(547, 138);
             this.etlRecSubTelCB40.Name = "etlRecSubTelCB40";
             this.etlRecSubTelCB40.Size = new System.Drawing.Size(56, 23);
             this.etlRecSubTelCB40.TabIndex = 87;
@@ -2465,16 +2461,17 @@
             // dataGridReceivedNMEA
             // 
             this.dataGridReceivedNMEA.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Format = "T";
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridReceivedNMEA.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridReceivedNMEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Format = "T";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridReceivedNMEA.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridReceivedNMEA.Location = new System.Drawing.Point(12, 58);
             this.dataGridReceivedNMEA.Name = "dataGridReceivedNMEA";
             this.dataGridReceivedNMEA.RowHeadersVisible = false;
@@ -2581,16 +2578,16 @@
             this.dataGridSentNMEA.AllowUserToResizeRows = false;
             this.dataGridSentNMEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridSentNMEA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.Format = "T";
-            dataGridViewCellStyle4.NullValue = null;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridSentNMEA.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.Format = "T";
+            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridSentNMEA.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridSentNMEA.Location = new System.Drawing.Point(15, 83);
             this.dataGridSentNMEA.Name = "dataGridSentNMEA";
             this.dataGridSentNMEA.RowHeadersVisible = false;
@@ -2662,34 +2659,6 @@
             this.radioButton2.Text = "ECR";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(908, 43);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 23);
-            this.button1.TabIndex = 85;
-            this.button1.Text = "1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(908, 72);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(38, 23);
-            this.button2.TabIndex = 86;
-            this.button2.Text = "2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(908, 101);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(38, 23);
-            this.button3.TabIndex = 87;
-            this.button3.Text = "3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // label84
             // 
             this.label84.AutoSize = true;
@@ -2698,16 +2667,6 @@
             this.label84.Size = new System.Drawing.Size(74, 13);
             this.label84.TabIndex = 88;
             this.label84.Text = "SubTelegraph";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(963, 42);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(87, 55);
-            this.button4.TabIndex = 89;
-            this.button4.Text = "Launch\r\nECR Simulator\r\nSimulator";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // groupBox2
             // 
@@ -2760,11 +2719,7 @@
             this.ClientSize = new System.Drawing.Size(1157, 694);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.label84);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label83);
@@ -3039,11 +2994,7 @@
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label84;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.CheckBox etlSendSubTelCB20;

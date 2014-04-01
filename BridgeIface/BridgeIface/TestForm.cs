@@ -243,6 +243,7 @@ namespace BridgeIface
                 Console.WriteLine(e.ToString());
             }
         }
+
         private void udpReceiveButton_Click(object sender, EventArgs e)
         {
             Thread udpReadThread = new Thread(receiveNmeaMessage);
@@ -369,16 +370,6 @@ namespace BridgeIface
                 default:
                     break; //place breakpoint here to catch unhandled trackbar changes.
             }
-        }
-        private void button4_Click(object sender, EventArgs e)
-        {
-            button4.Enabled = false;
-            new ECR_Sim().Show();
-        }
-        bool button1pressed = false;
-        private void button1_Click(object sender, EventArgs e)
-        {
-            button1pressed = !button1pressed;
         }
 
         bool flash20 = false;
