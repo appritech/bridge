@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Xml;
+using System.IO;
 
 namespace BridgeIface
 {
@@ -75,6 +77,7 @@ namespace BridgeIface
             tbUdpRecPort.Text = portReceive.ToString();
             tbUdpSendPort.Text = portSend.ToString();
             tbUdpSendIP.Text = ipAddress;
+            timer_HW_input.Enabled = true;
 
         }
 
@@ -271,8 +274,6 @@ namespace BridgeIface
             string index = nmeaParser.parser(sentence);
 
             updateReceivedTable(sentence, index);
-            //Thread worker = new Thread(() => updateReceivedTable(sentence, index));
-            //worker.Start();
         }
         int count = 0;
         private void timer1_Tick(object sender, EventArgs e)
@@ -282,7 +283,15 @@ namespace BridgeIface
                 dh.readFromDataHolder();
             }
             count += count < 19 ? 1:-19;//increment count, reset at 10
-            if (count == 0)
+            flashButtons();
+            if (cbRsaHold.Checked)
+            {
+                sendNmea(nmeaType.RSA);
+            }
+        }
+        private void flashButtons()
+        {
+                        if (count == 0)
             {
                 if (flash20)
                 {
@@ -468,6 +477,37 @@ namespace BridgeIface
             string s = "$--ETL,0,O," + etlTelegraphPos2.Text + "," + etlSubTelPos2.Text + ",S,2*hh\r\n";
             lastStringSent.Text = s;
         }
-       
+        ioioIO myIoioIo = new ioioIO();
+        private void timer_HW_input_Tick(object sender, EventArgs e)
+        {
+            if (cbHardwareControl.Checked && outputEnableButton.Text == "Disable")
+            {
+                //set lever positions based on hardware levers
+                parseXml(myIoioIo.webRequest("http://localhost:8181/api/status"));
+            }
+        }
+
+        private void parseXml(string xmlString)
+        {
+            using (XmlReader reader = XmlReader.Create(new StringReader(xmlString)))
+            {
+                while (reader.Read())
+                {
+                    if (reader.Name == "pin")
+                    {
+                        if (reader.GetAttribute("name") == "RPM Lever")
+                        {
+                            float val = float.Parse(reader.GetAttribute("status")) - 1;
+                            prcRpmTrackbar1.Value = Convert.ToInt32(val * -100);
+                        }
+                        if (reader.GetAttribute("name") == "Telegraph Lever")
+                        {
+                            float val = float.Parse(reader.GetAttribute("status")) - 0.5f;
+                            prcPitchTrackbar1.Value = Convert.ToInt32(val * -200);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

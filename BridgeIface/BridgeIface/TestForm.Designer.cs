@@ -234,6 +234,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.clearTable_button = new System.Windows.Forms.Button();
+            this.cbHardwareControl = new System.Windows.Forms.CheckBox();
+            this.timer_HW_input = new System.Windows.Forms.Timer(this.components);
+            this.cbRsaHold = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trcAzimuthTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar1)).BeginInit();
@@ -551,6 +554,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.cbRsaHold);
             this.groupBox3.Controls.Add(this.etlSendSubTelCB20);
             this.groupBox3.Controls.Add(this.etlSendSubTelCB30);
             this.groupBox3.Controls.Add(this.label67);
@@ -2670,6 +2674,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbHardwareControl);
             this.groupBox2.Controls.Add(this.label81);
             this.groupBox2.Controls.Add(this.outputEnableButton);
             this.groupBox2.Controls.Add(this.outputEnableLabel);
@@ -2710,6 +2715,31 @@
             this.clearTable_button.Text = "Clear";
             this.clearTable_button.UseVisualStyleBackColor = true;
             this.clearTable_button.Click += new System.EventHandler(this.clearTable_button_Click);
+            // 
+            // cbHardwareControl
+            // 
+            this.cbHardwareControl.AutoSize = true;
+            this.cbHardwareControl.Location = new System.Drawing.Point(249, 43);
+            this.cbHardwareControl.Name = "cbHardwareControl";
+            this.cbHardwareControl.Size = new System.Drawing.Size(108, 17);
+            this.cbHardwareControl.TabIndex = 92;
+            this.cbHardwareControl.Text = "Hardware Control";
+            this.cbHardwareControl.UseVisualStyleBackColor = true;
+            // 
+            // timer_HW_input
+            // 
+            this.timer_HW_input.Tick += new System.EventHandler(this.timer_HW_input_Tick);
+            // 
+            // cbRsaHold
+            // 
+            this.cbRsaHold.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cbRsaHold.AutoSize = true;
+            this.cbRsaHold.Location = new System.Drawing.Point(282, 95);
+            this.cbRsaHold.Name = "cbRsaHold";
+            this.cbRsaHold.Size = new System.Drawing.Size(37, 23);
+            this.cbRsaHold.TabIndex = 93;
+            this.cbRsaHold.Text = "hold";
+            this.cbRsaHold.UseVisualStyleBackColor = true;
             // 
             // TestForm
             // 
@@ -3004,6 +3034,9 @@
         private System.Windows.Forms.CheckBox etlRecSubTelCB30;
         private System.Windows.Forms.CheckBox etlRecSubTelCB40;
         private System.Windows.Forms.Button clearTable_button;
+        private System.Windows.Forms.CheckBox cbHardwareControl;
+        private System.Windows.Forms.Timer timer_HW_input;
+        private System.Windows.Forms.CheckBox cbRsaHold;
     }
 }
 

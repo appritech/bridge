@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ioioIO.cs" />
     <Compile Include="NMEA_Parser.cs" />
     <Compile Include="DataHolderIface.cs" />
     <Compile Include="DHControl.cs" />
