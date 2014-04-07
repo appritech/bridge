@@ -55,6 +55,7 @@
             this.trcPitchDemandDisplay1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbRsaHold = new System.Windows.Forms.CheckBox();
             this.etlSendSubTelCB20 = new System.Windows.Forms.CheckBox();
             this.etlSendSubTelCB30 = new System.Windows.Forms.CheckBox();
             this.label67 = new System.Windows.Forms.Label();
@@ -232,11 +233,10 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.label84 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbHardwareControl = new System.Windows.Forms.CheckBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.clearTable_button = new System.Windows.Forms.Button();
-            this.cbHardwareControl = new System.Windows.Forms.CheckBox();
             this.timer_HW_input = new System.Windows.Forms.Timer(this.components);
-            this.cbRsaHold = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trcAzimuthTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar1)).BeginInit();
@@ -588,6 +588,17 @@
             this.groupBox3.TabIndex = 37;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Send to Nautis";
+            // 
+            // cbRsaHold
+            // 
+            this.cbRsaHold.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cbRsaHold.AutoSize = true;
+            this.cbRsaHold.Location = new System.Drawing.Point(282, 95);
+            this.cbRsaHold.Name = "cbRsaHold";
+            this.cbRsaHold.Size = new System.Drawing.Size(37, 23);
+            this.cbRsaHold.TabIndex = 93;
+            this.cbRsaHold.Text = "hold";
+            this.cbRsaHold.UseVisualStyleBackColor = true;
             // 
             // etlSendSubTelCB20
             // 
@@ -2464,8 +2475,9 @@
             // 
             // dataGridReceivedNMEA
             // 
+            this.dataGridReceivedNMEA.AllowUserToAddRows = false;
+            this.dataGridReceivedNMEA.AllowUserToDeleteRows = false;
             this.dataGridReceivedNMEA.AllowUserToResizeRows = false;
-            this.dataGridReceivedNMEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2479,7 +2491,6 @@
             this.dataGridReceivedNMEA.Location = new System.Drawing.Point(12, 58);
             this.dataGridReceivedNMEA.Name = "dataGridReceivedNMEA";
             this.dataGridReceivedNMEA.RowHeadersVisible = false;
-            this.dataGridReceivedNMEA.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridReceivedNMEA.Size = new System.Drawing.Size(376, 237);
             this.dataGridReceivedNMEA.TabIndex = 41;
             // 
@@ -2690,6 +2701,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "UDP Packet Sending";
             // 
+            // cbHardwareControl
+            // 
+            this.cbHardwareControl.AutoSize = true;
+            this.cbHardwareControl.Location = new System.Drawing.Point(249, 43);
+            this.cbHardwareControl.Name = "cbHardwareControl";
+            this.cbHardwareControl.Size = new System.Drawing.Size(108, 17);
+            this.cbHardwareControl.TabIndex = 92;
+            this.cbHardwareControl.Text = "Hardware Control";
+            this.cbHardwareControl.UseVisualStyleBackColor = true;
+            // 
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.clearTable_button);
@@ -2716,30 +2737,9 @@
             this.clearTable_button.UseVisualStyleBackColor = true;
             this.clearTable_button.Click += new System.EventHandler(this.clearTable_button_Click);
             // 
-            // cbHardwareControl
-            // 
-            this.cbHardwareControl.AutoSize = true;
-            this.cbHardwareControl.Location = new System.Drawing.Point(249, 43);
-            this.cbHardwareControl.Name = "cbHardwareControl";
-            this.cbHardwareControl.Size = new System.Drawing.Size(108, 17);
-            this.cbHardwareControl.TabIndex = 92;
-            this.cbHardwareControl.Text = "Hardware Control";
-            this.cbHardwareControl.UseVisualStyleBackColor = true;
-            // 
             // timer_HW_input
             // 
             this.timer_HW_input.Tick += new System.EventHandler(this.timer_HW_input_Tick);
-            // 
-            // cbRsaHold
-            // 
-            this.cbRsaHold.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cbRsaHold.AutoSize = true;
-            this.cbRsaHold.Location = new System.Drawing.Point(282, 95);
-            this.cbRsaHold.Name = "cbRsaHold";
-            this.cbRsaHold.Size = new System.Drawing.Size(37, 23);
-            this.cbRsaHold.TabIndex = 93;
-            this.cbRsaHold.Text = "hold";
-            this.cbRsaHold.UseVisualStyleBackColor = true;
             // 
             // TestForm
             // 

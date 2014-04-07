@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 
 namespace BridgeIface
 {
@@ -131,9 +131,6 @@ namespace BridgeIface
             {
                 DataHolderIface.SetFloatVal("Engine " + engineNum + " Telegraph Position", float.Parse(positionEngineTelegraph));
                 DataHolderIface.SetFloatVal("Engine " + engineNum + " Sub-Telegraph Position", float.Parse(positionSubTelegraph));
- //              flash20 = false;
- //              flash30 = false;
- //              flash40 = false;
            }
 
             //DataHolderIface.SetFloatVal("Engine " + engineNum + " Event Time", float.Parse(eventTime));
@@ -185,7 +182,6 @@ namespace BridgeIface
 
             if (status == "A")
             {
-                //TODO: Enumerate "source" after we know what it will look like
                 DataHolderIface.SetFloatVal("Engine " + engineNum + " " + convSource(source) + " RPM", float.Parse(speed));
                 DataHolderIface.SetFloatVal("Engine " + engineNum + " Propeller Pitch", float.Parse(propPitch));
             }

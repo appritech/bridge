@@ -79,6 +79,8 @@ namespace BridgeIface
             tbUdpSendIP.Text = ipAddress;
             timer_HW_input.Enabled = true;
 
+            dataGridReceivedNMEA.DataSource = tableReceivedNmeaStrings; //Something about this is causing program to hang when table content exceeds datagrid height.
+
         }
 
         static int portReceive = 1254;
@@ -117,7 +119,7 @@ namespace BridgeIface
             {
                 tableReceivedNmeaStrings[sentNmeaTypes[index]] = new nmeaObject() { sentence = sentence, time = System.DateTime.Now };
             }
-            catch
+            catch (System.ArgumentOutOfRangeException e)
             {
                 try
                 {
@@ -125,9 +127,8 @@ namespace BridgeIface
                 }
                 catch { }
             }
-            dataGridReceivedNMEA.DataSource = tableReceivedNmeaStrings;
+            //dataGridReceivedNMEA.DataSource = tableReceivedNmeaStrings;
         }
-
         private string calcChecksum(string s)
         {
             int checksum = 0;
@@ -149,7 +150,6 @@ namespace BridgeIface
                 if (content.Length > 0)
                 {
                     string nmeaMessage = Encoding.ASCII.GetString(content);
-                   // parser(nmeaMessage);
                     string index = nmeaParser.parser(nmeaMessage);
                     updateReceivedTable(nmeaMessage, index);
                 }
@@ -220,7 +220,7 @@ namespace BridgeIface
             sendNmeaMessage(sOut);
         }
 
-
+        
         private void updateSentTable(string sentence, string index)
         {
             //Insert new sentence at index
@@ -228,7 +228,7 @@ namespace BridgeIface
             {
                 tableSentNmeaStrings[receivedNmeaTypes[index]] = new nmeaObject() { sentence = sentence, time = System.DateTime.Now };
             }
-            catch
+            catch (System.ArgumentOutOfRangeException e)
             {
                 tableSentNmeaStrings.Insert(receivedNmeaTypes[index], new nmeaObject() { sentence = sentence, time = System.DateTime.Now });
             }
@@ -246,7 +246,6 @@ namespace BridgeIface
                 Console.WriteLine(e.ToString());
             }
         }
-
         private void udpReceiveButton_Click(object sender, EventArgs e)
         {
             Thread udpReadThread = new Thread(receiveNmeaMessage);
