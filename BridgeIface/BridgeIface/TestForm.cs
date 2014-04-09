@@ -49,7 +49,7 @@ namespace BridgeIface
 
             //Inputs FROM Nautis 
             //ROR
-            m_outputControls.Add(new DHControl("Rudder Angle2", FloatIntBoolNone.Float, rorLever, true));
+            m_outputControls.Add(new DHControl("Rudder Angle", FloatIntBoolNone.Float, rorLever, true));
             m_inputControls.Add(new DHControl("Rudder Angle", FloatIntBoolNone.Float, rorDhTb, false));
             //EOM Components
             m_inputControls.Add(new DHControl("Mission Status", FloatIntBoolNone.Float, eomMissionStatus, false));
@@ -176,7 +176,8 @@ namespace BridgeIface
             switch (type)
             {
                 case nmeaType.ROR:
-                    command = "XXROR," + rorLever.Value + ",A,,A,C";
+                    //command = "XXROR," + rorLever.Value + ",A,,A,C";
+                    command = "XXROR," + rorLever.Value + ",A," + rorLever.Value + ",A,C";
                     sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
                     index = "$XXROR";
                     break;
@@ -202,7 +203,8 @@ namespace BridgeIface
                     break;
                 case nmeaType.RPM:
                     //Example: $SSRPM,S,0,39.5,0.00,A*4E
-                    command = "XXRPM,S," + rpmEngSpeedTrackbar1.Value + "," + rpmShaftSpeedTrackbar1.Value + "," + rpmPropPitchTrackbar1.Value + ",A";
+                    //command = "XXRPM,S," + rpmEngSpeedTrackbar1.Value + "," + rpmShaftSpeedTrackbar1.Value + "," + rpmPropPitchTrackbar1.Value + ",A";
+                    command = "XXRPM,E,0," + rpmShaftSpeedTrackbar1.Value + "," + rpmPropPitchTrackbar1.Value + ",A";
                     sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
                     index = "$XXRPM";
                     break;
@@ -482,7 +484,9 @@ namespace BridgeIface
             if (cbHardwareControl.Checked && outputEnableButton.Text == "Disable")
             {
                 //set lever positions based on hardware levers
-                parseXml(myIoioIo.webRequest("http://localhost:8181/api/status"));
+                string website = "http://" + tbIpAddress.Text + ":8181/api/status";
+                //parseXml(myIoioIo.webRequest("http://localhost:8181/api/status"));
+                parseXml(myIoioIo.webRequest(website));
             }
         }
 
@@ -499,10 +503,15 @@ namespace BridgeIface
                             float val = float.Parse(reader.GetAttribute("status")) - 1;
                             prcRpmTrackbar1.Value = Convert.ToInt32(val * -100);
                         }
-                        if (reader.GetAttribute("name") == "Telegraph Lever")
+                        if (reader.GetAttribute("name") == "Pitch Lever")
                         {
                             float val = float.Parse(reader.GetAttribute("status")) - 0.5f;
                             prcPitchTrackbar1.Value = Convert.ToInt32(val * -200);
+                        }
+                        if (reader.GetAttribute("name") == "Rudder")
+                        {
+                            float val = 35 - (float.Parse(reader.GetAttribute("status")) * 70);
+                            rorLever.Value = Convert.ToInt32(val);
                         }
                     }
                 }

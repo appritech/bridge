@@ -237,6 +237,7 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.clearTable_button = new System.Windows.Forms.Button();
             this.timer_HW_input = new System.Windows.Forms.Timer(this.components);
+            this.tbIpAddress = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trcAzimuthTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar1)).BeginInit();
@@ -2478,6 +2479,7 @@
             this.dataGridReceivedNMEA.AllowUserToAddRows = false;
             this.dataGridReceivedNMEA.AllowUserToDeleteRows = false;
             this.dataGridReceivedNMEA.AllowUserToResizeRows = false;
+            this.dataGridReceivedNMEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2491,7 +2493,7 @@
             this.dataGridReceivedNMEA.Location = new System.Drawing.Point(12, 58);
             this.dataGridReceivedNMEA.Name = "dataGridReceivedNMEA";
             this.dataGridReceivedNMEA.RowHeadersVisible = false;
-            this.dataGridReceivedNMEA.Size = new System.Drawing.Size(376, 237);
+            this.dataGridReceivedNMEA.Size = new System.Drawing.Size(376, 446);
             this.dataGridReceivedNMEA.TabIndex = 41;
             // 
             // udpReceiveButton
@@ -2685,6 +2687,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tbIpAddress);
             this.groupBox2.Controls.Add(this.cbHardwareControl);
             this.groupBox2.Controls.Add(this.label81);
             this.groupBox2.Controls.Add(this.outputEnableButton);
@@ -2740,6 +2743,14 @@
             // timer_HW_input
             // 
             this.timer_HW_input.Tick += new System.EventHandler(this.timer_HW_input_Tick);
+            // 
+            // tbIpAddress
+            // 
+            this.tbIpAddress.Location = new System.Drawing.Point(249, 19);
+            this.tbIpAddress.Name = "tbIpAddress";
+            this.tbIpAddress.Size = new System.Drawing.Size(100, 20);
+            this.tbIpAddress.TabIndex = 93;
+            this.tbIpAddress.Text = "192.168.0.17";
             // 
             // TestForm
             // 
@@ -3037,6 +3048,7 @@
         private System.Windows.Forms.CheckBox cbHardwareControl;
         private System.Windows.Forms.Timer timer_HW_input;
         private System.Windows.Forms.CheckBox cbRsaHold;
+        private System.Windows.Forms.TextBox tbIpAddress;
     }
 }
 
