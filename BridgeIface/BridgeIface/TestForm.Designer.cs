@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.parse_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -233,11 +233,12 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.label84 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbIpAddress = new System.Windows.Forms.TextBox();
             this.cbHardwareControl = new System.Windows.Forms.CheckBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.clearTable_button = new System.Windows.Forms.Button();
             this.timer_HW_input = new System.Windows.Forms.Timer(this.components);
-            this.tbIpAddress = new System.Windows.Forms.TextBox();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trcAzimuthTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar1)).BeginInit();
@@ -2480,16 +2481,16 @@
             this.dataGridReceivedNMEA.AllowUserToDeleteRows = false;
             this.dataGridReceivedNMEA.AllowUserToResizeRows = false;
             this.dataGridReceivedNMEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Format = "T";
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridReceivedNMEA.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Format = "T";
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridReceivedNMEA.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridReceivedNMEA.Location = new System.Drawing.Point(12, 58);
             this.dataGridReceivedNMEA.Name = "dataGridReceivedNMEA";
             this.dataGridReceivedNMEA.RowHeadersVisible = false;
@@ -2595,16 +2596,16 @@
             this.dataGridSentNMEA.AllowUserToResizeRows = false;
             this.dataGridSentNMEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridSentNMEA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Format = "T";
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridSentNMEA.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.Format = "T";
+            dataGridViewCellStyle4.NullValue = null;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridSentNMEA.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridSentNMEA.Location = new System.Drawing.Point(15, 83);
             this.dataGridSentNMEA.Name = "dataGridSentNMEA";
             this.dataGridSentNMEA.RowHeadersVisible = false;
@@ -2704,6 +2705,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "UDP Packet Sending";
             // 
+            // tbIpAddress
+            // 
+            this.tbIpAddress.Location = new System.Drawing.Point(249, 19);
+            this.tbIpAddress.Name = "tbIpAddress";
+            this.tbIpAddress.Size = new System.Drawing.Size(100, 20);
+            this.tbIpAddress.TabIndex = 93;
+            this.tbIpAddress.Text = "192.168.0.18";
+            // 
             // cbHardwareControl
             // 
             this.cbHardwareControl.AutoSize = true;
@@ -2743,14 +2752,6 @@
             // timer_HW_input
             // 
             this.timer_HW_input.Tick += new System.EventHandler(this.timer_HW_input_Tick);
-            // 
-            // tbIpAddress
-            // 
-            this.tbIpAddress.Location = new System.Drawing.Point(249, 19);
-            this.tbIpAddress.Name = "tbIpAddress";
-            this.tbIpAddress.Size = new System.Drawing.Size(100, 20);
-            this.tbIpAddress.TabIndex = 93;
-            this.tbIpAddress.Text = "192.168.0.17";
             // 
             // TestForm
             // 
@@ -3049,6 +3050,7 @@
         private System.Windows.Forms.Timer timer_HW_input;
         private System.Windows.Forms.CheckBox cbRsaHold;
         private System.Windows.Forms.TextBox tbIpAddress;
+        private System.Windows.Forms.FontDialog fontDialog1;
     }
 }
 

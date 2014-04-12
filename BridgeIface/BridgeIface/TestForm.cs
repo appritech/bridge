@@ -494,24 +494,27 @@ namespace BridgeIface
         {
             using (XmlReader reader = XmlReader.Create(new StringReader(xmlString)))
             {
-                while (reader.Read())
+                if (xmlString != "Error with Web Request")
                 {
-                    if (reader.Name == "pin")
+                    while (reader.Read())
                     {
-                        if (reader.GetAttribute("name") == "RPM Lever")
+                        if (reader.Name == "pin")
                         {
-                            float val = float.Parse(reader.GetAttribute("status")) - 1;
-                            prcRpmTrackbar1.Value = Convert.ToInt32(val * -100);
-                        }
-                        if (reader.GetAttribute("name") == "Pitch Lever")
-                        {
-                            float val = float.Parse(reader.GetAttribute("status")) - 0.5f;
-                            prcPitchTrackbar1.Value = Convert.ToInt32(val * -200);
-                        }
-                        if (reader.GetAttribute("name") == "Rudder")
-                        {
-                            float val = 35 - (float.Parse(reader.GetAttribute("status")) * 70);
-                            rorLever.Value = Convert.ToInt32(val);
+                            if (reader.GetAttribute("name") == "RPM Lever")
+                            {
+                                float val = float.Parse(reader.GetAttribute("status")) - 1;
+                                prcRpmTrackbar1.Value = Convert.ToInt32(val * -100);
+                            }
+                            if (reader.GetAttribute("name") == "Pitch Lever")
+                            {
+                                float val = float.Parse(reader.GetAttribute("status")) - 0.5f;
+                                prcPitchTrackbar1.Value = Convert.ToInt32(val * -200);
+                            }
+                            if (reader.GetAttribute("name") == "Rudder")
+                            {
+                                float val = 35 - (float.Parse(reader.GetAttribute("status")) * 70);
+                                rorLever.Value = Convert.ToInt32(val);
+                            }
                         }
                     }
                 }
