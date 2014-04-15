@@ -143,15 +143,19 @@ namespace BridgeIface
         UdpClient listener = new UdpClient(portReceive);
         private void receiveNmeaMessage()
         {
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, portReceive);
             while (runThread)
             {
-                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, portReceive);
                 byte[] content = listener.Receive(ref endPoint);
                 if (content.Length > 0)
                 {
                     string nmeaMessage = Encoding.ASCII.GetString(content);
                     string index = nmeaParser.parser(nmeaMessage);
                     updateReceivedTable(nmeaMessage, index);
+                }
+                else
+                {
+                    Thread.Sleep(10);
                 }
             }
         }
@@ -166,6 +170,24 @@ namespace BridgeIface
         private void etlSendButton1_Click(object sender, EventArgs e)
         {
             sendNmea(nmeaType.ETL);
+        }
+
+        private void sendDynamicNmea(String pattern)
+        {
+            string[] splitter = pattern.Split(',');
+            string command = "";
+
+            for (int i = 0; i < splitter.Length; i++)
+            {
+                if (splitter[i].StartsWith("%"))
+                {
+                }
+                else
+                    command += splitter[i];
+                command += ",";
+            }
+
+
         }
 
         private void sendNmea(nmeaType type)
