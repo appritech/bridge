@@ -21,7 +21,7 @@ namespace BridgeIface
             catch { }
             string[] data = sentence.Split(',', '*');
 
-            string index = data[0];//NMEA Sentecne Header
+            string index = data[0];//NMEA Sentence Header
 
             switch (data[0])
             {
@@ -324,7 +324,7 @@ namespace BridgeIface
 
             if (angle0valid == "A")
             {
-                DataHolderIface.SetFloatVal("Rudder Sensor Angle", float.Parse(angle0));
+                DataHolderIface.SetFloatVal("Received Rudder Sensor Angle", float.Parse(angle0));
             }
         }
 

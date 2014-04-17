@@ -21,7 +21,7 @@ namespace BridgeIface
         Utilities util = new Utilities();
         NMEA_Object nmeaObject = new NMEA_Object();
 
-        ioioIO myIoioIo = new ioioIO();
+        Ioio_Com ioioCom = new Ioio_Com();
 
 
         BindingList<NMEA_Object> tableSentNmeaStrings = new BindingList<NMEA_Object>();
@@ -41,11 +41,6 @@ namespace BridgeIface
             m_outputControls.Add(new DHControl("Remote Engine 0 RPM Demand Command", FloatIntBoolNone.Float, prcRpmTrackbar1, true));
             m_inputControls.Add(new DHControl("Remote Engine 0 Pitch Demand Command", FloatIntBoolNone.Float, prcPitchDemand1, false));
             m_outputControls.Add(new DHControl("Remote Engine 0 Pitch Demand Command", FloatIntBoolNone.Float, prcPitchTrackbar1, true));
-            //ETL Components
-            m_inputControls.Add(new DHControl("Engine 0 Telegraph Position Command", FloatIntBoolNone.Float, etlTelegraphPos1, false));
-            m_inputControls.Add(new DHControl("Engine 0 Telegraph Position Command", FloatIntBoolNone.Float, etlTelegraphTrackbar1, true));
-            m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position Command", FloatIntBoolNone.Float, etlSubTelPos1, false));
-            m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position Command", FloatIntBoolNone.Float, etlSubTelTrackbar1, true));
             //RSA
             m_outputControls.Add(new DHControl("Rudder Sensor Angle", FloatIntBoolNone.Float, rsaLever, true));
             m_inputControls.Add(new DHControl("Rudder Sensor Angle", FloatIntBoolNone.Float, rsaDhTb, false));
@@ -55,9 +50,6 @@ namespace BridgeIface
             //ROR
             m_outputControls.Add(new DHControl("Rudder Angle", FloatIntBoolNone.Float, rorLever, true));
             m_inputControls.Add(new DHControl("Rudder Angle", FloatIntBoolNone.Float, rorDhTb, false));
-            //EOM Components
-            m_inputControls.Add(new DHControl("Mission Status", FloatIntBoolNone.Float, eomMissionStatus, false));
-            m_inputControls.Add(new DHControl("Mission Elapsed Time", FloatIntBoolNone.Float, eomElapsedTime, false));
             //RPM Components
             m_inputControls.Add(new DHControl("Engine 0 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeed1, false));
             m_outputControls.Add(new DHControl("Engine 0 Shaft RPM", FloatIntBoolNone.Float, rpmShaftSpeedTrackbar1, true));
@@ -72,9 +64,6 @@ namespace BridgeIface
             m_inputControls.Add(new DHControl("Remote Engine 0 RPM Demand", FloatIntBoolNone.Float, prcRpmTrackbar1Rec, false));
             m_inputControls.Add(new DHControl("Remote Engine 0 Pitch Demand", FloatIntBoolNone.Float, prcPitchDemand1Rec, false));
             m_inputControls.Add(new DHControl("Remote Engine 0 Pitch Demand", FloatIntBoolNone.Float, prcPitchTrackbar1Rec, false));
-            //ETL Components
-            m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelPos1Rec, false));
-            m_inputControls.Add(new DHControl("Engine 0 Sub-Telegraph Position", FloatIntBoolNone.Float, etlSubTelTrackbar1Rec, false));
 
 
             timer1.Enabled = true;
@@ -94,12 +83,16 @@ namespace BridgeIface
             DataHolderIface.SetFloatVal("GUI ETL-Sub Send", float.Parse(etlSubTelPos1.Text));
         }
 
+
         private void udpReceiveButton_Click(object sender, EventArgs e)
         {
             int portReceive = int.Parse(tbUdpRecPort.Text);
             Thread udpReadThread = new Thread(() => nmeaCom.receiveNmeaMessage(portReceive, tableReceivedNmeaStrings));
             CheckForIllegalCrossThreadCalls = false;
             udpReadThread.IsBackground = true;
+
+           // if (InvokeRequired)
+           //     Invoke(new MethodInvoker(() => nmeaCom.receiveNmeaMessage(portReceive, tableReceivedNmeaStrings)));
 
             bool receiveEnabled = (udpReceiveButton.Text == "Start");
             if (receiveEnabled)
@@ -118,7 +111,13 @@ namespace BridgeIface
                 updReceiveLabel.Visible = false;
                 tbUdpRecPort.Enabled = true;
             }
+           // if (dataGridReceivedNMEA.InvokeRequired)
+           // {
+           //     dataGridReceivedNMEA.Invoke(new MethodInvoker(() => dataGridReceivedNMEA.DataSource = tableReceivedNmeaStrings));
+           // }
+            //dataGridReceivedNMEA.DataSource = tableReceivedNmeaStrings; //Something about this is causing program to hang when table content exceeds datagrid height.
         }
+
         private void parse_button_Click(object sender, EventArgs e)
         {
             //parser(NMEA_String_Box.Text);
@@ -179,63 +178,6 @@ namespace BridgeIface
         }
 
 
-        //Unused Button Clicks
-        private void rpmEngSendButton1_Click(object sender, EventArgs e)
-        {
-            string s = "$--RPM,E," + ",1," + rpmEngSpeed1.Text + "," + rpmPropPitch1.Text + ",A*hh\r\n";
-            lastStringSent.Text = s;
-        }
-        private void rpmShaftSendButton1_Click(object sender, EventArgs e)
-        {
-            string s = "$--RPM,E," + ",1," + rpmShaftSpeed1.Text + "," + rpmPropPitch1.Text + ",A*hh\r\n";
-            lastStringSent.Text = s;
-        }
-        private void sendTrc1Button_Click(object sender, EventArgs e)
-        {
-          //  string s_1 = "--TRC,1," + trcRpmDemandDisplay1.Text + ",P," + trcPitchDemandDisplay1.Text + ",P," + float.Parse(trcAzimuthDemandDisplay1.Text) * 10 + ",S,C";
-          //  string s = "$" + s_1 + "*" + calcChecksum(s_1) + "\r\n";
-          //  lastStringSent.Text = s;
-          //  sendNmeaMessage(s);
-        }
-        private void trdSendButton1_Click(object sender, EventArgs e)
-        {
-
-            string s = "$--TRD,1," + trdRpmResponse1.Text + ",P," + trdPitchResponse1.Text + ",P," + float.Parse(trdAzimuthResponse1.Text) * 10 + "*hh\r\n";
-            lastStringSent.Text = s;
-        }
-        private void sendTrc2Button_Click(object sender, EventArgs e)
-        {
-            string s = "$--TRC,2," + trcRpmDemandDisplay2.Text + ",P," + trcPitchDemandDisplay2.Text + ",P," + float.Parse(trcAzimuthDemandDisplay2.Text) * 10 + ",S,C*hh\r\n";
-            lastStringSent.Text = s;
-        }
-        private void trdSendButton2_Click(object sender, EventArgs e)
-        {
-            string s = "$--TRD,2," + trdRpmResponse2.Text + ",P," + trdPitchResponse2.Text + ",P," + float.Parse(trdAzimuthResponse2.Text) * 10 + "*hh\r\n";
-            lastStringSent.Text = s;
-        }
-        private void prcSendButton2_Click_1(object sender, EventArgs e)
-        {
-            string s = "$--PRC," + prcLeverPos2.Text + ",A," + prcRpmDemand2.Text + ",P," + prcPitchDemand2.Text + ",P,S,2*hh\r\n";
-            lastStringSent.Text = s;
-        }
-        private void rpmEngSendButton2_Click(object sender, EventArgs e)
-        {
-            string s = "$--RPM,E," + ",1," + rpmEngSpeed2.Text + "," + rpmPropPitch2.Text + ",A*hh\r\n";
-            lastStringSent.Text = s;
-        }
-        private void rpmShaftSendButton2_Click(object sender, EventArgs e)
-        {
-            string s = "$--RPM,E," + ",1," + rpmShaftSpeed2.Text + "," + rpmPropPitch2.Text + ",A*hh\r\n";
-            lastStringSent.Text = s;
-        }
-        private void etlSendButton2_Click(object sender, EventArgs e)
-        {
-            string s = "$--ETL,0,O," + etlTelegraphPos2.Text + "," + etlSubTelPos2.Text + ",S,2*hh\r\n";
-            lastStringSent.Text = s;
-        }
-
-
-        
         
         private void timer_HW_input_Tick(object sender, EventArgs e)
         {
@@ -243,7 +185,8 @@ namespace BridgeIface
             {
                 //set lever positions based on hardware levers
                 string website = "http://" + tbIpAddress.Text + ":8181/api/status";
-                nmeaCom.parseXml(myIoioIo.webRequest(website));
+                string xmlResponse = ioioCom.webRequest(website);
+                ioioCom.parseXml(xmlResponse);
             }
         }
         private void timer1_Tick(object sender, EventArgs e)

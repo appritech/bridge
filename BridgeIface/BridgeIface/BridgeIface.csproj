@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="NMEA_Enum.cs" />
     <Compile Include="NMEA_Com.cs" />
-    <Compile Include="ioioIO.cs" />
+    <Compile Include="Ioio_Com.cs" />
     <Compile Include="NMEA_Object.cs" />
     <Compile Include="NMEA_Parser.cs" />
     <Compile Include="DataHolderIface.cs" />

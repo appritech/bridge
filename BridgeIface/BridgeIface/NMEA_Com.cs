@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Xml;
+using System.Threading;
 
 namespace BridgeIface
 {
@@ -139,6 +138,8 @@ namespace BridgeIface
                     string nmeaMessage = Encoding.ASCII.GetString(content);
                     string index = nmeaParser.parser(nmeaMessage);
                     updateReceivedTable(nmeaMessage, index, list);
+
+
                 }
                 else
                 { // set breakpoint here cause curious if this code is ever reached. (so far it is not)
@@ -176,6 +177,8 @@ namespace BridgeIface
                 sentNmeaTypes.Add(index, sentNmeaTypes.Count);
             }
 
+            //delegate void updateList(list);
+
             //Insert new sentence at index
             try
             {
@@ -188,43 +191,6 @@ namespace BridgeIface
                     list.Insert(sentNmeaTypes[index], new NMEA_Object() { sentence = sentence, time = System.DateTime.Now });
                 }
                 catch { }
-            }
-        }
-
-        public void parseXml(string xmlString)
-        {
-            using (XmlReader reader = XmlReader.Create(new StringReader(xmlString)))
-            {
-                if (xmlString != "Error with Web Request")
-                {
-                    while (reader.Read())
-                    {
-                        if (reader.Name == "pin")
-                        {
-                            if (reader.GetAttribute("name") == "RPM Lever") //Sending RPM to Nautis doesn't actually do anything, as of 4/16/14
-                            {
-                                //float val = (float.Parse(reader.GetAttribute("status")) - 1) * -100;
-                                float val = float.Parse(reader.GetAttribute("calibrated"));
-                                val = (100 - val); //invert val
-                                DataHolderIface.SetFloatVal("HW RPM Send", val);
-                            }
-                            if (reader.GetAttribute("name") == "Pitch Lever")
-                            {
-                                //float val = (float.Parse(reader.GetAttribute("status")) - 0.5f) * -200;
-                                float val = float.Parse(reader.GetAttribute("calibrated"));
-                                val = -val; //invert val
-                                DataHolderIface.SetFloatVal("HW Pitch Send", val);
-                            }
-                            if (reader.GetAttribute("name") == "Rudder")
-                            {
-                                //float val = 35 - (float.Parse(reader.GetAttribute("status")) * 70);
-                                float val = float.Parse(reader.GetAttribute("calibrated"));
-                                val = -val; //invert val
-                                DataHolderIface.SetFloatVal("HW ROR Send", val);
-                            }
-                        }
-                    }
-                }
             }
         }
     }
