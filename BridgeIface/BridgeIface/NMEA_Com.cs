@@ -203,20 +203,23 @@ namespace BridgeIface
                         {
                             if (reader.GetAttribute("name") == "RPM Lever") //Sending RPM to Nautis doesn't actually do anything, as of 4/16/14
                             {
-                                float val = (float.Parse(reader.GetAttribute("status")) - 1) * -100;
-                                //prcRpmTrackbar1.Value = Convert.ToInt32(val);
+                                //float val = (float.Parse(reader.GetAttribute("status")) - 1) * -100;
+                                float val = float.Parse(reader.GetAttribute("calibrated"));
+                                val = (100 - val); //invert val
                                 DataHolderIface.SetFloatVal("HW RPM Send", val);
                             }
                             if (reader.GetAttribute("name") == "Pitch Lever")
                             {
-                                float val = (float.Parse(reader.GetAttribute("status")) - 0.5f) * -200;
-                                //prcPitchTrackbar1.Value = Convert.ToInt32(val);
+                                //float val = (float.Parse(reader.GetAttribute("status")) - 0.5f) * -200;
+                                float val = float.Parse(reader.GetAttribute("calibrated"));
+                                val = -val; //invert val
                                 DataHolderIface.SetFloatVal("HW Pitch Send", val);
                             }
                             if (reader.GetAttribute("name") == "Rudder")
                             {
-                                float val = 35 - (float.Parse(reader.GetAttribute("status")) * 70);
-                                //rorLever.Value = Convert.ToInt32(val);
+                                //float val = 35 - (float.Parse(reader.GetAttribute("status")) * 70);
+                                float val = float.Parse(reader.GetAttribute("calibrated"));
+                                val = -val; //invert val
                                 DataHolderIface.SetFloatVal("HW ROR Send", val);
                             }
                         }
