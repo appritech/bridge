@@ -1,17 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Net;
-using System.Net.Sockets;
-using System.Threading;
-using System.Xml;
 using System.IO;
+using System.Net;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace BridgeIface
 {
@@ -20,11 +13,22 @@ namespace BridgeIface
         List<DHControl> m_outputControls = new List<DHControl>();           //This is for later, when trying to stimulate our output to VStep
         List<DHControl> m_inputControls = new List<DHControl>();//This is for taking DataHolder values (written to by parsing NMEA), and displaying them on the screen
         
-        public Dictionary<string, int> sentNmeaTypes = new Dictionary<string, int>();
+        Dictionary<string, int> sentNmeaTypes = new Dictionary<string, int>();
         Dictionary<string, int> receivedNmeaTypes = new Dictionary<string, int>();
 
         NMEA_Parser nmeaParser = new NMEA_Parser();
-        
+        NMEA_Com nmeaCom = new NMEA_Com();
+        Utilities util = new Utilities();
+        NMEA_Object nmeaObject = new NMEA_Object();
+
+        ioioIO myIoioIo = new ioioIO();
+
+
+        BindingList<NMEA_Object> tableSentNmeaStrings = new BindingList<NMEA_Object>();
+        BindingList<NMEA_Object> tableReceivedNmeaStrings = new BindingList<NMEA_Object>();
+
+        IPEndPoint sendEP = new IPEndPoint(IPAddress.Parse("192.168.0.21"), 8011); //This gets overwritten by GUI
+
         public TestForm()
         {
             InitializeComponent();
@@ -74,220 +78,45 @@ namespace BridgeIface
 
 
             timer1.Enabled = true;
-            tbUdpRecPort.Text = portReceive.ToString();
-            tbUdpSendPort.Text = portSend.ToString();
-            tbUdpSendIP.Text = ipAddress;
             timer_HW_input.Enabled = true;
 
             dataGridReceivedNMEA.DataSource = tableReceivedNmeaStrings; //Something about this is causing program to hang when table content exceeds datagrid height.
+            dataGridSentNMEA.DataSource = tableSentNmeaStrings;
 
         }
-
-        static int portReceive = 1254;
-        static int portSend = 8011;
-        static string ipAddress = "192.168.0.6";
-
-        class nmeaObject
-        {
-            public string sentence { get; set; }
-            public DateTime time { get; set; }
-        }
-        private enum nmeaType
-        {
-            ROR,
-            PRC,
-            ETL,
-            RSA,
-            TRC,
-            TRD,
-            RPM
-        }
-
-        BindingList<nmeaObject> tableSentNmeaStrings = new BindingList<nmeaObject>();
-        BindingList<nmeaObject> tableReceivedNmeaStrings = new BindingList<nmeaObject>();
-
-        public void updateReceivedTable(string sentence, string index)
-        {
-            //Check if string has been seen before. If not, add it to Dictionary for array indexing.
-            if (sentNmeaTypes.ContainsKey(index) == false)
-            {
-                sentNmeaTypes.Add(index, sentNmeaTypes.Count);
-            }
-
-            //Insert new sentence at index
-            try
-            {
-                tableReceivedNmeaStrings[sentNmeaTypes[index]] = new nmeaObject() { sentence = sentence, time = System.DateTime.Now };
-            }
-            catch (System.ArgumentOutOfRangeException e)
-            {
-                try
-                {
-                    tableReceivedNmeaStrings.Insert(sentNmeaTypes[index], new nmeaObject() { sentence = sentence, time = System.DateTime.Now });
-                }
-                catch { }
-            }
-            //dataGridReceivedNMEA.DataSource = tableReceivedNmeaStrings;
-        }
-        private string calcChecksum(string s)
-        {
-            int checksum = 0;
-            for (int i = 0; i < s.Length; i++)
-            {
-                checksum ^= Convert.ToByte(s[i]);
-            }
-            return checksum.ToString("X2");
-        }
-        
-        private volatile bool runThread;
-        UdpClient listener = new UdpClient(portReceive);
-        private void receiveNmeaMessage()
-        {
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, portReceive);
-            while (runThread)
-            {
-                byte[] content = listener.Receive(ref endPoint);
-                if (content.Length > 0)
-                {
-                    string nmeaMessage = Encoding.ASCII.GetString(content);
-                    string index = nmeaParser.parser(nmeaMessage);
-                    updateReceivedTable(nmeaMessage, index);
-                }
-                else
-                {
-                    Thread.Sleep(10);
-                }
-            }
-        }
-        IPEndPoint sendEP = new IPEndPoint(IPAddress.Parse(ipAddress), portSend);
-        Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-        
 
         private void prcSendButton1_Click(object sender, EventArgs e)
         {
-            sendNmea(nmeaType.PRC);
+            DataHolderIface.SetFloatVal("GUI PRC Send", prcRpmTrackbar1.Value);
         }
         private void etlSendButton1_Click(object sender, EventArgs e)
         {
-            sendNmea(nmeaType.ETL);
+            DataHolderIface.SetFloatVal("GUI ETL-Sub Send", float.Parse(etlSubTelPos1.Text));
         }
 
-        private void sendDynamicNmea(String pattern)
-        {
-            string[] splitter = pattern.Split(',');
-            string command = "";
-
-            for (int i = 0; i < splitter.Length; i++)
-            {
-                if (splitter[i].StartsWith("%"))
-                {
-                }
-                else
-                    command += splitter[i];
-                command += ",";
-            }
-
-
-        }
-
-        private void sendNmea(nmeaType type)
-        {
-            string command;
-            string sOut = "";
-            string index = "";
-            switch (type)
-            {
-                case nmeaType.ROR:
-                    //command = "XXROR," + rorLever.Value + ",A,,A,C";
-                    command = "XXROR," + rorLever.Value + ",A," + rorLever.Value + ",A,C";
-                    sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
-                    index = "$XXROR";
-                    break;
-                case nmeaType.PRC:
-                    //command = "XXPRC," + prcLeverPos1.Text + ",A," + prcRpmDemand1.Text + ",P," + prcPitchDemand1.Text + ",P,S,0";
-                    //command = "XXPRC," + prcLeverPos1.Text + ",A,,V,,V,S,0";
-                    command = "XXPRC,,V," + prcRpmTrackbar1.Value + ",P," + prcPitchTrackbar1.Value + ",P,C,0";
-                    sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
-                    index = "$XXPRC";
-                    break;
-                case nmeaType.ETL:
-                    command = "XXETL,0,O,0," + etlToSend + ",S,0";
-                    //command = "XXETL,0,O," + etlTelegraphTrackbar1.Value + "," + etlSubTelTrackbar1.Text + "0,S,0";
-                    //command = "XXETL,0,O,," + etlSubTelPos1.Text + "0,S,0";
-                    sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
-                    index = "$XXETL";
-                    break;
-                case nmeaType.RSA:
-                    //Example: $GPRSA,20.3,A,0.0,V*71
-                    command = "XXRSA," + rsaLever.Value + ",A,,V";
-                    sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
-                    index = "$XXRSA";
-                    break;
-                case nmeaType.RPM:
-                    //Example: $SSRPM,S,0,39.5,0.00,A*4E
-                    //command = "XXRPM,S," + rpmEngSpeedTrackbar1.Value + "," + rpmShaftSpeedTrackbar1.Value + "," + rpmPropPitchTrackbar1.Value + ",A";
-                    command = "XXRPM,E,0," + rpmShaftSpeedTrackbar1.Value + "," + rpmPropPitchTrackbar1.Value + ",A";
-                    sOut = "$" + command + "*" + calcChecksum(command) + "\r\n";
-                    index = "$XXRPM";
-                    break;
-
-            }
-            lastStringSent.Text = sOut;
-
-            //update Sent Table here
-            if (receivedNmeaTypes.ContainsKey(index) == false)
-            {
-                receivedNmeaTypes.Add(index, receivedNmeaTypes.Count);
-            }
-            updateSentTable(sOut, index);
-
-            sendNmeaMessage(sOut);
-        }
-
-        
-        private void updateSentTable(string sentence, string index)
-        {
-            //Insert new sentence at index
-            try
-            {
-                tableSentNmeaStrings[receivedNmeaTypes[index]] = new nmeaObject() { sentence = sentence, time = System.DateTime.Now };
-            }
-            catch (System.ArgumentOutOfRangeException e)
-            {
-                tableSentNmeaStrings.Insert(receivedNmeaTypes[index], new nmeaObject() { sentence = sentence, time = System.DateTime.Now });
-            }
-            dataGridSentNMEA.DataSource = tableSentNmeaStrings;
-        }
-        private void sendNmeaMessage(string s)
-        {
-            try
-            {
-                Byte[] sendBytes = Encoding.ASCII.GetBytes(s);
-                sock.SendTo(sendBytes, sendEP);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-        }
         private void udpReceiveButton_Click(object sender, EventArgs e)
         {
-            Thread udpReadThread = new Thread(receiveNmeaMessage);
-            if (udpReceiveButton.Text == "Start")
+            int portReceive = int.Parse(tbUdpRecPort.Text);
+            Thread udpReadThread = new Thread(() => nmeaCom.receiveNmeaMessage(portReceive, tableReceivedNmeaStrings));
+            CheckForIllegalCrossThreadCalls = false;
+            udpReadThread.IsBackground = true;
+
+            bool receiveEnabled = (udpReceiveButton.Text == "Start");
+            if (receiveEnabled)
             {
-                CheckForIllegalCrossThreadCalls = false;
-                runThread = true;
-                udpReadThread.IsBackground = true;
                 udpReadThread.Start();
                 udpReceiveButton.Text = "Stop";
+                nmeaCom.runThread = true;
                 updReceiveLabel.Visible = true;
+                tbUdpRecPort.Enabled = false;
             }
             else
             {
-                runThread = false;
+                udpReadThread.Abort();
                 udpReceiveButton.Text = "Start";
+                nmeaCom.runThread = false;
                 updReceiveLabel.Visible = false;
-
+                tbUdpRecPort.Enabled = true;
             }
         }
         private void parse_button_Click(object sender, EventArgs e)
@@ -296,156 +125,60 @@ namespace BridgeIface
             string sentence = NMEA_String_Box.Text;
             string index = nmeaParser.parser(sentence);
 
-            updateReceivedTable(sentence, index);
+            nmeaCom.updateReceivedTable(sentence, index, tableReceivedNmeaStrings);
         }
-        int count = 0;
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            foreach (DHControl dh in m_inputControls)
-            {
-                dh.readFromDataHolder();
-            }
-            count += count < 19 ? 1:-19;//increment count, reset at 10
-            flashButtons();
-            if (cbRsaHold.Checked)
-            {
-                sendNmea(nmeaType.RSA);
-            }
-        }
-        private void flashButtons()
-        {
-                        if (count == 0)
-            {
-                if (flash20)
-                {
-                    etlRecSubTelCB20.Checked = true;
-                    etlSendSubTelCB20.Checked = true;
-                }
-                if (flash30)
-                {
-                    etlRecSubTelCB30.Checked = true;
-                    etlSendSubTelCB30.Checked = true;
-                }
-
-                if (flash40)
-                {
-                    etlRecSubTelCB40.Checked = true;
-                    etlSendSubTelCB40.Checked = true;
-                }
-            }
-            else if (count == 10)
-            {
-                if (flash20)
-                {
-                    etlRecSubTelCB20.Checked = false;
-                    etlSendSubTelCB20.Checked = false;
-                }
-                if (flash30)
-                {
-                    etlRecSubTelCB30.Checked = false;
-                    etlSendSubTelCB30.Checked = false;
-                }
-
-                if (flash40)
-                {
-                    etlRecSubTelCB40.Checked = false;
-                    etlSendSubTelCB40.Checked = false;
-                }
-            }
-        }
+        bool outputEnabled;
         private void outputEnableButton_Click(object sender, EventArgs e)
         {
-            if (outputEnableButton.Text == "Enable")
+            outputEnabled = (outputEnableButton.Text == "Enable");
+            if (outputEnabled)
             {
+                sendEP = new IPEndPoint(IPAddress.Parse(tbUdpSendIP.Text), int.Parse(tbUdpSendPort.Text));
                 outputEnableLabel.Text = "Output is Enabled";
-                rorLever.Enabled = true;
-                prcPitchTrackbar1.Enabled = true;
-                prcRpmTrackbar1.Enabled = true;
-                etlTelegraphTrackbar1.Enabled = true;
-                etlSubTelTrackbar1.Enabled = true;
-                rsaLever.Enabled = true;
                 outputEnableButton.Text = "Disable";
             }
             else
             {
                 outputEnableLabel.Text = "Output is Disabled";
-                rorLever.Enabled = false;
-                prcPitchTrackbar1.Enabled = false;
-                prcRpmTrackbar1.Enabled = false;
-                etlTelegraphTrackbar1.Enabled = false;
-                etlSubTelTrackbar1.Enabled = false;
-                rsaLever.Enabled = false;
                 outputEnableButton.Text = "Enable";
-
             }
+
+            gbSendNmea.Enabled = outputEnabled;
+            tbSelectedFile.Enabled = !outputEnabled;
+            buttonFileSelect.Enabled = !outputEnabled;
+            tbUdpSendIP.Enabled = !outputEnabled;
+            tbUdpSendPort.Enabled = !outputEnabled;
         }
+
         private void trackbar_ValueChanged(object sender, EventArgs e)
         {
             TrackBar tb = (TrackBar)sender;
             switch (tb.Name)
             {
-                case ("rpmShaftSpeedTrackbar1"):
-                case ("rpmPropPitchTrackbar1"):
-                case ("rpmEngSpeedTrackbar1"):
-                    sendNmea(nmeaType.RPM);
-                    break;
+                //case ("rpmShaftSpeedTrackbar1"):
+                //case ("rpmPropPitchTrackbar1"):
+                //case ("rpmEngSpeedTrackbar1"):
+                //    DataHolderIface.SetFloatVal("GUI RPM Send", rpmShaftSpeedTrackbar1.Value);
+                //    break;
                 case ("prcRpmTrackbar1"):
+                    DataHolderIface.SetFloatVal("GUI RPM Send", prcRpmTrackbar1.Value);
+                    break;
                 case ("prcPitchTrackbar1"):
-                    sendNmea(nmeaType.PRC);
+                    DataHolderIface.SetFloatVal("GUI Pitch Send", prcPitchTrackbar1.Value);
                     break;
                 case ("rorLever"):
-                    sendNmea(nmeaType.ROR);
+                    DataHolderIface.SetFloatVal("GUI ROR Send", rorLever.Value);
                     break;
                 case ("rsaLever"):
-                    sendNmea(nmeaType.RSA);
+                    //Example: $GPRSA,20.3,A,0.0,V*71
+                    DataHolderIface.SetFloatVal("GUI RSA Send", rsaLever.Value);
                     break;
                 default:
                     break; //place breakpoint here to catch unhandled trackbar changes.
             }
         }
 
-        bool flash20 = false;
-        bool flash30 = false;
-        bool flash40 = false;
 
-        private void etlSendCheckBox_Click(object sender, EventArgs e)
-        {
-            CheckBox cb = (CheckBox)sender;
-            if (cb.Checked)
-            {
-                switch (cb.Text)
-                {
-                    case ("20"):
-                        etlToSend = 20;
-                        flash20 = true;
-                        sendNmea(nmeaType.ETL);
-                        //etlSendSubTelCB30.Checked = false;
-                        //etlSendSubTelCB40.Checked = false;
-                        break;
-                    case ("30"):
-                        etlToSend = 30;
-                        flash30 = true;
-                        sendNmea(nmeaType.ETL);
-                        //etlSendSubTelCB20.Checked = false;
-                        //etlSendSubTelCB40.Checked = false;
-                        break;
-                    case ("40"):
-                        etlToSend = 40;
-                        flash40 = true;
-                        sendNmea(nmeaType.ETL);
-                        //etlSendSubTelCB20.Checked = false;
-                        //etlSendSubTelCB30.Checked = false;
-                        break;
-                }
-            }
-        }
-        int etlToSend;
-
-        private void clearTable_button_Click(object sender, EventArgs e)
-        {
-            sentNmeaTypes.Clear();
-            tableReceivedNmeaStrings.Clear();
-        }
         //Unused Button Clicks
         private void rpmEngSendButton1_Click(object sender, EventArgs e)
         {
@@ -459,10 +192,10 @@ namespace BridgeIface
         }
         private void sendTrc1Button_Click(object sender, EventArgs e)
         {
-            string s_1 = "--TRC,1," + trcRpmDemandDisplay1.Text + ",P," + trcPitchDemandDisplay1.Text + ",P," + float.Parse(trcAzimuthDemandDisplay1.Text) * 10 + ",S,C";
-            string s = "$" + s_1 + "*" + calcChecksum(s_1) + "\r\n";
-            lastStringSent.Text = s;
-            sendNmeaMessage(s);
+          //  string s_1 = "--TRC,1," + trcRpmDemandDisplay1.Text + ",P," + trcPitchDemandDisplay1.Text + ",P," + float.Parse(trcAzimuthDemandDisplay1.Text) * 10 + ",S,C";
+          //  string s = "$" + s_1 + "*" + calcChecksum(s_1) + "\r\n";
+          //  lastStringSent.Text = s;
+          //  sendNmeaMessage(s);
         }
         private void trdSendButton1_Click(object sender, EventArgs e)
         {
@@ -500,47 +233,73 @@ namespace BridgeIface
             string s = "$--ETL,0,O," + etlTelegraphPos2.Text + "," + etlSubTelPos2.Text + ",S,2*hh\r\n";
             lastStringSent.Text = s;
         }
-        ioioIO myIoioIo = new ioioIO();
+
+
+        
+        
         private void timer_HW_input_Tick(object sender, EventArgs e)
         {
-            if (cbHardwareControl.Checked && outputEnableButton.Text == "Disable")
+            if (cbHardwareControl.Checked && outputEnabled)
             {
                 //set lever positions based on hardware levers
                 string website = "http://" + tbIpAddress.Text + ":8181/api/status";
-                //parseXml(myIoioIo.webRequest("http://localhost:8181/api/status"));
-                parseXml(myIoioIo.webRequest(website));
+                nmeaCom.parseXml(myIoioIo.webRequest(website));
+            }
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            foreach (DHControl dh in m_inputControls)
+            {
+                dh.readFromDataHolder();
+            }
+            if (cbRsaHold.Checked)
+            {
+                DataHolderIface.SetFloatVal("GUI RSA Send", rsaLever.Value);
+            }
+
+            if (outputEnabled)
+            {
+                //Send NMEA Commands based upon streamreader file
+                try
+                {
+                    StreamReader file = new StreamReader(tbSelectedFile.Text);
+                    string line;
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        //remove comments
+                        int index = line.IndexOf("//");
+                        string nmeaCommand = (index == -1) ? line : line.Substring(0, index);
+                        //nmeaCommand.Trim();
+                        if (nmeaCommand != "") //don't send blank lines
+                            nmeaCom.sendDynamicNmea(sendEP, nmeaCommand.Trim(), tableSentNmeaStrings);
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
         }
 
-        private void parseXml(string xmlString)
+        private void buttonFileSelect_Click(object sender, EventArgs e)
         {
-            using (XmlReader reader = XmlReader.Create(new StringReader(xmlString)))
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
             {
-                if (xmlString != "Error with Web Request")
-                {
-                    while (reader.Read())
-                    {
-                        if (reader.Name == "pin")
-                        {
-                            if (reader.GetAttribute("name") == "RPM Lever")
-                            {
-                                float val = float.Parse(reader.GetAttribute("status")) - 1;
-                                prcRpmTrackbar1.Value = Convert.ToInt32(val * -100);
-                            }
-                            if (reader.GetAttribute("name") == "Pitch Lever")
-                            {
-                                float val = float.Parse(reader.GetAttribute("status")) - 0.5f;
-                                prcPitchTrackbar1.Value = Convert.ToInt32(val * -200);
-                            }
-                            if (reader.GetAttribute("name") == "Rudder")
-                            {
-                                float val = 35 - (float.Parse(reader.GetAttribute("status")) * 70);
-                                rorLever.Value = Convert.ToInt32(val);
-                            }
-                        }
-                    }
-                }
+                tbSelectedFile.Text = openFileDialog1.FileName;
             }
+        }
+
+        private void clearTable_button_Click(object sender, EventArgs e)
+        {
+            sentNmeaTypes.Clear();
+            tableReceivedNmeaStrings.Clear();
+        }
+
+        private void clearSendTable_button_Click(object sender, EventArgs e)
+        {
+            //receivedNmeaTypes.Clear();
+            tableSentNmeaStrings.Clear();
         }
     }
 }

@@ -46,7 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NMEA_Enum.cs" />
+    <Compile Include="NMEA_Com.cs" />
     <Compile Include="ioioIO.cs" />
+    <Compile Include="NMEA_Object.cs" />
     <Compile Include="NMEA_Parser.cs" />
     <Compile Include="DataHolderIface.cs" />
     <Compile Include="DHControl.cs" />
@@ -58,6 +61,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

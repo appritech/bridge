@@ -1,0 +1,12 @@
+﻿//Tested with Pilot Boat
+
+//Commands from GUI
+//XXPRC,,V,%GUI RPM Send,P,%GUI Pitch Send,P,C,0
+//XXRSA,%GUI RSA Send,A,,V
+//XXRPM,%GUI RPM Send,A,,A,C
+//XXROR,%GUI ROR Send,A,,A,C
+
+//Commands from Hardware
+XXPRC,,V,%HW RPM Send,P,%HW Pitch Send,P,C,0    //spaces
+XXPRC,,V,%HW RPM Send,P,%HW Pitch Send,P,C,1    //spaces
+XXROR,%HW ROR Send,A,%HW ROR Send,A,C			//sends to both rudders

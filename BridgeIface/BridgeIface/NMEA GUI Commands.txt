@@ -1,0 +1,7 @@
+﻿//Tested with Pilot Boat
+
+//Commands from GUI
+XXPRC,,V,%GUI RPM Send,P,%GUI Pitch Send,P,C,0
+XXPRC,,V,%GUI RPM Send,P,%GUI Pitch Send,P,C,1
+XXROR,%GUI ROR Send,A,%GUI ROR Send,A,C
+XXRSA,%GUI RSA Send,A,%GUI RSA Send,A

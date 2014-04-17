@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.parse_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,14 +54,12 @@
             this.label47 = new System.Windows.Forms.Label();
             this.trcPitchDemandDisplay1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbSendNmea = new System.Windows.Forms.GroupBox();
             this.cbRsaHold = new System.Windows.Forms.CheckBox();
-            this.etlSendSubTelCB20 = new System.Windows.Forms.CheckBox();
-            this.etlSendSubTelCB30 = new System.Windows.Forms.CheckBox();
             this.label67 = new System.Windows.Forms.Label();
-            this.etlSendSubTelCB40 = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
             this.rsaDhTb = new System.Windows.Forms.TextBox();
             this.prcPitchTrackbar1 = new System.Windows.Forms.TrackBar();
             this.label35 = new System.Windows.Forms.Label();
@@ -70,13 +68,16 @@
             this.etlSendButton1 = new System.Windows.Forms.Button();
             this.label68 = new System.Windows.Forms.Label();
             this.prcSendButton1 = new System.Windows.Forms.Button();
+            this.rorDhTb = new System.Windows.Forms.TextBox();
             this.rsaLever = new System.Windows.Forms.TrackBar();
             this.label40 = new System.Windows.Forms.Label();
             this.etlSubTelTrackbar1 = new System.Windows.Forms.TrackBar();
             this.prcLeverTrackbar1 = new System.Windows.Forms.TrackBar();
             this.label42 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
             this.prcLeverPos1 = new System.Windows.Forms.TextBox();
+            this.rorLever = new System.Windows.Forms.TrackBar();
             this.prcRpmDemand1 = new System.Windows.Forms.TextBox();
             this.etlSubTelPos1 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -86,17 +87,10 @@
             this.etlTelegraphPos1 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.etlTelegraphTrackbar1 = new System.Windows.Forms.TrackBar();
-            this.label66 = new System.Windows.Forms.Label();
-            this.rorDhTb = new System.Windows.Forms.TextBox();
-            this.label65 = new System.Windows.Forms.Label();
-            this.rorLever = new System.Windows.Forms.TrackBar();
             this.rpmShaftSpeed1 = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.rpmEngSpeed1 = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.etlRecSubTelCB20 = new System.Windows.Forms.CheckBox();
-            this.etlRecSubTelCB30 = new System.Windows.Forms.CheckBox();
-            this.etlRecSubTelCB40 = new System.Windows.Forms.CheckBox();
+            this.gbRecNmea = new System.Windows.Forms.GroupBox();
             this.label73 = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
@@ -231,27 +225,31 @@
             this.label83 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label84 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.clearSendTable_button = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tbSelectedFile = new System.Windows.Forms.TextBox();
+            this.buttonFileSelect = new System.Windows.Forms.Button();
             this.tbIpAddress = new System.Windows.Forms.TextBox();
             this.cbHardwareControl = new System.Windows.Forms.CheckBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.clearTable_button = new System.Windows.Forms.Button();
+            this.clearRecTable_button = new System.Windows.Forms.Button();
             this.timer_HW_input = new System.Windows.Forms.Timer(this.components);
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trcAzimuthTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcRpmTrackbar1)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.gbSendNmea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prcPitchTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcRpmTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rsaLever)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcLeverTrackbar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rorLever)).BeginInit();
-            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar1)).BeginInit();
+            this.gbRecNmea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar1Rec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcPitchTrackbar1Rec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcRpmTrackbar1Rec)).BeginInit();
@@ -554,42 +552,44 @@
             this.label9.Size = new System.Drawing.Size(0, 13);
             this.label9.TabIndex = 35;
             // 
-            // groupBox3
+            // gbSendNmea
             // 
-            this.groupBox3.Controls.Add(this.cbRsaHold);
-            this.groupBox3.Controls.Add(this.etlSendSubTelCB20);
-            this.groupBox3.Controls.Add(this.etlSendSubTelCB30);
-            this.groupBox3.Controls.Add(this.label67);
-            this.groupBox3.Controls.Add(this.etlSendSubTelCB40);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.label37);
-            this.groupBox3.Controls.Add(this.rsaDhTb);
-            this.groupBox3.Controls.Add(this.prcPitchTrackbar1);
-            this.groupBox3.Controls.Add(this.label35);
-            this.groupBox3.Controls.Add(this.label38);
-            this.groupBox3.Controls.Add(this.prcRpmTrackbar1);
-            this.groupBox3.Controls.Add(this.etlSendButton1);
-            this.groupBox3.Controls.Add(this.label68);
-            this.groupBox3.Controls.Add(this.prcSendButton1);
-            this.groupBox3.Controls.Add(this.rsaLever);
-            this.groupBox3.Controls.Add(this.label40);
-            this.groupBox3.Controls.Add(this.etlSubTelTrackbar1);
-            this.groupBox3.Controls.Add(this.prcLeverTrackbar1);
-            this.groupBox3.Controls.Add(this.label42);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.prcLeverPos1);
-            this.groupBox3.Controls.Add(this.prcRpmDemand1);
-            this.groupBox3.Controls.Add(this.etlSubTelPos1);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.prcPitchDemand1);
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(6, 313);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(717, 235);
-            this.groupBox3.TabIndex = 37;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Send to Nautis";
+            this.gbSendNmea.Controls.Add(this.cbRsaHold);
+            this.gbSendNmea.Controls.Add(this.label67);
+            this.gbSendNmea.Controls.Add(this.label12);
+            this.gbSendNmea.Controls.Add(this.label37);
+            this.gbSendNmea.Controls.Add(this.label66);
+            this.gbSendNmea.Controls.Add(this.rsaDhTb);
+            this.gbSendNmea.Controls.Add(this.prcPitchTrackbar1);
+            this.gbSendNmea.Controls.Add(this.label35);
+            this.gbSendNmea.Controls.Add(this.label38);
+            this.gbSendNmea.Controls.Add(this.prcRpmTrackbar1);
+            this.gbSendNmea.Controls.Add(this.etlSendButton1);
+            this.gbSendNmea.Controls.Add(this.label68);
+            this.gbSendNmea.Controls.Add(this.prcSendButton1);
+            this.gbSendNmea.Controls.Add(this.rorDhTb);
+            this.gbSendNmea.Controls.Add(this.rsaLever);
+            this.gbSendNmea.Controls.Add(this.label40);
+            this.gbSendNmea.Controls.Add(this.etlSubTelTrackbar1);
+            this.gbSendNmea.Controls.Add(this.prcLeverTrackbar1);
+            this.gbSendNmea.Controls.Add(this.label42);
+            this.gbSendNmea.Controls.Add(this.label10);
+            this.gbSendNmea.Controls.Add(this.label65);
+            this.gbSendNmea.Controls.Add(this.prcLeverPos1);
+            this.gbSendNmea.Controls.Add(this.rorLever);
+            this.gbSendNmea.Controls.Add(this.prcRpmDemand1);
+            this.gbSendNmea.Controls.Add(this.etlSubTelPos1);
+            this.gbSendNmea.Controls.Add(this.label20);
+            this.gbSendNmea.Controls.Add(this.prcPitchDemand1);
+            this.gbSendNmea.Controls.Add(this.label15);
+            this.gbSendNmea.Enabled = false;
+            this.gbSendNmea.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbSendNmea.Location = new System.Drawing.Point(6, 313);
+            this.gbSendNmea.Name = "gbSendNmea";
+            this.gbSendNmea.Size = new System.Drawing.Size(717, 266);
+            this.gbSendNmea.TabIndex = 37;
+            this.gbSendNmea.TabStop = false;
+            this.gbSendNmea.Text = "Send to Nautis";
             // 
             // cbRsaHold
             // 
@@ -602,30 +602,6 @@
             this.cbRsaHold.Text = "hold";
             this.cbRsaHold.UseVisualStyleBackColor = true;
             // 
-            // etlSendSubTelCB20
-            // 
-            this.etlSendSubTelCB20.Appearance = System.Windows.Forms.Appearance.Button;
-            this.etlSendSubTelCB20.AutoSize = true;
-            this.etlSendSubTelCB20.Location = new System.Drawing.Point(523, 174);
-            this.etlSendSubTelCB20.Name = "etlSendSubTelCB20";
-            this.etlSendSubTelCB20.Size = new System.Drawing.Size(29, 23);
-            this.etlSendSubTelCB20.TabIndex = 92;
-            this.etlSendSubTelCB20.Text = "20";
-            this.etlSendSubTelCB20.UseVisualStyleBackColor = true;
-            this.etlSendSubTelCB20.Click += new System.EventHandler(this.etlSendCheckBox_Click);
-            // 
-            // etlSendSubTelCB30
-            // 
-            this.etlSendSubTelCB30.Appearance = System.Windows.Forms.Appearance.Button;
-            this.etlSendSubTelCB30.AutoSize = true;
-            this.etlSendSubTelCB30.Location = new System.Drawing.Point(558, 174);
-            this.etlSendSubTelCB30.Name = "etlSendSubTelCB30";
-            this.etlSendSubTelCB30.Size = new System.Drawing.Size(29, 23);
-            this.etlSendSubTelCB30.TabIndex = 91;
-            this.etlSendSubTelCB30.Text = "30";
-            this.etlSendSubTelCB30.UseVisualStyleBackColor = true;
-            this.etlSendSubTelCB30.Click += new System.EventHandler(this.etlSendCheckBox_Click);
-            // 
             // label67
             // 
             this.label67.AutoSize = true;
@@ -634,18 +610,6 @@
             this.label67.Size = new System.Drawing.Size(26, 13);
             this.label67.TabIndex = 75;
             this.label67.Text = "DH:";
-            // 
-            // etlSendSubTelCB40
-            // 
-            this.etlSendSubTelCB40.Appearance = System.Windows.Forms.Appearance.Button;
-            this.etlSendSubTelCB40.AutoSize = true;
-            this.etlSendSubTelCB40.Location = new System.Drawing.Point(592, 174);
-            this.etlSendSubTelCB40.Name = "etlSendSubTelCB40";
-            this.etlSendSubTelCB40.Size = new System.Drawing.Size(29, 23);
-            this.etlSendSubTelCB40.TabIndex = 90;
-            this.etlSendSubTelCB40.Text = "40";
-            this.etlSendSubTelCB40.UseVisualStyleBackColor = true;
-            this.etlSendSubTelCB40.Click += new System.EventHandler(this.etlSendCheckBox_Click);
             // 
             // label12
             // 
@@ -665,6 +629,15 @@
             this.label37.TabIndex = 55;
             this.label37.Text = "Pitch";
             // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(351, 164);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(26, 13);
+            this.label66.TabIndex = 69;
+            this.label66.Text = "DH:";
+            // 
             // rsaDhTb
             // 
             this.rsaDhTb.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -680,7 +653,6 @@
             // 
             this.prcPitchTrackbar1.BackColor = System.Drawing.SystemColors.Window;
             this.prcPitchTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.prcPitchTrackbar1.Enabled = false;
             this.prcPitchTrackbar1.LargeChange = 10;
             this.prcPitchTrackbar1.Location = new System.Drawing.Point(144, 59);
             this.prcPitchTrackbar1.Maximum = 100;
@@ -716,7 +688,6 @@
             // 
             this.prcRpmTrackbar1.BackColor = System.Drawing.SystemColors.Window;
             this.prcRpmTrackbar1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.prcRpmTrackbar1.Enabled = false;
             this.prcRpmTrackbar1.LargeChange = 10;
             this.prcRpmTrackbar1.Location = new System.Drawing.Point(93, 59);
             this.prcRpmTrackbar1.Maximum = 100;
@@ -731,6 +702,7 @@
             // 
             // etlSendButton1
             // 
+            this.etlSendButton1.Enabled = false;
             this.etlSendButton1.Location = new System.Drawing.Point(484, 145);
             this.etlSendButton1.Name = "etlSendButton1";
             this.etlSendButton1.Size = new System.Drawing.Size(188, 23);
@@ -759,11 +731,21 @@
             this.prcSendButton1.UseVisualStyleBackColor = true;
             this.prcSendButton1.Click += new System.EventHandler(this.prcSendButton1_Click);
             // 
+            // rorDhTb
+            // 
+            this.rorDhTb.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.rorDhTb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rorDhTb.Location = new System.Drawing.Point(351, 177);
+            this.rorDhTb.Name = "rorDhTb";
+            this.rorDhTb.ReadOnly = true;
+            this.rorDhTb.Size = new System.Drawing.Size(26, 20);
+            this.rorDhTb.TabIndex = 68;
+            this.rorDhTb.TabStop = false;
+            // 
             // rsaLever
             // 
             this.rsaLever.BackColor = System.Drawing.SystemColors.Window;
             this.rsaLever.Cursor = System.Windows.Forms.Cursors.Default;
-            this.rsaLever.Enabled = false;
             this.rsaLever.LargeChange = 10;
             this.rsaLever.Location = new System.Drawing.Point(253, 44);
             this.rsaLever.Maximum = 35;
@@ -838,6 +820,16 @@
             this.label10.TabIndex = 9;
             this.label10.Text = "Engine Telegraph Operation Status (ETL)";
             // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label65.Location = new System.Drawing.Point(250, 145);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(75, 13);
+            this.label65.TabIndex = 69;
+            this.label65.Text = "Rudder (ROR)";
+            // 
             // prcLeverPos1
             // 
             this.prcLeverPos1.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -848,6 +840,22 @@
             this.prcLeverPos1.Size = new System.Drawing.Size(45, 20);
             this.prcLeverPos1.TabIndex = 12;
             this.prcLeverPos1.TabStop = false;
+            // 
+            // rorLever
+            // 
+            this.rorLever.BackColor = System.Drawing.SystemColors.Window;
+            this.rorLever.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rorLever.LargeChange = 10;
+            this.rorLever.Location = new System.Drawing.Point(253, 164);
+            this.rorLever.Maximum = 35;
+            this.rorLever.Minimum = -35;
+            this.rorLever.Name = "rorLever";
+            this.rorLever.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.rorLever.Size = new System.Drawing.Size(92, 45);
+            this.rorLever.TabIndex = 68;
+            this.rorLever.TickFrequency = 5;
+            this.rorLever.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.rorLever.ValueChanged += new System.EventHandler(this.trackbar_ValueChanged);
             // 
             // prcRpmDemand1
             // 
@@ -948,53 +956,6 @@
             this.etlTelegraphTrackbar1.TickStyle = System.Windows.Forms.TickStyle.None;
             this.etlTelegraphTrackbar1.Value = 5;
             // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(351, 238);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(26, 13);
-            this.label66.TabIndex = 69;
-            this.label66.Text = "DH:";
-            // 
-            // rorDhTb
-            // 
-            this.rorDhTb.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.rorDhTb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rorDhTb.Location = new System.Drawing.Point(351, 251);
-            this.rorDhTb.Name = "rorDhTb";
-            this.rorDhTb.ReadOnly = true;
-            this.rorDhTb.Size = new System.Drawing.Size(26, 20);
-            this.rorDhTb.TabIndex = 68;
-            this.rorDhTb.TabStop = false;
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label65.Location = new System.Drawing.Point(250, 219);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(75, 13);
-            this.label65.TabIndex = 69;
-            this.label65.Text = "Rudder (ROR)";
-            // 
-            // rorLever
-            // 
-            this.rorLever.BackColor = System.Drawing.SystemColors.Window;
-            this.rorLever.Cursor = System.Windows.Forms.Cursors.Default;
-            this.rorLever.Enabled = false;
-            this.rorLever.LargeChange = 10;
-            this.rorLever.Location = new System.Drawing.Point(253, 238);
-            this.rorLever.Maximum = 35;
-            this.rorLever.Minimum = -35;
-            this.rorLever.Name = "rorLever";
-            this.rorLever.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.rorLever.Size = new System.Drawing.Size(92, 45);
-            this.rorLever.TabIndex = 68;
-            this.rorLever.TickFrequency = 5;
-            this.rorLever.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.rorLever.ValueChanged += new System.EventHandler(this.trackbar_ValueChanged);
-            // 
             // rpmShaftSpeed1
             // 
             this.rpmShaftSpeed1.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -1027,86 +988,44 @@
             this.rpmEngSpeed1.TabIndex = 12;
             this.rpmEngSpeed1.TabStop = false;
             // 
-            // groupBox4
+            // gbRecNmea
             // 
-            this.groupBox4.Controls.Add(this.etlRecSubTelCB20);
-            this.groupBox4.Controls.Add(this.etlRecSubTelCB30);
-            this.groupBox4.Controls.Add(this.etlRecSubTelCB40);
-            this.groupBox4.Controls.Add(this.label73);
-            this.groupBox4.Controls.Add(this.label69);
-            this.groupBox4.Controls.Add(this.label70);
-            this.groupBox4.Controls.Add(this.etlSubTelTrackbar1Rec);
-            this.groupBox4.Controls.Add(this.label66);
-            this.groupBox4.Controls.Add(this.prcPitchTrackbar1Rec);
-            this.groupBox4.Controls.Add(this.label71);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.etlSubTelPos1Rec);
-            this.groupBox4.Controls.Add(this.label74);
-            this.groupBox4.Controls.Add(this.label72);
-            this.groupBox4.Controls.Add(this.prcRpmTrackbar1Rec);
-            this.groupBox4.Controls.Add(this.rorDhTb);
-            this.groupBox4.Controls.Add(this.label75);
-            this.groupBox4.Controls.Add(this.rpmPropPitchTrackbar1);
-            this.groupBox4.Controls.Add(this.prcLeverTrackbar1Rec);
-            this.groupBox4.Controls.Add(this.label77);
-            this.groupBox4.Controls.Add(this.prcRpmDemand1Rec);
-            this.groupBox4.Controls.Add(this.label65);
-            this.groupBox4.Controls.Add(this.label76);
-            this.groupBox4.Controls.Add(this.rorLever);
-            this.groupBox4.Controls.Add(this.prcPitchDemand1Rec);
-            this.groupBox4.Controls.Add(this.label23);
-            this.groupBox4.Controls.Add(this.prcLeverPos1Rec);
-            this.groupBox4.Controls.Add(this.label29);
-            this.groupBox4.Controls.Add(this.rpmShaftSpeed1);
-            this.groupBox4.Controls.Add(this.rpmEngSpeed1);
-            this.groupBox4.Controls.Add(this.rpmPropPitch1);
-            this.groupBox4.Controls.Add(this.label24);
-            this.groupBox4.Controls.Add(this.rpmShaftSpeedTrackbar1);
-            this.groupBox4.Controls.Add(this.rpmEngSpeedTrackbar1);
-            this.groupBox4.Controls.Add(this.label30);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(6, 6);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(717, 301);
-            this.groupBox4.TabIndex = 38;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Receive from Nautis";
-            // 
-            // etlRecSubTelCB20
-            // 
-            this.etlRecSubTelCB20.Appearance = System.Windows.Forms.Appearance.Button;
-            this.etlRecSubTelCB20.AutoSize = true;
-            this.etlRecSubTelCB20.Enabled = false;
-            this.etlRecSubTelCB20.Location = new System.Drawing.Point(547, 184);
-            this.etlRecSubTelCB20.Name = "etlRecSubTelCB20";
-            this.etlRecSubTelCB20.Size = new System.Drawing.Size(57, 23);
-            this.etlRecSubTelCB20.TabIndex = 89;
-            this.etlRecSubTelCB20.Text = "20 - S/B";
-            this.etlRecSubTelCB20.UseVisualStyleBackColor = true;
-            // 
-            // etlRecSubTelCB30
-            // 
-            this.etlRecSubTelCB30.Appearance = System.Windows.Forms.Appearance.Button;
-            this.etlRecSubTelCB30.AutoSize = true;
-            this.etlRecSubTelCB30.Enabled = false;
-            this.etlRecSubTelCB30.Location = new System.Drawing.Point(547, 161);
-            this.etlRecSubTelCB30.Name = "etlRecSubTelCB30";
-            this.etlRecSubTelCB30.Size = new System.Drawing.Size(56, 23);
-            this.etlRecSubTelCB30.TabIndex = 88;
-            this.etlRecSubTelCB30.Text = "30 - F/A";
-            this.etlRecSubTelCB30.UseVisualStyleBackColor = true;
-            // 
-            // etlRecSubTelCB40
-            // 
-            this.etlRecSubTelCB40.Appearance = System.Windows.Forms.Appearance.Button;
-            this.etlRecSubTelCB40.AutoSize = true;
-            this.etlRecSubTelCB40.Enabled = false;
-            this.etlRecSubTelCB40.Location = new System.Drawing.Point(547, 138);
-            this.etlRecSubTelCB40.Name = "etlRecSubTelCB40";
-            this.etlRecSubTelCB40.Size = new System.Drawing.Size(56, 23);
-            this.etlRecSubTelCB40.TabIndex = 87;
-            this.etlRecSubTelCB40.Text = "40 - F/E";
-            this.etlRecSubTelCB40.UseVisualStyleBackColor = true;
+            this.gbRecNmea.Controls.Add(this.label73);
+            this.gbRecNmea.Controls.Add(this.label69);
+            this.gbRecNmea.Controls.Add(this.label70);
+            this.gbRecNmea.Controls.Add(this.etlSubTelTrackbar1Rec);
+            this.gbRecNmea.Controls.Add(this.prcPitchTrackbar1Rec);
+            this.gbRecNmea.Controls.Add(this.label71);
+            this.gbRecNmea.Controls.Add(this.label4);
+            this.gbRecNmea.Controls.Add(this.etlSubTelPos1Rec);
+            this.gbRecNmea.Controls.Add(this.label74);
+            this.gbRecNmea.Controls.Add(this.label72);
+            this.gbRecNmea.Controls.Add(this.prcRpmTrackbar1Rec);
+            this.gbRecNmea.Controls.Add(this.label75);
+            this.gbRecNmea.Controls.Add(this.rpmPropPitchTrackbar1);
+            this.gbRecNmea.Controls.Add(this.prcLeverTrackbar1Rec);
+            this.gbRecNmea.Controls.Add(this.label77);
+            this.gbRecNmea.Controls.Add(this.prcRpmDemand1Rec);
+            this.gbRecNmea.Controls.Add(this.label76);
+            this.gbRecNmea.Controls.Add(this.prcPitchDemand1Rec);
+            this.gbRecNmea.Controls.Add(this.label23);
+            this.gbRecNmea.Controls.Add(this.prcLeverPos1Rec);
+            this.gbRecNmea.Controls.Add(this.label29);
+            this.gbRecNmea.Controls.Add(this.rpmShaftSpeed1);
+            this.gbRecNmea.Controls.Add(this.rpmEngSpeed1);
+            this.gbRecNmea.Controls.Add(this.rpmPropPitch1);
+            this.gbRecNmea.Controls.Add(this.label24);
+            this.gbRecNmea.Controls.Add(this.rpmShaftSpeedTrackbar1);
+            this.gbRecNmea.Controls.Add(this.rpmEngSpeedTrackbar1);
+            this.gbRecNmea.Controls.Add(this.label30);
+            this.gbRecNmea.Enabled = false;
+            this.gbRecNmea.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbRecNmea.Location = new System.Drawing.Point(6, 6);
+            this.gbRecNmea.Name = "gbRecNmea";
+            this.gbRecNmea.Size = new System.Drawing.Size(717, 301);
+            this.gbRecNmea.TabIndex = 38;
+            this.gbRecNmea.TabStop = false;
+            this.gbRecNmea.Text = "Receive from Nautis";
             // 
             // label73
             // 
@@ -1698,17 +1617,17 @@
             this.tabControl1.Location = new System.Drawing.Point(15, 111);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(737, 577);
+            this.tabControl1.Size = new System.Drawing.Size(737, 611);
             this.tabControl1.TabIndex = 46;
             // 
             // tabPageEngines
             // 
-            this.tabPageEngines.Controls.Add(this.groupBox4);
-            this.tabPageEngines.Controls.Add(this.groupBox3);
+            this.tabPageEngines.Controls.Add(this.gbRecNmea);
+            this.tabPageEngines.Controls.Add(this.gbSendNmea);
             this.tabPageEngines.Location = new System.Drawing.Point(4, 22);
             this.tabPageEngines.Name = "tabPageEngines";
             this.tabPageEngines.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEngines.Size = new System.Drawing.Size(729, 551);
+            this.tabPageEngines.Size = new System.Drawing.Size(729, 585);
             this.tabPageEngines.TabIndex = 0;
             this.tabPageEngines.Text = "Engines";
             this.tabPageEngines.UseVisualStyleBackColor = true;
@@ -1721,7 +1640,7 @@
             this.tabPageThrusters.Location = new System.Drawing.Point(4, 22);
             this.tabPageThrusters.Name = "tabPageThrusters";
             this.tabPageThrusters.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageThrusters.Size = new System.Drawing.Size(729, 551);
+            this.tabPageThrusters.Size = new System.Drawing.Size(729, 585);
             this.tabPageThrusters.TabIndex = 1;
             this.tabPageThrusters.Text = "Thrusters";
             this.tabPageThrusters.UseVisualStyleBackColor = true;
@@ -1795,7 +1714,7 @@
             this.tabPage1.Controls.Add(this.label25);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(729, 551);
+            this.tabPage1.Size = new System.Drawing.Size(729, 585);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Unnecessary Components";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -2481,20 +2400,20 @@
             this.dataGridReceivedNMEA.AllowUserToDeleteRows = false;
             this.dataGridReceivedNMEA.AllowUserToResizeRows = false;
             this.dataGridReceivedNMEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Format = "T";
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridReceivedNMEA.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Format = "T";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridReceivedNMEA.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridReceivedNMEA.Location = new System.Drawing.Point(12, 58);
             this.dataGridReceivedNMEA.Name = "dataGridReceivedNMEA";
             this.dataGridReceivedNMEA.RowHeadersVisible = false;
-            this.dataGridReceivedNMEA.Size = new System.Drawing.Size(376, 446);
+            this.dataGridReceivedNMEA.Size = new System.Drawing.Size(375, 400);
             this.dataGridReceivedNMEA.TabIndex = 41;
             // 
             // udpReceiveButton
@@ -2530,13 +2449,13 @@
             // 
             this.tbUdpRecPort.Location = new System.Drawing.Point(51, 18);
             this.tbUdpRecPort.Name = "tbUdpRecPort";
-            this.tbUdpRecPort.ReadOnly = true;
             this.tbUdpRecPort.Size = new System.Drawing.Size(32, 20);
             this.tbUdpRecPort.TabIndex = 50;
+            this.tbUdpRecPort.Text = "1254";
             // 
             // outputEnableButton
             // 
-            this.outputEnableButton.Location = new System.Drawing.Point(15, 38);
+            this.outputEnableButton.Location = new System.Drawing.Point(13, 77);
             this.outputEnableButton.Name = "outputEnableButton";
             this.outputEnableButton.Size = new System.Drawing.Size(57, 23);
             this.outputEnableButton.TabIndex = 70;
@@ -2547,7 +2466,7 @@
             // outputEnableLabel
             // 
             this.outputEnableLabel.AutoSize = true;
-            this.outputEnableLabel.Location = new System.Drawing.Point(78, 44);
+            this.outputEnableLabel.Location = new System.Drawing.Point(76, 83);
             this.outputEnableLabel.Name = "outputEnableLabel";
             this.outputEnableLabel.Size = new System.Drawing.Size(93, 13);
             this.outputEnableLabel.TabIndex = 71;
@@ -2585,7 +2504,7 @@
             // label79
             // 
             this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(15, 64);
+            this.label79.Location = new System.Drawing.Point(10, 116);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(117, 13);
             this.label79.TabIndex = 74;
@@ -2596,34 +2515,34 @@
             this.dataGridSentNMEA.AllowUserToResizeRows = false;
             this.dataGridSentNMEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridSentNMEA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.Format = "T";
-            dataGridViewCellStyle4.NullValue = null;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridSentNMEA.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridSentNMEA.Location = new System.Drawing.Point(15, 83);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.Format = "T";
+            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridSentNMEA.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridSentNMEA.Location = new System.Drawing.Point(12, 132);
             this.dataGridSentNMEA.Name = "dataGridSentNMEA";
             this.dataGridSentNMEA.RowHeadersVisible = false;
-            this.dataGridSentNMEA.Size = new System.Drawing.Size(372, 152);
+            this.dataGridSentNMEA.Size = new System.Drawing.Size(375, 138);
             this.dataGridSentNMEA.TabIndex = 73;
             // 
             // tbUdpSendIP
             // 
-            this.tbUdpSendIP.Location = new System.Drawing.Point(78, 16);
+            this.tbUdpSendIP.Location = new System.Drawing.Point(76, 55);
             this.tbUdpSendIP.Name = "tbUdpSendIP";
-            this.tbUdpSendIP.ReadOnly = true;
             this.tbUdpSendIP.Size = new System.Drawing.Size(70, 20);
             this.tbUdpSendIP.TabIndex = 77;
+            this.tbUdpSendIP.Text = "192.168.0.21";
             // 
             // label81
             // 
             this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(11, 19);
+            this.label81.Location = new System.Drawing.Point(9, 58);
             this.label81.Name = "label81";
             this.label81.Size = new System.Drawing.Size(61, 13);
             this.label81.TabIndex = 76;
@@ -2631,16 +2550,16 @@
             // 
             // tbUdpSendPort
             // 
-            this.tbUdpSendPort.Location = new System.Drawing.Point(189, 17);
+            this.tbUdpSendPort.Location = new System.Drawing.Point(187, 55);
             this.tbUdpSendPort.Name = "tbUdpSendPort";
-            this.tbUdpSendPort.ReadOnly = true;
             this.tbUdpSendPort.Size = new System.Drawing.Size(32, 20);
             this.tbUdpSendPort.TabIndex = 79;
+            this.tbUdpSendPort.Text = "8011";
             // 
             // label82
             // 
             this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(154, 20);
+            this.label82.Location = new System.Drawing.Point(152, 59);
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(29, 13);
             this.label82.TabIndex = 78;
@@ -2677,17 +2596,12 @@
             this.radioButton2.Text = "ECR";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // label84
-            // 
-            this.label84.AutoSize = true;
-            this.label84.Location = new System.Drawing.Point(890, 26);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(74, 13);
-            this.label84.TabIndex = 88;
-            this.label84.Text = "SubTelegraph";
-            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.clearSendTable_button);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.tbSelectedFile);
+            this.groupBox2.Controls.Add(this.buttonFileSelect);
             this.groupBox2.Controls.Add(this.tbIpAddress);
             this.groupBox2.Controls.Add(this.cbHardwareControl);
             this.groupBox2.Controls.Add(this.label81);
@@ -2700,23 +2614,60 @@
             this.groupBox2.Controls.Add(this.tbUdpSendPort);
             this.groupBox2.Location = new System.Drawing.Point(758, 446);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(395, 242);
+            this.groupBox2.Size = new System.Drawing.Size(395, 276);
             this.groupBox2.TabIndex = 90;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "UDP Packet Sending";
             // 
+            // clearSendTable_button
+            // 
+            this.clearSendTable_button.Location = new System.Drawing.Point(331, 103);
+            this.clearSendTable_button.Name = "clearSendTable_button";
+            this.clearSendTable_button.Size = new System.Drawing.Size(56, 23);
+            this.clearSendTable_button.TabIndex = 74;
+            this.clearSendTable_button.Text = "Clear";
+            this.clearSendTable_button.UseVisualStyleBackColor = true;
+            this.clearSendTable_button.Click += new System.EventHandler(this.clearSendTable_button_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(9, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(81, 13);
+            this.label14.TabIndex = 96;
+            this.label14.Text = "Commands File:";
+            // 
+            // tbSelectedFile
+            // 
+            this.tbSelectedFile.Location = new System.Drawing.Point(6, 32);
+            this.tbSelectedFile.Name = "tbSelectedFile";
+            this.tbSelectedFile.Size = new System.Drawing.Size(321, 20);
+            this.tbSelectedFile.TabIndex = 95;
+            this.tbSelectedFile.Text = "<Select Command File>";
+            // 
+            // buttonFileSelect
+            // 
+            this.buttonFileSelect.Location = new System.Drawing.Point(333, 30);
+            this.buttonFileSelect.Name = "buttonFileSelect";
+            this.buttonFileSelect.Size = new System.Drawing.Size(56, 23);
+            this.buttonFileSelect.TabIndex = 94;
+            this.buttonFileSelect.Text = "Select...";
+            this.buttonFileSelect.UseVisualStyleBackColor = true;
+            this.buttonFileSelect.Click += new System.EventHandler(this.buttonFileSelect_Click);
+            // 
             // tbIpAddress
             // 
-            this.tbIpAddress.Location = new System.Drawing.Point(249, 19);
+            this.tbIpAddress.Location = new System.Drawing.Point(271, 56);
             this.tbIpAddress.Name = "tbIpAddress";
             this.tbIpAddress.Size = new System.Drawing.Size(100, 20);
             this.tbIpAddress.TabIndex = 93;
-            this.tbIpAddress.Text = "192.168.0.18";
+            this.tbIpAddress.Text = "192.168.0.157";
             // 
             // cbHardwareControl
             // 
             this.cbHardwareControl.AutoSize = true;
-            this.cbHardwareControl.Location = new System.Drawing.Point(249, 43);
+            this.cbHardwareControl.Location = new System.Drawing.Point(271, 80);
             this.cbHardwareControl.Name = "cbHardwareControl";
             this.cbHardwareControl.Size = new System.Drawing.Size(108, 17);
             this.cbHardwareControl.TabIndex = 92;
@@ -2725,43 +2676,47 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.clearTable_button);
+            this.groupBox8.Controls.Add(this.clearRecTable_button);
             this.groupBox8.Controls.Add(this.udpReceiveButton);
             this.groupBox8.Controls.Add(this.label16);
             this.groupBox8.Controls.Add(this.tbUdpRecPort);
             this.groupBox8.Controls.Add(this.updReceiveLabel);
             this.groupBox8.Controls.Add(this.dataGridReceivedNMEA);
             this.groupBox8.Controls.Add(this.label78);
-            this.groupBox8.Location = new System.Drawing.Point(758, 139);
+            this.groupBox8.Location = new System.Drawing.Point(758, 88);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(395, 301);
+            this.groupBox8.Size = new System.Drawing.Size(395, 352);
             this.groupBox8.TabIndex = 91;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "UDP Packet Receiving";
             // 
-            // clearTable_button
+            // clearRecTable_button
             // 
-            this.clearTable_button.Location = new System.Drawing.Point(312, 29);
-            this.clearTable_button.Name = "clearTable_button";
-            this.clearTable_button.Size = new System.Drawing.Size(75, 23);
-            this.clearTable_button.TabIndex = 73;
-            this.clearTable_button.Text = "Clear";
-            this.clearTable_button.UseVisualStyleBackColor = true;
-            this.clearTable_button.Click += new System.EventHandler(this.clearTable_button_Click);
+            this.clearRecTable_button.Location = new System.Drawing.Point(331, 29);
+            this.clearRecTable_button.Name = "clearRecTable_button";
+            this.clearRecTable_button.Size = new System.Drawing.Size(56, 23);
+            this.clearRecTable_button.TabIndex = 73;
+            this.clearRecTable_button.Text = "Clear";
+            this.clearRecTable_button.UseVisualStyleBackColor = true;
+            this.clearRecTable_button.Click += new System.EventHandler(this.clearTable_button_Click);
             // 
             // timer_HW_input
             // 
             this.timer_HW_input.Tick += new System.EventHandler(this.timer_HW_input_Tick);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "*.txt";
+            this.openFileDialog1.InitialDirectory = "../..";
             // 
             // TestForm
             // 
             this.AcceptButton = this.parse_button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1157, 694);
+            this.ClientSize = new System.Drawing.Size(1157, 726);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.label84);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label83);
@@ -2784,17 +2739,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.trcAzimuthTrackbar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcPitchTrackbar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcRpmTrackbar1)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbSendNmea.ResumeLayout(false);
+            this.gbSendNmea.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prcPitchTrackbar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcRpmTrackbar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rsaLever)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcLeverTrackbar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rorLever)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.etlTelegraphTrackbar1)).EndInit();
+            this.gbRecNmea.ResumeLayout(false);
+            this.gbRecNmea.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.etlSubTelTrackbar1Rec)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcPitchTrackbar1Rec)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcRpmTrackbar1Rec)).EndInit();
@@ -2855,7 +2810,7 @@
         private System.Windows.Forms.ComboBox NMEA_String_Box;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbSendNmea;
         private System.Windows.Forms.TextBox prcLeverPos1;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox prcRpmDemand1;
@@ -2863,7 +2818,7 @@
         private System.Windows.Forms.TextBox rpmShaftSpeed1;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox rpmEngSpeed1;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox gbRecNmea;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox trdRpmResponse1;
         private System.Windows.Forms.Label label28;
@@ -3036,21 +2991,19 @@
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Label label84;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.CheckBox etlSendSubTelCB20;
-        private System.Windows.Forms.CheckBox etlSendSubTelCB30;
-        private System.Windows.Forms.CheckBox etlSendSubTelCB40;
-        private System.Windows.Forms.CheckBox etlRecSubTelCB20;
-        private System.Windows.Forms.CheckBox etlRecSubTelCB30;
-        private System.Windows.Forms.CheckBox etlRecSubTelCB40;
-        private System.Windows.Forms.Button clearTable_button;
+        private System.Windows.Forms.Button clearRecTable_button;
         private System.Windows.Forms.CheckBox cbHardwareControl;
         private System.Windows.Forms.Timer timer_HW_input;
         private System.Windows.Forms.CheckBox cbRsaHold;
         private System.Windows.Forms.TextBox tbIpAddress;
         private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button buttonFileSelect;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox tbSelectedFile;
+        private System.Windows.Forms.Button clearSendTable_button;
     }
 }
 
