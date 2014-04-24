@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-//using System.Threading.Tasks;
 
 namespace BridgeIface
 {
@@ -13,12 +9,6 @@ namespace BridgeIface
         
         public string parser(String sentence)
         {
-            try
-            {
- //               errorMessage.Text = "";
-  //              lastStringReceived.Text = sentence;
-            }
-            catch { }
             string[] data = sentence.Split(',', '*');
 
             string index = data[0];//NMEA Sentence Header
@@ -76,7 +66,6 @@ namespace BridgeIface
                     break;
 
                 default:
- //                   errorMessage.Text = "Unrecognized NMEA_String String";
                     break;
             }
             return index;
@@ -86,10 +75,8 @@ namespace BridgeIface
         {
             if (data.Length < 10)
             {
- //               errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
- //           sentenceTypeReceivedDisplay.Text = "Thruster Control Data";
 
             string thrusterNum = data[1];
             string rpmDemand = data[2];
@@ -110,10 +97,8 @@ namespace BridgeIface
         {
             if (data.Length < 8)
             {
-  //              errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-  //          sentenceTypeReceivedDisplay.Text = "Engine telegraph operation status";
 
             string eventTime = data[1];
             string messageType = data[2];
@@ -132,21 +117,13 @@ namespace BridgeIface
                 DataHolderIface.SetFloatVal("Engine " + engineNum + " Telegraph Position", float.Parse(positionEngineTelegraph));
                 DataHolderIface.SetFloatVal("Engine " + engineNum + " Sub-Telegraph Position", float.Parse(positionSubTelegraph));
            }
-
-            //DataHolderIface.SetFloatVal("Engine " + engineNum + " Event Time", float.Parse(eventTime));
-            //DataHolderIface.SetStringVal("Engine " + engineNum + " Message Type", convMessageType(messageType));
-            //DataHolderIface.SetFloatVal("Engine " + engineNum + " Telegraph Position", float.Parse(positionEngineTelegraph));
-            //DataHolderIface.SetFloatVal("Engine " + engineNum + " Sub-Telegraph Position", float.Parse(positionSubTelegraph));
-            //DataHolderIface.SetStringVal("Engine " + engineNum + " Operating Location", convLocation(operatingLocation));
         }
         private void parsePRC(string[] data)
         {
             if (data.Length < 10)
             {
- //               errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
- //           sentenceTypeReceivedDisplay.Text = "Propulsion Remote Control Status";
 
             string leverDemandPosition = data[1];
             string leverDemandValid = data[2];
@@ -169,10 +146,8 @@ namespace BridgeIface
         {
             if (data.Length < 7)
             {
-//                errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-//            sentenceTypeReceivedDisplay.Text = "Revolutions";
 
             string source = data[1];    //Source, shaft/engine S/E
             string engineNum = data[2]; //Engine or shaft number, numbered from centreline; 0=single or on centreline; odd=starboard; even=port
@@ -190,10 +165,8 @@ namespace BridgeIface
         {
             if (data.Length < 8)
             {
- //               errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-  //          sentenceTypeReceivedDisplay.Text = "Thruster response data";
 
             string thrusterNum = data[1];
             string rpmResponse = data[2];
@@ -210,10 +183,8 @@ namespace BridgeIface
         {
             if (data.Length < 5)
             {
- //               errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-  //          sentenceTypeReceivedDisplay.Text = "Bow thruster set value";
 
             string setValue = data[1];
             string setStatus = data[2];
@@ -227,10 +198,8 @@ namespace BridgeIface
         {
             if (data.Length < 3)
             {
- //               errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-  //          sentenceTypeReceivedDisplay.Text = "End of Mission";
 
             string missionStatus = data[1];
             string elapsedTime = data[2];
@@ -242,10 +211,8 @@ namespace BridgeIface
         {
             if (data.Length < 4)
             {
-   //             errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-   //         sentenceTypeReceivedDisplay.Text = "Bow thruster thrust";
 
             string angle = data[1];
             string thrust = data[2];
@@ -259,10 +226,8 @@ namespace BridgeIface
         {
             if (data.Length < 4)
             {
- //               errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-  //          sentenceTypeReceivedDisplay.Text = "Portside thrust and angle";
 
             string angle = data[1];
             string thrust = data[2];
@@ -276,10 +241,8 @@ namespace BridgeIface
         {
             if (data.Length < 4)
             {
-   //             errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-   //         sentenceTypeReceivedDisplay.Text = "Starboard thrust and angle";
 
             string angle = data[1];
             string thrust = data[2];
@@ -293,10 +256,8 @@ namespace BridgeIface
         {
             if (data.Length < 4)
             {
-  //              errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-   //         sentenceTypeReceivedDisplay.Text = "Stern thrust and angle";
 
             string angle = data[1];
             string thrust = data[2];
@@ -311,10 +272,8 @@ namespace BridgeIface
             //Example: $GPRSA,20.3,A,0.0,V*71
             if (data.Length < 6)
             {
-  //              errorMessage.Text = "NMEA Sentence not long enough";
                 return;
             }
-  //          sentenceTypeReceivedDisplay.Text = "Rudder Sensor Angle";
 
             string angle0 = data[1];
             string angle0valid = data[2];

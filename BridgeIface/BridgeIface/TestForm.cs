@@ -10,8 +10,8 @@ namespace BridgeIface
 {
     public partial class TestForm : Form
     {
-        List<DHControl> m_outputControls = new List<DHControl>();           //This is for later, when trying to stimulate our output to VStep
-        List<DHControl> m_inputControls = new List<DHControl>();//This is for taking DataHolder values (written to by parsing NMEA), and displaying them on the screen
+        List<DHControl> m_outputControls = new List<DHControl>();
+        List<DHControl> m_inputControls = new List<DHControl>();
         
         Dictionary<string, int> sentNmeaTypes = new Dictionary<string, int>();
         Dictionary<string, int> receivedNmeaTypes = new Dictionary<string, int>();
@@ -22,7 +22,6 @@ namespace BridgeIface
         NMEA_Object nmeaObject = new NMEA_Object();
 
         Ioio_Com ioioCom = new Ioio_Com();
-
 
         BindingList<NMEA_Object> tableSentNmeaStrings = new BindingList<NMEA_Object>();
         BindingList<NMEA_Object> tableReceivedNmeaStrings = new BindingList<NMEA_Object>();
@@ -82,8 +81,7 @@ namespace BridgeIface
         {
             DataHolderIface.SetFloatVal("GUI ETL-Sub Send", float.Parse(etlSubTelPos1.Text));
         }
-
-
+        
         private void udpReceiveButton_Click(object sender, EventArgs e)
         {
             int portReceive = int.Parse(tbUdpRecPort.Text);
@@ -120,12 +118,12 @@ namespace BridgeIface
 
         private void parse_button_Click(object sender, EventArgs e)
         {
-            //parser(NMEA_String_Box.Text);
             string sentence = NMEA_String_Box.Text;
             string index = nmeaParser.parser(sentence);
 
             nmeaCom.updateReceivedTable(sentence, index, tableReceivedNmeaStrings);
         }
+
         bool outputEnabled;
         private void outputEnableButton_Click(object sender, EventArgs e)
         {
@@ -176,8 +174,6 @@ namespace BridgeIface
                     break; //place breakpoint here to catch unhandled trackbar changes.
             }
         }
-
-
         
         private void timer_HW_input_Tick(object sender, EventArgs e)
         {
@@ -202,25 +198,8 @@ namespace BridgeIface
 
             if (outputEnabled)
             {
-                //Send NMEA Commands based upon streamreader file
-                try
-                {
-                    StreamReader file = new StreamReader(tbSelectedFile.Text);
-                    string line;
-                    while ((line = file.ReadLine()) != null)
-                    {
-                        //remove comments
-                        int index = line.IndexOf("//");
-                        string nmeaCommand = (index == -1) ? line : line.Substring(0, index);
-                        //nmeaCommand.Trim();
-                        if (nmeaCommand != "") //don't send blank lines
-                            nmeaCom.sendDynamicNmea(sendEP, nmeaCommand.Trim(), tableSentNmeaStrings);
-                    }
-                }
-                catch (Exception ex)
-                {
-
-                }
+                StreamReader file = new StreamReader(tbSelectedFile.Text);
+                nmeaCom.sendDynamicNmea(sendEP, file, tableSentNmeaStrings);
             }
         }
 
@@ -235,7 +214,7 @@ namespace BridgeIface
 
         private void clearTable_button_Click(object sender, EventArgs e)
         {
-            sentNmeaTypes.Clear();
+            //sentNmeaTypes.Clear();
             tableReceivedNmeaStrings.Clear();
         }
 

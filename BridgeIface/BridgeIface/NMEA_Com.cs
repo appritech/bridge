@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -19,6 +20,57 @@ namespace BridgeIface
 
         public volatile bool runThread;
         NMEA_Parser nmeaParser = new NMEA_Parser();
+
+        /// <summary>
+        /// Sends all NMEA Commands in a file to IPEndPoint.
+        /// Also updates BindingList with most recently sent sentence sent of each type. </summary>
+        /// <param name="sendEP"> IPEndPoint for destination</param>
+        /// <param name="file"> Text file containing NMEA commands. "$" and Checksum will be added in function</param>
+        /// <param name="list"> (optional) BindingList to update as nmea sentences are sent</param>
+        public void sendDynamicNmea(IPEndPoint sendEP, StreamReader file, BindingList<NMEA_Object> list)
+        {
+            try
+            {
+                string line;
+                while ((line = file.ReadLine()) != null)
+                {
+                    //remove comments
+                    int index = line.IndexOf("//");
+                    string nmeaCommand = (index == -1) ? line : line.Substring(0, index);
+
+                    if (nmeaCommand != "") //don't send blank lines
+                        sendDynamicNmea(sendEP, nmeaCommand.Trim(), list);
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        /// <summary>
+        /// Sends all NMEA Commands in a file to IPEndPoint.
+        /// Also updates BindingList with most recently sent sentence sent of each type. </summary>
+        /// <param name="sendEP"> IPEndPoint for destination</param>
+        /// <param name="file"> Text file containing NMEA commands. "$" and Checksum will be added in function</param>
+        public void sendDynamicNmea(IPEndPoint sendEP, StreamReader file)
+        {
+            try
+            {
+                string line;
+                while ((line = file.ReadLine()) != null)
+                {
+                    //remove comments
+                    int index = line.IndexOf("//");
+                    string nmeaCommand = (index == -1) ? line : line.Substring(0, index);
+
+                    if (nmeaCommand != "") //don't send blank lines
+                        sendDynamicNmea(sendEP, nmeaCommand.Trim());
+                }
+            }
+            catch
+            {
+            }
+        }
 
         /// <summary>
         /// Sends NMEA Command to IPEndPoint.

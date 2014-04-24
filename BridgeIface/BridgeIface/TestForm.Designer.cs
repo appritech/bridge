@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.parse_button = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lastStringReceived = new System.Windows.Forms.TextBox();
             this.errorMessage = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.NMEA_String_Box = new System.Windows.Forms.ComboBox();
@@ -97,10 +95,9 @@
             this.rpmShaftSpeedTrackbar1 = new System.Windows.Forms.TrackBar();
             this.rpmEngSpeedTrackbar1 = new System.Windows.Forms.TrackBar();
             this.label30 = new System.Windows.Forms.Label();
-            this.lastStringSent = new System.Windows.Forms.TextBox();
-            this.label41 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageEngines = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridReceivedNMEA = new System.Windows.Forms.DataGridView();
             this.udpReceiveButton = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
@@ -108,8 +105,6 @@
             this.tbUdpRecPort = new System.Windows.Forms.TextBox();
             this.outputEnableButton = new System.Windows.Forms.Button();
             this.outputEnableLabel = new System.Windows.Forms.Label();
-            this.sentenceTypeLabel = new System.Windows.Forms.Label();
-            this.sentenceTypeReceivedDisplay = new System.Windows.Forms.TextBox();
             this.label78 = new System.Windows.Forms.Label();
             this.label79 = new System.Windows.Forms.Label();
             this.dataGridSentNMEA = new System.Windows.Forms.DataGridView();
@@ -129,7 +124,6 @@
             this.timer_HW_input = new System.Windows.Forms.Timer(this.components);
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gbSendNmea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prcPitchTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prcRpmTrackbar1)).BeginInit();
@@ -147,11 +141,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.rpmEngSpeedTrackbar1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageEngines.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReceivedNMEA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSentNMEA)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -172,26 +166,6 @@
             this.parse_button.Text = "Parse!";
             this.parse_button.UseVisualStyleBackColor = true;
             this.parse_button.Click += new System.EventHandler(this.parse_button_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 53);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Last String Received:";
-            // 
-            // lastStringReceived
-            // 
-            this.lastStringReceived.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.lastStringReceived.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lastStringReceived.Location = new System.Drawing.Point(128, 51);
-            this.lastStringReceived.Name = "lastStringReceived";
-            this.lastStringReceived.ReadOnly = true;
-            this.lastStringReceived.Size = new System.Drawing.Size(245, 20);
-            this.lastStringReceived.TabIndex = 8;
-            this.lastStringReceived.TabStop = false;
             // 
             // errorMessage
             // 
@@ -952,26 +926,6 @@
             this.label30.TabIndex = 63;
             this.label30.Text = "DH:";
             // 
-            // lastStringSent
-            // 
-            this.lastStringSent.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.lastStringSent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lastStringSent.Location = new System.Drawing.Point(128, 149);
-            this.lastStringSent.Name = "lastStringSent";
-            this.lastStringSent.ReadOnly = true;
-            this.lastStringSent.Size = new System.Drawing.Size(245, 20);
-            this.lastStringSent.TabIndex = 45;
-            this.lastStringSent.TabStop = false;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(4, 153);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(106, 13);
-            this.label41.TabIndex = 44;
-            this.label41.Text = "Last Outgoing String:";
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPageEngines);
@@ -994,22 +948,34 @@
             this.tabPageEngines.Text = "Engines";
             this.tabPageEngines.UseVisualStyleBackColor = true;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.parse_button);
+            this.tabPage1.Controls.Add(this.NMEA_String_Box);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(729, 614);
+            this.tabPage1.TabIndex = 1;
+            this.tabPage1.Text = "String Insertion";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // dataGridReceivedNMEA
             // 
             this.dataGridReceivedNMEA.AllowUserToAddRows = false;
             this.dataGridReceivedNMEA.AllowUserToDeleteRows = false;
             this.dataGridReceivedNMEA.AllowUserToResizeRows = false;
             this.dataGridReceivedNMEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Format = "T";
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridReceivedNMEA.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Format = "T";
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridReceivedNMEA.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridReceivedNMEA.Location = new System.Drawing.Point(12, 58);
             this.dataGridReceivedNMEA.Name = "dataGridReceivedNMEA";
             this.dataGridReceivedNMEA.RowHeadersVisible = false;
@@ -1072,26 +1038,6 @@
             this.outputEnableLabel.TabIndex = 71;
             this.outputEnableLabel.Text = "Output is Disabled";
             // 
-            // sentenceTypeLabel
-            // 
-            this.sentenceTypeLabel.AutoSize = true;
-            this.sentenceTypeLabel.Location = new System.Drawing.Point(13, 77);
-            this.sentenceTypeLabel.Name = "sentenceTypeLabel";
-            this.sentenceTypeLabel.Size = new System.Drawing.Size(83, 13);
-            this.sentenceTypeLabel.TabIndex = 4;
-            this.sentenceTypeLabel.Text = "Sentence Type:";
-            // 
-            // sentenceTypeReceivedDisplay
-            // 
-            this.sentenceTypeReceivedDisplay.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.sentenceTypeReceivedDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sentenceTypeReceivedDisplay.Location = new System.Drawing.Point(128, 77);
-            this.sentenceTypeReceivedDisplay.Name = "sentenceTypeReceivedDisplay";
-            this.sentenceTypeReceivedDisplay.ReadOnly = true;
-            this.sentenceTypeReceivedDisplay.Size = new System.Drawing.Size(245, 20);
-            this.sentenceTypeReceivedDisplay.TabIndex = 5;
-            this.sentenceTypeReceivedDisplay.TabStop = false;
-            // 
             // label78
             // 
             this.label78.AutoSize = true;
@@ -1115,16 +1061,16 @@
             this.dataGridSentNMEA.AllowUserToResizeRows = false;
             this.dataGridSentNMEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridSentNMEA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Format = "T";
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridSentNMEA.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.Format = "T";
+            dataGridViewCellStyle4.NullValue = null;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridSentNMEA.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridSentNMEA.Location = new System.Drawing.Point(12, 132);
             this.dataGridSentNMEA.Name = "dataGridSentNMEA";
             this.dataGridSentNMEA.RowHeadersVisible = false;
@@ -1278,24 +1224,6 @@
             this.openFileDialog1.FileName = "*.txt";
             this.openFileDialog1.InitialDirectory = "../..";
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.sentenceTypeReceivedDisplay);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.sentenceTypeLabel);
-            this.tabPage1.Controls.Add(this.lastStringSent);
-            this.tabPage1.Controls.Add(this.parse_button);
-            this.tabPage1.Controls.Add(this.label41);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.lastStringReceived);
-            this.tabPage1.Controls.Add(this.NMEA_String_Box);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(729, 614);
-            this.tabPage1.TabIndex = 1;
-            this.tabPage1.Text = "String Insertion";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
             // TestForm
             // 
             this.AcceptButton = this.parse_button;
@@ -1328,14 +1256,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.rpmEngSpeedTrackbar1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPageEngines.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReceivedNMEA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSentNMEA)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1345,8 +1273,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button parse_button;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox lastStringReceived;
         private System.Windows.Forms.Label errorMessage;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ComboBox NMEA_String_Box;
@@ -1361,8 +1287,6 @@
         private System.Windows.Forms.TextBox rpmEngSpeed1;
         private System.Windows.Forms.GroupBox gbRecNmea;
         private System.Windows.Forms.TextBox rpmPropPitch1;
-        private System.Windows.Forms.TextBox lastStringSent;
-        private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Button prcSendButton1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageEngines;
@@ -1402,8 +1326,6 @@
         private System.Windows.Forms.TextBox rsaDhTb;
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.TrackBar rsaLever;
-        private System.Windows.Forms.Label sentenceTypeLabel;
-        private System.Windows.Forms.TextBox sentenceTypeReceivedDisplay;
         private System.Windows.Forms.Label label73;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.Label label70;
