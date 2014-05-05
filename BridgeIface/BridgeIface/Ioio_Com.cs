@@ -56,9 +56,17 @@ namespace BridgeIface
             wrGETURL.Abort();
         }
 
+        public void requestData(String ipAddress)
+        {
+            //set lever positions based on hardware levers
+            string website = "http://" + ipAddress + ":8181/api/status";
+            string xmlResponse = webRequest(website);
+            parseXml(xmlResponse);
+        }
+
         /// <summary> Parses a given string and pulls out attributes of "pin" names. </summary>
         /// <param name="xmlString"> String to parse</param>
-        public void parseXml(string xmlString)
+        private void parseXml(string xmlString)
         {
             using (XmlReader reader = XmlReader.Create(new StringReader(xmlString)))
             {

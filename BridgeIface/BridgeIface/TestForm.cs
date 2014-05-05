@@ -180,9 +180,7 @@ namespace BridgeIface
             if (cbHardwareControl.Checked && outputEnabled)
             {
                 //set lever positions based on hardware levers
-                string website = "http://" + tbIpAddress.Text + ":8181/api/status";
-                string xmlResponse = ioioCom.webRequest(website);
-                ioioCom.parseXml(xmlResponse);
+                ioioCom.requestData(tbIpAddress.Text);
             }
         }
         private void timer1_Tick(object sender, EventArgs e)
