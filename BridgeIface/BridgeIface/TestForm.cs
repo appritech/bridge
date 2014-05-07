@@ -26,7 +26,8 @@ namespace BridgeIface
         BindingList<NMEA_Object> tableSentNmeaStrings = new BindingList<NMEA_Object>();
         BindingList<NMEA_Object> tableReceivedNmeaStrings = new BindingList<NMEA_Object>();
 
-        IPEndPoint sendEP = new IPEndPoint(IPAddress.Parse("192.168.0.21"), 8011); //This gets overwritten by GUI
+        //IPEndPoint sendEP = new IPEndPoint(IPAddress.Parse("192.168.0.21"), 8011); //This gets overwritten by GUI
+        IPEndPoint sendEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8011); //This gets overwritten by GUI
 
         public TestForm()
         {

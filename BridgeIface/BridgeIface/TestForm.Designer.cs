@@ -1083,7 +1083,7 @@
             this.tbUdpSendIP.Name = "tbUdpSendIP";
             this.tbUdpSendIP.Size = new System.Drawing.Size(70, 20);
             this.tbUdpSendIP.TabIndex = 77;
-            this.tbUdpSendIP.Text = "192.168.0.21";
+            this.tbUdpSendIP.Text = "127.0.0.1";
             // 
             // label81
             // 
@@ -1159,7 +1159,7 @@
             this.tbSelectedFile.Name = "tbSelectedFile";
             this.tbSelectedFile.Size = new System.Drawing.Size(321, 20);
             this.tbSelectedFile.TabIndex = 95;
-            this.tbSelectedFile.Text = "<Select Command File>";
+            this.tbSelectedFile.Text = "C:\\Users\\rwright\\vs\\bridge\\BridgeIface\\BridgeIface\\NMEA HW Commands.txt";
             // 
             // buttonFileSelect
             // 
