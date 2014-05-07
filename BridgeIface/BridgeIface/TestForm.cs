@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using System.Collections.Generic;using System.ComponentModel;
 using System.IO;
 using System.Net;
 using System.Threading;
@@ -21,7 +20,8 @@ namespace BridgeIface
         Utilities util = new Utilities();
         NMEA_Object nmeaObject = new NMEA_Object();
 
-        Ioio_Com ioioCom = new Ioio_Com();
+        Ioio_Com ioioCom = new Ioio_Com("192.168.0.157");
+        //Ioio_Com ioioCom = new Ioio_Com("127.0.0.1");
 
         BindingList<NMEA_Object> tableSentNmeaStrings = new BindingList<NMEA_Object>();
         BindingList<NMEA_Object> tableReceivedNmeaStrings = new BindingList<NMEA_Object>();
@@ -177,10 +177,10 @@ namespace BridgeIface
         
         private void timer_HW_input_Tick(object sender, EventArgs e)
         {
-            if (cbHardwareControl.Checked && outputEnabled)
+            if (cbHardwareControl.Checked)
             {
                 //set lever positions based on hardware levers
-                ioioCom.requestData(tbIpAddress.Text);
+                ioioCom.requestData();
             }
         }
         private void timer1_Tick(object sender, EventArgs e)

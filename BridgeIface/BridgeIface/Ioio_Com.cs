@@ -9,11 +9,27 @@ using System.Xml;
 
 namespace BridgeIface
 {
-    class Ioio_Com
+    public class Ioio_Com
     {
+
+        public Ioio_Com(String ipAddress)
+        {
+            this.ipAddress = ipAddress;
+        }
+        private String ipAddress;
+
+        class pinObject
+        {
+            public int number { get; set; }
+            public string name { get; set; }
+            public string status { get; set; }
+            public string calibrated { get; set; }
+            public string type { get; set; }
+        }
+
         /// <summary> Returns requested url as a String. </summary>
         /// <param name="url"> URL to gete</param>
-        public string webRequest(string url)
+        private string webRequest(string url)
         {
             try
             {
@@ -46,9 +62,9 @@ namespace BridgeIface
             }
         }
 
-        public void setState(IPAddress ip, int pin, int state)
+        public void setState(String dataHolderName)
         {
-            string website = "http://" + ip.ToString() + ":8181/api/trigger?pin=" + pin + "&state=" + state;
+            string website = "http://" + ipAddress + ":8181/api/trigger?name=" + dataHolderName + "&state=" + DataHolderIface.GetFloatVal(dataHolderName);
             WebRequest wrGETURL;
             wrGETURL = WebRequest.Create(website);
             wrGETURL.Timeout = 200;
@@ -56,7 +72,17 @@ namespace BridgeIface
             wrGETURL.Abort();
         }
 
-        public void requestData(String ipAddress)
+        public void setState(int pin, int state)
+        {
+            string website = "http://" + ipAddress + ":8181/api/trigger?pin=" + pin + "&state=" + state;
+            WebRequest wrGETURL;
+            wrGETURL = WebRequest.Create(website);
+            wrGETURL.Timeout = 200;
+            wrGETURL.GetResponse();
+            wrGETURL.Abort();
+        }
+
+        public void requestData()
         {
             //set lever positions based on hardware levers
             string website = "http://" + ipAddress + ":8181/api/status";
@@ -76,27 +102,54 @@ namespace BridgeIface
                     {
                         if (reader.Name == "pin")
                         {
-                            if (reader.GetAttribute("name") == "RPM Lever") //Sending RPM to Nautis doesn't actually do anything, as of 4/16/14
+                            pinObject pin = new pinObject();
+                            pin.number = Int32.Parse(reader.GetAttribute("num"));
+                            pin.name = reader.GetAttribute("name");
+                            pin.status = reader.GetAttribute("status");
+                            pin.calibrated = reader.GetAttribute("calibrated");
+                            pin.type = reader.GetAttribute("type");
+                            if (!String.IsNullOrEmpty(pin.name))
                             {
-                                //float val = (float.Parse(reader.GetAttribute("status")) - 1) * -100;
-                                float val = float.Parse(reader.GetAttribute("calibrated"));
-                                val = (100 - val); //invert val
-                                DataHolderIface.SetFloatVal("HW RPM Send", val);
+                                switch (pin.type)
+                                {
+                                    case "din":
+                                        int val = Convert.ToInt32(Math.Floor(Convert.ToDouble(pin.calibrated)));
+                                        if (val >= 0)                //This allows us to do n-position switches (they return -1 if it isn't that switch's position)
+                                            DataHolderIface.SetIntVal(pin.name, val);
+                                        break;
+                                    case "ain":
+                                        DataHolderIface.SetFloatVal(pin.name, float.Parse(pin.calibrated));
+                                        break;
+                                    case "dout":
+                                        int dhVal = DataHolderIface.GetIntVal(pin.name);
+                                        int outVal = Convert.ToInt32(Math.Floor(Convert.ToDouble(pin.calibrated)));
+                                        if (dhVal != outVal)
+                                            setState(pin.number, dhVal);         //Write the current DataHolder value to the output
+                                        break;
+                                }
                             }
-                            if (reader.GetAttribute("name") == "Pitch Lever")
-                            {
-                                //float val = (float.Parse(reader.GetAttribute("status")) - 0.5f) * -200;
-                                float val = float.Parse(reader.GetAttribute("calibrated"));
-                                val = -val; //invert val
-                                DataHolderIface.SetFloatVal("HW Pitch Send", val);
-                            }
-                            if (reader.GetAttribute("name") == "Rudder")
-                            {
-                                //float val = 35 - (float.Parse(reader.GetAttribute("status")) * 70);
-                                float val = float.Parse(reader.GetAttribute("calibrated"));
-                                val = -val; //invert val
-                                DataHolderIface.SetFloatVal("HW ROR Send", val);
-                            }
+
+                            //if (reader.GetAttribute("name") == "RPM Lever") //Sending RPM to Nautis doesn't actually do anything, as of 4/16/14
+                            //{
+                            //    //float val = (float.Parse(reader.GetAttribute("status")) - 1) * -100;
+                            //    float val = float.Parse(reader.GetAttribute("calibrated"));
+                            //    val = (100 - val); //invert val
+                            //    DataHolderIface.SetFloatVal("HW RPM Send", val);
+                            //}
+                            //if (reader.GetAttribute("name") == "Pitch Lever")
+                            //{
+                            //    //float val = (float.Parse(reader.GetAttribute("status")) - 0.5f) * -200;
+                            //    float val = float.Parse(reader.GetAttribute("calibrated"));
+                            //    val = -val; //invert val
+                            //    DataHolderIface.SetFloatVal("HW Pitch Send", val);
+                            //}
+                            //if (reader.GetAttribute("name") == "Rudder")
+                            //{
+                            //    //float val = 35 - (float.Parse(reader.GetAttribute("status")) * 70);
+                            //    float val = float.Parse(reader.GetAttribute("calibrated"));
+                            //    val = -val; //invert val
+                            //    DataHolderIface.SetFloatVal("HW ROR Send", val);
+                            //}
                         }
                     }
                 }
